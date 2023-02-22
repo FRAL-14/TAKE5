@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Download - TAKE5!</title>
+    <link rel="stylesheet" href="../CSS/stylesheet.css">
+    <link rel="icon" href="../MEDIA/layout/favicon.ico">
+    <script src="../JavaScript/main_script.js"></script>
+</head>
+
+<body>
+
+<header>
+    <img class="logo" src="../MEDIA/layout/logo.png" alt="Website logo">
+    <nav>
+        <ul>
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="../HTML/preview.html">PREVIEW</a></li>
+            <li><a href="../HTML/download.html" class="current">DOWNLOAD</a></li>
+            <li><a href="../HTML/statistics.html">STATISTICS</a></li>
+            <li><a href="../HTML/roadmap.html">ROADMAP</a></li>
+            <li><a href="../HTML/about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="article">
+    <article>
+        <div class="flex-centered">
+            <a download="gin-rummy" href="../download/java-fx-game.zip"> <!--enter the path to .zip-->
+                <button>Download the game!</button>
+            </a>
+        </div>
+
+        <section>
+            <h2>Global Requirements</h2>
+            <ul>
+                <li><a href="https://www.oracle.com/java/technologies/downloads/" target="_blank">Java 17</a> must be
+                    installed
+                </li>
+                <li><a href="https://gluonhq.com/products/javafx/" target="_blank">JavaFX</a> must be installed</li>
+                <li><a href="https://www.jetbrains.com/idea/download/#section=windows" target="_blank">IntelliJ IDE</a>
+                    must be
+                    installed
+                </li>
+                <li><a href="https://www.postgresql.org/download/" target="_blank">PostgreSQL</a> must be installed</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Instructions</h2>
+            <ul>
+                <li>Open the game in IntelliJ</li>
+                <li>Click on <b>"ADD CONFIGURATION"</b> &#8594 <b>"Add new run configuration..."</b> &#8594 <b>"Application"</b>
+                </li>
+                <li>In the <b>"Build and run"</b> part, select : <b>"java 17..."</b></li>
+                <li>Click on <b>"Modify options"</b> and enable <b>"Add VM options"</b></li>
+                <li>In the new section <b>"VM option"</b> paste this command using your own path to the JavaFX/lib
+                    folder: <code>--module-path "path/to/the/JavaFX/lib"
+                        --add-modules=javafx.controls,javafx.media</code></li>
+                <li>Run the Game.java class</li>
+            </ul>
+        </section>
+    </article>
+</main>
+
+<footer>
+    Copyright &copy; 2022 Team20, All rights reserved.
+</footer>
+
+</body>
+</html>
