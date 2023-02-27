@@ -1,17 +1,24 @@
 package be.kdg.integration2.team20.gametake5;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 public class Card {
-    private int number;
+
+    private int cardID;
     private int amountOfBulls;
-    private int value;
+    private int cardValue;
 
     //getters and setters
-    public int getNumber() {
-        return number;
+    public int getcardID() {
+        return cardID;
     }
 
     public void setNumber(int number) {
-        this.number = number;
+        this.cardID = number;
     }
 
     public int getAmountOfBulls() {
@@ -22,16 +29,38 @@ public class Card {
         this.amountOfBulls = amountOfBulls;
     }
 
-    public int getValue() {
-        return value;
+    public int getCardValue(int cardID) {
+        this.cardID = cardID;
+        if (cardID % 5 == 0) {
+            this.amountOfBulls += 2;
+
+        }
+        if (cardID % 10 == 0) {
+            this.amountOfBulls += 1;
+        }
+        if (cardID % 11 == 0) {
+            this.amountOfBulls += 5;
+        }
+        if (amountOfBulls == 0)
+            this.amountOfBulls = 1;
+        System.out.println("PointValue is " + amountOfBulls);
+
+        return cardValue;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+
+    public void setCardValue(int value) {
+        this.cardValue = value;
     }
 
-    //method cardGroup
+    public String getCardID() {
+        return String.valueOf(cardID);
+    }
+
+
+
     public void cardGroup() {
-        return;
+        List<Card> cards = new ArrayList<>(10); //make treeset
+
     }
 }
