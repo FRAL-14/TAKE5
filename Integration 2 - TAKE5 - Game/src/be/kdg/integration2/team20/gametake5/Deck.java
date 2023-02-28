@@ -1,16 +1,14 @@
 package be.kdg.integration2.team20.gametake5;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Deck {
     Random rand = new Random();
     List<Card> cards = new ArrayList<>(104); //make treeset
+    TreeSet<Card> cardSet = new TreeSet(Comparator.comparing(Card::getCardID));
 
     // shuffle cards
-    public static void shuffle() {
+    public void shuffle() {
         Collections.shuffle(cards);
     }
 

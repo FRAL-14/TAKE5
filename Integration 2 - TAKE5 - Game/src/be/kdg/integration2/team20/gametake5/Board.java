@@ -1,20 +1,17 @@
 package be.kdg.integration2.team20.gametake5;
-import java.util.ArrayList;
-import java.util.HashSet;
+
+import java.util.*;
 
 public class Board {
 
-    //maybe work with HashMap, HasSet etc to indicate if a place has a value(??)
-
-    private HashSet<String> board;
-
-    public Board() {
-            board = new HashSet<String>();
-
+    //changed HashSet to HashMap since you can store keys (amountOfBulls) with them,
+    //will ask how it should be done - amal
+    HashMap<Integer, Set<String>> board;
+    public void fillTable() {
         for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 6; col++) {
-                String square = row + "," + col;
-                board.add(square);
+                String square = row + "," + col;    //maybe write this as Square square = new Square(row, col);?
+//                board.put(square);
             }
         }
     }
@@ -26,12 +23,12 @@ public class Board {
 
     public boolean checkSquare(int row, int col, HashSet<String> board) {
         String square = row + "," + col;
-        return !board.contains(square); // returns true if square is not in the board
+        return !board.contains(square); // returns true if square is not in the board       //shouldnt it return true or false on whether the square is filled (has a card) or is empty? -amal
     }
 
     public class Row {
         public Card card = new Card();
-        public ArrayList<Card> cardsInRow = new ArrayList<Card>();
+        public List<Card> cardsInRow = new ArrayList<Card>();
         public int rowBullsValue;
         public int rowID;
 

@@ -1,6 +1,6 @@
 package be.kdg.integration2.team20.gametake5;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class AI extends Player{
 
@@ -14,6 +14,13 @@ public class AI extends Player{
 
     @Override
     public int chooseCard() {
-        return 0; //random card gets chosen
+        Random rdm = new Random(); //random card gets chosen
+return 0;
     }
+
+    //added because the AI also has a hand, so its a method shared from the abstract class that both Human and AI have.
+//    public List<Card> getHand() {
+//        return hand;
+//    }
+
 }
