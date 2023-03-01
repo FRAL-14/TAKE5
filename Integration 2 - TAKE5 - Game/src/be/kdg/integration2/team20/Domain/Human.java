@@ -1,6 +1,5 @@
-package be.kdg.integration2.team20.gametake5;
+package be.kdg.integration2.team20.Domain;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Human extends Player {

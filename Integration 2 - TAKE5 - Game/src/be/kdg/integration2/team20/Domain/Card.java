@@ -1,7 +1,5 @@
-package be.kdg.integration2.team20.gametake5;
+package be.kdg.integration2.team20.Domain;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.*;
 
 public class Card {
@@ -11,7 +9,7 @@ public class Card {
     private int cardValue;
 
     //list of cards put into a treeset that will save the ID of the card and the amount of Bulls (still have to figure out how to add the points as keys)
-    List<Card> hand = new ArrayList<>(10); //made treeset
+    List<Card> hand = new ArrayList<>(104); //made treeset
     TreeSet<Card> cardSet = new TreeSet<>(Comparator.comparing(Card::getCardID));   //not sure if this is correct
 
     //getters and setters
@@ -31,9 +29,12 @@ public class Card {
         this.amountOfBulls = amountOfBulls;
     }
 
-    public Card(){
+
+    //empty constr
+    public Card() {
 
     }
+
     public Card(int cardID, int amountOfBulls) {
         this.cardID = cardID;
         this.amountOfBulls = amountOfBulls;
@@ -50,7 +51,7 @@ public class Card {
         if (cardID % 11 == 0) {
             this.amountOfBulls += 5;
         }
-        if (amountOfBulls == 0) //dont make sense :(((
+        if (amountOfBulls == 0) //<-- dont make sense :(((
             this.amountOfBulls = 1;
         System.out.println("PointValue is " + amountOfBulls);
 
@@ -63,14 +64,14 @@ public class Card {
     }
 
     public String getCardID() {
-        return String.valueOf(cardID); //    why is it a String if it was an int in the attribute list?, just confused
+        return String.valueOf(cardID); //    why is it a String if it was an int in the attribute list?, why not  public int getCardID() {return cardID;}
     }
 
 
-    public void hand() {
-
-        for (Card card: hand) {
-            System.out.println("Card ID: " + getCardID());
-        }
-    }
+    //now in Player since Card doesnt need to hold responsibility for the hands of the Human and AI
+//    public void hand() {
+////        for (Card card : hand) {
+////            System.out.println("Card ID: " + getCardID() + getAmountOfBulls());
+////        }
+//    }
 }

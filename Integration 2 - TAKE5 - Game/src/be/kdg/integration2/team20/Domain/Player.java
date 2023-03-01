@@ -1,11 +1,14 @@
-package be.kdg.integration2.team20.gametake5;
+package be.kdg.integration2.team20.Domain;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.TreeSet;
 
 public abstract class Player {
     private String name;
-    private List<Card> hand = new ArrayList<>(10);
+    List<Card> hand = new ArrayList<>(10);
+    TreeSet<Card> cardSet = new TreeSet<>(Comparator.comparing(Card::getCardID));   //not sure if this is correct
 
     public Player(String name, List<Card> hand) {
         this.name = name;
@@ -36,6 +39,9 @@ public abstract class Player {
 //    }
 
     public List<Card> getHand() {
+        for (Card card : hand) {
+            System.out.println("Card ID: " + card.getCardID() + card.getAmountOfBulls());
+        }
         return hand;
     }
 
@@ -59,6 +65,8 @@ public abstract class Player {
 //        cards.add(card);
 //    }
 
+
+    //why?
     Card[] cards = new Card[10];
     int[] amountOfBulls = new int[10];
 //    int calc = ScoreCard.calculateScore(cards, amountOfBulls);

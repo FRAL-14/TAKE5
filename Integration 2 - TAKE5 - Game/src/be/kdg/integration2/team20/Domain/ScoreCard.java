@@ -1,6 +1,4 @@
-package be.kdg.integration2.team20.gametake5;
-
-import java.util.List;
+package be.kdg.integration2.team20.Domain;
 
 
 public class ScoreCard {

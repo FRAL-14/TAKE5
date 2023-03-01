@@ -1,7 +1,6 @@
-package be.kdg.integration2.team20.gametake5;
+package be.kdg.integration2.team20.Domain;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Game {
     Human player1 = new Human();
@@ -12,7 +11,7 @@ public class Game {
 //return new Card();
 //}
 
-    private ArrayList<Integer> cards;
+    private ArrayList<Integer> cards; //should b changed later
 
     public Game() {
         cards = new ArrayList<>();
