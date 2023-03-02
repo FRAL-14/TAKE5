@@ -3,24 +3,20 @@ package be.kdg.integration2.team20.Domain;
 import java.util.*;
 
 public class Deck {
+    Card card = new Card();
     Random rand = new Random();
     List<Card> cards = new ArrayList<>(104); //make treeset
-    TreeSet<Card> cardSet = new TreeSet(Comparator.comparing(Card::getCardID));
+//    TreeSet<Card> cardSet = new TreeSet(Comparator.comparing(Card::getCardID));
 
-    //forloop
-
-    public void deck() {
-        for (int i = 1; i <= 104; i++) {
-            cardID = i;
-            list.add(new Card(getCardID(), getAmountOfBulls()));
+    //forloop to go through all the cards in the deck
+    public List<Card> deck() {
+        for (CardValue cardval : CardValue.values()) {
+            cards.add(new Card(card.getCardID(), card.amountOfBulls));
         }
+        return cards;
     }
 
-//
-//    for (Card card: cards) {
-//        list.add(card);
-//    }
-
+    //Collections.shuffle(cards);
     // shuffle cards
     public void shuffle() {
         Collections.shuffle(cards);
@@ -31,6 +27,27 @@ public class Deck {
         if (cards.isEmpty()) {
             return null;
         }
-        return cards.remove(0);
+        return dealtCards;
+    }
+
+    private CardValue removeCard() {
+        boolean cardsDealt = false;
+        if (!cardsDealt) {
+            for (int i = 0; i < 10; i++) {
+                if (!cards.isEmpty()) {
+                    cards.remove(0);
+
+                }
+            }
+        }
+        return removeCard();
+    }
+
+    @Override
+    public String toString() {
+        return "Deck card=" + card +
+                ", rand=" + rand +
+                ", cards=" + cards +
+                ", deck=" + deck();
     }
 }

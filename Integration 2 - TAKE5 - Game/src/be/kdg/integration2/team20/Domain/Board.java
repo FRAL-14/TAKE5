@@ -4,13 +4,14 @@ import java.util.*;
 
 public class Board {
 
+    Deck deck=new Deck();
     //changed HashSet to HashMap since you can store keys (amountOfBulls) with them,
     //will ask how it should be done - amal
     HashMap<Integer, Set<String>> board;
     public void fillTable() {
         for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 6; col++) {
-                String square = row + "," + col;    //maybe write this as Square square = new Square(row, col);?
+                String square = row + "," + col;
 //                board.put(square);
             }
         }
@@ -32,11 +33,20 @@ public class Board {
         public int rowBullsValue;
         public int rowID;
 
+
+//        if (cardsInRow.size() ==5){
+//            String collectedCards = cardsInRow.get()
+//        }
         public void takeCard(Card card) {
             this.card = card;
             cardsInRow.add(card);
             System.out.println("card " + card.getCardID() + " given to row " + rowID + " in spot " + cardsInRow.size());
-
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Board deck = " + deck +
+                ", board=" + board;
     }
 }
