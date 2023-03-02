@@ -40,23 +40,24 @@ public class Card {
         this.amountOfBulls = amountOfBulls;
     }
 
-    public int getCardValue(int cardID) {
-        this.cardID = cardID;
-        if (cardID % 5 == 0) {
-            this.amountOfBulls += 2;
-        }
-        if (cardID % 10 == 0) {
-            this.amountOfBulls += 1;
-        }
-        if (cardID % 11 == 0) {
-            this.amountOfBulls += 5;
-        }
-        if (amountOfBulls == 0) //<-- dont make sense :(((
-            this.amountOfBulls = 1;
-        System.out.println("PointValue is " + amountOfBulls);
-
-        return cardValue;
-    }
+    //in enum CardValue
+//    public int getCardValue(int cardID) {
+//        this.cardID = cardID;
+//        if (cardID % 5 == 0) {
+//            this.amountOfBulls += 2;
+//        }
+//        if (cardID % 10 == 0) {
+//            this.amountOfBulls += 1;
+//        }
+//        if (cardID % 11 == 0) {
+//            this.amountOfBulls += 5;
+//        }
+//        if (amountOfBulls == 0) //<-- dont make sense :(((
+//            this.amountOfBulls = 1;
+//        System.out.println("PointValue is " + amountOfBulls);
+//
+//        return cardValue;
+//    }
 
 
     public void setCardValue(int value) {

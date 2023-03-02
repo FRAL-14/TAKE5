@@ -69,8 +69,6 @@ public abstract class Player {
     //why?
     Card[] cards = new Card[10];
     int[] amountOfBulls = new int[10];
-//    int calc = ScoreCard.calculateScore(cards, amountOfBulls);
-//   int shuffle = Deck.shuffle(cards);
-
+    int calc = ScoreCard.calculateScore(cards, amountOfBulls);
 
 }
