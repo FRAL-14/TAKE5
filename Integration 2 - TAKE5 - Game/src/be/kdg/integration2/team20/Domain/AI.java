@@ -4,14 +4,14 @@ import java.util.*;
 
 public class AI extends Player {
     final String name = "AI";
-//    private List<Card> hand;
+    private List<Card> hand;
 
     public AI() {
     }
 
-    public AI(String name) {
-        super();
-        name = name;
+    public AI(String name, List<Card> hand) {
+        super(name);
+        hand = new ArrayList<>();
     }
 
     @Override

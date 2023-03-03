@@ -4,20 +4,20 @@ import java.util.*;
 
 public class Card {
 
-    public int cardID;
+    public CardID cardID;
     public int amountOfBulls;
-    public int cardValue;
+//    public int cardValue;
 
     //list of cards put into a treeset that will save the ID of the card and the amount of Bulls (still have to figure out how to add the points as keys)
-    List<Card> hand = new ArrayList<>(104); //made treeset
+    //   List<Card> cards = new ArrayList<>(104); //made treeset
 //    TreeSet<Card> cardSet = new TreeSet<>(Comparator.comparing(Card::getCardID));   //not sure if this is correct
 
     //getters and setters
-    public int getCardID() {
+    public CardID getCardID() {
         return cardID;
     }
 
-    public void setCardID(int cardID) {
+    public void setCardID(CardID cardID) {
         this.cardID = cardID;
     }
 
@@ -29,24 +29,21 @@ public class Card {
         this.amountOfBulls = amountOfBulls;
     }
 
-
     //empty constr
     public Card() {
     }
-    public Card(int cardID, int amountOfBulls) {
+
+    public Card(CardID cardID) {
         this.cardID = cardID;
-        this.amountOfBulls = amountOfBulls;
+        this.amountOfBulls = getAmountOfBulls();
     }
 
-    public void setCardValue(int value) {
-        this.cardValue = value;
-    }
+//    public void setCardValue(int value) {
+//        this.cardValue = value;
+//    }
 
     @Override
     public String toString() {
-        return "Card cardID=" + cardID +
-                ", amountOfBulls=" + amountOfBulls +
-                ", cardValue=" + cardValue +
-                ", hand=" + hand;
+        return "Card cardID = " + cardID;
     }
 }
