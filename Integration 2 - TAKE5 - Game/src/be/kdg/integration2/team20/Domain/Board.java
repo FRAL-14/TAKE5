@@ -4,10 +4,11 @@ import java.util.*;
 
 public class Board {
 
-    Deck deck=new Deck();
+    Deck deck = new Deck();
     //changed HashSet to HashMap since you can store keys (amountOfBulls) with them,
     //will ask how it should be done - amal
     HashMap<Integer, Set<String>> board;
+
     public void fillTable() {
         for (int row = 0; row < 4; row++) {
             for (int col = 0; col < 6; col++) {
@@ -34,7 +35,7 @@ public class Board {
         public int rowID;
 
 
-//        if (cardsInRow.size() ==5){
+        //        if (cardsInRow.size() ==5){
 //            String collectedCards = cardsInRow.get()
 //        }
         public void takeCard(Card card) {
@@ -44,9 +45,15 @@ public class Board {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Board deck = " + deck +
-                ", board=" + board;
+        @Override
+        public String toString() {
+            return "Board deck = " + deck +
+                    ", board=" + board;
+        }
+
+
     }
 }
+
+
+

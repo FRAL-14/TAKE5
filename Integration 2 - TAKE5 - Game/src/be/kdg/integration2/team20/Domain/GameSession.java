@@ -4,29 +4,20 @@ import java.util.Scanner;
 
 public class GameSession {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        AI ai = new AI();
-        Human human = new Human();
-//        Player player = new Player();   //how can i add Player player and as parameters Human human and AI ai?
-        Deck deck = new Deck();
-        Board board = new Board();
+        CardID[] deck = shuffle(CardID.values());
+        CardID[] shuffleCards = deal(deck, 24);
+        shufflePlayCards(shuffleCards);
 
+        //what we now should do is not create everything here, but in the classes they belong to,
+        //so that later we can call them from inside the GameSession class
+        //(eg the Card[] humanHand should be in the Human class, etc)
+        CardID[] humanHand = dealPlay(shuffleCards, 10);
+        CardID[] aiHand = dealPlay(shuffleCards, 10);
+        CardID[] boardHand = dealPlay(shuffleCards, 4);
 
-        System.out.print("Enter your name: ");
-        human.setName(scanner.nextLine());
+        System.out.println("Player cards: " + Arrays.toString(humanHand));
+        System.out.println("Ai cards: " + Arrays.toString(aiHand));
+        System.out.println("Board cards: " + Arrays.toString(boardHand));
 
-        System.out.println("not shuffled deck --> " + deck);
-        deck.shuffle();
-        System.out.println("shuffled deck --> " + deck);
-        board.fillTable();
-
-        human.getHand(/*deck*/);
-//        human.toString(); maybe write this instead of this below
-        System.out.println("User hand " + human.getHand(/*deck*/));
-        System.out.println(deck);
-
-        ai.getHand(/*deck*/);
-        System.out.println("AI hand " + ai.getHand(/*deck*/));
-        System.out.println(deck);
     }
 }

@@ -1,5 +1,7 @@
 package be.kdg.integration2.team20.Domain;
 
+import java.util.List;
+
 public enum CardID {
     CARD1(1), CARD2(2), CARD3(3), CARD4(4), CARD5(5),
     CARD6(6), CARD7(7), CARD8(8), CARD9(9), CARD10(10),

@@ -29,13 +29,14 @@ public abstract class Player {
 //        hand.remove(number);
 //    }
 
-    public Card getHand() {
-        // remove the first 10 cards from the deck and add them to the player's hand
-        for (int i = 0; i < 10; i++) {
-            hand.add(deck.remove(0)); //will give fail cus deck is empty
-        }
-        return (Card) this.hand;
-    }
+    //basically the same as deal method in Deck
+//    public Card getHand() {
+//        // remove the first 10 cards from the deck and add them to the player's hand
+//        for (int i = 0; i < 10; i++) {
+//            hand.add(deck.remove(0)); //will give fail cus deck is empty
+//        }
+//        return (Card) this.hand;
+//    }
 
     public void setName(String name) {
         this.name = name;

@@ -7,4 +7,15 @@ public class Controller {
     Deck deck = new Deck();
     Human human = new Human();
 
+    public void start() {
+        GameSession session = new GameSession();
+        Deck deck = new Deck();
+//        deck.makeboard(); was an example
+        Deck.shuffle(CardID.values());
+        Deck.deal(CardID.values(),24);  //24 cards r gonna be dealt right?
+        //take turns
+        //hand human
+        //hand ai
+    }
+
 }
