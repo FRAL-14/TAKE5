@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="27/2 session: UML corresponds with code, most methods added&#10;amal: still going to correct some things later today or tomorrow" />
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="27/2 session: UML corresponds with code, most methods added&#10;amal: still going to correct some things later today or tomorrow">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Deck.java" afterDir="false" />
+    </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" name="Changes by laisa" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
@@ -37,24 +40,24 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "17 (2)",
-    "last_opened_file_path": "/Users/allyangelova/Documents/GitHub/S2-20/Integration 2 - TAKE5 - Game",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17 (2)&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/macbookpronathan/Desktop/KDG/Git/S2-20/Integration 2 - TAKE5 - Game&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="GameSession" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.team20.gametake5.GameSession" />
@@ -86,6 +89,20 @@
       <workItem from="1677099107585" duration="51000" />
       <workItem from="1677488947353" duration="77000" />
       <workItem from="1677489701782" duration="18539000" />
+      <workItem from="1677756523421" duration="30000" />
+      <workItem from="1677756626557" duration="9000" />
+      <workItem from="1677769825013" duration="722000" />
+      <workItem from="1677771871488" duration="42000" />
+      <workItem from="1677774783226" duration="2370000" />
+      <workItem from="1677828076197" duration="816000" />
+      <workItem from="1677829255600" duration="1421000" />
+      <workItem from="1677862536942" duration="984000" />
+      <workItem from="1677871968565" duration="1775000" />
+      <workItem from="1678102775318" duration="681000" />
+      <workItem from="1678111868207" duration="16000" />
+      <workItem from="1678123177237" duration="1282000" />
+      <workItem from="1678191130101" duration="1341000" />
+      <workItem from="1678209501077" duration="2732000" />
     </task>
     <servers />
   </component>
