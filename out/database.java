@@ -18,10 +18,13 @@ public class database {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM players");
 
-            while(rs.next()) {
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                System.out.println("Player ID: " + id + ", Name: " + name);
+            if (!rs.isBeforeFirst()) {
+                System.out.println("No names found in players table.");
+            } else {
+                while (rs.next()) {
+                    String name = rs.getString("name");
+                    System.out.println("Name: " + name);
+                }
             }
 
             rs.close();
