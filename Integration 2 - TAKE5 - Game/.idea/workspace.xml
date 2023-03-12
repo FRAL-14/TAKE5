@@ -5,7 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="no changes">
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_03_2023__13_12__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_03_2023__13_12__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../S2-20.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/.idea/libraries/postgresql_42_2_27_jre7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/.idea/out.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/out/production/out/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/out/production/out/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/out/production/out/.idea/libraries/postgresql_42_2_27_jre7.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/out/production/out/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/out/production/out/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/out/production/out/.idea/out.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/out/production/out/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/S2-20/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/S2-20/.idea/S2-20.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/S2-20/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/S2-20/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/S2-20/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/S2-20/be/kdg/integration2/team20/Domain/Card.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/S2-20/be/kdg/integration2/team20/Domain/CardID.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/S2-20/be/kdg/integration2/team20/Domain/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/S2-20/be/kdg/integration2/team20/Domain/Leaderboard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/S2-20/be/kdg/integration2/team20/Domain/ScoreCard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../out/production/S2-20/be/kdg/integration2/team20/Take5Application.class" beforeDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" name="Changes by laisa" comment="" />
@@ -45,7 +78,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17 (2)&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/macbookpronathan/Desktop/KDG/Git/S2-20/Integration 2 - TAKE5 - Game/src&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/laisa/S2-20/Integration 2 - TAKE5 - Game&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -112,6 +145,8 @@
       <workItem from="1678287697914" duration="11000" />
       <workItem from="1678432790174" duration="77000" />
       <workItem from="1678434114502" duration="10000" />
+      <workItem from="1678624283310" duration="64000" />
+      <workItem from="1678624372601" duration="22000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
