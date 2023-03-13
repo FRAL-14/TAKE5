@@ -6,9 +6,6 @@ import java.util.Map;
 
 public class Board {
     HashMap<String, Integer> board;
-
-    Human human = new Human("Human");
-    AI ai = new AI("ai");
     Card card;
 
     public HashMap<String, Integer> createBoard() {

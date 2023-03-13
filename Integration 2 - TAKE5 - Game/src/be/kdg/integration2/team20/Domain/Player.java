@@ -5,7 +5,6 @@ import java.util.Scanner;
 public abstract class Player {
 
     Card[] playHand;
-    Card playedCard;
     private String name;
 
 
