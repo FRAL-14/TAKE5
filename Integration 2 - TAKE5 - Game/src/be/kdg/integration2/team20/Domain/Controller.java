@@ -6,16 +6,15 @@ public class Controller {
     Deck mainDeck = new Deck();
     Human human = new Human("human");
     AI ai = new AI("ai");
+    Card card;
 
     public void startGame(){
         board.createBoard();
         human.askName();
         mainDeck.startRound();
         human.playCard();
-        Card.getPointValue(human.playedCard);
+        card.getPointValue(human.playedCard);
         board.startRound(mainDeck);
-        mainDeck.test();
-        board.test();
         human.showHand(mainDeck);
         ai.showHand(mainDeck);
     }

@@ -23,10 +23,10 @@ public class Board {
     }
 
     public void startRound(Deck deck){
-        board.put("row1col1", deck.boardHand[0]);
-        board.put("row2col1",deck.boardValues[1]);
-        board.put("row3col1",deck.boardValues[2]);
-        board.put("row4col1",deck.boardValues[3]);
+        board.put("row1col1", deck.boardHand[0].getValue());
+        board.put("row2col1",deck.boardHand[1].getValue());
+        board.put("row3col1",deck.boardHand[2].getValue());
+        board.put("row4col1",deck.boardHand[3].getValue());
     }
 
         public boolean checkSquare ( int row, int col, HashSet<String > board){
@@ -62,10 +62,10 @@ public class Board {
                 String playerType = player.getType();
                 for (int c = 0; c<5; c++){
                     if (playerType.equals("human")){
-                        int bull = Card.getPointValue(extracted[c]);
+                        int bull = card.getPointValue(extracted[c]);
                         int totalBull =+ bull;
                     } else if (playerType.equals("ai")){
-                        int bull = Card.getPointValue(extracted[c]);
+                        int bull = card.getPointValue(extracted[c]);
                         int totalBull =+ bull;
                     }
                 }
@@ -93,7 +93,5 @@ public class Board {
 
         return lastSquares;
     }
-        public void test(){
-            System.out.println(board.get("row1col1"));
-        }
+
 }

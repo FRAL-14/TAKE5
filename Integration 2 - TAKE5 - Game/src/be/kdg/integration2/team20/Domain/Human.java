@@ -7,12 +7,6 @@ public class Human extends Player{
 
     Deck deck = new Deck();
 
-    public void askName(){
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Enter your name: ");
-        String name = scan.nextLine();
-        System.out.println("Welcome " + name);
-    }
 
     public Human(String name) {
         super(name);

@@ -50,9 +50,7 @@ public class AI extends Player{
         return playHand[index];
     }
 
-
-
     public void showHand(Deck deck){
-        System.out.println(Arrays.toString(deck.aiValues));
+        System.out.println(Arrays.toString(deck.aiHand));
     }
 }
