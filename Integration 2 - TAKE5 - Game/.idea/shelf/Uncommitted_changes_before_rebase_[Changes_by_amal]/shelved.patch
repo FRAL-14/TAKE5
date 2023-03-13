@@ -1,0 +1,116 @@
+Index: src/be/kdg/integration2/team20/Domain/Card.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package be.kdg.integration2.team20.Domain;\n\npublic enum Card {\n    CARD1(1), CARD2(2), CARD3(3), CARD4(4), CARD5(5),\n    CARD6(6), CARD7(7), CARD8(8), CARD9(9), CARD10(10),\n    CARD11(11), CARD12(12), CARD13(13), CARD14(14), CARD15(15),\n    CARD16(16), CARD17(17), CARD18(18), CARD19(19), CARD20(20),\n    CARD21(21), CARD22(22), CARD23(23), CARD24(24), CARD25(25),\n    CARD26(26), CARD27(27), CARD28(28), CARD29(29), CARD30(30),\n    CARD31(31), CARD32(32), CARD33(33), CARD34(34), CARD35(35),\n    CARD36(36), CARD37(37), CARD38(38), CARD39(39), CARD40(40),\n    CARD41(41), CARD42(42), CARD43(43), CARD44(44), CARD45(45),\n    CARD46(46), CARD47(47), CARD48(48), CARD49(49), CARD50(50),\n    CARD51(51), CARD52(52), CARD53(53), CARD54(54), CARD55(55),\n    CARD56(56), CARD57(57), CARD58(58), CARD59(59), CARD60(60),\n    CARD61(61), CARD62(62), CARD63(63), CARD64(64), CARD65(65),\n    CARD66(66), CARD67(67), CARD68(68), CARD69(69), CARD70(70),\n    CARD71(71), CARD72(72), CARD73(73), CARD74(74), CARD75(75),\n    CARD76(76), CARD77(77), CARD78(78), CARD79(79), CARD80(80),\n    CARD81(81), CARD82(81), CARD83(83), CARD84(84), CARD85(85),\n    CARD86(86), CARD87(87), CARD88(88), CARD89(89), CARD90(90),\n    CARD91(91), CARD92(92), CARD93(93), CARD94(94), CARD95(95),\n    CARD96(96), CARD97(97), CARD98(98), CARD99(99), CARD100(100),\n    CARD101(101), CARD102(102), CARD103(103), CARD104(104);\n\n    private final int value;\n\n    Card(int value){\n        this.value = value;\n    }\n\n    public int getValue() {\n        return value;\n    }\n\n    @Override\n    public String toString() {\n        return  \"\" + value;\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/be/kdg/integration2/team20/Domain/Card.java b/src/be/kdg/integration2/team20/Domain/Card.java
+--- a/src/be/kdg/integration2/team20/Domain/Card.java	(revision 1ad1b7516959dc8ac174a4635a24f4a35284587b)
++++ b/src/be/kdg/integration2/team20/Domain/Card.java	(date 1678716238680)
+@@ -37,4 +37,24 @@
+     public String toString() {
+         return  "" + value;
+     }
++
++    public static Card withValue(int index){
++        return Card.values()[index-1];
++        //check that index between 1 adn length
++        }
++
++    //inside Card
++    public int getPointValue(Card card){
++        if (value % 10 == 0) {
++            return 3;
++        } else if (value % 55 == 0){
++            return 7;
++        } else if (value % 5 == 0) {
++            return  2;
++        } else if (value % 11 == 0) {
++            return  5;
++        } else {
++            return 1;
++        }
++    } //throw exception if number entered
+ }
+Index: src/be/kdg/integration2/team20/Domain/Player.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package be.kdg.integration2.team20.Domain;\n\npublic abstract class Player {\n\n    int[] playHand;\n    int playedCard;\n    private int amount;\n    private String name;\n\n\n    public abstract Card playCard(int index);\n    public abstract void showHand(Deck deck);\n\n    public Player(String name) {\n        this.name = name;\n    }\n    public abstract String getType();\n\n    public int getPointValue(int card){\n        if (card % 10 == 0) {\n            this.amount += 1;//why += and not just =\n        } else if (card % 55 == 0){\n            this.amount += 7;\n        } else if (card % 5 == 0) {\n            this.amount += 2;\n        } else if (card % 11 == 0) {\n            this.amount += 5;\n        } else if (amount == 0)\n            this.amount = 1;\n        System.out.println(\"This card has \" + amount + \" bull(s)\");\n\n        return 0;\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/be/kdg/integration2/team20/Domain/Player.java b/src/be/kdg/integration2/team20/Domain/Player.java
+--- a/src/be/kdg/integration2/team20/Domain/Player.java	(revision 1ad1b7516959dc8ac174a4635a24f4a35284587b)
++++ b/src/be/kdg/integration2/team20/Domain/Player.java	(date 1678714775151)
+@@ -2,9 +2,8 @@
+ 
+ public abstract class Player {
+ 
+-    int[] playHand;
+-    int playedCard;
+-    private int amount;
++    Card[] playHand;
++    Card playedCard;
+     private String name;
+ 
+ 
+@@ -16,20 +15,4 @@
+     }
+     public abstract String getType();
+ 
+-    public int getPointValue(int card){
+-        if (card % 10 == 0) {
+-            this.amount += 1;//why += and not just =
+-        } else if (card % 55 == 0){
+-            this.amount += 7;
+-        } else if (card % 5 == 0) {
+-            this.amount += 2;
+-        } else if (card % 11 == 0) {
+-            this.amount += 5;
+-        } else if (amount == 0)
+-            this.amount = 1;
+-        System.out.println("This card has " + amount + " bull(s)");
+-
+-        return 0;
+-    }
+-
+ }
+Index: src/be/kdg/integration2/team20/Domain/Deck.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package be.kdg.integration2.team20.Domain;\n\n\nimport java.util.Arrays;\nimport java.util.Random;\n\npublic class Deck {\n    Card[] shuffledDeck = dealPlay(Card.values(),104);\n    Card[] humanHand;\n    Card[] aiHand;\n    Card[] boardHand;\n    int[] aiValues;\n    int[] humanValues;\n    int[] boardValues;\n    int roundCounter = 0;\n\n\n\n    public static void shufflePlayCards(Card[] cards) {\n        Random rand = new Random();\n        for (int i = cards.length - 1; i > 0; i--) {\n            int j = rand.nextInt(i + 1);\n            Card temp = cards[i];\n            cards[i] = cards[j];\n            cards[j] = temp;\n        }\n    }\n\n\n\n\n    public static Card[] dealPlay(Card[] deck, int numCards) {\n        if (numCards > deck.length) {\n            throw new IllegalArgumentException(\"Not enough cards in the deck.\");\n        }\n\n        Card[] dealtCards = new Card[numCards];\n        for (int i = 0; i < numCards; i++) {\n            dealtCards[i] = deck[i];\n        }\n\n        // Remove the dealt cards from the deck array\n        for (int i = numCards; i < deck.length; i++) {\n            deck[i - numCards] = deck[i];\n        }\n        deck = Arrays.copyOf(deck, deck.length - numCards);\n        return dealtCards;\n    }\n\n\n\n\n    public void initialiseHand(){\n        shufflePlayCards(shuffledDeck);\n        humanHand = dealPlay(shuffledDeck,10);\n        aiHand = dealPlay(shuffledDeck, 10);\n        boardHand = dealPlay(shuffledDeck, 4);\n    }\n\n\n\n\n    public void convertHands(){\n        humanValues = new int[humanHand.length];\n        for (int i = 0; i < humanHand.length; i++) {\n            humanValues[i] = humanHand[i].getValue();\n            Arrays.sort(humanValues);\n        }\n        aiValues = new int[aiHand.length];\n        for (int i = 0; i < aiHand.length; i++) {\n            aiValues[i] = aiHand[i].getValue();\n            Arrays.sort(aiValues);\n        }\n        boardValues = new int[boardHand.length];\n        for (int i = 0; i < boardHand.length; i++) {\n            boardValues[i] = boardHand[i].getValue();\n        }\n    }\n\n\n\n\n    public void startRound() {\n        initialiseHand();\n        convertHands();\n        roundCounter++;\n    }\n\npublic void test(){\n    System.out.println(boardValues[0]);\n}\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/be/kdg/integration2/team20/Domain/Deck.java b/src/be/kdg/integration2/team20/Domain/Deck.java
+--- a/src/be/kdg/integration2/team20/Domain/Deck.java	(revision 1ad1b7516959dc8ac174a4635a24f4a35284587b)
++++ b/src/be/kdg/integration2/team20/Domain/Deck.java	(date 1678704786695)
+@@ -59,7 +59,7 @@
+ 
+ 
+ 
+-
++//instead of int card, work with CARD.value and it'll return a
+     public void convertHands(){
+         humanValues = new int[humanHand.length];
+         for (int i = 0; i < humanHand.length; i++) {
+Index: src/be/kdg/integration2/team20/Domain/Board.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package be.kdg.integration2.team20.Domain;\n\nimport java.util.HashMap;\nimport java.util.HashSet;\nimport java.util.Map;\n\npublic class Board {\n    HashMap<String, Integer> board;\n\n    Human human = new Human(\"Human\");\n    AI ai = new AI(\"ai\");\n\n\n    public HashMap<String, Integer> createBoard() {\n        board = new HashMap<>();\n        for (int row = 1; row <= 4; row++) {\n            for (int col = 1; col <= 6; col++) {\n                String key = \"row\" + row + \"col\" + col;\n                board.put(key, 0);\n            }\n        }\n        return board;\n    }\n\n    public void startRound(Deck deck){\n        board.put(\"row1col1\", deck.boardValues[0]);\n        board.put(\"row2col1\",deck.boardValues[1]);\n        board.put(\"row3col1\",deck.boardValues[2]);\n        board.put(\"row4col1\",deck.boardValues[3]);\n    }\n\n\n        public boolean checkSquare ( int row, int col, HashSet<String > board){\n            String square = row + \",\" + col;\n            return !board.contains(square); // returns true if square is not in the board       //shouldn't it return true or false on whether the square is filled (has a card) or is empty? -amal\n        }\n\n\n    public void checkRow(Map<String, Integer> board, Player player) {\n        for (int i = 1; i <= 4; i++) {\n            boolean rowFilled = true;\n            for (int j = 1; j <= 6; j++) {\n                String key = \"row\" + i + \"col\" + j;\n                if (!board.containsKey(key) || board.get(key) == null) {\n                    rowFilled = false;\n                    break;\n                }\n            }\n            if (rowFilled) {\n                int[] extracted = new int[5];\n                for (int j = 1; j <= 5; j++) {\n                    String key = \"row\" + i + \"col\" + j;\n                    extracted[j-1] = board.get(key);\n                    board.remove(key);\n                }\n                int temp = board.get(\"row\" + i + \"col6\");\n                board.remove(\"row\" + i + \"col6\");\n                for (int j = 6; j > 1; j--) {\n                    board.put(\"row\" + i + \"col\" + j, board.get(\"row\" + i + \"col\" + (j-1)));\n                    board.remove(\"row\" + i + \"col\" + (j-1));\n                }\n                board.put(\"row\" + i + \"col1\", temp);\n                // Do something with extracted array\n                String playerType = player.getType();\n                for (int c = 0; c<5; c++){\n                    if (playerType.equals(\"human\")){\n                        int bull = human.getPointValue(extracted[c]);\n                        int totalBull =+ bull;\n                    } else if (playerType.equals(\"ai\")){\n                        int bull = ai.getPointValue(extracted[c]);\n                        int totalBull =+ bull;\n                    }\n                }\n            }\n        }\n    }\n\n    public HashMap<String, String> getLastSquaresWithValues(HashMap<String, String> map) {\n        HashMap<String, String> lastSquares = new HashMap<>();\n        int numCols = 6;\n\n        for (int i = 1; i <= 4; i++) { // iterate through each row\n            String lastSquareWithValue = null;\n            for (int j = numCols; j >= 1; j--) { // iterate through each column in the row\n                String key = \"row\" + i + \"col\" + j;\n                if (map.containsKey(key)) {\n                    lastSquareWithValue = key;\n                    break;\n                }\n            }\n            if (lastSquareWithValue != null) {\n                lastSquares.put(\"row\" + i, lastSquareWithValue);\n            }\n        }\n\n        return lastSquares;\n    }\n        public void test(){\n            System.out.println(board.get(\"row1col1\"));\n        }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/be/kdg/integration2/team20/Domain/Board.java b/src/be/kdg/integration2/team20/Domain/Board.java
+--- a/src/be/kdg/integration2/team20/Domain/Board.java	(revision 1ad1b7516959dc8ac174a4635a24f4a35284587b)
++++ b/src/be/kdg/integration2/team20/Domain/Board.java	(date 1678704358423)
+@@ -47,7 +47,7 @@
+                 }
+             }
+             if (rowFilled) {
+-                int[] extracted = new int[5];
++                int[] extracted = new int[5];   //what is exactly the extracted?
+                 for (int j = 1; j <= 5; j++) {
+                     String key = "row" + i + "col" + j;
+                     extracted[j-1] = board.get(key);

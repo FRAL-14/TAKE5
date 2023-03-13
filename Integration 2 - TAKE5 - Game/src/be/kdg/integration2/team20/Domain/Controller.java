@@ -1,21 +1,22 @@
 package be.kdg.integration2.team20.Domain;
 
+
 public class Controller {
-
-    GameSession session = new GameSession();
     Board board = new Board();
-    Deck deck = new Deck();
-    Human human = new Human();
+    Deck mainDeck = new Deck();
+    Human human = new Human("human");
+    AI ai = new AI("ai");
 
-    public void start() {
-        GameSession session = new GameSession();
-        Deck deck = new Deck();
-//        deck.makeboard(); was an example
-        Deck.shuffle(CardID.values());
-        Deck.deal(CardID.values(),24);  //24 cards r gonna be dealt right?
-        //take turns
-        //hand human
-        //hand ai
+    public void startGame(){
+        board.createBoard();
+        human.askName();
+        mainDeck.startRound();
+        human.playCard(0);
+        human.getPointValue(human.playedCard);
+        board.startRound(mainDeck);
+        mainDeck.test();
+        board.test();
+        human.showHand(mainDeck);
+        ai.showHand(mainDeck);
     }
-
 }

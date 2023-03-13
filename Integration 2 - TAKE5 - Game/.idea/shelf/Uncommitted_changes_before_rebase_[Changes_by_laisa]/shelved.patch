@@ -1,0 +1,110 @@
+Index: src/be/kdg/integration2/team20/Domain/Controller.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package be.kdg.integration2.team20.Domain;\n\n\npublic class Controller {\n    Board board = new Board();\n    Deck mainDeck = new Deck();\n    Human human = new Human(\"human\");\n    AI ai = new AI(\"ai\");\n\n    public void startGame(){\n        board.createBoard();\n        human.askName();\n        mainDeck.startRound();\n        human.playCard(0);\n        human.getPointValue(human.playedCard);\n        board.startRound(mainDeck);\n        mainDeck.test();\n        board.test();\n        human.showHand(mainDeck);\n        ai.showHand(mainDeck);\n    }\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/be/kdg/integration2/team20/Domain/Controller.java b/src/be/kdg/integration2/team20/Domain/Controller.java
+--- a/src/be/kdg/integration2/team20/Domain/Controller.java	(revision 1ad1b7516959dc8ac174a4635a24f4a35284587b)
++++ b/src/be/kdg/integration2/team20/Domain/Controller.java	(date 1678715307810)
+@@ -19,5 +19,4 @@
+         human.showHand(mainDeck);
+         ai.showHand(mainDeck);
+     }
+-
+-}
++}
+\ No newline at end of file
+Index: src/be/kdg/integration2/team20/Domain/Deck.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package be.kdg.integration2.team20.Domain;\n\n\nimport java.util.Arrays;\nimport java.util.Random;\n\npublic class Deck {\n    Card[] shuffledDeck = dealPlay(Card.values(),104);\n    Card[] humanHand;\n    Card[] aiHand;\n    Card[] boardHand;\n    int[] aiValues;\n    int[] humanValues;\n    int[] boardValues;\n    int roundCounter = 0;\n\n\n\n    public static void shufflePlayCards(Card[] cards) {\n        Random rand = new Random();\n        for (int i = cards.length - 1; i > 0; i--) {\n            int j = rand.nextInt(i + 1);\n            Card temp = cards[i];\n            cards[i] = cards[j];\n            cards[j] = temp;\n        }\n    }\n\n\n\n\n    public static Card[] dealPlay(Card[] deck, int numCards) {\n        if (numCards > deck.length) {\n            throw new IllegalArgumentException(\"Not enough cards in the deck.\");\n        }\n\n        Card[] dealtCards = new Card[numCards];\n        for (int i = 0; i < numCards; i++) {\n            dealtCards[i] = deck[i];\n        }\n\n        // Remove the dealt cards from the deck array\n        for (int i = numCards; i < deck.length; i++) {\n            deck[i - numCards] = deck[i];\n        }\n        deck = Arrays.copyOf(deck, deck.length - numCards);\n        return dealtCards;\n    }\n\n\n\n\n    public void initialiseHand(){\n        shufflePlayCards(shuffledDeck);\n        humanHand = dealPlay(shuffledDeck,10);\n        aiHand = dealPlay(shuffledDeck, 10);\n        boardHand = dealPlay(shuffledDeck, 4);\n    }\n\n\n\n\n    public void convertHands(){\n        humanValues = new int[humanHand.length];\n        for (int i = 0; i < humanHand.length; i++) {\n            humanValues[i] = humanHand[i].getValue();\n            Arrays.sort(humanValues);\n        }\n        aiValues = new int[aiHand.length];\n        for (int i = 0; i < aiHand.length; i++) {\n            aiValues[i] = aiHand[i].getValue();\n            Arrays.sort(aiValues);\n        }\n        boardValues = new int[boardHand.length];\n        for (int i = 0; i < boardHand.length; i++) {\n            boardValues[i] = boardHand[i].getValue();\n        }\n    }\n\n\n\n\n    public void startRound() {\n        initialiseHand();\n        convertHands();\n        roundCounter++;\n    }\n\npublic void test(){\n    System.out.println(boardValues[0]);\n}\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/be/kdg/integration2/team20/Domain/Deck.java b/src/be/kdg/integration2/team20/Domain/Deck.java
+--- a/src/be/kdg/integration2/team20/Domain/Deck.java	(revision 1ad1b7516959dc8ac174a4635a24f4a35284587b)
++++ b/src/be/kdg/integration2/team20/Domain/Deck.java	(date 1678704786695)
+@@ -77,18 +77,13 @@
+         }
+     }
+ 
+-
+-
+-
+     public void startRound() {
+         initialiseHand();
+         convertHands();
+         roundCounter++;
+     }
+ 
+-public void test(){
+-    System.out.println(boardValues[0]);
+-}
+-
+-
+-}
++    public void test() {
++        System.out.println(boardValues[0]);
++    }
++}
+\ No newline at end of file
+Index: src/be/kdg/integration2/team20/Domain/Board.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package be.kdg.integration2.team20.Domain;\n\nimport java.util.HashMap;\nimport java.util.HashSet;\nimport java.util.Map;\n\npublic class Board {\n    HashMap<String, Integer> board;\n\n    Human human = new Human(\"Human\");\n    AI ai = new AI(\"ai\");\n\n\n    public HashMap<String, Integer> createBoard() {\n        board = new HashMap<>();\n        for (int row = 1; row <= 4; row++) {\n            for (int col = 1; col <= 6; col++) {\n                String key = \"row\" + row + \"col\" + col;\n                board.put(key, 0);\n            }\n        }\n        return board;\n    }\n\n    public void startRound(Deck deck){\n        board.put(\"row1col1\", deck.boardValues[0]);\n        board.put(\"row2col1\",deck.boardValues[1]);\n        board.put(\"row3col1\",deck.boardValues[2]);\n        board.put(\"row4col1\",deck.boardValues[3]);\n    }\n\n\n        public boolean checkSquare ( int row, int col, HashSet<String > board){\n            String square = row + \",\" + col;\n            return !board.contains(square); // returns true if square is not in the board       //shouldn't it return true or false on whether the square is filled (has a card) or is empty? -amal\n        }\n\n\n    public void checkRow(Map<String, Integer> board, Player player) {\n        for (int i = 1; i <= 4; i++) {\n            boolean rowFilled = true;\n            for (int j = 1; j <= 6; j++) {\n                String key = \"row\" + i + \"col\" + j;\n                if (!board.containsKey(key) || board.get(key) == null) {\n                    rowFilled = false;\n                    break;\n                }\n            }\n            if (rowFilled) {\n                int[] extracted = new int[5];\n                for (int j = 1; j <= 5; j++) {\n                    String key = \"row\" + i + \"col\" + j;\n                    extracted[j-1] = board.get(key);\n                    board.remove(key);\n                }\n                int temp = board.get(\"row\" + i + \"col6\");\n                board.remove(\"row\" + i + \"col6\");\n                for (int j = 6; j > 1; j--) {\n                    board.put(\"row\" + i + \"col\" + j, board.get(\"row\" + i + \"col\" + (j-1)));\n                    board.remove(\"row\" + i + \"col\" + (j-1));\n                }\n                board.put(\"row\" + i + \"col1\", temp);\n                // Do something with extracted array\n                String playerType = player.getType();\n                for (int c = 0; c<5; c++){\n                    if (playerType.equals(\"human\")){\n                        int bull = human.getPointValue(extracted[c]);\n                        int totalBull =+ bull;\n                    } else if (playerType.equals(\"ai\")){\n                        int bull = ai.getPointValue(extracted[c]);\n                        int totalBull =+ bull;\n                    }\n                }\n            }\n        }\n    }\n\n    public HashMap<String, String> getLastSquaresWithValues(HashMap<String, String> map) {\n        HashMap<String, String> lastSquares = new HashMap<>();\n        int numCols = 6;\n\n        for (int i = 1; i <= 4; i++) { // iterate through each row\n            String lastSquareWithValue = null;\n            for (int j = numCols; j >= 1; j--) { // iterate through each column in the row\n                String key = \"row\" + i + \"col\" + j;\n                if (map.containsKey(key)) {\n                    lastSquareWithValue = key;\n                    break;\n                }\n            }\n            if (lastSquareWithValue != null) {\n                lastSquares.put(\"row\" + i, lastSquareWithValue);\n            }\n        }\n\n        return lastSquares;\n    }\n        public void test(){\n            System.out.println(board.get(\"row1col1\"));\n        }\n\n\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/be/kdg/integration2/team20/Domain/Board.java b/src/be/kdg/integration2/team20/Domain/Board.java
+--- a/src/be/kdg/integration2/team20/Domain/Board.java	(revision 1ad1b7516959dc8ac174a4635a24f4a35284587b)
++++ b/src/be/kdg/integration2/team20/Domain/Board.java	(date 1678704358423)
+@@ -10,7 +10,6 @@
+     Human human = new Human("Human");
+     AI ai = new AI("ai");
+ 
+-
+     public HashMap<String, Integer> createBoard() {
+         board = new HashMap<>();
+         for (int row = 1; row <= 4; row++) {
+@@ -29,13 +28,11 @@
+         board.put("row4col1",deck.boardValues[3]);
+     }
+ 
+-
+         public boolean checkSquare ( int row, int col, HashSet<String > board){
+             String square = row + "," + col;
+             return !board.contains(square); // returns true if square is not in the board       //shouldn't it return true or false on whether the square is filled (has a card) or is empty? -amal
+         }
+ 
+-
+     public void checkRow(Map<String, Integer> board, Player player) {
+         for (int i = 1; i <= 4; i++) {
+             boolean rowFilled = true;
+@@ -98,6 +95,4 @@
+         public void test(){
+             System.out.println(board.get("row1col1"));
+         }
+-
+-
+-}
++}
+\ No newline at end of file
+Index: src/be/kdg/integration2/team20/Domain/Human.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package be.kdg.integration2.team20.Domain;\n\nimport java.util.Arrays;\nimport java.util.Scanner;\n\npublic class Human extends Player{\n\n    Deck deck = new Deck();\n\n    public void askName(){\n        Scanner scan = new Scanner(System.in);\n        System.out.print(\"Enter your name: \");\n        String name = scan.nextLine();\n        System.out.println(\"Welcome \" + name);\n    }\n\n    public Human(String name) {\n        super(name);\n    }\n\n    @Override\n    public String getType() {\n        return \"human\";\n    }\n\n    public Card playCard(int index) {\n        playHand = deck.humanHand;\n\n        if (index < 0 || index >= playHand.length || playHand[index] == null) {\n            // Index is out of bounds or the hand array is empty at the given index\n            System.out.println(\"Failed to play card. Invalid index or hand is empty.\");\n            return null;\n        }\n\n        // Get the card number at the given index\n        int cardNumber = playHand[index].getValue();\n\n        // Remove the card from the hand array\n        for (int i = index; i < playHand.length - 1; i++) {\n            playHand[i] = playHand[i + 1];\n        }\n        playHand[playHand.length - 1] = null;\n\n        // Print success message and return the card object\n        System.out.printf(\"Card played successfully! You played card number %d.\\n\", cardNumber);\n        return playHand[index];\n    }\n\n    public void showHand(Deck deck){\n        System.out.println(Arrays.toString(deck.humanValues));\n    }\n}\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/be/kdg/integration2/team20/Domain/Human.java b/src/be/kdg/integration2/team20/Domain/Human.java
+--- a/src/be/kdg/integration2/team20/Domain/Human.java	(revision 1ad1b7516959dc8ac174a4635a24f4a35284587b)
++++ b/src/be/kdg/integration2/team20/Domain/Human.java	(date 1678715889212)
+@@ -49,4 +49,4 @@
+     public void showHand(Deck deck){
+         System.out.println(Arrays.toString(deck.humanValues));
+     }
+-}
++}
+\ No newline at end of file

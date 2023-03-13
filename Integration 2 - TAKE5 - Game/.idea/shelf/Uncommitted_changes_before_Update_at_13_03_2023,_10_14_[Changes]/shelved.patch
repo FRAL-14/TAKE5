@@ -1,0 +1,98 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"ded12c7b-56b3-4ba3-9abe-0ef2450280ea\" name=\"Changes\" comment=\"no changes\">\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n    </list>\n    <list id=\"a8c459d3-fb77-476d-9597-ff7ca7417463\" name=\"Changes by allyangelova\" comment=\"\" />\n    <list id=\"fad78cd0-9567-4d44-9f30-6b4a10b1aa97\" name=\"Changes by laisa\" comment=\"\" />\n    <list id=\"33445405-eb17-4992-a077-26c9ecf9c6cb\" name=\"Changes by macbookpronathan\" comment=\"\" />\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"ProblemsViewState\">\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\n  </component>\n  <component name=\"ProjectId\" id=\"2M6ruva0ZgLONw3lR1WRnbX5i1c\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"showExcludedFiles\" value=\"false\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\">{\n  &quot;keyToString&quot;: {\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\n    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17 (2)&quot;,\n    &quot;last_opened_file_path&quot;: &quot;/Users/macbookpronathan/Desktop/KDG/Git/S2-20/Integration 2 - TAKE5 - Game/src&quot;,\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\n    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,\n    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,\n    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\n  }\n}</component>\n  <component name=\"RecentsManager\">\n    <key name=\"CopyFile.RECENT_KEYS\">\n      <recent name=\"$PROJECT_DIR$/src\" />\n    </key>\n  </component>\n  <component name=\"RunManager\">\n    <configuration name=\"GameSession\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"be.kdg.integration2.team20.gametake5.GameSession\" />\n      <module name=\"Integration 2 - TAKE5 - Game\" />\n      <extension name=\"coverage\">\n        <pattern>\n          <option name=\"PATTERN\" value=\"be.kdg.integration2.team20.gametake5.*\" />\n          <option name=\"ENABLED\" value=\"true\" />\n        </pattern>\n      </extension>\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n    <recent_temporary>\n      <list>\n        <item itemvalue=\"Application.GameSession\" />\n      </list>\n    </recent_temporary>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"ded12c7b-56b3-4ba3-9abe-0ef2450280ea\" name=\"Changes\" comment=\"\" />\n      <created>1677099106748</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1677099106748</updated>\n      <workItem from=\"1677099107585\" duration=\"51000\" />\n      <workItem from=\"1677488947353\" duration=\"77000\" />\n      <workItem from=\"1677489701782\" duration=\"18539000\" />\n      <workItem from=\"1677756523421\" duration=\"30000\" />\n      <workItem from=\"1677756626557\" duration=\"9000\" />\n      <workItem from=\"1677769825013\" duration=\"722000\" />\n      <workItem from=\"1677771871488\" duration=\"42000\" />\n      <workItem from=\"1677774783226\" duration=\"2370000\" />\n      <workItem from=\"1677828076197\" duration=\"816000\" />\n      <workItem from=\"1677829255600\" duration=\"1421000\" />\n      <workItem from=\"1677862536942\" duration=\"984000\" />\n      <workItem from=\"1677871968565\" duration=\"1775000\" />\n      <workItem from=\"1678102775318\" duration=\"681000\" />\n      <workItem from=\"1678111868207\" duration=\"16000\" />\n      <workItem from=\"1678123177237\" duration=\"1282000\" />\n      <workItem from=\"1678191130101\" duration=\"1341000\" />\n      <workItem from=\"1678209501077\" duration=\"2732000\" />\n      <workItem from=\"1678287012009\" duration=\"117000\" />\n      <workItem from=\"1678287340590\" duration=\"225000\" />\n      <workItem from=\"1678287697914\" duration=\"11000\" />\n      <workItem from=\"1678432790174\" duration=\"77000\" />\n      <workItem from=\"1678434114502\" duration=\"10000\" />\n    </task>\n    <task id=\"LOCAL-00001\" summary=\"no changes\">\n      <created>1678287557570</created>\n      <option name=\"number\" value=\"00001\" />\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\n      <option name=\"project\" value=\"LOCAL\" />\n      <updated>1678287557570</updated>\n    </task>\n    <option name=\"localTasksCounter\" value=\"2\" />\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"Vcs.Log.Tabs.Properties\">\n    <option name=\"TAB_STATES\">\n      <map>\n        <entry key=\"MAIN\">\n          <value>\n            <State />\n          </value>\n        </entry>\n      </map>\n    </option>\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <MESSAGE value=\"27/2 session: UML corresponds with code, most methods added&#10;amal: still going to correct some things later today or tomorrow\" />\n    <MESSAGE value=\"no changes\" />\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"no changes\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision dfbf69ebd5e0487f24932361c339b45091ecb93c)
++++ b/.idea/workspace.xml	(date 1678438783980)
+@@ -4,9 +4,7 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="no changes">
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-    </list>
++    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="add of src folder" />
+     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
+     <list id="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" name="Changes by laisa" comment="" />
+     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
+@@ -39,24 +37,25 @@
+     <option name="showExcludedFiles" value="false" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17 (2)&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;/Users/macbookpronathan/Desktop/KDG/Git/S2-20/Integration 2 - TAKE5 - Game/src&quot;,
+-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "WebServerToolWindowFactoryState": "false",
++    "jdk.selected.JAVA_MODULE": "17 (2)",
++    "last_opened_file_path": "/Users/macbookpronathan/Desktop/KDG/Git/S2-20/Integration 2 - TAKE5 - Game/src",
++    "node.js.detected.package.eslint": "true",
++    "node.js.detected.package.tslint": "true",
++    "node.js.selected.package.eslint": "(autodetect)",
++    "node.js.selected.package.tslint": "(autodetect)",
++    "nodejs_package_manager_path": "npm",
++    "project.structure.last.edited": "Modules",
++    "project.structure.proportion": "0.0",
++    "project.structure.side.proportion": "0.0",
++    "settings.editor.selected.configurable": "preferences.pluginManager",
++    "vue.rearranger.settings.migration": "true"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
+     <key name="CopyFile.RECENT_KEYS">
+       <recent name="$PROJECT_DIR$/src" />
+@@ -112,6 +111,7 @@
+       <workItem from="1678287697914" duration="11000" />
+       <workItem from="1678432790174" duration="77000" />
+       <workItem from="1678434114502" duration="10000" />
++      <workItem from="1678438465959" duration="318000" />
+     </task>
+     <task id="LOCAL-00001" summary="no changes">
+       <created>1678287557570</created>
+@@ -120,7 +120,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1678287557570</updated>
+     </task>
+-    <option name="localTasksCounter" value="2" />
++    <task id="LOCAL-00002" summary="add of src folder">
++      <created>1678438738584</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1678438738584</updated>
++    </task>
++    <option name="localTasksCounter" value="3" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -140,6 +147,7 @@
+   <component name="VcsManagerConfiguration">
+     <MESSAGE value="27/2 session: UML corresponds with code, most methods added&#10;amal: still going to correct some things later today or tomorrow" />
+     <MESSAGE value="no changes" />
+-    <option name="LAST_COMMIT_MESSAGE" value="no changes" />
++    <MESSAGE value="add of src folder" />
++    <option name="LAST_COMMIT_MESSAGE" value="add of src folder" />
+   </component>
+ </project>
+\ No newline at end of file

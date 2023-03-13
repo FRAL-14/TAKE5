@@ -1,59 +1,98 @@
 package be.kdg.integration2.team20.Domain;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 
 public class Board {
+    HashMap<String, Integer> board;
 
-    Deck deck = new Deck();
-    //changed HashSet to HashMap since you can store keys (amountOfBulls) with them,
-    //will ask how it should be done - amal
-    HashMap<Integer, Set<String>> board;
+    Human human = new Human("Human");
+    AI ai = new AI("ai");
 
-    public void fillTable() {
-        for (int row = 0; row < 4; row++) {
-            for (int col = 0; col < 6; col++) {
-                String square = row + "," + col;
-//                board.put(square);
+    public HashMap<String, Integer> createBoard() {
+        board = new HashMap<>();
+        for (int row = 1; row <= 4; row++) {
+            for (int col = 1; col <= 6; col++) {
+                String key = "row" + row + "col" + col;
+                board.put(key, 0);
+            }
+        }
+        return board;
+    }
+
+    public void startRound(Deck deck){
+        board.put("row1col1", deck.boardValues[0]);
+        board.put("row2col1",deck.boardValues[1]);
+        board.put("row3col1",deck.boardValues[2]);
+        board.put("row4col1",deck.boardValues[3]);
+    }
+
+        public boolean checkSquare ( int row, int col, HashSet<String > board){
+            String square = row + "," + col;
+            return !board.contains(square); // returns true if square is not in the board       //shouldn't it return true or false on whether the square is filled (has a card) or is empty? -amal
+        }
+
+    public void checkRow(Map<String, Integer> board, Player player) {
+        for (int i = 1; i <= 4; i++) {
+            boolean rowFilled = true;
+            for (int j = 1; j <= 6; j++) {
+                String key = "row" + i + "col" + j;
+                if (!board.containsKey(key) || board.get(key) == null) {
+                    rowFilled = false;
+                    break;
+                }
+            }
+            if (rowFilled) {
+                int[] extracted = new int[5];   //what is exactly the extracted?
+                for (int j = 1; j <= 5; j++) {
+                    String key = "row" + i + "col" + j;
+                    extracted[j-1] = board.get(key);
+                    board.remove(key);
+                }
+                int temp = board.get("row" + i + "col6");
+                board.remove("row" + i + "col6");
+                for (int j = 6; j > 1; j--) {
+                    board.put("row" + i + "col" + j, board.get("row" + i + "col" + (j-1)));
+                    board.remove("row" + i + "col" + (j-1));
+                }
+                board.put("row" + i + "col1", temp);
+                // Do something with extracted array
+                String playerType = player.getType();
+                for (int c = 0; c<5; c++){
+                    if (playerType.equals("human")){
+                        int bull = human.getPointValue(extracted[c]);
+                        int totalBull =+ bull;
+                    } else if (playerType.equals("ai")){
+                        int bull = ai.getPointValue(extracted[c]);
+                        int totalBull =+ bull;
+                    }
+                }
             }
         }
     }
-    // place a red game piece on the top-left square
-    //board.add("0,0:R");
-    //
-    // remove a yellow game piece from the center square
-    //board.remove("2,2:Y");
 
-    public boolean checkSquare(int row, int col, HashSet<String> board) {
-        String square = row + "," + col;
-        return !board.contains(square); // returns true if square is not in the board       //shouldnt it return true or false on whether the square is filled (has a card) or is empty? -amal
-    }
+    public HashMap<String, String> getLastSquaresWithValues(HashMap<String, String> map) {
+        HashMap<String, String> lastSquares = new HashMap<>();
+        int numCols = 6;
 
-    public class Row {
-        public Card card = new Card();
-        public List<Card> cardsInRow = new ArrayList<Card>();
-        public int rowBullsValue;
-        public int rowID;
-
-
-        //        if (cardsInRow.size() ==5){
-//            String collectedCards = cardsInRow.get()
-//        }
-        public void takeCard(Card card) {
-            this.card = card;
-            cardsInRow.add(card);
-            System.out.println("card " + card.getCardID() + " given to row " + rowID + " in spot " + cardsInRow.size());
-        }
-    }
-
-        @Override
-        public String toString() {
-            return "Board deck = " + deck +
-                    ", board=" + board;
+        for (int i = 1; i <= 4; i++) { // iterate through each row
+            String lastSquareWithValue = null;
+            for (int j = numCols; j >= 1; j--) { // iterate through each column in the row
+                String key = "row" + i + "col" + j;
+                if (map.containsKey(key)) {
+                    lastSquareWithValue = key;
+                    break;
+                }
+            }
+            if (lastSquareWithValue != null) {
+                lastSquares.put("row" + i, lastSquareWithValue);
+            }
         }
 
-
+        return lastSquares;
     }
-
-
-
-
+        public void test(){
+            System.out.println(board.get("row1col1"));
+        }
+}

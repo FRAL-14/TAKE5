@@ -1,36 +1,47 @@
 package be.kdg.integration2.team20.Domain;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.Arrays;
+import java.util.Scanner;
 
-public class AI extends Player {
-    final String name = "AI";
-    private List<Card> hand;
+public class AI extends Player{
+    Deck deck = new Deck();
 
-    public AI() {
-    }
-
-    public AI(String name, List<Card> hand) {
+    public AI(String name) {
         super(name);
-        hand = new ArrayList<>();
     }
 
     @Override
-    public int chooseCard() {
-        Random rdm = new Random(); //random card gets chosen
-        return 0;
+    public String getType() {
+        return "ai";
     }
 
-    //added because the AI also has a hand, so its a method shared from the abstract class that both Human and AI have.
-//    public List<Card> getHand(Deck deck) {
-//        return hand;
-//    }
 
-    @Override
-    public String toString() {
-        return "AI deck = " + deck +
-                ", hand = " + hand +
-                ", chooseCard = " + chooseCard() + super.toString();
+    public Card playCard(int index) {
+        playHand = deck.aiHand;
+
+        if (index < 0 || index >= playHand.length || playHand[index] == null) {
+            // Index is out of bounds or the hand array is empty at the given index
+            System.out.println("Failed to play card. Invalid index or hand is empty.");
+            return null;
+        }
+
+        // Get the card number at the given index
+        int cardNumber = playHand[index].getValue();
+
+        // Remove the card from the hand array
+        for (int i = index; i < playHand.length - 1; i++) {
+            playHand[i] = playHand[i + 1];
+        }
+        playHand[playHand.length - 1] = null;
+
+        // Print success message and return the card object
+        System.out.printf("Card played successfully! You played card number %d.\n", cardNumber);
+        return playHand[index];
+    }
+
+
+
+    public void showHand(Deck deck){
+        System.out.println(Arrays.toString(deck.aiValues));
     }
 }
