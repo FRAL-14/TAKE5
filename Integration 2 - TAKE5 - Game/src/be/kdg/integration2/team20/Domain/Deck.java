@@ -9,9 +9,6 @@ public class Deck {
     Card[] humanHand;
     Card[] aiHand;
     Card[] boardHand;
-    int[] aiValues;
-    int[] humanValues;
-    int[] boardValues;
     int roundCounter = 0;
 
 
@@ -55,35 +52,14 @@ public class Deck {
         humanHand = dealPlay(shuffledDeck,10);
         aiHand = dealPlay(shuffledDeck, 10);
         boardHand = dealPlay(shuffledDeck, 4);
+        Arrays.sort(humanHand);
+        Arrays.sort(aiHand);
     }
 
-
-
-//instead of int card, work with CARD.value and it'll return a
-    public void convertHands(){
-        humanValues = new int[humanHand.length];
-        for (int i = 0; i < humanHand.length; i++) {
-            humanValues[i] = humanHand[i].getValue();
-            Arrays.sort(humanValues);
-        }
-        aiValues = new int[aiHand.length];
-        for (int i = 0; i < aiHand.length; i++) {
-            aiValues[i] = aiHand[i].getValue();
-            Arrays.sort(aiValues);
-        }
-        boardValues = new int[boardHand.length];
-        for (int i = 0; i < boardHand.length; i++) {
-            boardValues[i] = boardHand[i].getValue();
-        }
-    }
 
     public void startRound() {
         initialiseHand();
-        convertHands();
         roundCounter++;
     }
 
-    public void test() {
-        System.out.println(boardValues[0]);
-    }
 }

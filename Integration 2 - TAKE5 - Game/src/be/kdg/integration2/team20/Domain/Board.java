@@ -9,20 +9,21 @@ public class Board {
 
     Human human = new Human("Human");
     AI ai = new AI("ai");
+    Card card;
 
     public HashMap<String, Integer> createBoard() {
         board = new HashMap<>();
         for (int row = 1; row <= 4; row++) {
             for (int col = 1; col <= 6; col++) {
                 String key = "row" + row + "col" + col;
-                board.put(key, 0);
+                board.put(key, card.getValue());
             }
         }
         return board;
     }
 
     public void startRound(Deck deck){
-        board.put("row1col1", deck.boardValues[0]);
+        board.put("row1col1", deck.boardHand[0]);
         board.put("row2col1",deck.boardValues[1]);
         board.put("row3col1",deck.boardValues[2]);
         board.put("row4col1",deck.boardValues[3]);
@@ -44,10 +45,10 @@ public class Board {
                 }
             }
             if (rowFilled) {
-                int[] extracted = new int[5];   //what is exactly the extracted?
+                Card[] extracted = new Card[5];   //what is exactly the extracted?
                 for (int j = 1; j <= 5; j++) {
                     String key = "row" + i + "col" + j;
-                    extracted[j-1] = board.get(key);
+                    extracted[j-1] = Card.withValue(board.get(key));
                     board.remove(key);
                 }
                 int temp = board.get("row" + i + "col6");
@@ -61,10 +62,10 @@ public class Board {
                 String playerType = player.getType();
                 for (int c = 0; c<5; c++){
                     if (playerType.equals("human")){
-                        int bull = human.getPointValue(extracted[c]);
+                        int bull = Card.getPointValue(extracted[c]);
                         int totalBull =+ bull;
                     } else if (playerType.equals("ai")){
-                        int bull = ai.getPointValue(extracted[c]);
+                        int bull = Card.getPointValue(extracted[c]);
                         int totalBull =+ bull;
                     }
                 }

@@ -11,8 +11,8 @@ public class Controller {
         board.createBoard();
         human.askName();
         mainDeck.startRound();
-        human.playCard(0);
-        human.getPointValue(human.playedCard);
+        human.playCard();
+        Card.getPointValue(human.playedCard);
         board.startRound(mainDeck);
         mainDeck.test();
         board.test();

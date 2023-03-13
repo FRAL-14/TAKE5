@@ -16,8 +16,19 @@ public class AI extends Player{
     }
 
 
-    public Card playCard(int index) {
+    public Card playCard() {
         playHand = deck.aiHand;
+
+        // Print out the current hand
+        System.out.println("Your current hand:");
+        for (int i = 0; i < playHand.length; i++) {
+            System.out.printf("%d: %s\n", i, playHand[i]);
+        }
+
+        // Prompt the user to enter the index of the card they want to play
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the index of the card you want to play: ");
+        int index = scanner.nextInt();
 
         if (index < 0 || index >= playHand.length || playHand[index] == null) {
             // Index is out of bounds or the hand array is empty at the given index

@@ -7,7 +7,7 @@ public abstract class Player {
     private String name;
 
 
-    public abstract Card playCard(int index);
+    public abstract Card playCard();
     public abstract void showHand(Deck deck);
 
     public Player(String name) {

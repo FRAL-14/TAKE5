@@ -9,21 +9,15 @@
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/AI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/LeaderBoard.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Player.java" afterDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
-    <list id="cc22a74d-e171-4d2c-966e-048833f67f8e" name="Changes by amal" comment="">
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Player.java" afterDir="false" />
-    </list>
+    <list id="cc22a74d-e171-4d2c-966e-048833f67f8e" name="Changes by amal" comment="" />
     <list id="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" name="Changes by laisa" comment="">
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Deck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Card.java" afterDir="false" />
     </list>
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,56 +40,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Deck.java">
-      <ranges>
-        <range start1="61" end1="62" start2="61" end2="62" changelist="cc22a74d-e171-4d2c-966e-048833f67f8e" />
-        <range start1="79" end1="82" start2="79" end2="79" changelist="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" />
-        <range start1="88" end1="93" start2="85" end2="88" changelist="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" />
-        <range start1="94" end1="95" start2="89" end2="89" changelist="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Player.java">
-      <ranges>
-        <range start1="4" end1="7" start2="4" end2="6" changelist="cc22a74d-e171-4d2c-966e-048833f67f8e" />
-        <range start1="10" end1="11" start2="9" end2="10" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="17" end1="33" start2="16" end2="16" changelist="cc22a74d-e171-4d2c-966e-048833f67f8e" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Controller.java">
-      <ranges>
-        <range start1="6" end1="8" start2="6" end2="8" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="11" end1="12" start2="11" end2="12" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="13" end1="15" start2="13" end2="15" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="18" end1="24" start2="18" end2="20" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="25" end1="26" start2="21" end2="21" changelist="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" />
-        <range start1="27" end1="28" start2="22" end2="22" changelist="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java">
-      <ranges>
-        <range start1="12" end1="13" start2="12" end2="12" changelist="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" />
-        <range start1="30" end1="31" start2="29" end2="29" changelist="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" />
-        <range start1="37" end1="38" start2="35" end2="35" changelist="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" />
-        <range start1="49" end1="50" start2="46" end2="47" changelist="cc22a74d-e171-4d2c-966e-048833f67f8e" />
-        <range start1="77" end1="77" start2="74" end2="77" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="78" end1="78" start2="78" end2="91" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="79" end1="80" start2="92" end2="94" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="83" end1="85" start2="97" end2="97" changelist="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" />
-        <range start1="86" end1="87" start2="98" end2="98" changelist="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Human.java">
-      <ranges>
-        <range start1="25" end1="25" start2="25" end2="33" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="26" end1="37" start2="34" end2="40" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="38" end1="48" start2="41" end2="42" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="49" end1="52" start2="43" end2="46" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="54" end1="55" start2="48" end2="48" changelist="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" />
-        <range start1="59" end1="60" start2="52" end2="52" changelist="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" />
-      </ranges>
-    </file>
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -117,7 +61,7 @@
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "jdk.selected.JAVA_MODULE": "17 (2)",
-    "last_opened_file_path": "/Users/macbookpronathan/Desktop/KDG/Git/S2-20/Integration 2 - TAKE5 - Game",
+    "last_opened_file_path": "/Users/macbookpronathan/S2-20/Integration 2 - TAKE5 - Game",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -136,6 +80,9 @@
       <recent name="$PROJECT_DIR$/src/be/kdg/integration2/team20" />
       <recent name="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain" />
       <recent name="$PROJECT_DIR$/src" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="be.kdg.integration2.team20.Domain" />
     </key>
   </component>
   <component name="RunManager">
@@ -188,6 +135,7 @@
       <workItem from="1678287697914" duration="11000" />
       <workItem from="1678432790174" duration="77000" />
       <workItem from="1678434114502" duration="10000" />
+      <workItem from="1678716966205" duration="6029000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
