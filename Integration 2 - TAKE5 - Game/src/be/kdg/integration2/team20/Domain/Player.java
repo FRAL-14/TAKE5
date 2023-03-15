@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public abstract class Player {
 
-    Card[] playHand;
     private String name;
 
 
-    public abstract Card playCard();
+
+    //public abstract Card playCard();
     public abstract void showHand(Deck deck);
 
     public void askName(){

@@ -1,94 +1,192 @@
 package be.kdg.integration2.team20.Domain;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.*;
 
 public class Board {
     HashMap<String, Integer> board;
-    Card card;
+    Card[] firstFiveCards;
+    String[] lastFilledCells;
+    int playedCard;
+    int col;
+    int row;
+    int nextCol;
+    String playedKey;
 
     public HashMap<String, Integer> createBoard() {
         board = new HashMap<>();
         for (int row = 1; row <= 4; row++) {
             for (int col = 1; col <= 6; col++) {
                 String key = "row" + row + "col" + col;
-                board.put(key, card.getValue());
+                board.put(key, null);
             }
         }
         return board;
     }
 
-    public void startRound(Deck deck){
+    public void startRound(Deck deck) {
         board.put("row1col1", deck.boardHand[0].getValue());
-        board.put("row2col1",deck.boardHand[1].getValue());
-        board.put("row3col1",deck.boardHand[2].getValue());
-        board.put("row4col1",deck.boardHand[3].getValue());
+        board.put("row2col1", deck.boardHand[1].getValue());
+        board.put("row3col1", deck.boardHand[2].getValue());
+        board.put("row4col1", deck.boardHand[3].getValue());
     }
 
-        public boolean checkSquare ( int row, int col, HashSet<String > board){
-            String square = row + "," + col;
-            return !board.contains(square); // returns true if square is not in the board       //shouldn't it return true or false on whether the square is filled (has a card) or is empty? -amal
-        }
 
-    public void checkRow(Map<String, Integer> board, Player player) {
-        for (int i = 1; i <= 4; i++) {
+    public void checkBoard() {
+        for (int row = 1; row <= 4; row++) {
             boolean rowFilled = true;
-            for (int j = 1; j <= 6; j++) {
-                String key = "row" + i + "col" + j;
+            ArrayList<Card> rowCards = new ArrayList<Card>();
+            for (int col = 1; col <= 6; col++) {
+                String key = "row" + row + "col" + col;
                 if (!board.containsKey(key) || board.get(key) == null) {
                     rowFilled = false;
                     break;
+                } else {
+                    rowCards.add(Card.withValue(board.get(key)));
                 }
             }
             if (rowFilled) {
-                Card[] extracted = new Card[5];   //what is exactly the extracted?
-                for (int j = 1; j <= 5; j++) {
-                    String key = "row" + i + "col" + j;
-                    extracted[j-1] = Card.withValue(board.get(key));
-                    board.remove(key);
+                firstFiveCards = new Card[5];
+                for (int i = 0; i < 5; i++) {
+                    firstFiveCards[i] = rowCards.get(i);
                 }
-                int temp = board.get("row" + i + "col6");
-                board.remove("row" + i + "col6");
-                for (int j = 6; j > 1; j--) {
-                    board.put("row" + i + "col" + j, board.get("row" + i + "col" + (j-1)));
-                    board.remove("row" + i + "col" + (j-1));
+                Card sixthCard = rowCards.get(5);
+                for (int i = 0; i < 5; i++) {
+                    String key = "row" + row + "col" + (i + 1);
+                    board.put(key, null);
                 }
-                board.put("row" + i + "col1", temp);
-                // Do something with extracted array
-                String playerType = player.getType();
-                for (int c = 0; c<5; c++){
-                    if (playerType.equals("human")){
-                        int bull = card.getPointValue(extracted[c]);
-                        int totalBull =+ bull;
-                    } else if (playerType.equals("ai")){
-                        int bull = card.getPointValue(extracted[c]);
-                        int totalBull =+ bull;
-                    }
+                board.put("row" + row + "col1", sixthCard.getValue());
+                for (int col = 2; col <= 6; col++) {
+                    String key = "row" + row + "col" + col;
+                    board.put(key, null);
                 }
             }
         }
     }
 
-    public HashMap<String, String> getLastSquaresWithValues(HashMap<String, String> map) {
-        HashMap<String, String> lastSquares = new HashMap<>();
-        int numCols = 6;
-
-        for (int i = 1; i <= 4; i++) { // iterate through each row
-            String lastSquareWithValue = null;
-            for (int j = numCols; j >= 1; j--) { // iterate through each column in the row
-                String key = "row" + i + "col" + j;
-                if (map.containsKey(key)) {
-                    lastSquareWithValue = key;
+    public String[] getLastFilledCells() {
+        lastFilledCells = new String[4];
+        for (int row = 0; row < 4; row++) {
+            int col = 6;
+            while (col > 0) {
+                String key = "row" + (row+1) + "col" + col;
+                if (board.containsKey(key) && board.get(key) != null) {
+                    lastFilledCells[row] = key;
                     break;
                 }
+                col--;
             }
-            if (lastSquareWithValue != null) {
-                lastSquares.put("row" + i, lastSquareWithValue);
+        }
+        return lastFilledCells;
+    }
+
+    public String findClosestNumber() {
+        int closestNumber = Integer.MAX_VALUE;
+        int smallestDifference = Integer.MAX_VALUE;
+        String closestKey = new String();
+
+        if (board.get(lastFilledCells[0]) < playedCard) {
+            int difference = playedCard - board.get(lastFilledCells[0]);
+            if (difference < smallestDifference) {
+                smallestDifference = difference;
+                closestNumber = board.get(lastFilledCells[0]);
+                closestKey = lastFilledCells[0];
             }
         }
 
-        return lastSquares;
+        if (board.get(lastFilledCells[1]) < playedCard) {
+            int difference = playedCard - board.get(lastFilledCells[1]);
+            if (difference < smallestDifference) {
+                smallestDifference = difference;
+                closestNumber = board.get(lastFilledCells[1]);
+                closestKey = lastFilledCells[1];
+            }
+        }
+
+        if (board.get(lastFilledCells[2]) < playedCard) {
+            int difference = playedCard - board.get(lastFilledCells[2]);
+            if (difference < smallestDifference) {
+                smallestDifference = difference;
+                closestNumber = board.get(lastFilledCells[2]);
+                closestKey = lastFilledCells[2];
+            }
+        }
+
+        if (board.get(lastFilledCells[3]) < playedCard) {
+            int difference = playedCard - board.get(lastFilledCells[3]);
+            if (difference < smallestDifference) {
+                smallestDifference = difference;
+                closestNumber = board.get(lastFilledCells[3]);
+                closestKey = lastFilledCells[3];
+            }
+        }
+
+        return closestKey;
     }
 
-}
+
+        public void test () {
+        System.out.println(Arrays.toString(lastFilledCells));
+        System.out.println(board.get(lastFilledCells[0]));
+        }
+
+
+
+    public void getKeyInfo(){
+        String key = findClosestNumber();
+        row = Integer.parseInt(key.substring(3,4)); // extracts the "2" from the key string and parses it as an integer
+        col = Integer.parseInt(key.substring(7)); // extracts the "4" from the key string and parses it as an integer
+    }
+
+    public void playKey(){
+        nextCol = col + 1;
+    }
+
+    public Card playCard(Deck deck) {
+        Card[] playHand = deck.humanHand;
+//        if (player.equals("human")) {
+//            playHand = deck.humanHand;
+//        } else if (player.equals("ai")){
+//            playHand = deck.aiHand;
+//        }
+        // Print out the current hand
+        System.out.println("Your current hand: " + Arrays.toString(playHand));
+
+        // Prompt the user to enter the index of the card they want to play
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the index of the card you want to play starting from 0 to 9: ");
+        int index = scanner.nextInt();
+
+        if (index < 0 || index >= playHand.length || playHand[index] == null) {
+            // Index is out of bounds or the hand array is empty at the given index
+            System.out.println("Failed to play card. Invalid index or hand is empty.");
+            return null;
+        }
+
+        // Get the card number at the given index
+        playedCard = playHand[index].getValue();
+
+        // Remove the card from the hand array
+        for (int i = index; i < playHand.length - 1; i++) {
+            playHand[i] = playHand[i + 1];
+        }
+        playHand[playHand.length - 1] = null;
+
+        // Print success message and return the card object
+        System.out.printf("Card played successfully! You played card number " + playedCard + " in cell " + playedKey);
+
+        getKeyInfo();
+        playKey();
+        playedKey = "row" + row + "col" + nextCol;
+        board.put(playedKey, playedCard);
+        return playHand[index];
+
+    }
+
+    public void eureka(Deck deck){
+        System.out.println(Arrays.toString(deck.boardHand));
+        System.out.println(findClosestNumber());
+        System.out.println(playedKey);
+        System.out.println(board.get(playedKey));
+    }
+
+    }
