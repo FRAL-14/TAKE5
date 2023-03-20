@@ -4,20 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="tweaking of game logic - added methods to determine closest and playable card on board">
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="bug fixes in game logic">
+      <change afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ConsoleController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5ConsoleApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/AI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Leaderboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2023,_10_14_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_13_03_2023__10_14__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/AI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Human.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Integration 2 - TAKE5 - Game.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Take5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/AI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Card.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Deck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/GameSession.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Human.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Leaderboard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/AI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/GameSession.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Human.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Leaderboard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Human.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Game.java" beforeDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
-    <list id="cc22a74d-e171-4d2c-966e-048833f67f8e" name="Changes by amal" comment="" />
-    <list id="fad78cd0-9567-4d44-9f30-6b4a10b1aa97" name="Changes by laisa" comment="">
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Card.java" afterDir="false" />
-    </list>
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +47,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaFXApplication" />
         <option value="Class" />
+        <option value="module-info" />
       </list>
     </option>
   </component>
@@ -66,7 +88,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.119617224&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
@@ -83,11 +105,27 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="be.kdg.integration2.team20.Domain" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="be.kdg.integration2.take5.ui" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Game">
+    <configuration name="ConsoleController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.take5.ConsoleController" />
+      <module name="Take5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="be.kdg.integration2.take5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Game" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.team20.Game" />
-      <module name="Integration 2 - TAKE5 - Game" />
+      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.take5.Take5ConsoleApplication" />
+      <module name="Take5" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="be.kdg.integration2.team20.gametake5.*" />
@@ -98,9 +136,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.game.Main" />
+      <module name="Take5" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="be.kdg.integration2.take5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Game" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ConsoleController" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +194,9 @@
       <workItem from="1678969067304" duration="4774000" />
       <workItem from="1679036155337" duration="603000" />
       <workItem from="1679039436267" duration="181000" />
-      <workItem from="1679056454673" duration="4285000" />
+      <workItem from="1679056454673" duration="4952000" />
+      <workItem from="1679300878050" duration="9064000" />
+      <workItem from="1679313073663" duration="4510000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -199,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678905065088</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="bug fixes in game logic">
+      <created>1679300391353</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679300391353</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -224,7 +286,8 @@
     <MESSAGE value="fixed all errors + all methods now work with Card arrays" />
     <MESSAGE value="minor changes like duplicate code or unused variables" />
     <MESSAGE value="tweaking of game logic - added methods to determine closest and playable card on board" />
-    <option name="LAST_COMMIT_MESSAGE" value="tweaking of game logic - added methods to determine closest and playable card on board" />
+    <MESSAGE value="bug fixes in game logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixes in game logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

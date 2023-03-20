@@ -1,15 +1,10 @@
-package be.kdg.integration2.team20.Domain;
+package be.kdg.integration2.take5.model;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
-public abstract class Player {
-
+public class Human extends Player{
     private String name;
-
-
-
-    //public abstract Card playCard();
-    public abstract void showHand(Deck deck);
 
     public void askName(){
         Scanner scan = new Scanner(System.in);
@@ -18,9 +13,12 @@ public abstract class Player {
         System.out.println("Welcome " + name);
     }
 
-    public Player(String name) {
+    public void showHand(Deck deck){
+        System.out.println(Arrays.toString(deck.humanHand));
+    }
+
+    public Human(String name) {
         this.name = name;
     }
-    public abstract String getType();
 
 }

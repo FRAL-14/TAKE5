@@ -1,4 +1,4 @@
-package be.kdg.integration2.team20.Domain;
+package be.kdg.integration2.take5.model;
 
 public enum Card {
     CARD1(1), CARD2(2), CARD3(3), CARD4(4), CARD5(5),
@@ -25,36 +25,36 @@ public enum Card {
 
     private final int value;
 
-    Card(int value){
+    Card(int value) {
         this.value = value;
     }
-
+    
     public int getValue() {
         return value;
     }
 
     @Override
     public String toString() {
-        return  "" + value;
+        return "" + value;
     }
 
-    public static Card withValue(int index){
-        return Card.values()[index-1];
-        //check that index between 1 adn length
-        }
+    public static Card withValue(int index) {
+        return Card.values()[index - 1];
+        //check that index between 1 and length
+    }
 
-    //inside Card
-    public int getPointValue(Card card){
-        if (value % 10 == 0) {
+    public static int getPointValue(Card card) {
+        if (card.getValue() % 10 == 0) {
             return 3;
-        } else if (value % 55 == 0){
+        } else if (card.getValue() % 55 == 0) {
             return 7;
-        } else if (value % 5 == 0) {
-            return  2;
-        } else if (value % 11 == 0) {
-            return  5;
+        } else if (card.getValue() % 5 == 0) {
+            return 2;
+        } else if (card.getValue() % 11 == 0) {
+            return 5;
         } else {
             return 1;
         }
     } //throw exception if number entered
 }
+

@@ -1,9 +1,10 @@
-package be.kdg.integration2.team20.Domain;
+package be.kdg.integration2.take5.model;
 
 import java.util.*;
 
 public class Board {
-    HashMap<String, Integer> board;
+    HashMap<String, Integer> board; //refactor to cell/stack, u cant have a board inside a board
+    Card[][] cardsOnBoard;
     Card[] firstFiveCards;
     String[] lastFilledCells;
     int playedCard;
@@ -11,6 +12,7 @@ public class Board {
     int row;
     int nextCol;
     String playedKey;
+    int[] cardValues = new int[4];
 
     public HashMap<String, Integer> createBoard() {
         board = new HashMap<>();
@@ -18,12 +20,14 @@ public class Board {
             for (int col = 1; col <= 6; col++) {
                 String key = "row" + row + "col" + col;
                 board.put(key, null);
+
             }
         }
         return board;
     }
 
-    public void startRound(Deck deck) {
+    //TODO: startRound() doesn't belong in the Board class
+    public void initializeRow(Deck deck) {
         board.put("row1col1", deck.boardHand[0].getValue());
         board.put("row2col1", deck.boardHand[1].getValue());
         board.put("row3col1", deck.boardHand[2].getValue());
@@ -31,7 +35,7 @@ public class Board {
     }
 
 
-    public void checkBoard() {
+    public void checkBoard(Player player) {
         for (int row = 1; row <= 4; row++) {
             boolean rowFilled = true;
             ArrayList<Card> rowCards = new ArrayList<>();
@@ -59,6 +63,17 @@ public class Board {
                     String key = "row" + row + "col" + col;
                     board.put(key, null);
                 }
+                if (player instanceof Human){
+                    for (int i = 0; i < 5; i++){
+                        player.humanBullTotal = player.humanBullTotal + Card.getPointValue(firstFiveCards[i]);
+                    }
+                    System.out.println(player.humanBullTotal);
+                } else if (player instanceof AI){
+                    for (int i = 0; i < 5; i++){
+                        player.aiBullTotal = player.aiBullTotal + Card.getPointValue(firstFiveCards[i]);
+                    }
+                    System.out.println(player.aiBullTotal);
+                }
             }
         }
     }
@@ -76,9 +91,13 @@ public class Board {
                 col--;
             }
         }
+        for (int i = 0; i < 4; i++) {
+            cardValues[i] = board.get(lastFilledCells[i]);
+        }
         return lastFilledCells;
     }
 
+    //TODO: not sure but maybe this can be written in Card instead of Board?
     public String findClosestNumber() {
         Scanner scan = new Scanner(System.in);
         int closestNumber = Integer.MAX_VALUE;
@@ -135,13 +154,10 @@ public class Board {
         return closestKey;
     }
 
-
         public void test () {
         System.out.println(Arrays.toString(lastFilledCells));
         System.out.println(board.get(lastFilledCells[0]));
         }
-
-
 
     public void getKeyInfo(){
         String key = findClosestNumber();
@@ -153,14 +169,16 @@ public class Board {
         nextCol = col + 1;
     }
 
-    public Card playCard(Deck deck) {
-//        Card[] playHand = new Card[0];
-        Card[] playHand = deck.humanHand;
-//        if (player instanceof Human) {
-//            playHand = deck.humanHand;
-//        } else if (player instanceof AI){
-//            playHand = deck.aiHand;
-//        }
+    //TODO: this should be written in the Player class, and then you can call it in the Board class (!!)
+    public Card playCard(Deck deck, Player player) {
+        Card[] playHand;// = deck.humanHand;
+        if (player instanceof Human) {
+            playHand = deck.humanHand;
+        } else if (player instanceof AI){
+            playHand = deck.aiHand;
+        } else {
+            throw new IllegalArgumentException("Invalid player type");
+        }
         // Print out the current hand
         System.out.println("Your current hand: " + Arrays.toString(playHand));
 
@@ -196,5 +214,4 @@ public class Board {
         return playHand[index];
 
     }
-
-    }
+}

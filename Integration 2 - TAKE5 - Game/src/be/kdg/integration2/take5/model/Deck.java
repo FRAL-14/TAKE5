@@ -1,4 +1,4 @@
-package be.kdg.integration2.team20.Domain;
+package be.kdg.integration2.take5.model;
 
 
 import java.util.Arrays;
@@ -56,7 +56,7 @@ public class Deck {
         Arrays.sort(aiHand);
     }
 
-
+//TODO: shouldnt startRound() maybe be in for example Controller/GameSession
     public void startRound() {
         initialiseHand();
         roundCounter++;
