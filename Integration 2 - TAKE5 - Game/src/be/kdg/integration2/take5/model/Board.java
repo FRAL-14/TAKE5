@@ -4,9 +4,12 @@ import java.util.*;
 
 public class Board {
     HashMap<String, Integer> board; //refactor to cell/stack, u cant have a board inside a board
-    Card[][] cardsOnBoard;
+    LinkedList<Card> row1;
+    LinkedList<Card> row2;
+    LinkedList<Card> row3;
+    LinkedList<Card> row4;
     Card[] firstFiveCards;
-    String[] lastFilledCells;
+    LinkedList<Card> lastFilledCells;
     int playedCard;
     int col;
     int row;
@@ -26,121 +29,183 @@ public class Board {
 //        return board;
 //    }
 
-    //TODO: startRound() doesn't belong in the Board class
     public void initializeRow(Deck deck) {
-        board.put("row1col1", deck.boardHand[0].getValue());
-        board.put("row2col1", deck.boardHand[1].getValue());
-        board.put("row3col1", deck.boardHand[2].getValue());
-        board.put("row4col1", deck.boardHand[3].getValue());
+        row1.add(0,deck.boardHand[0]);
+        row2.add(0,deck.boardHand[1]);
+        row3.add(0,deck.boardHand[2]);
+        row4.add(0,deck.boardHand[4]);
     }
 
 
-    public void checkBoard(Player player) {
-        for (int row = 1; row <= 4; row++) {
-            boolean rowFilled = true;
-            ArrayList<Card> rowCards = new ArrayList<>();
-            for (int col = 1; col <= 6; col++) {
-                String key = "row" + row + "col" + col;
-                if (!board.containsKey(key) || board.get(key) == null) {
-                    rowFilled = false;
-                    break;
-                } else {
-                    rowCards.add(Card.withValue(board.get(key)));
-                }
+//    public void checkBoard(Player player) {
+//        for (int row = 1; row <= 4; row++) {
+//            boolean rowFilled = true;
+//            ArrayList<Card> rowCards = new ArrayList<>();
+//            for (int col = 1; col <= 6; col++) {
+//                String key = "row" + row + "col" + col;
+//                if (!board.containsKey(key) || board.get(key) == null) {
+//                    rowFilled = false;
+//                    break;
+//                } else {
+//                    rowCards.add(Card.withValue(board.get(key)));
+//                }
+//            }
+//            if (rowFilled) {
+//                firstFiveCards = new Card[5];
+//                for (int i = 0; i < 5; i++) {
+//                    firstFiveCards[i] = rowCards.get(i);
+//                }
+//                Card sixthCard = rowCards.get(5);
+//                for (int i = 0; i < 5; i++) {
+//                    String key = "row" + row + "col" + (i + 1);
+//                    board.put(key, null);
+//                }
+//                board.put("row" + row + "col1", sixthCard.getValue());
+//                for (int col = 2; col <= 6; col++) {
+//                    String key = "row" + row + "col" + col;
+//                    board.put(key, null);
+//                }
+//                if (player instanceof Human){
+//                    for (int i = 0; i < 5; i++){
+//                        player.humanBullTotal = player.humanBullTotal + Card.getPointValue(firstFiveCards[i]);
+//                    }
+//                    System.out.println(player.humanBullTotal);
+//                } else if (player instanceof AI){
+//                    for (int i = 0; i < 5; i++){
+//                        player.aiBullTotal = player.aiBullTotal + Card.getPointValue(firstFiveCards[i]);
+//                    }
+//                    System.out.println(player.aiBullTotal);
+//                }
+//            }
+//        }
+//    }
+
+    public void checkLists(Player player) {
+        boolean listFilled = false;
+        LinkedList<Card> removeCards = new LinkedList<>();
+        if (row1.get(5) == row1.getLast()) {
+            for (int i = 0; i < 6; i++) {
+                removeCards.add(i, row1.get(i));
+                listFilled = true;
             }
-            if (rowFilled) {
-                firstFiveCards = new Card[5];
+            for (int j = 0; j < 5; j++) {
+                row1.remove(j);
+            }
+        } else if (row2.get(5) == row2.getLast()) {
+            for (int i = 0; i < 6; i++) {
+                removeCards.add(i, row2.get(i));
+                listFilled = true;
+            }
+            for (int j = 0; j < 5; j++) {
+                row2.remove(j);
+            }
+        } else if (row3.get(5) == row3.getLast()) {
+            for (int i = 0; i < 6; i++) {
+                removeCards.add(i, row3.get(i));
+                listFilled = true;
+            }
+            for (int j = 0; j < 5; j++) {
+                row3.remove(j);
+            }
+        } else if (row4.get(5) == row4.getLast()) {
+            for (int i = 0; i < 6; i++) {
+                removeCards.add(i, row4.get(i));
+                listFilled = true;
+            }
+            for (int j = 0; j < 5; j++) {
+                row4.remove(j);
+            }
+        } else {
+            System.out.println();
+        }
+        if (listFilled) {
+            firstFiveCards = new Card[5];
+            for (int i = 0; i < 5; i++) {
+                firstFiveCards[i] = removeCards.get(i);
+            }
+            if (player instanceof Human) {
                 for (int i = 0; i < 5; i++) {
-                    firstFiveCards[i] = rowCards.get(i);
+                    player.humanBullTotal = player.humanBullTotal + Card.getPointValue(firstFiveCards[i]);
                 }
-                Card sixthCard = rowCards.get(5);
+                System.out.println(player.humanBullTotal);
+            } else if (player instanceof AI) {
                 for (int i = 0; i < 5; i++) {
-                    String key = "row" + row + "col" + (i + 1);
-                    board.put(key, null);
+                    player.aiBullTotal = player.aiBullTotal + Card.getPointValue(firstFiveCards[i]);
                 }
-                board.put("row" + row + "col1", sixthCard.getValue());
-                for (int col = 2; col <= 6; col++) {
-                    String key = "row" + row + "col" + col;
-                    board.put(key, null);
-                }
-                if (player instanceof Human){
-                    for (int i = 0; i < 5; i++){
-                        player.humanBullTotal = player.humanBullTotal + Card.getPointValue(firstFiveCards[i]);
-                    }
-                    System.out.println(player.humanBullTotal);
-                } else if (player instanceof AI){
-                    for (int i = 0; i < 5; i++){
-                        player.aiBullTotal = player.aiBullTotal + Card.getPointValue(firstFiveCards[i]);
-                    }
-                    System.out.println(player.aiBullTotal);
-                }
+                System.out.println(player.aiBullTotal);
             }
         }
     }
 
-    public String[] getLastFilledCells() {
-        lastFilledCells = new String[4];
-        for (int row = 0; row < 4; row++) {
-            int col = 6;
-            while (col > 0) {
-                String key = "row" + (row+1) + "col" + col;
-                if (board.containsKey(key) && board.get(key) != null) {
-                    lastFilledCells[row] = key;
-                    break;
-                }
-                col--;
-            }
-        }
-        for (int i = 0; i < 4; i++) {
-            cardValues[i] = board.get(lastFilledCells[i]);
-        }
+
+//    public String[] getLastFilledCellsX() {
+//        lastFilledCellsX = new String[4];
+//        for (int row = 0; row < 4; row++) {
+//            int col = 6;
+//            while (col > 0) {
+//                String key = "row" + (row+1) + "col" + col;
+//                if (board.containsKey(key) && board.get(key) != null) {
+//                    lastFilledCells[Xrow] = key;
+//                    break;
+//                }
+//                col--;
+//            }
+//        }
+//        for (int i = 0; i < 4; i++) {
+//            cardValues[i] = board.get(lastFilledCells[i]);
+//        }
+//        return lastFilledCellsX;
+//    }
+
+    public LinkedList<Card> getLastFilledCells(){
+        lastFilledCells = new LinkedList<>();
+        lastFilledCells.add(0,row1.getLast());
+        lastFilledCells.add(0,row2.getLast());
+        lastFilledCells.add(0,row3.getLast());
+        lastFilledCells.add(0,row4.getLast());
         return lastFilledCells;
     }
 
     //TODO: not sure but maybe this can be written in Card instead of Board?
-    public String findClosestNumber() {
+    public int findClosestNumber() {
         Scanner scan = new Scanner(System.in);
         int closestNumber = Integer.MAX_VALUE;
         int smallestDifference = Integer.MAX_VALUE;
         String closestKey = new String();
         boolean isTooLow = true;
 
-        if (board.get(lastFilledCells[0]) < playedCard) {
-                int difference = playedCard - board.get(lastFilledCells[0]);
+        if (row1.getLast().getValue() < playedCard) {
+                int difference = playedCard - row1.getLast().getValue();
                 if (difference < smallestDifference) {
                     smallestDifference = difference;
-                    closestNumber = board.get(lastFilledCells[0]);
-                    closestKey = lastFilledCells[0];
+                    closestNumber = row1.getLast().getValue();
                     isTooLow = false;
                 }
         }
 
-        if (board.get(lastFilledCells[1]) < playedCard) {
-            int difference = playedCard - board.get(lastFilledCells[1]);
+        if (row2.getLast().getValue() < playedCard) {
+            int difference = playedCard - row2.getLast().getValue();
             if (difference < smallestDifference) {
                 smallestDifference = difference;
-                closestNumber = board.get(lastFilledCells[1]);
-                closestKey = lastFilledCells[1];
+                closestNumber = row2.getLast().getValue();
                 isTooLow = false;
             }
         }
 
-        if (board.get(lastFilledCells[2]) < playedCard) {
-            int difference = playedCard - board.get(lastFilledCells[2]);
+        if (row3.getLast().getValue() < playedCard) {
+            int difference = playedCard - row3.getLast().getValue();
             if (difference < smallestDifference) {
                 smallestDifference = difference;
-                closestNumber = board.get(lastFilledCells[2]);
-                closestKey = lastFilledCells[2];
+                closestNumber = row3.getLast().getValue();
                 isTooLow = false;
             }
         }
 
-        if (board.get(lastFilledCells[3]) < playedCard) {
-            int difference = playedCard - board.get(lastFilledCells[3]);
+        if (row4.getLast().getValue() < playedCard) {
+            int difference = playedCard - row4.getLast().getValue();
             if (difference < smallestDifference) {
                 smallestDifference = difference;
-                closestNumber = board.get(lastFilledCells[3]);
-                closestKey = lastFilledCells[3];
+                closestNumber = row4.getLast().getValue();
                 isTooLow = false;
             }
         }
@@ -151,19 +216,16 @@ public class Board {
 //            System.out.println();
 //        }
 
-        return closestKey;
+        return closestNumber;
     }
-
-        public void test () {
-        System.out.println(Arrays.toString(lastFilledCells));
-        System.out.println(board.get(lastFilledCells[0]));
-        }
 
     public void getKeyInfo(){
         String key = findClosestNumber();
         row = Integer.parseInt(key.substring(3,4)); // extracts the "2" from the key string and parses it as an integer
         col = Integer.parseInt(key.substring(7)); // extracts the "4" from the key string and parses it as an integer
     }
+
+
 
     public void playKey(){
         nextCol = col + 1;
