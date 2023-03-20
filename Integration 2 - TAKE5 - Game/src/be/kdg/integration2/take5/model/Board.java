@@ -14,17 +14,17 @@ public class Board {
     String playedKey;
     int[] cardValues = new int[4];
 
-    public HashMap<String, Integer> createBoard() {
-        board = new HashMap<>();
-        for (int row = 1; row <= 4; row++) {
-            for (int col = 1; col <= 6; col++) {
-                String key = "row" + row + "col" + col;
-                board.put(key, null);
-
-            }
-        }
-        return board;
-    }
+//    public HashMap<String, Integer> createBoard() {
+//        board = new HashMap<>();
+//        for (int row = 1; row <= 4; row++) {
+//            for (int col = 1; col <= 6; col++) {
+//                String key = "row" + row + "col" + col;
+//                board.put(key, null);
+//
+//            }
+//        }
+//        return board;
+//    }
 
     //TODO: startRound() doesn't belong in the Board class
     public void initializeRow(Deck deck) {

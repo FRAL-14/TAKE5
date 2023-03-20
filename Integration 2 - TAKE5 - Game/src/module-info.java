@@ -1,0 +1,5 @@
+open module Take5 {
+    requires javafx.controls;
+    requires javafx.media;
+    requires javafx.base;
+}
