@@ -34,7 +34,7 @@ public class Board {
     public void checkBoard() {
         for (int row = 1; row <= 4; row++) {
             boolean rowFilled = true;
-            ArrayList<Card> rowCards = new ArrayList<Card>();
+            ArrayList<Card> rowCards = new ArrayList<>();
             for (int col = 1; col <= 6; col++) {
                 String key = "row" + row + "col" + col;
                 if (!board.containsKey(key) || board.get(key) == null) {
@@ -80,17 +80,20 @@ public class Board {
     }
 
     public String findClosestNumber() {
+        Scanner scan = new Scanner(System.in);
         int closestNumber = Integer.MAX_VALUE;
         int smallestDifference = Integer.MAX_VALUE;
         String closestKey = new String();
+        boolean isTooLow = true;
 
         if (board.get(lastFilledCells[0]) < playedCard) {
-            int difference = playedCard - board.get(lastFilledCells[0]);
-            if (difference < smallestDifference) {
-                smallestDifference = difference;
-                closestNumber = board.get(lastFilledCells[0]);
-                closestKey = lastFilledCells[0];
-            }
+                int difference = playedCard - board.get(lastFilledCells[0]);
+                if (difference < smallestDifference) {
+                    smallestDifference = difference;
+                    closestNumber = board.get(lastFilledCells[0]);
+                    closestKey = lastFilledCells[0];
+                    isTooLow = false;
+                }
         }
 
         if (board.get(lastFilledCells[1]) < playedCard) {
@@ -99,6 +102,7 @@ public class Board {
                 smallestDifference = difference;
                 closestNumber = board.get(lastFilledCells[1]);
                 closestKey = lastFilledCells[1];
+                isTooLow = false;
             }
         }
 
@@ -108,6 +112,7 @@ public class Board {
                 smallestDifference = difference;
                 closestNumber = board.get(lastFilledCells[2]);
                 closestKey = lastFilledCells[2];
+                isTooLow = false;
             }
         }
 
@@ -117,8 +122,15 @@ public class Board {
                 smallestDifference = difference;
                 closestNumber = board.get(lastFilledCells[3]);
                 closestKey = lastFilledCells[3];
+                isTooLow = false;
             }
         }
+
+//        if (isTooLow = false){
+//            System.out.print("The card is too low to be played, choose a row to take away: ");
+//            int rowChosen = scan.nextInt();
+//            System.out.println();
+//        }
 
         return closestKey;
     }
@@ -142,10 +154,11 @@ public class Board {
     }
 
     public Card playCard(Deck deck) {
+//        Card[] playHand = new Card[0];
         Card[] playHand = deck.humanHand;
-//        if (player.equals("human")) {
+//        if (player instanceof Human) {
 //            playHand = deck.humanHand;
-//        } else if (player.equals("ai")){
+//        } else if (player instanceof AI){
 //            playHand = deck.aiHand;
 //        }
         // Print out the current hand
@@ -153,8 +166,10 @@ public class Board {
 
         // Prompt the user to enter the index of the card they want to play
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the index of the card you want to play starting from 0 to 9: ");
-        int index = scanner.nextInt();
+        System.out.print("Enter the index of the card you want to play starting from 1 to 10: ");
+        int index0 = scanner.nextInt();
+        int index = index0 - 1;
+
 
         if (index < 0 || index >= playHand.length || playHand[index] == null) {
             // Index is out of bounds or the hand array is empty at the given index
@@ -171,22 +186,15 @@ public class Board {
         }
         playHand[playHand.length - 1] = null;
 
-        // Print success message and return the card object
-        System.out.printf("Card played successfully! You played card number " + playedCard + " in cell " + playedKey);
-
         getKeyInfo();
         playKey();
         playedKey = "row" + row + "col" + nextCol;
         board.put(playedKey, playedCard);
+
+        // Print success message and return the card object
+        System.out.println("Card played successfully! You played card number " + playedCard + " in cell " + playedKey);
         return playHand[index];
 
-    }
-
-    public void eureka(Deck deck){
-        System.out.println(Arrays.toString(deck.boardHand));
-        System.out.println(findClosestNumber());
-        System.out.println(playedKey);
-        System.out.println(board.get(playedKey));
     }
 
     }

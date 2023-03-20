@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="minor changes like duplicate code or unused variables">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_03_2023,_13_12_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_03_2023__13_12__Changes_.xml" beforeDir="false" />
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="tweaking of game logic - added methods to determine closest and playable card on board">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/AI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Integration 2 - TAKE5 - Game/be/kdg/integration2/team20/Domain/Human.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/GameSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Human.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain/Player.java" afterDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="cc22a74d-e171-4d2c-966e-048833f67f8e" name="Changes by amal" comment="" />
@@ -140,7 +137,11 @@
       <workItem from="1678716966205" duration="6029000" />
       <workItem from="1678727538807" duration="863000" />
       <workItem from="1678818481310" duration="7279000" />
-      <workItem from="1678888507678" duration="13752000" />
+      <workItem from="1678888507678" duration="14150000" />
+      <workItem from="1678969067304" duration="4774000" />
+      <workItem from="1679036155337" duration="603000" />
+      <workItem from="1679039436267" duration="181000" />
+      <workItem from="1679056454673" duration="4285000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -184,7 +185,21 @@
       <option name="project" value="LOCAL" />
       <updated>1678728395321</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="tweaking of game logic - added methods to determine closest and playable card on board">
+      <created>1678905034995</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1678905034995</updated>
+    </task>
+    <task id="LOCAL-00008" summary="tweaking of game logic - added methods to determine closest and playable card on board">
+      <created>1678905065088</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1678905065088</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +223,8 @@
     <MESSAGE value="changes to play method and checkRow method (unfinished)" />
     <MESSAGE value="fixed all errors + all methods now work with Card arrays" />
     <MESSAGE value="minor changes like duplicate code or unused variables" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor changes like duplicate code or unused variables" />
+    <MESSAGE value="tweaking of game logic - added methods to determine closest and playable card on board" />
+    <option name="LAST_COMMIT_MESSAGE" value="tweaking of game logic - added methods to determine closest and playable card on board" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -216,6 +232,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.StringIndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>

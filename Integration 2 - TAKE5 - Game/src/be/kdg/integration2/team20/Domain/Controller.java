@@ -1,5 +1,7 @@
 package be.kdg.integration2.team20.Domain;
 
+import java.util.Arrays;
+
 public class Controller {
     Board board = new Board();
     Deck mainDeck = new Deck();
@@ -10,14 +12,13 @@ public class Controller {
         board.createBoard();
         mainDeck.startRound();
         board.startRound(mainDeck);
-        human.showHand(mainDeck);
-        ai.showHand(mainDeck);
-//        board.test();
-//        board.checkBoard();
         board.getLastFilledCells();
         board.findClosestNumber();
+        System.out.println(Arrays.toString(mainDeck.boardHand));
         board.playCard(mainDeck);
         board.checkBoard();
-        board.eureka(mainDeck);
+        board.getLastFilledCells();
+        board.playCard(mainDeck);
+
     }
 }
