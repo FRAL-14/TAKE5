@@ -3,19 +3,14 @@ package be.kdg.integration2.take5.model;
 import java.util.*;
 
 public class Board {
-    HashMap<String, Integer> board; //refactor to cell/stack, u cant have a board inside a board
-    LinkedList<Card> row1;
-    LinkedList<Card> row2;
-    LinkedList<Card> row3;
-    LinkedList<Card> row4;
-    Card[] firstFiveCards;
-    LinkedList<Card> lastFilledCells;
+    LinkedList<Card> row1 = new LinkedList<>();
+    LinkedList<Card> row2 = new LinkedList<>();
+    LinkedList<Card> row3 = new LinkedList<>();
+    LinkedList<Card> row4 = new LinkedList<>();
+    LinkedList<Card> closestRow = new LinkedList<>();
+    Card[] firstFiveCards = new Card[5];
+    LinkedList<Card> lastFilledCells = new LinkedList<>();
     int playedCard;
-    int col;
-    int row;
-    int nextCol;
-    String playedKey;
-    int[] cardValues = new int[4];
 
 //    public HashMap<String, Integer> createBoard() {
 //        board = new HashMap<>();
@@ -33,7 +28,7 @@ public class Board {
         row1.add(0,deck.boardHand[0]);
         row2.add(0,deck.boardHand[1]);
         row3.add(0,deck.boardHand[2]);
-        row4.add(0,deck.boardHand[4]);
+        row4.add(0,deck.boardHand[3]);
     }
 
 
@@ -83,7 +78,7 @@ public class Board {
     public void checkLists(Player player) {
         boolean listFilled = false;
         LinkedList<Card> removeCards = new LinkedList<>();
-        if (row1.get(5) == row1.getLast()) {
+        if (row1.size() == 6) {
             for (int i = 0; i < 6; i++) {
                 removeCards.add(i, row1.get(i));
                 listFilled = true;
@@ -91,7 +86,7 @@ public class Board {
             for (int j = 0; j < 5; j++) {
                 row1.remove(j);
             }
-        } else if (row2.get(5) == row2.getLast()) {
+        } else if (row2.size() == 6) {
             for (int i = 0; i < 6; i++) {
                 removeCards.add(i, row2.get(i));
                 listFilled = true;
@@ -99,7 +94,7 @@ public class Board {
             for (int j = 0; j < 5; j++) {
                 row2.remove(j);
             }
-        } else if (row3.get(5) == row3.getLast()) {
+        } else if (row3.size() == 6) {
             for (int i = 0; i < 6; i++) {
                 removeCards.add(i, row3.get(i));
                 listFilled = true;
@@ -107,7 +102,7 @@ public class Board {
             for (int j = 0; j < 5; j++) {
                 row3.remove(j);
             }
-        } else if (row4.get(5) == row4.getLast()) {
+        } else if (row4.size() == 6) {
             for (int i = 0; i < 6; i++) {
                 removeCards.add(i, row4.get(i));
                 listFilled = true;
@@ -160,18 +155,27 @@ public class Board {
     public LinkedList<Card> getLastFilledCells(){
         lastFilledCells = new LinkedList<>();
         lastFilledCells.add(0,row1.getLast());
-        lastFilledCells.add(0,row2.getLast());
-        lastFilledCells.add(0,row3.getLast());
-        lastFilledCells.add(0,row4.getLast());
+        lastFilledCells.add(1,row2.getLast());
+        lastFilledCells.add(2,row3.getLast());
+        lastFilledCells.add(3,row4.getLast());
         return lastFilledCells;
     }
 
+    public void printBoard(){
+        getLastFilledCells();
+        System.out.print(lastFilledCells.get(0) + ", ");
+        System.out.print(lastFilledCells.get(1) + ", ");
+        System.out.print(lastFilledCells.get(2) + ", ");
+        System.out.println(lastFilledCells.get(3));
+    }
+
+
+
     //TODO: not sure but maybe this can be written in Card instead of Board?
-    public int findClosestNumber() {
+    public LinkedList<Card> findClosestNumber() {
         Scanner scan = new Scanner(System.in);
         int closestNumber = Integer.MAX_VALUE;
         int smallestDifference = Integer.MAX_VALUE;
-        String closestKey = new String();
         boolean isTooLow = true;
 
         if (row1.getLast().getValue() < playedCard) {
@@ -179,6 +183,7 @@ public class Board {
                 if (difference < smallestDifference) {
                     smallestDifference = difference;
                     closestNumber = row1.getLast().getValue();
+                    closestRow = row1;
                     isTooLow = false;
                 }
         }
@@ -188,6 +193,7 @@ public class Board {
             if (difference < smallestDifference) {
                 smallestDifference = difference;
                 closestNumber = row2.getLast().getValue();
+                closestRow = row2;
                 isTooLow = false;
             }
         }
@@ -197,6 +203,7 @@ public class Board {
             if (difference < smallestDifference) {
                 smallestDifference = difference;
                 closestNumber = row3.getLast().getValue();
+                closestRow = row3;
                 isTooLow = false;
             }
         }
@@ -206,30 +213,31 @@ public class Board {
             if (difference < smallestDifference) {
                 smallestDifference = difference;
                 closestNumber = row4.getLast().getValue();
+                closestRow = row4;
                 isTooLow = false;
             }
         }
 
-//        if (isTooLow = false){
-//            System.out.print("The card is too low to be played, choose a row to take away: ");
-//            int rowChosen = scan.nextInt();
-//            System.out.println();
-//        }
+        if (isTooLow = false){
+            System.out.print("The card is too low to be played, choose a row to take away: ");
+            int rowChosen = scan.nextInt();
+            System.out.println();
+        }
 
-        return closestNumber;
+        return closestRow;
     }
 
-    public void getKeyInfo(){
-        String key = findClosestNumber();
-        row = Integer.parseInt(key.substring(3,4)); // extracts the "2" from the key string and parses it as an integer
-        col = Integer.parseInt(key.substring(7)); // extracts the "4" from the key string and parses it as an integer
-    }
+//    public void getKeyInfo(){
+////        String key = findClosestNumber();
+////        row = Integer.parseInt(key.substring(3,4)); // extracts the "2" from the key string and parses it as an integer
+////        col = Integer.parseInt(key.substring(7)); // extracts the "4" from the key string and parses it as an integer
+//    }
 
 
+//    public void playKey(){
+//        nextCol = col + 1;
+//    }
 
-    public void playKey(){
-        nextCol = col + 1;
-    }
 
     //TODO: this should be written in the Player class, and then you can call it in the Board class (!!)
     public Card playCard(Deck deck, Player player) {
@@ -246,9 +254,9 @@ public class Board {
 
         // Prompt the user to enter the index of the card they want to play
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the index of the card you want to play starting from 1 to 10: ");
-        int index0 = scanner.nextInt();
-        int index = index0 - 1;
+        System.out.print("Enter the index of the card you want to play starting from 0 to 9: ");
+        int index = scanner.nextInt();
+        //int index = index0 - 2;
 
 
         if (index < 0 || index >= playHand.length || playHand[index] == null) {
@@ -260,20 +268,28 @@ public class Board {
         // Get the card number at the given index
         playedCard = playHand[index].getValue();
 
+        findClosestNumber();
+
         // Remove the card from the hand array
         for (int i = index; i < playHand.length - 1; i++) {
             playHand[i] = playHand[i + 1];
         }
         playHand[playHand.length - 1] = null;
 
-        getKeyInfo();
-        playKey();
-        playedKey = "row" + row + "col" + nextCol;
-        board.put(playedKey, playedCard);
+        if (closestRow == row1){
+            row1.addLast(playHand[index]);
+            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 1.");
+        } else if (closestRow == row2){
+            row2.addLast(playHand[index]);
+            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 2.");
+        } else if (closestRow == row3){
+            row3.addLast(playHand[index]);
+            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 3.");
+        } else if (closestRow == row4){
+            row4.addLast(playHand[index]);
+            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 4.");
+        }
 
-        // Print success message and return the card object
-        System.out.println("Card played successfully! You played card number " + playedCard + " in cell " + playedKey);
         return playHand[index];
-
     }
 }

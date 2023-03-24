@@ -1,6 +1,7 @@
 package be.kdg.integration2.take5;
 
-import be.kdg.integration2.take5.model.GameSession;
+import be.kdg.integration2.take5.model.*;
+
 import java.util.Scanner;
 
 public class ConsoleController {
@@ -25,10 +26,21 @@ public class ConsoleController {
             ctrl.makeBoard();
             while (inGame = true) {
                 ctrl.startGame();
-                //ask GameSession to give you the info
-                if (human.humanBullTotal == 66 || ai.aiBullTotal == 66){
+//                ask GameSession to give you the info
+                if (Player.getHumanBullTotal() == 66 || Player.getAiBullTotal() == 66){
                     inGame = false;
+                    break;
                 }
+
+            }
+            System.out.println("To play again enter a, to exit enter e: ");
+            String playAgain = kbd.nextLine();
+            if (playAgain.equals("a")){
+                play = true;
+            } else if (playAgain.equals("e")){
+                break;
+            } else {
+                System.out.println("Invalid input, exiting...");
             }
         }
     }

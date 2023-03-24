@@ -10,20 +10,16 @@ public class GameSession {
 
 
     public void makeBoard(){
-        board.createBoard();
         mainDeck.startRound();
         board.initializeRow(mainDeck);
     }
 
     public void startGame(){
-        board.getLastFilledCells();
-        board.findClosestNumber();
-        System.out.println(Arrays.toString(board.cardValues));
+        board.printBoard();
         board.playCard(mainDeck, human);
-        board.checkBoard(human);
-        board.getLastFilledCells();
-        System.out.println(Arrays.toString(board.cardValues));
+        board.checkLists(human);
+        board.printBoard();
         board.playCard(mainDeck, ai);
-        board.checkBoard(ai);
+        board.checkLists(ai);
     }
 }

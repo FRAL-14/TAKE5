@@ -4,9 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="Project restructure with mr Roeland">
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="Implementation of LinkedLists">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/game/Domain/AI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/game/Domain/Board.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/game/Domain/Card.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/game/Domain/Controller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/game/Domain/Deck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/game/Domain/GameSession.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/game/Domain/Human.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/game/Domain/Leaderboard.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/game/Domain/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/game/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/gui/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/gui/model/Take5Model.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/gui/view/about/AboutPresenter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/gui/view/about/AboutView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/gui/view/db_stats/DBPresenter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/gui/view/db_stats/DBView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/gui/view/game/GamePresenter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/gui/view/game/GameView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/gui/view/start/StartPresenter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/gui/view/start/StartView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ConsoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ConsoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5ConsoleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5ConsoleApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Player.java" afterDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
@@ -167,7 +191,11 @@
       <workItem from="1679039436267" duration="181000" />
       <workItem from="1679056454673" duration="4952000" />
       <workItem from="1679300878050" duration="9064000" />
-      <workItem from="1679313073663" duration="12632000" />
+      <workItem from="1679313073663" duration="12681000" />
+      <workItem from="1679333050947" duration="7319000" />
+      <workItem from="1679385409743" duration="187000" />
+      <workItem from="1679397925841" duration="496000" />
+      <workItem from="1679416554235" duration="276000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -246,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679320286837</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Implementation of LinkedLists">
+      <created>1679327948535</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679327948535</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,7 +308,8 @@
     <MESSAGE value="tweaking of game logic - added methods to determine closest and playable card on board" />
     <MESSAGE value="bug fixes in game logic" />
     <MESSAGE value="Project restructure with mr Roeland" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project restructure with mr Roeland" />
+    <MESSAGE value="Implementation of LinkedLists" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of LinkedLists" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
