@@ -7,10 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 
-public class MainView extends BorderPane{
+public class MainView extends BorderPane {
     // private Node attributes (controls)
-    private Button sButton;
-    private Label sLabel;
+    private Button play;
+    private Button stats;
+    private Button help;
+    private Label lb;
 
     public MainView() {
         initialiseNodes();
@@ -19,37 +21,54 @@ public class MainView extends BorderPane{
 
     private void initialiseNodes() {
         // create and configure controls
-        sLabel = new Label("Take 5");
-        sButton = new Button("Click to start...");
+        lb = new Label("Take 5");
+        play = new Button("Click to start...");
+        stats = new Button("Statistics");
+        help = new Button("Help & Rules");
     }
 
     private void layoutNodes() {
-        setCenter(sLabel);
-        setBottom(sButton);
-        BorderPane.setAlignment(sButton, Pos.CENTER);
-        BorderPane.setAlignment(sLabel, Pos.CENTER);
-        BorderPane.setMargin(sLabel, new Insets(150));
-        sLabel.setFont(new Font(100));
-        sButton.setFont(new Font(50));
-        // add/set … methods
-        // Insets, padding, alignment, …
+        setTop(lb);
+        setCenter(play);
+        BorderPane.setAlignment(play, Pos.CENTER);
+        BorderPane.setAlignment(lb, Pos.TOP_CENTER);
+        BorderPane.setAlignment(stats, Pos.BASELINE_RIGHT); // can be changed later
+        BorderPane.setAlignment(help, Pos.BASELINE_LEFT);
+        BorderPane.setMargin(lb, new Insets(30));
+        lb.setFont(new Font(50));
+        play.setFont(new Font(20));
     }
-    // package-private Getters
-    // for controls used by Presenter
+    // getters and setters
 
-    public Button getsButton() {
-        return sButton;
-    }
-
-    public void setsButton(Button sButton) {
-        this.sButton = sButton;
+    public Button getPlay() {
+        return play;
     }
 
-    public Label getsLabel() {
-        return sLabel;
+    public void setPlay(Button play) {
+        this.play = play;
     }
 
-    public void setsLabel(Label sLabel) {
-        this.sLabel = sLabel;
+    public Label getLb() {
+        return lb;
+    }
+
+    public void setLb(Label lb) {
+        this.lb = lb;
+    }
+
+    public Button getStats() {
+        return stats;
+    }
+
+    public void setStats(Button stats) {
+        this.stats = stats;
+    }
+
+    public Button getHelp() {
+        return help;
+    }
+
+    public void setHelp(Button help) {
+        this.help = help;
     }
 }

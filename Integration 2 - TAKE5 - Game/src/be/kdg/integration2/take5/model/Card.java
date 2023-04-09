@@ -35,7 +35,7 @@ public enum Card {
 
     @Override
     public String toString() {
-        return "" + value;
+        return " " + value;
     }
 
     public static Card withValue(int index) {
@@ -56,5 +56,6 @@ public enum Card {
             return 1;
         }
     } //throw exception if number entered
+
 }
 

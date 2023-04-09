@@ -8,18 +8,19 @@ public class ConsoleController {
 
     GameSession ctrl = new GameSession();
 
-    Scanner kbd = new Scanner(System.in);
+//    Scanner kbd = new Scanner(System.in);
 
     public void startGame() {
-        System.out.println("To play enter: \\'p\\'");
-        String input = kbd.nextLine();
+        //javaFX
+//        System.out.println("To play enter: \\'p\\'");
+//        String input = kbd.nextLine();
         boolean play;
-        if (input.toLowerCase().equals("p")){
-            play = true;
-        } else {
-            System.out.println("Invalid input");
-            System.out.println("To play, enter \"p\":");
-        }
+//        if (input.toLowerCase().equals("p")){
+//            play = true;
+//        } else {
+//            System.out.println("Invalid input");
+//            System.out.println("To play, enter \"p\":");
+//        }
 
         while (play = true) {
             boolean inGame = true;
@@ -33,15 +34,16 @@ public class ConsoleController {
                 }
 
             }
-            System.out.println("To play again enter a, to exit enter e: ");
-            String playAgain = kbd.nextLine();
-            if (playAgain.equals("a")){
-                play = true;
-            } else if (playAgain.equals("e")){
-                break;
-            } else {
-                System.out.println("Invalid input, exiting...");
-            }
+            //javaFX
+//            System.out.println("To play again enter a, to exit enter e: ");
+//            String playAgain = kbd.nextLine();
+//            if (playAgain.equals("a")){
+//                play = true;
+//            } else if (playAgain.equals("e")){
+//                break;
+//            } else {
+//                System.out.println("Invalid input, exiting...");
+//            }
         }
     }
 }

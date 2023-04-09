@@ -1,16 +1,23 @@
 package be.kdg.integration2.take5.ui.game;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.ComboBox;
+import be.kdg.integration2.take5.model.Card;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+
+import java.util.List;
 
 public class GameView extends BorderPane {
-    // private Node attributes (controls)
-//    private MenuBar mBar;
-//    private MenuItem mItem;
-
-    private ComboBox<String> menu;
+    private MenuBar mBar;
+    private MenuItem menuItem;
+    private Menu menu;
+    private Button restartGame;
+    private Button quitGame;
+    private VBox board = new VBox(10);
 
     public GameView() {
         initialiseNodes();
@@ -18,30 +25,89 @@ public class GameView extends BorderPane {
     }
 
     private void initialiseNodes() {
-        /*Menu mHelp = new Menu("Help");
-        mItem = new MenuItem("Rules");
-        mHelp.getItems().addAll(mItem);
-        mBar=new MenuBar(mHelp);*/
-        this.menu = new ComboBox<>();    // QUESTION: whats better to use? Menu class or ComboBox()
-        ObservableList<String> values = FXCollections.observableArrayList("leaderboard", "rules");
-        this.menu.setItems(values);
-        this.menu.getSelectionModel().select(0);
-
+        menu = new Menu("Help");
+        menuItem = new MenuItem("Rules");
+        menu.getItems().addAll(menuItem);
+        mBar = new MenuBar(menu);
+        restartGame = new Button("Restart");
+        quitGame = new Button("Quit");
     }
 
     private void layoutNodes() {
-        setTop(menu);
-// add/set … methods
-// Insets, padding, alignment, …
-    }
-// package-private Getters
-// for controls used by Presenter
+        setTop(mBar);
+        setAlignment(restartGame, Pos.BASELINE_LEFT);
+        setAlignment(quitGame, Pos.BASELINE_LEFT);
 
-    public ComboBox<String> getMenu() {
+        setCenter(board);
+        BorderPane.setAlignment(board, Pos.CENTER);
+        BorderPane.setMargin(board, new Insets(30));
+    }
+
+    public VBox displayCards(Card[] cards) {
+        VBox hand = new VBox(10);
+        hand.setAlignment(Pos.CENTER);
+
+        for (Card card : cards) {
+            ImageView imageView = new ImageView(new Image(/*PATH.TO.FILE*/" "));
+            hand.getChildren().add(imageView);
+        }
+
+        setCenter(hand); // Set the VBox as the center of the BorderPane
+        return hand;
+    }
+
+    //returns void
+//    public void displayCards(List<Card> cards) {
+//        VBox cardBox = new VBox(10); // Create a VBox to hold the card images
+//        cardBox.setAlignment(Pos.CENTER);
+//
+//        for (Card card : cards) {
+//            ImageView imageView = new ImageView(new Image(card.getImagePath())); // Create an ImageView for each card
+//            cardBox.getChildren().add(imageView); // Add the ImageView to the VBox
+//        }
+//
+//        setCenter(cardBox);
+//    }
+
+//setter and getter
+
+    public MenuBar getmBar() {
+        return mBar;
+    }
+
+    public void setmBar(MenuBar mBar) {
+        this.mBar = mBar;
+    }
+
+    public MenuItem getMenuItem() {
+        return menuItem;
+    }
+
+    public void setMenuItem(MenuItem menuItem) {
+        this.menuItem = menuItem;
+    }
+
+    public Menu getMenu() {
         return menu;
     }
 
-    public void setMenu(ComboBox<String> menu) {
+    public void setMenu(Menu menu) {
         this.menu = menu;
+    }
+
+    public Button getRestartGame() {
+        return restartGame;
+    }
+
+    public void setRestartGame(Button restartGame) {
+        this.restartGame = restartGame;
+    }
+
+    public Button getQuitGame() {
+        return quitGame;
+    }
+
+    public void setQuitGame(Button quitGame) {
+        this.quitGame = quitGame;
     }
 }
