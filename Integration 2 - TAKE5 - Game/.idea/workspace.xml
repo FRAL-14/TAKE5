@@ -6,9 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="Implementation of LinkedLists">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Take5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Take5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/module-info.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Leaderboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Leaderboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
@@ -95,7 +95,7 @@
       <recent name="be.kdg.integration2.take5.ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TitleScreen">
+  <component name="RunManager" selected="Application.DBView">
     <configuration name="ConsoleController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.take5.ConsoleController" />
       <module name="Take5" />
@@ -109,12 +109,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Game" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.take5.Take5ConsoleApplication" />
+    <configuration name="DBView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.take5.ui.db_stats.DBView" />
       <module name="Take5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="be.kdg.integration2.team20.gametake5.*" />
+          <option name="PATTERN" value="be.kdg.integration2.take5.ui.db_stats.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -122,12 +122,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.game.Main" />
+    <configuration name="Game" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.take5.Take5ConsoleApplication" />
       <module name="Take5" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="be.kdg.integration2.take5.*" />
+          <option name="PATTERN" value="be.kdg.integration2.team20.gametake5.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -163,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DBView" />
         <item itemvalue="Application.TitleScreen" />
         <item itemvalue="Application.Take5JavafxApplication" />
         <item itemvalue="Application.ConsoleController" />
         <item itemvalue="Application.Game" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -220,7 +220,7 @@
       <workItem from="1680966655464" duration="21470000" />
       <workItem from="1681055555204" duration="191000" />
       <workItem from="1681055784370" duration="6835000" />
-      <workItem from="1681207505725" duration="4806000" />
+      <workItem from="1681207505725" duration="7666000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
