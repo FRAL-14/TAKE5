@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="Implementation of LinkedLists">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7c775671-a379-49f1-b758-c518ec63e5d9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7c775671-a379-49f1-b758-c518ec63e5d9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5JavafxApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5JavafxApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" afterDir="false" />
-    </list>
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="cards displayed, no eventhandlers for it yet" />
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -224,7 +216,7 @@
       <workItem from="1681055555204" duration="191000" />
       <workItem from="1681055784370" duration="6835000" />
       <workItem from="1681207505725" duration="7666000" />
-      <workItem from="1681249812267" duration="317000" />
+      <workItem from="1681249812267" duration="452000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -310,7 +302,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679327948535</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="cards displayed, no eventhandlers for it yet">
+      <created>1681250253626</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1681250253626</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +337,8 @@
     <MESSAGE value="bug fixes in game logic" />
     <MESSAGE value="Project restructure with mr Roeland" />
     <MESSAGE value="Implementation of LinkedLists" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementation of LinkedLists" />
+    <MESSAGE value="cards displayed, no eventhandlers for it yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="cards displayed, no eventhandlers for it yet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
