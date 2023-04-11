@@ -8,7 +8,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 
 public class MainView extends BorderPane {
-    // private Node attributes (controls)
     private Button play;
     private Button stats;
     private Button help;
@@ -20,7 +19,6 @@ public class MainView extends BorderPane {
     }
 
     private void initialiseNodes() {
-        // create and configure controls
         lb = new Label("Take 5");
         play = new Button("Click to start...");
         stats = new Button("Statistics");
@@ -30,13 +28,19 @@ public class MainView extends BorderPane {
     private void layoutNodes() {
         setTop(lb);
         setCenter(play);
+        setLeft(stats);
+        setRight(help);
         BorderPane.setAlignment(play, Pos.CENTER);
         BorderPane.setAlignment(lb, Pos.TOP_CENTER);
-        BorderPane.setAlignment(stats, Pos.BASELINE_RIGHT); // can be changed later
-        BorderPane.setAlignment(help, Pos.BASELINE_LEFT);
+        BorderPane.setAlignment(stats, Pos.BASELINE_LEFT); // can be changed later
+        BorderPane.setAlignment(help, Pos.BASELINE_RIGHT);
         BorderPane.setMargin(lb, new Insets(30));
-        lb.setFont(new Font(50));
-        play.setFont(new Font(20));
+        lb.setFont(new Font(80));
+        play.setFont(new Font(40));
+        stats.setFont(new Font(20));
+        setMargin(stats, new Insets(20, 0, 0, 40));
+        setMargin(help, new Insets(20, 40, 0, 0));
+        help.setFont(new Font(20));
     }
     // getters and setters
 

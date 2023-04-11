@@ -17,5 +17,9 @@ public abstract class Player {
     public abstract void showHand(Deck deck);
 
 
+//    public void addCard(Card card) {
+//        MAX_HAND_SIZE.add(card);
+//    }
+
 
 }

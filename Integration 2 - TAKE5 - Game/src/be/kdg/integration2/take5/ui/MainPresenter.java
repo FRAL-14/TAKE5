@@ -45,6 +45,7 @@ public class MainPresenter {
         new GamePresenter(model, gameView);
         startView.getScene().setRoot(gameView);
         gameView.getScene().getWindow().sizeToScene();
+
     }
 
     //LEAVE THIS, gonna be used when the help button is clicked on the starting screen

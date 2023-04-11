@@ -23,7 +23,7 @@ public class Deck {
     }
 
 
-    public  Card[] dealPlay(Card[] deck, int numCards) {
+    public Card[] dealPlay(Card[] deck, int numCards) {
         if (numCards > deck.length) {
             throw new IllegalArgumentException("Not enough cards in the deck.");
         }

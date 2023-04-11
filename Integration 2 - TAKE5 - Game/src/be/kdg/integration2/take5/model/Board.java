@@ -5,20 +5,33 @@ import javafx.scene.control.Cell;
 import java.util.*;
 
 public class Board {
-    LinkedList<Card> row1 = new LinkedList<>();
-    LinkedList<Card> row2 = new LinkedList<>();
-    LinkedList<Card> row3 = new LinkedList<>();
-    LinkedList<Card> row4 = new LinkedList<>();
+    //    LinkedList<Card> row1 = new LinkedList<>();
+//    LinkedList<Card> row2 = new LinkedList<>();
+//    LinkedList<Card> row3 = new LinkedList<>();
+//    LinkedList<Card> row4 = new LinkedList<>();
     LinkedList<Card> closestRow = new LinkedList<>();
+    private LinkedList<Card>[] rows;
+
+    public Board() {
+        // create an array of linked lists for the rows
+        rows = new LinkedList[4];
+        for (int i = 0; i < rows.length; i++) {
+            rows[i] = new LinkedList<>();
+        }
+    }
+
+    public LinkedList<Card> getRow(int index) {
+        return rows[index];
+    }
     Card[] firstFiveCards = new Card[5];
     LinkedList<Card> lastFilledCells = new LinkedList<>();
     int playedCard;
-
+    boolean isClicked;
     public void initializeRow(Deck deck) {
-        row1.add(0, deck.boardHand[0]);
-        row2.add(0, deck.boardHand[1]);
-        row3.add(0, deck.boardHand[2]);
-        row4.add(0, deck.boardHand[3]);
+        rows[0].add(0, deck.boardHand[0]);
+        rows[1].add(0, deck.boardHand[1]);
+        rows[2].add(0, deck.boardHand[2]);
+        rows[3].add(0, deck.boardHand[3]);
     }
 
 
@@ -68,40 +81,16 @@ public class Board {
     public void checkLists(Player player) {
         boolean listFilled = false;
         LinkedList<Card> removeCards = new LinkedList<>();
-        if (row1.size() == 6) {
-            for (int i = 0; i < 6; i++) {
-                removeCards.add(i, row1.get(i));
-                listFilled = true;
+        for (int i = 0; i < rows.length; i++) {
+            if (rows[i].size() == 6) {
+                for (int j = 0; j < 6; j++) {
+                    removeCards.add(rows[i].get(j));
+                    listFilled = true;
+                }
+                for (int j = 0; j < 5; j++) {
+                    rows[i].remove(j);
+                }
             }
-            for (int j = 0; j < 5; j++) {
-                row1.remove(j);
-            }
-        } else if (row2.size() == 6) {
-            for (int i = 0; i < 6; i++) {
-                removeCards.add(i, row2.get(i));
-                listFilled = true;
-            }
-            for (int j = 0; j < 5; j++) {
-                row2.remove(j);
-            }
-        } else if (row3.size() == 6) {
-            for (int i = 0; i < 6; i++) {
-                removeCards.add(i, row3.get(i));
-                listFilled = true;
-            }
-            for (int j = 0; j < 5; j++) {
-                row3.remove(j);
-            }
-        } else if (row4.size() == 6) {
-            for (int i = 0; i < 6; i++) {
-                removeCards.add(i, row4.get(i));
-                listFilled = true;
-            }
-            for (int j = 0; j < 5; j++) {
-                row4.remove(j);
-            }
-        } else {
-            System.out.println();
         }
         if (listFilled) {
             firstFiveCards = new Card[5];
@@ -144,17 +133,10 @@ public class Board {
 
     public LinkedList<Card> getLastFilledCells() {
         lastFilledCells = new LinkedList<>();
-        if (row1.size() == 6) {
-            lastFilledCells.add(row1.getLast());
-        }
-        if (row2.size() == 6) {
-            lastFilledCells.add(row2.getLast());
-        }
-        if (row3.size() == 6) {
-            lastFilledCells.add(row3.getLast());
-        }
-        if (row4.size() == 6) {
-            lastFilledCells.add(row4.getLast());
+        for (LinkedList<Card> row : rows) {
+            if (row.size() == 6) {
+                lastFilledCells.add(row.getLast());
+            }
         }
         return lastFilledCells;
     }
@@ -186,61 +168,97 @@ public class Board {
 
 
     //TODO: not sure but maybe this can be written in Card instead of Board?
-    public LinkedList<Card> findClosestNumber() {
-        Scanner scan = new Scanner(System.in);
-        int closestNumber = Integer.MAX_VALUE;
-        int smallestDifference = Integer.MAX_VALUE;
-        boolean isTooLow = true;
+//    public LinkedList<Card> findClosestNumber(LinkedList<Card>[] rows) {
+//        Scanner scan = new Scanner(System.in);
+//        int closestNumber = Integer.MAX_VALUE;
+//        int smallestDifference = Integer.MAX_VALUE;
+//        boolean isTooLow = true;
+//        LinkedList<Card> closestRow = null;
+//
+//        for (LinkedList<Card> row : rows) {
+//            if (row.getLast().getValue() < playedCard) {
+//                int difference = playedCard - row.getLast().getValue();
+//                if (difference < smallestDifference) {
+//                    smallestDifference = difference;
+//                    closestNumber = row.getLast().getValue();
+//                    closestRow = row;
+//                    isTooLow = false;
+//                }
+//            }
+//        }
+//
+//        if (isTooLow == true) {
+//            System.out.print("The card is too low to be played, choose a row to take away: ");
+//            int rowChosen = scan.nextInt();
+//            System.out.println();
+//            closestRow = rows[rowChosen - 1];
+//        }
+//
+//        return closestRow;
+////        if (row1.getLast().getValue() < playedCard) {
+////            int difference = playedCard - row1.getLast().getValue();
+////            if (difference < smallestDifference) {
+////                smallestDifference = difference;
+////                closestNumber = row1.getLast().getValue();
+////                closestRow = row1;
+////                isTooLow = false;
+////            }
+////        }
+////
+////        if (row2.getLast().getValue() < playedCard) {
+////            int difference = playedCard - row2.getLast().getValue();
+////            if (difference < smallestDifference) {
+////                smallestDifference = difference;
+////                closestNumber = row2.getLast().getValue();
+////                closestRow = row2;
+////                isTooLow = false;
+////            }
+////        }
+////
+////        if (row3.getLast().getValue() < playedCard) {
+////            int difference = playedCard - row3.getLast().getValue();
+////            if (difference < smallestDifference) {
+////                smallestDifference = difference;
+////                closestNumber = row3.getLast().getValue();
+////                closestRow = row3;
+////                isTooLow = false;
+////            }
+////        }
+////
+////        if (row4.getLast().getValue() < playedCard) {
+////            int difference = playedCard - row4.getLast().getValue();
+////            if (difference < smallestDifference) {
+////                smallestDifference = difference;
+////                closestNumber = row4.getLast().getValue();
+////                closestRow = row4;
+////                isTooLow = false;
+////            }
+////        }
+////
+////        if (!isTooLow) {
+////            System.out.print("The card is too low to be played, choose a row to take away: ");
+////            int rowChosen = scan.nextInt();
+////            System.out.println();
+////        }
+////
+////        return closestRow;
+//    }
 
-        if (row1.getLast().getValue() < playedCard) {
-            int difference = playedCard - row1.getLast().getValue();
-            if (difference < smallestDifference) {
-                smallestDifference = difference;
-                closestNumber = row1.getLast().getValue();
-                closestRow = row1;
-                isTooLow = false;
-            }
-        }
-
-        if (row2.getLast().getValue() < playedCard) {
-            int difference = playedCard - row2.getLast().getValue();
-            if (difference < smallestDifference) {
-                smallestDifference = difference;
-                closestNumber = row2.getLast().getValue();
-                closestRow = row2;
-                isTooLow = false;
-            }
-        }
-
-        if (row3.getLast().getValue() < playedCard) {
-            int difference = playedCard - row3.getLast().getValue();
-            if (difference < smallestDifference) {
-                smallestDifference = difference;
-                closestNumber = row3.getLast().getValue();
-                closestRow = row3;
-                isTooLow = false;
-            }
-        }
-
-        if (row4.getLast().getValue() < playedCard) {
-            int difference = playedCard - row4.getLast().getValue();
-            if (difference < smallestDifference) {
-                smallestDifference = difference;
-                closestNumber = row4.getLast().getValue();
-                closestRow = row4;
-                isTooLow = false;
-            }
-        }
-
-        if (isTooLow = false) {
-            System.out.print("The card is too low to be played, choose a row to take away: ");
-            int rowChosen = scan.nextInt();
-            System.out.println();
-        }
-
-        return closestRow;
+    public int getPlayedCard() {
+        return playedCard;
     }
 
+    public void setPlayedCard(int playedCard) {
+        this.playedCard = playedCard;
+    }
+
+    public boolean isClicked() {
+        return isClicked;
+    }
+
+    public void setClicked(boolean clicked) {
+        isClicked = clicked;
+    }
 //    public void getKeyInfo(){
 ////        String key = findClosestNumber();
 ////        row = Integer.parseInt(key.substring(3,4)); // extracts the "2" from the key string and parses it as an integer
@@ -265,12 +283,12 @@ public class Board {
         }
         // Print out the current hand
 
-        // will be replaced by cards in javafx
+        // TODO will be replaced by cards in javafx
 //        System.out.println("Your current hand: " + Arrays.toString(playHand));
 
         // Prompt the user to enter the index of the card they want to play
 
-        // will be replaced by eventhandler in javafx
+        // TODO will be replaced by eventhandler in javafx
 //        Scanner scanner = new Scanner(System.in);
 //        System.out.print("Enter the index of the card you want to play starting from 0 to 9: ");
 //        int index = scanner.nextInt();
@@ -286,7 +304,7 @@ public class Board {
         // Get the card number at the given index
 //        playedCard = playHand[index].getValue();
 
-        findClosestNumber();
+//        findClosestNumber(rows);
         return playHand[0];
         // Remove the card from the hand array
 //        for (int i = index; i < playHand.length - 1; i++) {
