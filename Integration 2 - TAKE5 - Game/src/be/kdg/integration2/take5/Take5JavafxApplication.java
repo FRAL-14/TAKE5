@@ -13,7 +13,7 @@ public class Take5JavafxApplication extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+//when running, uncomment classes in db_stats folder
     @Override
     public void start(Stage primaryStage) throws Exception {
         GameSession model = new GameSession();

@@ -27,12 +27,12 @@ public class Board {
     LinkedList<Card> lastFilledCells = new LinkedList<>();
     int playedCard;
     boolean isClicked;
-    public void initializeRow(Deck deck) {
-        rows[0].add(0, deck.boardHand[0]);
-        rows[1].add(0, deck.boardHand[1]);
-        rows[2].add(0, deck.boardHand[2]);
-        rows[3].add(0, deck.boardHand[3]);
-    }
+//    public void initializeRow(Deck deck) {
+//        rows[0].add(0, deck.boardHand[0]);
+//        rows[1].add(0, deck.boardHand[1]);
+//        rows[2].add(0, deck.boardHand[2]);
+//        rows[3].add(0, deck.boardHand[3]);
+//    }
 
 
 //    public void checkBoard(Player player) {
@@ -156,17 +156,6 @@ public class Board {
 //        return lastFilledCells;
 //    }
 
-
-    //will be replaced in JavaFX
-//    public void printBoard() {
-//        getLastFilledCells();
-//        System.out.print(lastFilledCells.get(0) + ", ");
-//        System.out.print(lastFilledCells.get(1) + ", ");
-//        System.out.print(lastFilledCells.get(2) + ", ");
-//        System.out.println(lastFilledCells.get(3));
-//    }
-
-
     //TODO: not sure but maybe this can be written in Card instead of Board?
 //    public LinkedList<Card> findClosestNumber(LinkedList<Card>[] rows) {
 //        Scanner scan = new Scanner(System.in);
@@ -272,60 +261,59 @@ public class Board {
 
 
     // TODO: this should be written in the Player class, and then you can call it in the Board class (!!)
-    public Card playCard(Deck deck, Player player) {
-        Card[] playHand;// = deck.humanHand;
-        if (player instanceof Human) {
-            playHand = deck.humanHand;
-        } else if (player instanceof AI) {
-            playHand = deck.aiHand;
-        } else {
-            throw new IllegalArgumentException("Invalid player type");
-        }
-        // Print out the current hand
-
-        // TODO will be replaced by cards in javafx
-//        System.out.println("Your current hand: " + Arrays.toString(playHand));
-
-        // Prompt the user to enter the index of the card they want to play
-
-        // TODO will be replaced by eventhandler in javafx
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.print("Enter the index of the card you want to play starting from 0 to 9: ");
-//        int index = scanner.nextInt();
-        //int index = index0 - 2;
-
-
-//        if (index < 0 || index >= playHand.length || playHand[index] == null) {
-//            // Index is out of bounds or the hand array is empty at the given index
-//            System.out.println("Failed to play card. Invalid index or hand is empty.");
-//            return null;
+//    public Card playCard(Deck deck, Player player) {
+//        Card[] playHand;// = deck.humanHand;
+//        if (player instanceof Human) {
+//            playHand = deck.humanHand;
+//        } else if (player instanceof AI) {
+//            playHand = deck.aiHand;
+//        } else {
+//            throw new IllegalArgumentException("Invalid player type");
 //        }
-
-        // Get the card number at the given index
-//        playedCard = playHand[index].getValue();
-
-//        findClosestNumber(rows);
-        return playHand[0];
-        // Remove the card from the hand array
-//        for (int i = index; i < playHand.length - 1; i++) {
-//            playHand[i] = playHand[i + 1];
-//        }
-//        playHand[playHand.length - 1] = null;
+//        return playHand[0];
 //
-//        if (closestRow == row1) {
-//            row1.addLast(playHand[index]);
-//            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 1.");
-//        } else if (closestRow == row2) {
-//            row2.addLast(playHand[index]);
-//            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 2.");
-//        } else if (closestRow == row3) {
-//            row3.addLast(playHand[index]);
-//            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 3.");
-//        } else if (closestRow == row4) {
-//            row4.addLast(playHand[index]);
-//            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 4.");
-//        }
+//        // TODO will be replaced by cards in javafx
+////        System.out.println("Your current hand: " + Arrays.toString(playHand));
 //
-//        return playHand[index];
-    }
+//        // Prompt the user to enter the index of the card they want to play
+//
+//        // TODO will be replaced by eventhandler in javafx
+////        Scanner scanner = new Scanner(System.in);
+////        System.out.print("Enter the index of the card you want to play starting from 0 to 9: ");
+////        int index = scanner.nextInt();
+//        //int index = index0 - 2;
+//
+//
+////        if (index < 0 || index >= playHand.length || playHand[index] == null) {
+////            // Index is out of bounds or the hand array is empty at the given index
+////            System.out.println("Failed to play card. Invalid index or hand is empty.");
+////            return null;
+////        }
+//
+//        // Get the card number at the given index
+////        playedCard = playHand[index].getValue();
+//
+////        findClosestNumber(rows);
+//        // Remove the card from the hand array
+////        for (int i = index; i < playHand.length - 1; i++) {
+////            playHand[i] = playHand[i + 1];
+////        }
+////        playHand[playHand.length - 1] = null;
+////
+////        if (closestRow == row1) {
+////            row1.addLast(playHand[index]);
+////            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 1.");
+////        } else if (closestRow == row2) {
+////            row2.addLast(playHand[index]);
+////            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 2.");
+////        } else if (closestRow == row3) {
+////            row3.addLast(playHand[index]);
+////            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 3.");
+////        } else if (closestRow == row4) {
+////            row4.addLast(playHand[index]);
+////            System.out.println("Card played successfully! You played card number " + playHand[index] + " in row 4.");
+////        }
+////
+////        return playHand[index];
+//    }
 }

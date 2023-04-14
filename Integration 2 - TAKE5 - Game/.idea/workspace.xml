@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="cards displayed, no eventhandlers for it yet" />
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="moving cards (still working rn)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Take5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Take5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/cardvalues" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/CardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/CardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/help/HelpPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/help/HelpPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/help/HelpView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/help/HelpView.java" afterDir="false" />
+    </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,7 +49,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2M6ruva0ZgLONw3lR1WRnbX5i1c" />
   <component name="ProjectLevelVcsManager">
@@ -43,32 +59,32 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "17 (2)",
-    "last_opened_file_path": "C:/Users/amall/OneDrive - Karel de Grote Hogeschool/KdG/2022-2023/IntelliJ Projects/S2-20/Integration 2 - TAKE5 - Game",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.119617224",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17 (2)&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/amall/OneDrive - Karel de Grote Hogeschool/KdG/2022-2023/IntelliJ Projects/S2-20/Integration 2 - TAKE5 - Game&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.119617224&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -77,11 +93,11 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\amall\OneDrive - Karel de Grote Hogeschool\KdG\2022-2023\IntelliJ Projects\S2-20\Integration 2 - TAKE5 - Game\recources\cards" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/be" />
       <recent name="$PROJECT_DIR$/src/be/kdg" />
       <recent name="$PROJECT_DIR$/src/be/kdg/integration2" />
-      <recent name="$PROJECT_DIR$/src/be/kdg/integration2/take5" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="be.kdg.integration2.team20.Domain" />
@@ -90,7 +106,7 @@
       <recent name="be.kdg.integration2.take5.ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DBView">
+  <component name="RunManager" selected="Application.Take5JavafxApplication">
     <configuration name="ConsoleController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.take5.ConsoleController" />
       <module name="Take5" />
@@ -158,9 +174,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Take5JavafxApplication" />
         <item itemvalue="Application.DBView" />
         <item itemvalue="Application.TitleScreen" />
-        <item itemvalue="Application.Take5JavafxApplication" />
         <item itemvalue="Application.ConsoleController" />
         <item itemvalue="Application.Game" />
       </list>
@@ -217,6 +233,11 @@
       <workItem from="1681055784370" duration="6835000" />
       <workItem from="1681207505725" duration="7666000" />
       <workItem from="1681249812267" duration="452000" />
+      <workItem from="1681250649374" duration="275000" />
+      <workItem from="1681295503332" duration="24575000" />
+      <workItem from="1681382351414" duration="22911000" />
+      <workItem from="1681466672355" duration="297000" />
+      <workItem from="1681467051391" duration="628000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -309,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681250253626</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="added missing classes and resources.">
+      <created>1681250880745</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1681250880745</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +366,9 @@
     <MESSAGE value="Project restructure with mr Roeland" />
     <MESSAGE value="Implementation of LinkedLists" />
     <MESSAGE value="cards displayed, no eventhandlers for it yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="cards displayed, no eventhandlers for it yet" />
+    <MESSAGE value="added missing classes and resources." />
+    <MESSAGE value="moving cards (still working rn)" />
+    <option name="LAST_COMMIT_MESSAGE" value="moving cards (still working rn)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

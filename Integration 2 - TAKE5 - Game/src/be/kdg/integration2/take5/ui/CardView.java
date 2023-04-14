@@ -1,6 +1,9 @@
 package be.kdg.integration2.take5.ui;
 
 import be.kdg.integration2.take5.model.Card;
+import be.kdg.integration2.take5.ui.game.GamePresenter;
+import be.kdg.integration2.take5.ui.game.GameView;
+import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
@@ -20,7 +23,6 @@ public class CardView extends StackPane {
         Rectangle border = new Rectangle(90, 125);
         border.setFill(Color.TRANSPARENT);
 //        border.setStroke(selected ? Color.RED : Color.BLACK);
-
         getChildren().addAll(border, imageView);
     }
 

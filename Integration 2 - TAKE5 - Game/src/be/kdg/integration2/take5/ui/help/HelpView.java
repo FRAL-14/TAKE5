@@ -2,11 +2,12 @@ package be.kdg.integration2.take5.ui.help;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 
 public class HelpView extends BorderPane {
     private Button returnButton;
-    private Text txt;
+    private Label txt;
 
     public HelpView() {
         initialiseNodes();
@@ -15,11 +16,12 @@ public class HelpView extends BorderPane {
 
     private void initialiseNodes() {
         returnButton = new Button("Return");
-        txt = new Text("The goal of the game is to get rid of all your cards.");
+        txt = new Label("The goal of the game is to get rid of all your cards.");
     }
 
     private void layoutNodes() {
-        setAlignment(returnButton, Pos.BASELINE_LEFT);
+        setBottom(returnButton);
+        setAlignment(returnButton, Pos.BOTTOM_LEFT);
         setAlignment(txt, Pos.CENTER);
     }
 //getters and setters
@@ -32,11 +34,11 @@ public class HelpView extends BorderPane {
         this.returnButton = returnButton;
     }
 
-    public Text getTxt() {
+    public Label getTxt() {
         return txt;
     }
 
-    public void setTxt(Text txt) {
+    public void setTxt(Label txt) {
         this.txt = txt;
     }
 }

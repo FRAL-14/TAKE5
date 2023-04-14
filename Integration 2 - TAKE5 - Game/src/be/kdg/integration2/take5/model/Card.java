@@ -1,5 +1,7 @@
 package be.kdg.integration2.take5.model;
 
+import be.kdg.integration2.take5.ui.CardView;
+
 public enum Card {
     CARD1(1), CARD2(2), CARD3(3), CARD4(4), CARD5(5),
     CARD6(6), CARD7(7), CARD8(8), CARD9(9), CARD10(10),
@@ -24,6 +26,7 @@ public enum Card {
     CARD101(101), CARD102(102), CARD103(103), CARD104(104);
 
     private final int value;
+    private CardView cardView;
 
     Card(int value) {
         this.value = value;
@@ -56,6 +59,18 @@ public enum Card {
             return 1;
         }
     } //throw exception if number entered
+    private boolean selected;
 
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+
+    public CardView getCardView() {
+        return cardView;
+    }
 }
 

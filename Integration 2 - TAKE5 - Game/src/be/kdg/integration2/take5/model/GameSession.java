@@ -16,7 +16,7 @@ public class GameSession {
 
     public Card[] makeBoard() {
         mainDeck.startRound();
-        board.initializeRow(mainDeck);
+//        board.initializeRow(mainDeck);
 //        presenter.updateView();
         rows = new LinkedList[4];
         for (int i = 0; i < rows.length; i++) {
@@ -32,15 +32,38 @@ public class GameSession {
             boardCardViews.get(i).getChildren().add(cardView);
         }
     }
+// In the Model class:
+
+//    public int findRowToPlace(Card selectedCard) {
+//        List<List<Card>> rows = getRows();
+//        int minDiff = Integer.MAX_VALUE;
+//        int minDiffIndex = 0;
+//
+//        // Iterate over each row to find the one with the lowest difference
+//        for (int i = 0; i < rows.size(); i++) {
+//            List<Card> row = rows.get(i);
+//            int diff = row.get(row.size() - 1).getValue() - selectedCard.getValue();
+//            if (diff >= 0 && diff < minDiff) {
+//                minDiff = diff;
+//                minDiffIndex = i;
+//            }
+//        }
+//
+//        return minDiffIndex;
+//    }
+//
+//    public List<List<Card>> getRows() {
+//        return List.of(rows);
+//    }
 
     public Card getBoardCard(int i) {
         return rows[i].getFirst();
     }
 
     public void startGame() {
-        board.playCard(mainDeck, human);
+//        board.playCard(mainDeck, human);
         board.checkLists(human);
-        board.playCard(mainDeck, ai);
+//        board.playCard(mainDeck, ai);
         board.checkLists(ai);
     }
 
@@ -88,9 +111,9 @@ public class GameSession {
         this.boardCardViews = boardCardViews;
     }
 
-    public LinkedList<Card>[] getRows() {
-        return rows;
-    }
+//    public LinkedList<Card>[] getRows() {
+//        return rows;
+//    }
 
     public void setRows(LinkedList<Card>[] rows) {
         this.rows = rows;

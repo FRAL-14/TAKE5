@@ -1,40 +1,25 @@
 package be.kdg.integration2.take5.ui;
 
 import be.kdg.integration2.take5.model.GameSession;
-import be.kdg.integration2.take5.ui.db_stats.DBPresenter;
-import be.kdg.integration2.take5.ui.db_stats.DBView;
 import be.kdg.integration2.take5.ui.game.GamePresenter;
 import be.kdg.integration2.take5.ui.game.GameView;
-import be.kdg.integration2.take5.ui.help.HelpPresenter;
-import be.kdg.integration2.take5.ui.help.HelpView;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class MainPresenter {
-    private final GameSession model;
-    private final MainView startView;
-//    private final DBView dbView;
-//    private final DBPresenter dbPresenter;
-//    private final HelpView helpView;
-//    private final GameView gameView;  i was trying to include these so i could add an eventhandler whenever
+    private GameSession model;
+    private MainView startView;
 
-    public MainPresenter(GameSession model, MainView startView/*, DBView dbView, DBPresenter dbPresenter, HelpView helpView, GameView gameView*/) {
+    public MainPresenter(GameSession model, MainView startView) {
         this.model = model;
         this.startView = startView;
-       /* this.dbView = dbView;
-        this.dbPresenter = dbPresenter;
-        this.helpView = helpView;
-        this.gameView = gameView;*/
         addEventHandlers();
         updateView();
     }
 
     private void addEventHandlers() {
-        startView.getPlay().setOnAction(e -> setGameView());
+        this.startView.getPlay().setOnAction(e -> setGameView());
         //if button 'STATS' is clicked ( TODO DBView and DBPresenter are empty right now so cannot implement)
 //        helpView.setOnMouseClicked(e -> setHelpView());
     }
