@@ -53,11 +53,22 @@ public class GameView extends BorderPane {
         setBottom(humanCards);
         setRight(scoreHumanLbl);
         setCenter(boardCards);
-//        setAlignment(scoreHumanLbl, Pos.TOP_CENTER); CAUSING A WEIRD ERROR
-//        setAlignment(scoreAILbl, Pos.BASELINE_RIGHT);
         setAlignment(boardCards, Pos.CENTER_LEFT);
         setAlignment(humanCards, Pos.BOTTOM_CENTER);
         setAlignment(aiCards, Pos.TOP_LEFT);
+        boardCards.setBorder(new Border(new BorderStroke(null, BorderStrokeStyle.SOLID, null, new BorderWidths(1)))); //border around gridpane
+
+//        for (int i = 0; i < 6; i++) {
+//            ColumnConstraints c = new ColumnConstraints(20);
+//            c.setMaxWidth(2000 / 6f);
+//            boardCards.getColumnConstraints().add(c); //put in for loop to go thru all 6 cols, and do the same for rows
+//        }
+//
+//        for (int i = 0; i < 6; i++) {
+//            RowConstraints r = new RowConstraints(120);
+//            r.setMaxHeight(2000 / 6f);
+//            boardCards.getRowConstraints().add(r);
+//        }
     }
 
 //    public void displayScores() {

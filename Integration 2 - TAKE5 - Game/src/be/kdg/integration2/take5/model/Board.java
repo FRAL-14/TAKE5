@@ -5,10 +5,6 @@ import javafx.scene.control.Cell;
 import java.util.*;
 
 public class Board {
-    //    LinkedList<Card> row1 = new LinkedList<>();
-//    LinkedList<Card> row2 = new LinkedList<>();
-//    LinkedList<Card> row3 = new LinkedList<>();
-//    LinkedList<Card> row4 = new LinkedList<>();
     LinkedList<Card> closestRow = new LinkedList<>();
     private LinkedList<Card>[] rows;
 
@@ -27,12 +23,6 @@ public class Board {
     LinkedList<Card> lastFilledCells = new LinkedList<>();
     int playedCard;
     boolean isClicked;
-//    public void initializeRow(Deck deck) {
-//        rows[0].add(0, deck.boardHand[0]);
-//        rows[1].add(0, deck.boardHand[1]);
-//        rows[2].add(0, deck.boardHand[2]);
-//        rows[3].add(0, deck.boardHand[3]);
-//    }
 
 
 //    public void checkBoard(Player player) {
@@ -248,17 +238,6 @@ public class Board {
     public void setClicked(boolean clicked) {
         isClicked = clicked;
     }
-//    public void getKeyInfo(){
-////        String key = findClosestNumber();
-////        row = Integer.parseInt(key.substring(3,4)); // extracts the "2" from the key string and parses it as an integer
-////        col = Integer.parseInt(key.substring(7)); // extracts the "4" from the key string and parses it as an integer
-//    }
-
-
-//    public void playKey(){
-//        nextCol = col + 1;
-//    }
-
 
     // TODO: this should be written in the Player class, and then you can call it in the Board class (!!)
 //    public Card playCard(Deck deck, Player player) {

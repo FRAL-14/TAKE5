@@ -29,7 +29,7 @@ public class MainPresenter {
         GameView gameView = new GameView();
         new GamePresenter(model, gameView);
         startView.getScene().setRoot(gameView);
-        gameView.getScene().getWindow().sizeToScene();
+        gameView.getScene().getWindow();
 
     }
 

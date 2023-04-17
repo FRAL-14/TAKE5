@@ -32,6 +32,7 @@ public class GamePresenter {
     private HBox humanCards = new HBox();
     private HBox aiCards = new HBox();
     private GridPane boardCards = new GridPane();
+    private Player player;
     //    private HBox board = new HBox();
     private int humanScore = 0;
     private int aiScore = 0;
@@ -53,7 +54,7 @@ public class GamePresenter {
 //        model.makeBoard();
 //        model.startGame();
 //        gameView.getRestartGame().setOnAction(event -> restartGame());
-        gameView.getHumanCards().setOnMouseClicked(event -> playOnBoard());
+        gameView.getHumanCards().setOnMouseClicked(event -> playOnBoard(player));
     }
 
 //    public static int calculateHumanScore() {
@@ -67,24 +68,20 @@ public class GamePresenter {
 //    }
 
 
-
     public void displayCards(HBox humanCards, HBox aiCards, GridPane boardCards) {
         List<Card> deck = new ArrayList<>(Arrays.asList(Card.values()));
         Collections.shuffle(deck);
 
-        // Create and display CardViews for human
         for (int i = 0; i < 10; i++) {
             CardView cardView = new CardView(deck.remove(0));
             humanCards.getChildren().add(cardView);
         }
 
-        // Create and display CardViews for ai
         for (int i = 0; i < 10; i++) {
             CardView cardView = new CardView(deck.remove(0));
             aiCards.getChildren().add(cardView);
         }
 
-        // Create and display CardViews for the board
         for (int i = 0; i < 4; i++) {
             CardView cardView = new CardView(deck.remove(0));
             boardCards.add(cardView, 0, i);
@@ -217,19 +214,27 @@ public class GamePresenter {
     }
 
     //todo works but still have to apply the logic of card placement
-    private void playOnBoard() {
+    //player instanceOf Human / AI
+    //read clickedCard
+    //get card with closest card value (will create other method)
+    private void playOnBoard(Player player) {
+        HBox handCard = new HBox();
+        if (player instanceof Human) {
+            handCard = gameView.getHumanCards();
+        } else if (player instanceof AI) {
+            handCard = gameView.getAiCards();
+        }
+        //i think the board is added as a GridPane, but all 4 of the cards are put into one cell of the grid (what i assume, gottta fix)
         for (Node cardNode : gameView.getHumanCards().getChildren()) {
             if (cardNode instanceof CardView) {
                 CardView cardView = (CardView) cardNode;
                 Card card = cardView.getCard();
                 cardView.setOnMouseClicked(event -> {
-                    // Remove the card from the humanCards HBox
                     gameView.getHumanCards().getChildren().remove(cardView);
-                    // Get the card value of the clicked card
                     int clickedCardValue = card.getValue();
                     // Find the closest but bigger card among the 4 already on the board
-                    int closestButBiggerCardValue = Integer.MAX_VALUE;
-                    CardView closestButBiggerCard = null;
+                    int closestButSmallerCardValue = Integer.MAX_VALUE;
+                    CardView closestButSmallerCard = null;
                     for (Node boardNode : gameView.getBoardCards().getChildren()) {
                         if (boardNode instanceof GridPane) {
                             GridPane column = (GridPane) boardNode;
@@ -237,31 +242,26 @@ public class GamePresenter {
                                 if (cardNodeOnBoard instanceof CardView) {
                                     CardView cardOnBoard = (CardView) cardNodeOnBoard;
                                     int cardOnBoardValue = cardOnBoard.getCard().getValue();
-                                    if (cardOnBoardValue > clickedCardValue && cardOnBoardValue < closestButBiggerCardValue) {
-                                        closestButBiggerCardValue = cardOnBoardValue;
-                                        closestButBiggerCard = cardOnBoard;
+                                    if (cardOnBoardValue > clickedCardValue && cardOnBoardValue < closestButSmallerCardValue) {
+                                        closestButSmallerCardValue = cardOnBoardValue;
+                                        closestButSmallerCard = cardOnBoard;
                                     }
                                 }
                             }
                         }
                     }
 
-                    // If there's no closest but bigger card, add the clicked card to a new column on the board
-                    if (closestButBiggerCard == null) {
+                    // if there's no closest but bigger card, add the clicked card to a new column on the board
+                    if (closestButSmallerCard == null) {
                         GridPane newColumn = new GridPane();
-                        newColumn.setAlignment(Pos.CENTER);
+                        newColumn.setAlignment(Pos.CENTER); // if i leave this out, nothing appears, even though the condition isnt met...
                         newColumn.setVgap(10);
                         newColumn.add(cardView, 0, 0);
                         gameView.getBoardCards().add(newColumn, gameView.getBoardCards().getChildren().size(), 0);
                     } else {
-                        // Find the column of the closest but bigger card
-                        GridPane closestButBiggerCardColumn = (GridPane) closestButBiggerCard.getParent();
-
-                        // Find the index of the closest but bigger card within its column
-                        int closestButBiggerCardIndex = closestButBiggerCardColumn.getChildren().indexOf(closestButBiggerCard);
-
-                        // Add the clicked card next to the closest but bigger card
-                        closestButBiggerCardColumn.add(cardView, 0, closestButBiggerCardIndex + 1);
+                        GridPane closestButSmallerCardColumn = (GridPane) closestButSmallerCard.getParent();
+                        int closestButSmallerCardIndex = closestButSmallerCardColumn.getChildren().indexOf(closestButSmallerCard);
+                        closestButSmallerCardColumn.add(cardView, 0, closestButSmallerCardIndex + 1);
                     }
                 });
             }
@@ -412,7 +412,7 @@ public class GamePresenter {
     //literally has no effect on the board rip
     public void updateView() {
 // update score and send to UI
-        HBox board = new HBox();
+     /*   HBox board = new HBox();
         board.setSpacing(10);
 
         Card[] cards = model.makeBoard();
@@ -422,7 +422,7 @@ public class GamePresenter {
             cardLabel.setPadding(new Insets(10));
             cardLabel.setFont(new Font(20));
             board.getChildren().add(cardLabel);
-        }
+        }*/
     }
 ////
 //    //help screen empty for now
