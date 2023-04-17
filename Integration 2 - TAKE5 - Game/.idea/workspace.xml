@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="tried making the scores">
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/about/AboutPresenter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/about/AboutView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBPresenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/db_stats/DBView.java" afterDir="false" />
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="Implementation of LinkedLists">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7c775671-a379-49f1-b758-c518ec63e5d9.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
@@ -21,9 +19,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="module-info" />
         <option value="JavaFXApplication" />
         <option value="Class" />
+        <option value="module-info" />
       </list>
     </option>
   </component>
@@ -39,7 +37,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2M6ruva0ZgLONw3lR1WRnbX5i1c" />
   <component name="ProjectLevelVcsManager">
@@ -55,9 +53,8 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17 (2)&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/amall/OneDrive - Karel de Grote Hogeschool/KdG/2022-2023/IntelliJ Projects/S2-20/Integration 2 - TAKE5 - Game&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/macbookpronathan/S2-20/Integration 2 - TAKE5 - Game&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -68,11 +65,6 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
-    ]
   }
 }</component>
   <component name="RecentsManager">
@@ -82,13 +74,6 @@
       <recent name="$PROJECT_DIR$/src/be/kdg/integration2/team20/Domain" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\amall\OneDrive - Karel de Grote Hogeschool\KdG\2022-2023\IntelliJ Projects\S2-20\Integration 2 - TAKE5 - Game\recources\cards" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/src/be" />
-      <recent name="$PROJECT_DIR$/src/be/kdg" />
-      <recent name="$PROJECT_DIR$/src/be/kdg/integration2" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="be.kdg.integration2.team20.Domain" />
     </key>
@@ -96,26 +81,13 @@
       <recent name="be.kdg.integration2.take5.ui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Take5JavafxApplication">
+  <component name="RunManager" selected="Application.ConsoleController">
     <configuration name="ConsoleController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.take5.ConsoleController" />
       <module name="Take5" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="be.kdg.integration2.take5.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DBView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.take5.ui.db_stats.DBView" />
-      <module name="Take5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="be.kdg.integration2.take5.ui.db_stats.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,8 +108,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Take5JavafxApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.take5.Take5JavafxApplication" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.game.Main" />
       <module name="Take5" />
       <extension name="coverage">
         <pattern>
@@ -149,26 +121,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TitleScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="be.kdg.integration2.take5.ui.game.TitleScreen" />
-      <module name="Take5" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="be.kdg.integration2.take5.ui.game.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Take5JavafxApplication" />
-        <item itemvalue="Application.DBView" />
-        <item itemvalue="Application.TitleScreen" />
-        <item itemvalue="Application.ConsoleController" />
         <item itemvalue="Application.Game" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ConsoleController" />
       </list>
     </recent_temporary>
   </component>
@@ -216,19 +173,6 @@
       <workItem from="1679385409743" duration="187000" />
       <workItem from="1679397925841" duration="496000" />
       <workItem from="1679416554235" duration="276000" />
-      <workItem from="1680966202962" duration="40000" />
-      <workItem from="1680966265068" duration="229000" />
-      <workItem from="1680966655464" duration="21470000" />
-      <workItem from="1681055555204" duration="191000" />
-      <workItem from="1681055784370" duration="6835000" />
-      <workItem from="1681207505725" duration="7666000" />
-      <workItem from="1681249812267" duration="452000" />
-      <workItem from="1681250649374" duration="275000" />
-      <workItem from="1681295503332" duration="24575000" />
-      <workItem from="1681382351414" duration="22911000" />
-      <workItem from="1681466672355" duration="297000" />
-      <workItem from="1681467051391" duration="628000" />
-      <workItem from="1681468761134" duration="311000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -314,59 +258,18 @@
       <option name="project" value="LOCAL" />
       <updated>1679327948535</updated>
     </task>
-    <task id="LOCAL-00013" summary="cards displayed, no eventhandlers for it yet">
-      <created>1681250253626</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1681250253626</updated>
-    </task>
-    <task id="LOCAL-00014" summary="added missing classes and resources.">
-      <created>1681250880745</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1681250880745</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="origin/main" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/main" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -383,11 +286,7 @@
     <MESSAGE value="bug fixes in game logic" />
     <MESSAGE value="Project restructure with mr Roeland" />
     <MESSAGE value="Implementation of LinkedLists" />
-    <MESSAGE value="cards displayed, no eventhandlers for it yet" />
-    <MESSAGE value="added missing classes and resources." />
-    <MESSAGE value="moving cards (still working rn)" />
-    <MESSAGE value="tried making the scores" />
-    <option name="LAST_COMMIT_MESSAGE" value="tried making the scores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementation of LinkedLists" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
