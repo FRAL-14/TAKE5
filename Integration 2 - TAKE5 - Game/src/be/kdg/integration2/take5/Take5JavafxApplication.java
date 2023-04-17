@@ -13,7 +13,7 @@ public class Take5JavafxApplication extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-//when running, uncomment classes in db_stats folder
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         GameSession model = new GameSession();
@@ -24,8 +24,9 @@ public class Take5JavafxApplication extends Application {
         Scene scene = new Scene(startView);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Take 5");
-        primaryStage.setWidth(1000);
-        primaryStage.setHeight(600);
+        primaryStage.setResizable(false);
+        primaryStage.setMinWidth(600);
+        primaryStage.setFullScreen(true);
         startPresenter.addWindowEventHandlers();
         primaryStage.show();
     }

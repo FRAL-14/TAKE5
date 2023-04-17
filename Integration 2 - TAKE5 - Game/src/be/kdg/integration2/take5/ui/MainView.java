@@ -20,7 +20,7 @@ public class MainView extends BorderPane {
 
     private void initialiseNodes() {
         lb = new Label("Take 5");
-        play = new Button("Click to start...");
+        play = new Button("Start!");
         stats = new Button("Statistics");
         help = new Button("Help & Rules");
     }
@@ -38,9 +38,9 @@ public class MainView extends BorderPane {
         lb.setFont(new Font(80));
         play.setFont(new Font(40));
         stats.setFont(new Font(20));
+        help.setFont(new Font(20));
         setMargin(stats, new Insets(20, 0, 0, 40));
         setMargin(help, new Insets(20, 40, 0, 0));
-        help.setFont(new Font(20));
     }
     // getters and setters
 
