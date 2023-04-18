@@ -82,14 +82,13 @@ nav ul li {
 }
 
 nav a {
-    padding: 20px;
-    /*border-radius: 50% 10% / 100%;*/
+    padding: 15px;
 }
 
 nav a:hover {
-    background-color: #a6a8ae;
+    background-color: #785071;
     color: white;
-    border-radius: 70px;
+    border-radius: 50px;
 }
 
 nav .current {
