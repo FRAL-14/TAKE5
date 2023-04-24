@@ -56,7 +56,7 @@ public class GameView extends BorderPane {
         setAlignment(boardCards, Pos.CENTER_LEFT);
         setAlignment(humanCards, Pos.BOTTOM_CENTER);
         setAlignment(aiCards, Pos.TOP_LEFT);
-        boardCards.setBorder(new Border(new BorderStroke(null, BorderStrokeStyle.SOLID, null, new BorderWidths(1)))); //border around gridpane
+//        boardCards.setBorder(new Border(new BorderStroke(null, BorderStrokeStyle.SOLID, null, new BorderWidths(1)))); //border around gridpane
 
 //        for (int i = 0; i < 6; i++) {
 //            ColumnConstraints c = new ColumnConstraints(20);

@@ -26,13 +26,14 @@ public class MainView extends BorderPane {
     }
 
     private void layoutNodes() {
+        this.setStyle("-fx-background-color: #ffc7f1");
         setTop(lb);
         setCenter(play);
         setLeft(stats);
         setRight(help);
         BorderPane.setAlignment(play, Pos.CENTER);
         BorderPane.setAlignment(lb, Pos.TOP_CENTER);
-        BorderPane.setAlignment(stats, Pos.BASELINE_LEFT); // can be changed later
+        BorderPane.setAlignment(stats, Pos.BASELINE_LEFT);
         BorderPane.setAlignment(help, Pos.BASELINE_RIGHT);
         BorderPane.setMargin(lb, new Insets(30));
         lb.setFont(new Font(80));
@@ -42,8 +43,6 @@ public class MainView extends BorderPane {
         setMargin(stats, new Insets(20, 0, 0, 40));
         setMargin(help, new Insets(20, 40, 0, 0));
     }
-    // getters and setters
-
     public Button getPlay() {
         return play;
     }

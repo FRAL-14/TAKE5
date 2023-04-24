@@ -16,16 +16,11 @@ public class HelpPresenter {
         view.getReturnButton().setOnAction(event -> {
             view.getScene().getWindow().hide();
         });
-// Add event handlers (inner classes or
-// lambdas) to view controls.
-// In the event handlers: call model methods
-// and updateView().
     }
     private void updateView() {
 // fills the view with model data
     }
     public void addWindowEventHandlers () {
         Window window = view.getScene().getWindow();
-// Add event handlers to window
     }
 }

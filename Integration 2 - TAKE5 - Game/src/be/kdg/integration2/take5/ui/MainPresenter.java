@@ -3,8 +3,13 @@ package be.kdg.integration2.take5.ui;
 import be.kdg.integration2.take5.model.GameSession;
 import be.kdg.integration2.take5.ui.game.GamePresenter;
 import be.kdg.integration2.take5.ui.game.GameView;
+import be.kdg.integration2.take5.ui.help.HelpPresenter;
+import be.kdg.integration2.take5.ui.help.HelpView;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 public class MainPresenter {
@@ -20,9 +25,10 @@ public class MainPresenter {
 
     private void addEventHandlers() {
         this.startView.getPlay().setOnAction(e -> setGameView());
-        //if button 'STATS' is clicked ( TODO DBView and DBPresenter are empty right now so cannot implement)
-//        helpView.setOnMouseClicked(e -> setHelpView());
+        //if button 'STATS' is clicked ( TODO DBView and DBPresenter are commented right now so cannot implement)
+        this.startView.getHelp().setOnMouseClicked(e -> setHelpView());
     }
+
 
 
     private void setGameView() {
@@ -34,17 +40,17 @@ public class MainPresenter {
     }
 
     //LEAVE THIS, gonna be used when the help button is clicked on the starting screen
-//    private void setHelpView() {
-//        HelpView helpView = new HelpView();
-//        HelpPresenter presenter = new HelpPresenter(model, helpView);
-//        Stage helpStage = new Stage();
-//        helpStage.initOwner(gameView.getScene().getWindow());
-//        helpStage.initModality(Modality.APPLICATION_MODAL);
-//        helpStage.setScene(new Scene(helpView));
-//        helpStage.setX(gameView.getScene().getWindow().getX() + 150);
-//        helpStage.setY(gameView.getScene().getWindow().getY() + 20);
-//        helpStage.showAndWait();
-//    }
+    private void setHelpView() {
+        HelpView helpView = new HelpView();
+        HelpPresenter presenter = new HelpPresenter(model, helpView);
+        Stage helpStage = new Stage();
+        helpStage.initOwner(startView.getScene().getWindow());
+        helpStage.initModality(Modality.APPLICATION_MODAL);
+        helpStage.setScene(new Scene(helpView));
+        helpStage.setX(startView.getScene().getWindow().getX() + 200);
+        helpStage.setY(startView.getScene().getWindow().getY() + 200);
+        helpStage.showAndWait();
+    }
 
     private void updateView() {
 
