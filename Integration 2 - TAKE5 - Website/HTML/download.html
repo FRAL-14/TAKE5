@@ -4,19 +4,19 @@
     <meta charset="UTF-8">
     <title>Download - TAKE5!</title>
     <link rel="stylesheet" href="../CSS/stylesheet.css">
-    <link rel="icon" href="../MEDIA/layout/favicon.ico">
+    <link rel="icon" href="../MEDIA/layout/favicon-yellow.png">
     <script src="../JavaScript/main_script.js"></script>
 </head>
 
 <body>
 
 <header>
-    <img class="logo" src="../MEDIA/layout/logo.png" alt="Website logo">
     <nav>
         <ul>
             <li><a href="../index.html">HOME</a></li>
             <li><a href="../HTML/preview.html">PREVIEW</a></li>
             <li><a href="../HTML/download.html" class="current">DOWNLOAD</a></li>
+            <li><img class="logo" src="../MEDIA/layout/logo.png" alt="Website logo"></li>
             <li><a href="../HTML/statistics.html">STATISTICS</a></li>
             <li><a href="../HTML/roadmap.html">ROADMAP</a></li>
             <li><a href="../HTML/about.html">ABOUT</a></li>
@@ -27,7 +27,7 @@
 <main class="article">
     <article>
         <div class="flex-centered">
-            <a download="gin-rummy" href="../download/java-fx-game.zip"> <!--enter the path to .zip-->
+            <a download="gin-rummy" href="../download/"> <!--enter the path to .zip-->
                 <button>Download the game!</button>
             </a>
         </div>
@@ -50,7 +50,7 @@
         <section>
             <h2>Instructions</h2>
             <ul>
-                <li>Open the game in IntelliJ</li>
+                <li>Open the game project in IntelliJ</li>
                 <li>Click on <b>"ADD CONFIGURATION"</b> &#8594 <b>"Add new run configuration..."</b> &#8594 <b>"Application"</b>
                 </li>
                 <li>In the <b>"Build and run"</b> part, select : <b>"java 17..."</b></li>
@@ -58,7 +58,7 @@
                 <li>In the new section <b>"VM option"</b> paste this command using your own path to the JavaFX/lib
                     folder: <code>--module-path "path/to/the/JavaFX/lib"
                         --add-modules=javafx.controls,javafx.media</code></li>
-                <li>Run the Game.java class</li>
+                <li>Run the <b>"Take5JavafxApplication"</b> class</li>
             </ul>
         </section>
     </article>

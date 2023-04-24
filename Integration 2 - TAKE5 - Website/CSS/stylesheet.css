@@ -6,21 +6,26 @@
 }
 
 body {
-    background-color: #e2e6ec;
+    background-color: #fffced;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-main {
-    margin: 20px;
-}
+/*main {*/
+/*    margin: 20px;*/
+/*}*/
 
 section {
     margin: 25px;
 }
 
-h1, h2 {
+h1 {
+    text-decoration: underline;
+    margin: 10px;
+}
+
+h2 {
     text-decoration: underline;
     margin: 10px;
 }
@@ -44,6 +49,10 @@ a {
     text-align: center;
 }
 
+.centered p {
+    font-size: 115%;
+}
+
 .flex-container {
     justify-content: space-around;
     display: flex;
@@ -62,36 +71,42 @@ a {
 .logo {
     margin: auto;
     display: block;
-    width: 180px;
+    width: 115px;
 }
+
 
 nav ul {
     list-style-type: none;
     display: flex;
-    padding: 25px 0;
+    padding: 10px 0;
     margin: auto;
-    justify-content: space-around;
-    border-bottom: #222289 solid 1px;
-    width: 95%;
+    /*justify-content: space-around;*/
+    border-bottom: #1c4896 solid 1px;
+    width: 90%;
     max-width: 1900px;
+}
+
+nav ul li {
+    margin: auto;
 }
 
 nav a {
     padding: 15px;
-    border-radius: 50% 10% / 100%;
 }
 
 nav a:hover {
-    color: darkorange;
+    background-color: #785071;
+    color: white;
+    border-radius: 50px;
 }
 
 nav .current {
-    color: #222289;
+    color: #1c4896;
 }
 
 footer {
     margin-top: auto; /* this puts the footer always at the bottom of the screen */
-    background-color: #222289;
+    background-color: #1c4896;
     color: white;
     text-align: center;
     padding-top: 20px;
@@ -102,7 +117,8 @@ footer {
 /* HOME PAGE */
 
 .banner {
-    margin: 40px auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 100%;
 }
 
@@ -131,9 +147,9 @@ video {
 }
 
 button {
-    background-color: #222289;
+    background-color: #f1ce39;
+    color: black;
     border: 1px solid;
-    color: white;
     font-weight: 550;
     padding: 20px 30px;
     cursor: pointer;
@@ -143,8 +159,8 @@ button {
 }
 
 button:hover {
-    background-color: darkorange;
-    color: black;
+    background-color: #1c4896;
+    color: white;
 }
 
 .indented {
@@ -152,7 +168,7 @@ button:hover {
 }
 
 section a {
-    color: #0645AD;
+    color: #1c4896;
     font-weight: normal;
 }
 
@@ -166,9 +182,9 @@ article {
 
 code {
     display: block;
-    background-color: #041421;
+    background-color: black;
     max-width: 585px;
-    color: yellow;
+    color: #f1ce39;
     font-family: monospace;
     padding: 5px;
     margin: 5px 0;
@@ -220,25 +236,25 @@ code::-webkit-scrollbar {
     font-family: sans-serif;
     text-transform: uppercase;
     outline: 0;
-    background: #222289;
+    background: #f1ce39;
+    color: black;
     width: 100%;
     border: 0;
     padding: 15px;
-    color: white;
     font-size: 14px;
     cursor: pointer;
 }
 
 .form button:hover, .form button:active, .form button:focus {
-    background: darkorange;
-    color: black;
+    background: #1c4896;
+    color: white;
 }
 
 /* ----------------------------------------------------------------------------------------------------------------- */
 /* ROADMAP PAGE */
 
 h5 {
-    text-align : center;
+    text-align: center;
 }
 
 /* ----------------------------------------------------------------------------------------------------------------- */
