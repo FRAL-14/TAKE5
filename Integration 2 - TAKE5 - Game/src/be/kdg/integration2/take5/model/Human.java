@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Human extends Player{
     public void showHand(Deck deck){
-        System.out.println(Arrays.toString(deck.humanHand));
+        System.out.println(deck.humanHand.toString());
     }
 
 }

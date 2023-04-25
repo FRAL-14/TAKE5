@@ -1,8 +1,8 @@
 package be.kdg.integration2.take5.model;
 
 import be.kdg.integration2.take5.ui.CardView;
-import be.kdg.integration2.take5.ui.game.GamePresenter;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -67,8 +67,8 @@ public class GameSession {
         board.checkLists(ai);
     }
 
-    public Card[] getDeck() {
-        return mainDeck.dealPlay(mainDeck.shuffledDeck, 104);
+    public ArrayList<Card> getDeck() {
+        return mainDeck.dealPlay(mainDeck.cards, 104);
     }
 
     public Board getBoard() {

@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class AI extends Player{
 
     public void showHand(Deck deck){
-        System.out.println(Arrays.toString(deck.aiHand));
+        System.out.println(deck.aiHand.toString());
     }
 
 }
