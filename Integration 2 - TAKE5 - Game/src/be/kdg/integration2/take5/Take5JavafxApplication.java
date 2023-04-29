@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+// fixed?
 
 public class Take5JavafxApplication extends Application {
 
