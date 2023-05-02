@@ -5,6 +5,8 @@ import be.kdg.integration2.take5.ui.game.GamePresenter;
 import be.kdg.integration2.take5.ui.game.GameView;
 import be.kdg.integration2.take5.ui.help.HelpPresenter;
 import be.kdg.integration2.take5.ui.help.HelpView;
+import be.kdg.integration2.take5.ui.user_input.InputPresenter;
+import be.kdg.integration2.take5.ui.user_input.InputView;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
@@ -20,26 +22,22 @@ public class MainPresenter {
         this.model = model;
         this.startView = startView;
         addEventHandlers();
-        updateView();
+//        updateView(); not used
     }
 
     private void addEventHandlers() {
-        this.startView.getPlay().setOnAction(e -> setGameView());
+        //        this.startView.getPlay().setOnAction(e -> setGameView());
+        this.startView.getPlay().setOnAction(e -> setUserInput());
         //if button 'STATS' is clicked ( TODO DBView and DBPresenter are commented right now so cannot implement)
         this.startView.getHelp().setOnMouseClicked(e -> setHelpView());
     }
 
-
-
-    private void setGameView() {
-        GameView gameView = new GameView();
-        new GamePresenter(model, gameView);
-        startView.getScene().setRoot(gameView);
-        gameView.getScene().getWindow();
-
+    private void setUserInput() {
+        InputView ipv = new InputView();
+        new InputPresenter(model, ipv);
+        startView.getScene().setRoot(ipv);
+        ipv.getScene().getWindow();
     }
-
-    //LEAVE THIS, gonna be used when the help button is clicked on the starting screen
     private void setHelpView() {
         HelpView helpView = new HelpView();
         HelpPresenter presenter = new HelpPresenter(model, helpView);
@@ -51,11 +49,7 @@ public class MainPresenter {
         helpStage.setY(startView.getScene().getWindow().getY() + 200);
         helpStage.showAndWait();
     }
-
-    private void updateView() {
-
-    }
-
+//    private void updateView() { } no model data is used here
     public void addWindowEventHandlers() {
         startView.getScene().getWindow().setOnCloseRequest(event -> closeApplication(event));
     }

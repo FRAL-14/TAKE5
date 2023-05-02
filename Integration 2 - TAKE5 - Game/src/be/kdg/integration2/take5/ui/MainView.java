@@ -9,7 +9,6 @@ import javafx.scene.text.Font;
 
 public class MainView extends BorderPane {
     private Button play;
-    private Button stats;
     private Button help;
     private Label lb;
 
@@ -21,28 +20,30 @@ public class MainView extends BorderPane {
     private void initialiseNodes() {
         lb = new Label("Take 5");
         play = new Button("Start!");
-        stats = new Button("Statistics");
         help = new Button("Help & Rules");
     }
 
     private void layoutNodes() {
-        this.setStyle("-fx-background-color: #ffc7f1");
+        this.setStyle("-fx-background-color: #fffced");
+        play.setStyle("-fx-background-color: #C5E3F2; -fx-background-radius: 15px;");
+        help.setStyle("-fx-background-color: #DDFFC1; -fx-background-radius: 15px;");
+
         setTop(lb);
-        setCenter(play);
-        setLeft(stats);
-        setRight(help);
-        BorderPane.setAlignment(play, Pos.CENTER);
         BorderPane.setAlignment(lb, Pos.TOP_CENTER);
-        BorderPane.setAlignment(stats, Pos.BASELINE_LEFT);
-        BorderPane.setAlignment(help, Pos.BASELINE_RIGHT);
-        BorderPane.setMargin(lb, new Insets(30));
+        BorderPane.setMargin(lb, new Insets(40, 250, 100, 250));
         lb.setFont(new Font(80));
-        play.setFont(new Font(40));
-        stats.setFont(new Font(20));
+
+        setCenter(play);
+        BorderPane.setAlignment(play, Pos.CENTER);
+        setMargin(play, new Insets(10, 10, 50, 10));
+        play.setFont(new Font(50));
+
+        setBottom(help);
+        BorderPane.setAlignment(help, Pos.BOTTOM_CENTER);
         help.setFont(new Font(20));
-        setMargin(stats, new Insets(20, 0, 0, 40));
-        setMargin(help, new Insets(20, 40, 0, 0));
+        setMargin(help, new Insets(10, 10, 50, 10));
     }
+
     public Button getPlay() {
         return play;
     }
@@ -57,14 +58,6 @@ public class MainView extends BorderPane {
 
     public void setLb(Label lb) {
         this.lb = lb;
-    }
-
-    public Button getStats() {
-        return stats;
-    }
-
-    public void setStats(Button stats) {
-        this.stats = stats;
     }
 
     public Button getHelp() {

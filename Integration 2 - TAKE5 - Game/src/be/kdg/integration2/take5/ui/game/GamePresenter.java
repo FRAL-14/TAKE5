@@ -2,6 +2,8 @@ package be.kdg.integration2.take5.ui.game;
 
 import be.kdg.integration2.take5.model.*;
 import be.kdg.integration2.take5.ui.CardView;
+import be.kdg.integration2.take5.ui.game_over.GameOverPresenter;
+import be.kdg.integration2.take5.ui.game_over.GameOverView;
 import be.kdg.integration2.take5.ui.help.HelpPresenter;
 import be.kdg.integration2.take5.ui.help.HelpView;
 import javafx.animation.ParallelTransition;
@@ -11,6 +13,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -42,21 +46,36 @@ public class GamePresenter {
         this.model = model;
         this.gameView = gameView;
         addEventHandlers();
-//        updateView();
-        displayCards(humanCards, aiCards, boardCards);
-        gameView.setHumanCards(humanCards);
-        gameView.setAiCards(aiCards);
-        gameView.setBoardCards(boardCards);
+        updateView();
     }
 
     private void addEventHandlers() {
-//        gameView.getMenu().setOnAction(event -> showHelp()); //shows next screen
-//        model.makeBoard();
-//        model.startGame();
-//        gameView.getRestartGame().setOnAction(event -> restartGame());
+        gameView.getRestartGame().setOnAction(event -> restartGame());
+        gameView.getQuitGame().setOnAction(event -> quitGame());
         gameView.getHumanCards().setOnMouseClicked(event -> playOnBoard(player));
+        gameView.getHelpMenuItem().setOnAction(event -> showRules());
+//        gameView.getRestartGame().setOnAction(event -> gameStopped());    //this works, but the one above is the one that should work
+//        gameView.getQuitGame().setOnAction(event -> )
     }
 
+    private void gameStopped() {
+        GameOverView gameOverView = new GameOverView();
+        new GameOverPresenter(model, gameOverView);
+        gameView.getScene().setRoot(gameOverView);
+        gameOverView.getScene().getWindow();
+    }
+
+    private void showRules() {
+        HelpView helpView = new HelpView();
+        new HelpPresenter(model, helpView);
+        Stage helpStage = new Stage();
+        helpStage.initOwner(gameView.getScene().getWindow());
+        helpStage.initModality(Modality.APPLICATION_MODAL);
+        helpStage.setScene(new Scene(helpView));
+        helpStage.setX(gameView.getScene().getWindow().getX() + 250);
+        helpStage.setY(gameView.getScene().getWindow().getY() + 150);
+        helpStage.showAndWait();
+    }
 //    public static int calculateHumanScore() {
 //        ObservableList<Card> humanHand = humanCards.getChildren();
 //        return ScoreCalc.calculateScore(humanHand);
@@ -67,6 +86,13 @@ public class GamePresenter {
 //        return ScoreCalc.calculateScore(aiHand);
 //    }
 
+    public void updateView() {
+// update score and send to UI
+        displayCards(humanCards, aiCards, boardCards);
+        gameView.setHumanCards(humanCards);
+        gameView.setAiCards(aiCards);
+        gameView.setBoardCards(boardCards);
+    }
 
     public void displayCards(HBox humanCards, HBox aiCards, GridPane boardCards) {
         List<Card> deck = new ArrayList<>(Arrays.asList(Card.values()));
@@ -380,9 +406,24 @@ public class GamePresenter {
 
 
     private void restartGame() {
-        model.makeBoard();
-        model.startGame();
-//        updateView();
+        model.makeBoard();  //should work, doesnt
+        model.startGame();  //should work, doesnt
+        updateView();   //works
+    }
+
+    private void quitGame() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setHeaderText("You're about to exit the game");
+        alert.setContentText("Are you sure? If so, your data will be lost.");
+        alert.setTitle("Exiting...");
+        alert.getButtonTypes().clear();
+        ButtonType no = new ButtonType("no");
+        ButtonType yes = new ButtonType("yes");
+        alert.getButtonTypes().addAll(no, yes);
+        alert.showAndWait();
+        if (alert.getResult().equals(yes)) {
+            ((Stage) this.gameView.getScene().getWindow()).close();
+        }
     }
 
 //    private void updateCards() {
@@ -410,20 +451,6 @@ public class GamePresenter {
 
 
     //literally has no effect on the board rip
-    public void updateView() {
-// update score and send to UI
-     /*   HBox board = new HBox();
-        board.setSpacing(10);
-
-        Card[] cards = model.makeBoard();
-        for (Card card : cards) {
-            Label cardLabel = new Label(card.toString());
-            cardLabel.setStyle("-fx-background-color: white; -fx-border-color: black;");
-            cardLabel.setPadding(new Insets(10));
-            cardLabel.setFont(new Font(20));
-            board.getChildren().add(cardLabel);
-        }*/
-    }
 ////
 //    //help screen empty for now
 //    private void showHelp() {

@@ -28,21 +28,23 @@ public class HelpView extends BorderPane {
     }
 
     private void layoutNodes() {
-        this.setStyle("-fx-background-color: #ffc7f1");
+        this.setStyle("-fx-background-color: #DDFFC1");
         setTop(header);
         header.setFont(new Font(80));
         setAlignment(header, Pos.TOP_CENTER);
         setMargin(header, new Insets(30));
+
         setCenter(rules);
         rules.setFont(new Font(20));
-        setBottom(returnButton);
-        setMargin(rules, new Insets(30));
-        returnButton.setFont(new Font(20));
-        setAlignment(returnButton, Pos.BOTTOM_LEFT);
-        setMargin(returnButton, new Insets(40));
+        setMargin(rules, new Insets(20, 35, 20, 35));
         setAlignment(rules, Pos.CENTER);
+
+        setBottom(returnButton);
+        returnButton.setFont(new Font(20));
+        returnButton.setStyle("-fx-background-color: #fffced;-fx-background-radius: 15px;");
+        setMargin(returnButton, new Insets(40));
+        setAlignment(returnButton, Pos.BOTTOM_LEFT);
     }
-//getters and setters
 
     public Button getReturnButton() {
         return returnButton;

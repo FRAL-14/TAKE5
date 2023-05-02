@@ -21,16 +21,11 @@ public class Take5JavafxApplication extends Application {
         GameSession model = new GameSession();
         MainView startView = new MainView();
         MainPresenter startPresenter = new MainPresenter(model, startView);
-        HBox root = new HBox();
-        root.setSpacing(10);
-        Scene scene = new Scene(startView);
-        scene.setFill(Color.web("#ffff80"));
+        Scene scene = new Scene(startView,1400,800); //width & height
         primaryStage.setScene(scene);
         primaryStage.setTitle("Take 5");
-//        primaryStage.setResizable(false);
-        primaryStage.setMinWidth(1500);
-        primaryStage.setMinHeight(1500);
-//        primaryStage.setFullScreen(true);
+        primaryStage.setResizable(false);
+        primaryStage.setFullScreen(true);
         startPresenter.addWindowEventHandlers();
         primaryStage.show();
     }

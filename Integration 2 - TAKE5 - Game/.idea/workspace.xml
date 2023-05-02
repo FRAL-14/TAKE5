@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="fixing layout GridPane (board)">
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="added /out in gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5JavafxApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5JavafxApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" afterDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
@@ -153,7 +158,7 @@
       <workItem from="1682765200923" duration="152000" />
       <workItem from="1682765518072" duration="613000" />
       <workItem from="1682766160067" duration="47000" />
-      <workItem from="1683050447710" duration="239000" />
+      <workItem from="1683050447710" duration="909000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -246,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681742019636</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="added /out in gitignore">
+      <created>1683050794097</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683050794097</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +287,8 @@
     <MESSAGE value="Project restructure with mr Roeland" />
     <MESSAGE value="Implementation of LinkedLists" />
     <MESSAGE value="fixing layout GridPane (board)" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing layout GridPane (board)" />
+    <MESSAGE value="added /out in gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added /out in gitignore" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

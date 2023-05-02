@@ -10,16 +10,14 @@ public class HelpPresenter {
         this.model = model;
         this.view = view;
         addEventHandlers();
-        updateView();
+//        updateView();
     }
     private void addEventHandlers() {
         view.getReturnButton().setOnAction(event -> {
             view.getScene().getWindow().hide();
         });
     }
-    private void updateView() {
-// fills the view with model data
-    }
+    //    private void updateView() { } no model data is used in this view
     public void addWindowEventHandlers () {
         Window window = view.getScene().getWindow();
     }
