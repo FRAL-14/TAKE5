@@ -9,19 +9,17 @@ public class AI extends Player{
         System.out.println(deck.aiHand.toString());
     }
 
-//    Rule, not done yet PLEASE don't delete it
 
-//    public void playLowestCardIfAvailable() {
-//        //  Sort the cards
-//        Collections.sort(getHand(), Comparator.comparing(Card::getValue));
-//
-//        //  Check the lowest card
-//        Card lowestCard = getHand().get(0);
-//        if (lowestCard.getValue() == 1) {
-//            // AI has the lowest card, play it first
-//            System.out.println("Playing lowest card: " + lowestCard.getValue());
-//            getHand().remove(lowestCard);
-//        }
-//    }
+// rule to play check whether the AI has the lowest card (1) and if yes to play it
+    private void playLowestCardIfAvailable() {
+
+        //  Check the lowest card
+        Card lowestCard = getHand().get(0);
+        if (lowestCard.getValue() == 1) {
+            // AI has the lowest card, play it first
+            System.out.println("Playing lowest card: " + lowestCard.getValue());
+            getHand().remove(lowestCard);
+        }
+    }
 
 }
