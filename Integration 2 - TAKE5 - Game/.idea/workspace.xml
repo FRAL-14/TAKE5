@@ -7,30 +7,8 @@
     <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="fixing layout GridPane (board)">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/Take5JavafxApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/Take5JavafxApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/AI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Card.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Card.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Deck.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Deck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/GameSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/GameSession.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Human.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/MainPresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/MainPresenter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/MainView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GamePresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GamePresenter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GameView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/help/HelpPresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/help/HelpPresenter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/help/HelpView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/help/HelpView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5JavafxApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5JavafxApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/AI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Card.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Deck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Human.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Leaderboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Leaderboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" afterDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
@@ -71,27 +49,27 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17 (2)&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/amall/S2-20/Integration 2 - TAKE5 - Game&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.119617224&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "17 (2)",
+    "last_opened_file_path": "C:/Users/amall/integration/S2-20/Integration 2 - TAKE5 - Game",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.119617224",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -223,6 +201,7 @@
       <workItem from="1683272929062" duration="940000" />
       <workItem from="1683286970741" duration="2275000" />
       <workItem from="1683289648834" duration="369000" />
+      <workItem from="1683291573510" duration="9822000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>

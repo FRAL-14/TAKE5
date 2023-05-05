@@ -226,4 +226,11 @@ public class Board {
         checkLists();
         return card;
     }
+
+    public void clear() {
+        row1.clear();
+        row2.clear();
+        row3.clear();
+        row4.clear();
+    }
 }

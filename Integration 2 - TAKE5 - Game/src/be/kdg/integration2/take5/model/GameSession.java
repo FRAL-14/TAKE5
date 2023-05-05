@@ -103,28 +103,32 @@ public class GameSession {
     }
 
 
-    public void makeBoard(){
+    public void makeBoard() {
         mainDeck.startRound();
         board.initializeRow(mainDeck);
     }
 
-    public Deck getDeck(){
+    public void clear() {
+        board.clear();
+    }
+
+    public Deck getDeck() {
         return mainDeck;
     }
 
-    public void startGame(){
+    public void startGame() {
     }
 
-    public boolean playCard(Card card){
+    public boolean playCard(Card card) {
         board.playCard(card);
         return true;
     }
 
-    public Card playAICard(){
+    public Card playAICard() {
         return board.playAICard();
     }
 
-    public LinkedList<Card> getRow(int row){
+    public LinkedList<Card> getRow(int row) {
         return switch (row) {
             case 1 -> board.getRow1();
             case 2 -> board.getRow2();
@@ -134,7 +138,7 @@ public class GameSession {
         };
     }
 
-    public LinkedList<Card> getHand(String type){
+    public LinkedList<Card> getHand(String type) {
         return switch (type) {
             case "human" -> mainDeck.getHumanHand();
             case "ai" -> mainDeck.getAiHand();
