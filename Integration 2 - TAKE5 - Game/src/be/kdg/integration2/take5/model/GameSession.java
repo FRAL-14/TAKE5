@@ -20,6 +20,10 @@ public class GameSession {
     private List<Double> outliers;
     private XYChart.Series<Number, Number> durationData;
 
+    /**
+     * Calculates the average move duration of the current game session.
+     * @return The average move duration, or 0.0 if no moves have been made yet.
+     */
     public double getAverageDuration() {
         if (moveDurations.isEmpty()) {
             return 0.0;
@@ -32,6 +36,10 @@ public class GameSession {
         }
     }
 
+    /**
+     * Calculates the outliers of move durations in the current game session.
+     * @return A string containing a comma-separated list of outliers, or "None" if there are no outliers.
+     */
     public String getOutliers() {
         double median = getMedianDuration();
         double medianAbsoluteDeviation = getMedianAbsoluteDeviation(median);
@@ -53,6 +61,10 @@ public class GameSession {
         }
     }
 
+    /**
+     * Calculates the median move duration of the current game session.
+     * @return The median move duration.
+     */
     private double getMedianDuration() {
         List<Double> sortedDurations = new ArrayList<>(moveDurations);
         Collections.sort(sortedDurations);
@@ -68,6 +80,11 @@ public class GameSession {
         }
     }
 
+    /**
+     * Calculates the median absolute deviation of move durations from the median duration.
+     * @param median The median move duration.
+     * @return The median absolute deviation.
+     */
     private double getMedianAbsoluteDeviation(double median) {
         List<Double> deviations = new ArrayList<>();
         for (Double duration : moveDurations) {
@@ -77,6 +94,11 @@ public class GameSession {
         return getMedian(deviations);
     }
 
+    /**
+     * Calculates the median of a list of values.
+     * @param values The list of values.
+     * @return The median value.
+     */
     private double getMedian(List<Double> values) {
         List<Double> sortedValues = new ArrayList<>(values);
         Collections.sort(sortedValues);
