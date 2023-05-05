@@ -1,10 +1,13 @@
 package be.kdg.integration2.take5.model;
 
 import be.kdg.integration2.take5.ui.CardView;
+import javafx.scene.chart.XYChart;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 public class GameSession {
     Board board = new Board();
@@ -13,6 +16,88 @@ public class GameSession {
     AI ai = new AI();
     private List<CardView> boardCardViews;
     private LinkedList<Card>[] rows;
+
+    private List<Double> moveDurations;
+    private double averageDuration;
+    private List<Double> outliers;
+    private XYChart.Series<Number, Number> durationData;
+
+
+
+    public GameSession(List<Double> moveDurations) {
+        this.moveDurations = moveDurations;
+    }
+
+    public double getAverageDuration() {
+        if (moveDurations.isEmpty()) {
+            return 0.0;
+        } else {
+            double sum = 0.0;
+            for (double duration : moveDurations) {
+                sum += duration;
+            }
+            return sum / moveDurations.size();
+        }
+    }
+
+    public String getOutliers() {
+        double median = getMedianDuration();
+        double medianAbsoluteDeviation = getMedianAbsoluteDeviation(median);
+        double outlierThreshold = median + (10 * medianAbsoluteDeviation);
+
+        List<Double> outliers = new ArrayList<>();
+        for (Double duration : moveDurations) {
+            if (duration > outlierThreshold) {
+                outliers.add(duration);
+            }
+        }
+
+        if (outliers.isEmpty()) {
+            return "None";
+        } else {
+            return outliers.stream()
+                    .map(duration -> String.format("%.2f", duration))
+                    .collect(Collectors.joining(", "));
+        }
+    }
+
+    private double getMedianDuration() {
+        List<Double> sortedDurations = new ArrayList<>(moveDurations);
+        Collections.sort(sortedDurations);
+
+        if (sortedDurations.size() % 2 == 0) {
+            int midIndex = sortedDurations.size() / 2;
+            double midValue1 = sortedDurations.get(midIndex - 1);
+            double midValue2 = sortedDurations.get(midIndex);
+            return (midValue1 + midValue2) / 2.0;
+        } else {
+            int midIndex = sortedDurations.size() / 2;
+            return sortedDurations.get(midIndex);
+        }
+    }
+    private double getMedianAbsoluteDeviation(double median) {
+        List<Double> deviations = new ArrayList<>();
+        for (Double duration : moveDurations) {
+            deviations.add(Math.abs(duration - median));
+        }
+
+        return getMedian(deviations);
+    }
+
+    private double getMedian(List<Double> values) {
+        List<Double> sortedValues = new ArrayList<>(values);
+        Collections.sort(sortedValues);
+
+        if (sortedValues.size() % 2 == 0) {
+            int midIndex = sortedValues.size() / 2;
+            double midValue1 = sortedValues.get(midIndex - 1);
+            double midValue2 = sortedValues.get(midIndex);
+            return (midValue1 + midValue2) / 2.0;
+        } else {
+            int midIndex = sortedValues.size() / 2;
+            return sortedValues.get(midIndex);
+        }
+    }
 
     public Card[] makeBoard() {
         mainDeck.startRound();
@@ -32,6 +117,18 @@ public class GameSession {
             boardCardViews.get(i).getChildren().add(cardView);
         }
     }
+
+    public XYChart.Series<Number, Number> getDurationData() {
+        return durationData;
+    }
+
+    private void updateDurationData() {
+        durationData = new XYChart.Series<>();
+        for (int i = 0; i < moveDurations.size(); i++) {
+            durationData.getData().add(new XYChart.Data<>(i + 1, moveDurations.get(i)));
+        }
+    }
+
 // In the Model class:
 
 //    public int findRowToPlace(Card selectedCard) {
@@ -118,5 +215,7 @@ public class GameSession {
     public void setRows(LinkedList<Card>[] rows) {
         this.rows = rows;
     }
+
+
 
 }

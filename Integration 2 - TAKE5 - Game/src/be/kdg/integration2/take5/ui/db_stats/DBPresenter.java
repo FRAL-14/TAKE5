@@ -1,33 +1,43 @@
-//package be.kdg.integration2.take5.ui.db_stats;
-//
-//import be.kdg.integration2.take5.model.Move;
-//import java.time.Duration;
-//import java.util.List;
-//
-//public class DBPresenter {
-//
-//    private final DBView view;
-//    private final DBManager manager;
-//
-//    public DBPresenter(DBView view, DBManager manager) {
-//        this.view = view;
-//        this.manager = manager;
-//    }
-//
-//    public void start() {
-//        view.show();
-//
-//        List<Move> moves = manager.getAllMoves();
-//
-//        view.updateMovesTable(moves);
-//
-//        double avgDuration = manager.getAverageMoveDuration();
-//        view.updateAvgDurationLabel(Duration.ofMillis((long) (avgDuration * 1000)));
-//
-//        List<Move> outliers = manager.getDurationOutliers();
-//        view.updateOutlierLabel(outliers);
-//
-//        view.updateDurationChart(moves);
-//    }
-//
-//}
+package be.kdg.integration2.take5.ui.db_stats;
+
+import be.kdg.integration2.take5.model.*;
+import javafx.scene.chart.XYChart;
+
+
+
+
+public class DBPresenter {
+
+    private final DBView view;
+    private final GameSession model;
+
+    public DBPresenter(DBView view, GameSession model) {
+        this.view = view;
+        this.model = model;
+
+        // Set up event handlers
+        view.setCloseButtonAction(this::onCloseButtonClicked);
+
+        // Update view with initial data
+        updateView();
+    }
+
+    private void onCloseButtonClicked() {
+        view.close();
+    }
+
+    private void updateView() {
+        // Update average duration label
+        double averageDuration = model.getAverageDuration();
+        view.setAverageDuration(averageDuration);
+
+        // Update outliers label
+        String outliers = model.getOutliers();
+        view.setOutliers(outliers);
+
+        // Update duration chart
+        XYChart.Series<Number, Number> durationData = model.getDurationData();
+        view.setDurationChartData(durationData);
+    }
+}
+

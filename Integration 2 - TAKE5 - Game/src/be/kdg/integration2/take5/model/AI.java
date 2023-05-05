@@ -1,7 +1,5 @@
 package be.kdg.integration2.take5.model;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Arrays;
+import java.util.*;
 
 public class AI extends Player{
 
@@ -10,16 +8,26 @@ public class AI extends Player{
     }
 
 
-// rule to play check whether the AI has the lowest card (1) and if yes to play it
-    private void playLowestCardIfAvailable() {
 
+
+
+    // rule to play check whether the AI has the lowest card (1) and if yes to play it
+    private void playLowestCardIfAvailable() {
         //  Check the lowest card
-        Card lowestCard = getHand().get(0);
-        if (lowestCard.getValue() == 1) {
+        Card lowestCard = null;
+        ArrayList<Card> hand = showHand();
+        for (Card card : hand) {
+            if (card.getValue() == 1 && (lowestCard == null || card.compareTo(lowestCard) < 0)) {
+                lowestCard = card;
+            }
+        }
+        if (lowestCard != null) {
             // AI has the lowest card, play it first
             System.out.println("Playing lowest card: " + lowestCard.getValue());
-            getHand().remove(lowestCard);
+            hand.remove(lowestCard);
         }
     }
+
+
 
 }

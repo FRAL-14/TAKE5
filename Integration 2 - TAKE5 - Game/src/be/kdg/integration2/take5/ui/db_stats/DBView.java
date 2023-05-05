@@ -1,92 +1,95 @@
-//package be.kdg.integration2.take5.ui.db_stats;
-//
-//import be.kdg.integration2.take5.model.Move;
-//import javafx.application.Application;
-//import javafx.collections.FXCollections;
-//import javafx.collections.ObservableList;
-//import javafx.geometry.Insets;
-//import javafx.scene.Scene;
-//import javafx.scene.chart.BarChart;
-//import javafx.scene.chart.CategoryAxis;
-//import javafx.scene.chart.NumberAxis;
-//import javafx.scene.control.Label;
-//import javafx.scene.control.TableColumn;
-//import javafx.scene.control.TableView;
-//import javafx.scene.control.cell.PropertyValueFactory;
-//import javafx.scene.layout.BorderPane;
-//import javafx.scene.layout.HBox;
-//import javafx.scene.layout.VBox;
-//import javafx.stage.Stage;
-//
-//import java.time.Duration;
-//
-//public class DBView extends Application {
-//
-//    private TableView<Move> moveTable = new TableView<>();
-//    private final ObservableList<Move> moveData = FXCollections.observableArrayList();
-//    private Label avgDurationLabel = new Label();
-//    private Label outlierLabel = new Label();
-//    private BarChart<String, Number> durationChart;
-//
-//    @Override
-//    public void start(Stage primaryStage) {
-//
-//        primaryStage.setTitle("Game Statistics");
-//
-//        TableColumn<Move, Integer> moveCol = new TableColumn<>("Move");
-//        moveCol.setCellValueFactory(new PropertyValueFactory<>("moveNumber"));
-//
-//        TableColumn<Move, Double> durationCol = new TableColumn<>("Duration");
-//        durationCol.setCellValueFactory(new PropertyValueFactory<>("duration"));
-//
-//        TableColumn<Move, Integer> scoreCol = new TableColumn<>("Score");
-//        scoreCol.setCellValueFactory(new PropertyValueFactory<>("score"));
-//
-//        moveTable.getColumns().addAll(moveCol, durationCol, scoreCol);
-//
-//        // TODO: Fetch data from the database and populate moveData
-//
-//        moveTable.setItems(moveData);
-//
-//        CategoryAxis xAxis = new CategoryAxis();
-//        NumberAxis yAxis = new NumberAxis();
-//        durationChart = new BarChart<>(xAxis, yAxis);
-//        durationChart.setTitle("Move Duration Chart");
-//
-//        VBox vbox1 = new VBox();
-//        vbox1.setSpacing(5);
-//        vbox1.setPadding(new Insets(10, 0, 0, 10));
-//        vbox1.getChildren().addAll(moveTable);
-//
-//        HBox hbox1 = new HBox();
-//        hbox1.setSpacing(5);
-//        hbox1.setPadding(new Insets(10, 0, 0, 10));
-//        hbox1.getChildren().addAll(avgDurationLabel);
-//
-//        HBox hbox2 = new HBox();
-//        hbox2.setSpacing(5);
-//        hbox2.setPadding(new Insets(10, 0, 0, 10));
-//        hbox2.getChildren().addAll(outlierLabel);
-//
-//        VBox vbox2 = new VBox();
-//        vbox2.setSpacing(5);
-//        vbox2.setPadding(new Insets(10, 0, 0, 10));
-//        vbox2.getChildren().addAll(durationChart);
-//
-//        BorderPane borderPane = new BorderPane();
-//        borderPane.setLeft(vbox1);
-//        borderPane.setTop(hbox1);
-//        borderPane.setCenter(vbox2);
-//        borderPane.setBottom(hbox2);
-//
-//        Scene scene = new Scene(borderPane, 800, 600);
-//        primaryStage.setScene(scene);
-//        primaryStage.show();
-//
-//    }
-//
-//    public static void main(String[] args) {
-//        launch(args);
-//    }
-//
-//}
+package be.kdg.integration2.take5.ui.db_stats;
+
+
+
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+public class DBView {
+    private final Stage stage;
+    private final Label averageDurationLabel;
+    private final Label outliersLabel;
+    private final LineChart<Number, Number> durationChart;
+
+    public DBView() {
+        // Create UI elements
+        Label titleLabel = new Label("Game Statistics");
+        titleLabel.setStyle("-fx-font-size: 24pt; -fx-font-weight: bold;");
+
+        Label averageLabel = new Label("Average duration of moves:");
+        averageDurationLabel = new Label();
+        averageDurationLabel.setStyle("-fx-font-size: 16pt;");
+
+        Label outliersTitleLabel = new Label("Outlier moves:");
+        outliersTitleLabel.setStyle("-fx-font-size: 20pt; -fx-font-weight: bold;");
+
+        outliersLabel = new Label();
+        outliersLabel.setStyle("-fx-font-size: 16pt;");
+
+        // Create line chart to display move durations
+        NumberAxis xAxis = new NumberAxis();
+        NumberAxis yAxis = new NumberAxis();
+        durationChart = new LineChart<>(xAxis, yAxis);
+        durationChart.setTitle("Move Durations");
+        durationChart.setLegendVisible(false);
+
+        // Create close button
+        Button closeButton = new Button("Close");
+
+        // Create layout and add elements
+        GridPane layout = new GridPane();
+        layout.setAlignment(Pos.CENTER);
+        layout.setPadding(new Insets(20));
+        layout.setVgap(20);
+        layout.add(titleLabel, 0, 0);
+        layout.add(averageLabel, 0, 1);
+        layout.add(averageDurationLabel, 1, 1);
+        layout.add(outliersTitleLabel, 0, 2);
+        layout.add(outliersLabel, 1, 2);
+        layout.add(durationChart, 0, 3, 2, 1);
+        layout.add(closeButton, 0, 4, 2, 1);
+
+        // Create scene and set layout
+        Scene scene = new Scene(layout, 800, 600);
+
+        // Set stage properties
+        stage = new Stage();
+        stage.setTitle("Game Statistics");
+        stage.setScene(scene);
+    }
+
+    public void show() {
+        stage.show();
+    }
+
+    public void setAverageDuration(double duration) {
+        averageDurationLabel.setText(String.format("%.2f seconds", duration));
+    }
+
+    public void setOutliers(String outliers) {
+        outliersLabel.setText(outliers);
+    }
+
+    public void setDurationChartData(XYChart.Series<Number, Number> series) {
+        durationChart.getData().clear();
+        durationChart.getData().add(series);
+    }
+
+    public void setCloseButtonAction(Runnable action) {
+        stage.setOnCloseRequest(event -> action.run());
+    }
+
+    public void close() {
+        stage.close();
+    }
+
+}
+
