@@ -2,7 +2,9 @@ package be.kdg.integration2.take5.ui.help;
 
 import be.kdg.integration2.take5.model.GameSession;
 import javafx.stage.Window;
-
+/**
+ * This class is responsible for handling the events from the helpView and updating that view.
+ */
 public class HelpPresenter {
     private GameSession model;
     private HelpView view;

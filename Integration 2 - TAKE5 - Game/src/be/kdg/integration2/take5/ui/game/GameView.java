@@ -13,6 +13,10 @@ import javafx.scene.text.Font;
 
 import java.util.List;
 
+/**
+ * This class is responsible for the view of the game screen.
+ * It contains the layout of the game and the event handlers.
+ */
 public class GameView extends BorderPane {
     private MenuBar helpMBar;
     private MenuItem helpMenuItem;
@@ -34,6 +38,10 @@ public class GameView extends BorderPane {
         layoutNodes();
     }
 
+    /**
+     * This method is responsible for displaying the cards of the human player and the AI.
+     * It also adds the event handlers to the cards.
+     */
     private void initialiseNodes() {
         helpMenu = new Menu("Help");
         helpMenuItem = new MenuItem("Rules");
@@ -87,6 +95,7 @@ public class GameView extends BorderPane {
         scoreAILbl.setFont(new Font(25));
         scoreHumanLbl.setFont(new Font(25));
     }
+    //TODO displaying scores has yet to be implemented
 //    public void displayScores() {
 //        int humanScore = GamePresenter.calculateHumanScore();
 //        int aiScore = GamePresenter.calculateAiScore();
@@ -111,6 +120,7 @@ public class GameView extends BorderPane {
         this.boardCards.getChildren().addAll(boardCards.getChildren());
     }
 
+    //TODO displaying scores has yet to be implemented
     public void updateScoreHuman(int score) {
         this.scoreHumanLbl.setText(String.valueOf(score));
     }

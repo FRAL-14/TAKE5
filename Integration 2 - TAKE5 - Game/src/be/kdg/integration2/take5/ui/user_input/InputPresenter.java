@@ -6,7 +6,9 @@ import be.kdg.integration2.take5.ui.MainView;
 import be.kdg.integration2.take5.ui.game.GamePresenter;
 import be.kdg.integration2.take5.ui.game.GameView;
 import javafx.stage.Window;
-
+/**
+ * This class is responsible for handling the user input
+ */
 public class InputPresenter {
     private GameSession model;
     private InputView ipView;
@@ -24,6 +26,9 @@ public class InputPresenter {
         requiredInput();
     }
 
+    /**
+     * Disables submit button when input field is empty
+     */
     private void requiredInput() {
         ipView.getSubmitBtn().setDisable(true); //disables btn when empty when method is called for the first time
         ipView.getInputField().textProperty().addListener((observable, oldValue, newValue) -> {

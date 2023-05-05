@@ -7,6 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
 
+/**
+ * This class is responsible for displaying the starting screen.
+ */
 public class MainView extends BorderPane {
     private Button play;
     private Button help;

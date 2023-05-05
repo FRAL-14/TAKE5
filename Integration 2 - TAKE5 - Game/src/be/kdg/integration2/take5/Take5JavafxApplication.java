@@ -8,8 +8,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-// fixed?
-
+/**
+ * This class is the entry point of the application.
+ * It creates the model and the view and binds them together.
+ * It also creates the scene and the stage.
+ */
 public class Take5JavafxApplication extends Application {
 
     public static void main(String[] args) {

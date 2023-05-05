@@ -6,7 +6,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-
+/**
+ * This class is responsible for displaying the GameOverView.
+ * It is the link between the GameOverView and the model.
+ */
 public class GameOverView extends BorderPane {
     private Label congrLbl;
     private Button tryAgain;
@@ -17,12 +20,18 @@ public class GameOverView extends BorderPane {
         layoutNodes();
     }
 
+    /**
+     * This method initialises the nodes in the view.
+     */
     private void initialiseNodes() {
         congrLbl = new Label();
         tryAgain = new Button("Play again!");
         exitGame = new Button("Exit");
     }
 
+    /**
+     * This method lays out the nodes in the view.
+     */
     private void layoutNodes() {
         this.setStyle("-fx-background-color: #EFD0CA"); //or #F9B3D1
 

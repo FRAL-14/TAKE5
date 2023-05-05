@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="cleaned code" />
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="cleaned code">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5JavafxApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5JavafxApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game_over/GameOverPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game_over/GameOverPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game_over/GameOverView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game_over/GameOverView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/help/HelpPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/help/HelpPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/help/HelpView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/help/HelpView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/user_input/InputPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/user_input/InputPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/user_input/InputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/user_input/InputView.java" afterDir="false" />
+    </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -195,7 +207,7 @@
       <workItem from="1683272929062" duration="940000" />
       <workItem from="1683286970741" duration="2275000" />
       <workItem from="1683289648834" duration="369000" />
-      <workItem from="1683291573510" duration="10173000" />
+      <workItem from="1683291573510" duration="11622000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -295,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683302397925</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="cleaned code">
+      <created>1683302462783</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683302462783</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

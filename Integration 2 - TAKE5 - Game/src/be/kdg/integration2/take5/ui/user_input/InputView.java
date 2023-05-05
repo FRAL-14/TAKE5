@@ -9,8 +9,12 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-
+/**
+ * This class is responsible for the view of the user input screen.
+ * It extends BorderPane and contains a Label, TextField and two Buttons.
+ */
 public class InputView extends BorderPane {
+
     private Label headerLbl = new Label();
     private TextField inputField = new TextField();
     private Button returnBtn = new Button();

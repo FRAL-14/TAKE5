@@ -14,6 +14,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+/**
+ * This class is responsible for handling all events that happen in the MainView.
+ * It is the link between the MainView and the model.
+ */
 public class MainPresenter {
     private GameSession model;
     private MainView startView;
@@ -25,10 +29,12 @@ public class MainPresenter {
 //        updateView(); not used
     }
 
+    /**
+     * This method adds all event handlers to the view.
+     */
     private void addEventHandlers() {
         //        this.startView.getPlay().setOnAction(e -> setGameView());
         this.startView.getPlay().setOnAction(e -> setUserInput());
-        //if button 'STATS' is clicked ( TODO DBView and DBPresenter are commented right now so cannot implement)
         this.startView.getHelp().setOnMouseClicked(e -> setHelpView());
     }
 
@@ -38,6 +44,7 @@ public class MainPresenter {
         startView.getScene().setRoot(ipv);
         ipv.getScene().getWindow();
     }
+
     private void setHelpView() {
         HelpView helpView = new HelpView();
         HelpPresenter presenter = new HelpPresenter(model, helpView);
@@ -54,6 +61,14 @@ public class MainPresenter {
         startView.getScene().getWindow().setOnCloseRequest(event -> closeApplication(event));
     }
 
+    /**
+     * This method is called when the user tries to close the application.
+     * It shows a warning message and asks for confirmation.
+     * If the user confirms, the application is closed.
+     * If the user cancels, the application is not closed.
+     *
+     * @param event The event that triggered this method.
+     */
     private void closeApplication(WindowEvent event) {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setHeaderText("You're about to close the application!");

@@ -6,7 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Font;
-
+/**
+ * This class is responsible for displaying the helpView.
+ */
 public class HelpView extends BorderPane {
     private Button returnButton;
     private Label rules;
