@@ -59,6 +59,10 @@ public class Board {
     }
 
 
+    /**
+     * method to take 4 cards from boardHand List and adds them to the first place in each row
+     * @param deck
+     */
     public void initializeRow(Deck deck) {
         row1.add(0, deck.boardHand.get(0));
         row2.add(0, deck.boardHand.get(1));
@@ -67,7 +71,12 @@ public class Board {
     }
 
 
-    public void checkLists() {
+    /**
+     * method to check if a row had 6 cards, if a row has 6 cards the player that placed the last card must collect
+     * the 5 first cards and add the bulls to his total, the last card becomes the first one in the row
+     * @param type
+     */
+    public void checkLists(String type) {
         boolean listFilled = false;
         LinkedList<Card> removeCards = new LinkedList<>();
         if (row1.size() == 6) {
@@ -76,7 +85,7 @@ public class Board {
                 listFilled = true;
             }
             for (int j = 0; j < 5; j++) {
-                row1.remove(j);
+                row1.remove(row1.getFirst());
             }
         } else if (row2.size() == 6) {
             for (int i = 0; i < 6; i++) {
@@ -84,7 +93,7 @@ public class Board {
                 listFilled = true;
             }
             for (int j = 0; j < 5; j++) {
-                row2.remove(j);
+                row2.remove(row2.getFirst());
             }
         } else if (row3.size() == 6) {
             for (int i = 0; i < 6; i++) {
@@ -92,7 +101,7 @@ public class Board {
                 listFilled = true;
             }
             for (int j = 0; j < 5; j++) {
-                row3.remove(j);
+                row3.remove(row3.getFirst());
             }
         } else if (row4.size() == 6) {
             for (int i = 0; i < 6; i++) {
@@ -100,24 +109,28 @@ public class Board {
                 listFilled = true;
             }
             for (int j = 0; j < 5; j++) {
-                row4.remove(j);
+                row4.remove(row4.getFirst());
             }
         }
         if (listFilled) {
-            firstFiveCards = new Card[5];
-            for (int i = 0; i < 5; i++) {
-                firstFiveCards[i] = removeCards.get(i);
-            }
             Player player = null;
             for (int i = 0; i < 5; i++) {
-                player.humanBullTotal = player.humanBullTotal + Card.getPointValue(firstFiveCards[i]);
+                if (type.equals("human")) {
+                    Player.humanBullTotal = player.humanBullTotal + Card.getPointValue(removeCards.get(i));
+                } else if (type.equals("ai")) {
+                    Player.aiBullTotal = player.aiBullTotal + Card.getPointValue(removeCards.get(i));
+                }
             }
-            System.out.println(player.humanBullTotal);
         }
     }
 
 
-
+    /**
+     * method used to calculate which row is the most suitable for the card being played,
+     * method is called in the playCard method
+     * @param playedCard
+     * @return
+     */
     //TODO: not sure but maybe this can be written in Card instead of Board?
     public LinkedList<Card> findClosestNumber(int playedCard) {
         Scanner scan = new Scanner(System.in);
@@ -175,6 +188,11 @@ public class Board {
     }
 
 
+    /**
+     * playCard method takes parameter card that is inputted in gamePresenter class and then uses the findClosestNumber
+     * class to determine position, card is then placed in correct row
+     * @param card
+     */
     //TODO: this should be written in the Player class, and then you can call it in the Board class (!!)
     public void playCard(Card card) {
         // Get the card number at the given index
@@ -196,9 +214,14 @@ public class Board {
         } else if (closestRow == row4){
             row4.addLast(card);
         }
-        checkLists();
+        checkLists("human");
     }
 
+    /**
+     * same method as playCard but for the AI where index of the card of the hand is randomly chosen,
+     * both the method for the AI and the human are passed through gameSession to be called in gamePresenter
+     * @return
+     */
     public Card playAICard() {
         // Get the card number at the given index
         Random random = new Random();
@@ -223,14 +246,20 @@ public class Board {
         } else if (closestRow == row4){
             row4.addLast(card);
         }
-        checkLists();
+        checkLists("ai");
         return card;
     }
 
+
+    /**
+     * method used to clear the board when the game is restarted, otherwise board would be initialised with previous
+     * card still added to rows
+     */
     public void clear() {
         row1.clear();
         row2.clear();
         row3.clear();
         row4.clear();
     }
+
 }

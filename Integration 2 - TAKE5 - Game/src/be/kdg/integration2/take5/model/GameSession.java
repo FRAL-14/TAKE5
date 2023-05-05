@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 public class GameSession {
     Deck mainDeck = new Deck();
+    Player player;
     Board board = new Board(mainDeck);
     Human human = new Human("human");
     AI ai = new AI();
@@ -102,7 +103,9 @@ public class GameSession {
         }
     }
 
-
+    /**
+     * makeBoard method takes method from deck to make hands and method from board to assign cards to the rows
+     */
     public void makeBoard() {
         mainDeck.startRound();
         board.initializeRow(mainDeck);
@@ -119,15 +122,29 @@ public class GameSession {
     public void startGame() {
     }
 
+    /**
+     * method to call playCard from board inside javaFx classes
+     * @param card
+     * @return
+     */
     public boolean playCard(Card card) {
         board.playCard(card);
         return true;
     }
 
+    /**
+     * same as playCard but for AI
+     * @return
+     */
     public Card playAICard() {
         return board.playAICard();
     }
 
+    /**
+     * method used to call rows and use them in javaFx classes
+     * @param row
+     * @return
+     */
     public LinkedList<Card> getRow(int row) {
         return switch (row) {
             case 1 -> board.getRow1();
@@ -138,10 +155,24 @@ public class GameSession {
         };
     }
 
+    /**
+     * same as getRow but for humanHand and AIHand
+     * @param type
+     * @return
+     */
     public LinkedList<Card> getHand(String type) {
         return switch (type) {
             case "human" -> mainDeck.getHumanHand();
             case "ai" -> mainDeck.getAiHand();
+            default -> throw new IllegalStateException("Unexpected value: " + type);
+        };
+    }
+
+    //ToDo: implement working methods to be able to calculate bullTotals
+    public int getBullTotal(String type){
+        return switch (type) {
+            case "human" -> player.getHumanBullTotal();
+            case "ai" -> player.getAiBullTotal();
             default -> throw new IllegalStateException("Unexpected value: " + type);
         };
     }

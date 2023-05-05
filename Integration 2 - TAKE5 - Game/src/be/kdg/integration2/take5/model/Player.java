@@ -13,8 +13,7 @@ public abstract class Player {
         return humanBullTotal;
     }
 
-    //public abstract Card playCard();
-    public abstract void showHand(Deck deck);
+    //public abstract Card playCard()
 
 
 

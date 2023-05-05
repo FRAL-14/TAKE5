@@ -1,6 +1,7 @@
 package be.kdg.integration2.take5.ui.game;
 
 import be.kdg.integration2.take5.model.Card;
+import be.kdg.integration2.take5.model.Player;
 import javafx.animation.ParallelTransition;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
@@ -54,8 +55,8 @@ public class GameView extends BorderPane {
         helpMBar = new MenuBar(helpMenu);
         gameMBar = new MenuBar(gameMenu);
 
-        scoreHumanLbl = new Label("Score: 0");
-        scoreAILbl = new Label("Score: 0");
+        scoreHumanLbl = new Label("Score: " + Player.getHumanBullTotal());
+        scoreAILbl = new Label("Score: " + Player.getAiBullTotal());
 
     }
 

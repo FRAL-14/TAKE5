@@ -16,7 +16,9 @@ public class Card implements Comparable<Card> {
         return value;
     }
 
-    // need for collection.sort
+    /**
+     * is needed for collection methods
+      */
     public int compareTo(Card other) {
         // Compare the values of the Cards
         return value - other.value;
@@ -28,6 +30,12 @@ public class Card implements Comparable<Card> {
         return "" + value;
     }
 
+
+    /**
+     * method used to calculate bull value of each card
+     * @param card
+     * @return
+     */
     public static int getPointValue(Card card) {
         if (card.getValue() % 10 == 0) {
             return 3;

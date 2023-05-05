@@ -35,7 +35,8 @@ public class GamePresenter {
     private HBox humanCards = new HBox();
     private HBox aiCards = new HBox();
     private GridPane boardCards = new GridPane();
-
+    private int humanScore = 0;
+    private int aiScore = 0;
     private boolean isSelected = false;
     LinkedList<Card> stack1;
     LinkedList<Card> stack2;
@@ -55,46 +56,60 @@ public class GamePresenter {
         gameView.setBoardCards(boardCards);
     }
 
+    /**
+     * method that takes different methods that are used for game flow and logic and puts corresponding methods together
+     */
     private void addEventHandlers() {
 //        gameView.getMenu().setOnAction(event -> showHelp()); //shows next screen
         model.makeBoard();
         model.startGame();
         getRows();
-        gameView.getRestartGame().setOnAction(event -> restartGame());
+//        gameView.getRestartGame().setOnAction(event -> gameView.restartGame());
         gameView.getHumanCards().setOnMouseClicked(event -> {
             playCard();
-
-            playAiCard();
+            if (cardPlayed){
+                playAiCard();
+            }
         });
     }
 
-    public void updateView() {
-        getRows();
-        boardCards.getChildren().clear();
-        displayBoard(boardCards);
-        humanCards.getChildren().clear();
-        displayHands(humanCards, aiCards);
-        gameView.setBoardCards(boardCards);
-    }
-
-//    public static int calculateHumanScore() {
-//        ObservableList<Card> humanHand = humanCards.getChildren();
-//        return ScoreCalc.calculateScore(humanHand);
-//    }
-//
-//    public static int calculateAiScore() {
-//        ObservableList<Card> aiHand = aiCards.getChildren();
-//        return ScoreCalc.calculateScore(aiHand);
-//    }
-
-    public void getRows() {
+    /**
+     * method that takes the 4 rows initially created in the board class and passes them to the gameSession
+     * to be called in gamePresenter class
+     */
+    public void getRows(){
         stack1 = model.getRow(1);
         stack2 = model.getRow(2);
         stack3 = model.getRow(3);
         stack4 = model.getRow(4);
     }
 
+    /**
+     * displayHand is used to take the cards from the Human hand and the AI hand and displays them on the board
+     * @param humanCards
+     * @param aiCards
+     */
+    public void displayHands(HBox humanCards, HBox aiCards) {
+        LinkedList<Card> humanHand = model.getHand("human");
+        LinkedList<Card> aiHand = model.getHand("ai");
 
+
+        for (Card value : humanHand) {
+            CardView cardView = new CardView(value);
+            humanCards.getChildren().add(cardView);
+        }
+
+        for (Card card : aiHand) {
+            CardView cardView = new CardView(card);
+            aiCards.getChildren().add(cardView);
+        }
+
+    }
+
+    /**
+     * displayBoard is used to take the cards from the 4 rows and display them on the board
+     * @param boardCards
+     */
     public void displayBoard(GridPane boardCards) {
         for (int i = 0; i < stack1.size(); i++) {
             CardView cardView = new CardView(stack1.get(i));
@@ -118,27 +133,12 @@ public class GamePresenter {
 
     }
 
-    public void displayHands(HBox humanCards, HBox aiCards) {
-        LinkedList<Card> humanHand = model.getHand("human");
-        LinkedList<Card> aiHand = model.getHand("ai");
-
-
-        for (Card value : humanHand) {
-            CardView cardView = new CardView(value);
-            humanCards.getChildren().add(cardView);
-        }
-
-        for (Card card : aiHand) {
-            CardView cardView = new CardView(card);
-            aiCards.getChildren().add(cardView);
-        }
-
-    }
-
-    //todo works but still have to apply the logic of card placement
-    //player instanceOf Human / AI
-    //read clickedCard
-    //get card with closest card value (will create other method)
+    /**
+     * playCard method takes input from user on click to call playCard from gameSession with a card as parameter
+     * card gets compared to the last card of each row on the board and gets placed behind the closest value that is lower
+     * than that of the card itself
+     */
+    //ToDo: if card value is too low for all rows, user or AI has to choose a row and add bulls to his total
     public void playCard() {
         Card card = null;
         for (Node cardNode : gameView.getHumanCards().getChildren()) {
@@ -146,24 +146,25 @@ public class GamePresenter {
                 CardView cardView = (CardView) cardNode;
                 card = cardView.getCard();
                 Card finalCard = card;
-                cardView.setOnMouseClicked(event -> {
+
                     gameView.getHumanCards().getChildren().remove(cardView);
                     int clickedCardValue = finalCard.getValue();
                     boolean validPlay = model.playCard(finalCard);
-                });
             }
         }
-        updateView();
 //        if (validPlay) {
-////            gameView.updateGameView(model.getGameState);
+//            gameView.updateGameView(model.getGameState);
 //        } else {
 ////            alert invalid play
 //        }
         cardPlayed = true;
     }
 
-    public void playAiCard() {
-        System.out.println("ai playing");
+    /**
+     * Same method as playCard but for AI, instead of input from a user a card is randomly chosen from the hand of the AI
+     * method works the same way as playCard
+     */
+    public void playAiCard(){
         Card aiCard = model.playAICard();
         for (Node cardNode : gameView.getAiCards().getChildren()) {
             if (cardNode instanceof CardView) {
@@ -179,11 +180,39 @@ public class GamePresenter {
         }
     }
 
-
-    private void restartGame() {
-        model.clear();
-        model.makeBoard();
-        model.startGame();
-        updateView();   //works
+    /**
+     * updateView method to update the cards on the board after a card has been played
+     */
+    public void updateView(){
+        getRows();
+        boardCards.getChildren().clear();
+        displayBoard(boardCards);
+        gameView.setBoardCards(boardCards);
     }
+
+
+//    private void restartGame() {
+//        model.makeBoard();
+//        model.startGame();
+////        updateView();
+//    }
+
+    /**
+     * showHelp method that pops up a screen with explanations
+     */
+    private void showHelp() {
+        HelpView helpView = new HelpView();
+        HelpPresenter presenter = new HelpPresenter(model, helpView);
+        Stage helpStage = new Stage();
+        helpStage.initOwner(gameView.getScene().getWindow());
+        helpStage.initModality(Modality.APPLICATION_MODAL);
+        helpStage.setScene(new Scene(helpView));
+        helpStage.setX(gameView.getScene().getWindow().getX());
+        helpStage.setY(gameView.getScene().getWindow().getY());
+        helpStage.showAndWait();
+    }
+
+//    public void addWindowEventHandlers() {
+//        Window window = gameView.getScene().getWindow();
+//    }
 }

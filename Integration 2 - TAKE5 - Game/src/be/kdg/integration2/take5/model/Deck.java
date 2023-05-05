@@ -14,6 +14,10 @@ public class Deck {
     LinkedList<Card> boardHand;
     int roundCounter = 0;
 
+
+    /**
+     * Deck gets initialised with 104 cards all with a value from 1 to 104
+     */
     public Deck() {
         for (int i = 0; i < 104; i++) {
             int cardValue = i + 1;
@@ -33,6 +37,13 @@ public class Deck {
         return aiHand;
     }
 
+
+    /**
+     * DealPlay takes cards from the deck and randomly assigns to a hand while removing them from the initial stack as well
+     * @param cards
+     * @param numCards
+     * @return
+     */
     public static LinkedList<Card> dealPlay(LinkedList<Card> cards, int numCards) {
         if (numCards > cards.size()) {
             throw new IllegalArgumentException("Not enough cards in the deck.");
@@ -51,6 +62,11 @@ public class Deck {
         return dealtCards;
     }
 
+
+    /**
+     * method to shuffle deck of cards and distribute them randomly to players hands and to board to start the game,
+     * hands are also sorted in order from small to big
+     */
     public void initialiseHand(){
         Collections.shuffle(cards);
         humanHand = dealPlay(cards,10);
@@ -60,6 +76,11 @@ public class Deck {
         Collections.sort(aiHand);
     }
 
+
+    /**
+     * startRound method to be called in gameSession and increase the roundCounter by one, as soon as 10 cards
+     * from each hand have been played a new round starts if game is not finished
+     */
     //TODO: shouldnt startRound() maybe be in for example Controller/GameSession
     public void startRound() {
         initialiseHand();

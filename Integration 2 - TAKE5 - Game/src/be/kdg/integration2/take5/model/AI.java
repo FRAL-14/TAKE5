@@ -3,10 +3,6 @@ import java.util.*;
 
 public class AI extends Player{
 
-    public void showHand(Deck deck){
-        System.out.println(deck.aiHand.toString());
-    }
-
 
     // rule to play check whether the AI has the lowest card (1) and if yes to play it
 //    private void playLowestCardIfAvailable() {
