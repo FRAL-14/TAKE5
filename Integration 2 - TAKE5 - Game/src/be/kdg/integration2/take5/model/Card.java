@@ -11,12 +11,10 @@ public class Card implements Comparable<Card> {
     }
 
     private int value;
-    //supposed to be in deck
 
     public int getValue() {
         return value;
     }
-
 
     // need for collection.sort
     public int compareTo(Card other) {
@@ -44,4 +42,3 @@ public class Card implements Comparable<Card> {
         }
     } //throw exception if number entered
 }
-

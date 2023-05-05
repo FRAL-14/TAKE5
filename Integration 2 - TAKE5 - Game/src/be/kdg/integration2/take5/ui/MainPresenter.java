@@ -49,7 +49,7 @@ public class MainPresenter {
         helpStage.setY(startView.getScene().getWindow().getY() + 200);
         helpStage.showAndWait();
     }
-//    private void updateView() { } no model data is used here
+    //    private void updateView() { } no model data is used here
     public void addWindowEventHandlers() {
         startView.getScene().getWindow().setOnCloseRequest(event -> closeApplication(event));
     }

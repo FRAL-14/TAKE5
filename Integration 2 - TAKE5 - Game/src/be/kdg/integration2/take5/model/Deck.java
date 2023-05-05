@@ -4,53 +4,55 @@ import be.kdg.integration2.take5.model.Card;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.Random;
 
 public class Deck {
-    ArrayList<Card> humanHand;
-    ArrayList<Card> aiHand;
-    ArrayList<Card> boardHand;
+    LinkedList<Card> cards = new LinkedList<>();
+    LinkedList<Card> humanHand;
+    LinkedList<Card> aiHand;
+    LinkedList<Card> boardHand;
     int roundCounter = 0;
-    ArrayList<Card> cards = new ArrayList<>();
 
-    public Deck(){
-        for (int i = 1; i < 105; i++){
-            cards.add(new Card(i));
+    public Deck() {
+        for (int i = 0; i < 104; i++) {
+            int cardValue = i + 1;
+            cards.add(new Card(cardValue));
         }
     }
 
-    public void shufflePlayCards(ArrayList<Card> cards) {
-        Random rand = new Random();
-        for (int i = cards.size() - 1; i > 0; i--) {
-            int j = rand.nextInt(i + 1);
-            Card temp = cards.get(i);
-            cards.set(i, cards.get(j));
-            cards.set(j, temp);
-        }
+    public LinkedList<Card> getCards(){
+        return cards;
     }
 
+    public LinkedList<Card> getHumanHand() {
+        return humanHand;
+    }
 
+    public LinkedList<Card> getAiHand() {
+        return aiHand;
+    }
 
-
-    public ArrayList<Card> dealPlay(ArrayList<Card> deck, int numCards) {
-        if (numCards > deck.size()) {
+    public static LinkedList<Card> dealPlay(LinkedList<Card> cards, int numCards) {
+        if (numCards > cards.size()) {
             throw new IllegalArgumentException("Not enough cards in the deck.");
         }
 
-        ArrayList<Card> dealtCards = new ArrayList<>();
+        LinkedList<Card> dealtCards = new LinkedList<>();
         for (int i = 0; i < numCards; i++) {
-            dealtCards.add(i, deck.get(i));
-            deck.remove(deck.get(i));
+            dealtCards.add(cards.get(i));
+        }
+
+        // Remove the dealt cards from the deck LinkedList
+        for (int i = 0; i < numCards; i++) {
+            cards.removeFirst();
         }
 
         return dealtCards;
     }
 
-
-
-
     public void initialiseHand(){
-        shufflePlayCards(cards);
+        Collections.shuffle(cards);
         humanHand = dealPlay(cards,10);
         aiHand = dealPlay(cards, 10);
         boardHand = dealPlay(cards, 4);
@@ -62,13 +64,6 @@ public class Deck {
     public void startRound() {
         initialiseHand();
         roundCounter++;
-    }
-
-    public void print(){
-        System.out.println(cards.toString());
-        System.out.println(humanHand.toString());
-        System.out.println(aiHand.toString());
-        System.out.println(boardHand.toString());
     }
 
 }

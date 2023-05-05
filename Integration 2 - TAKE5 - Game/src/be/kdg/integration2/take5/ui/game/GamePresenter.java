@@ -7,6 +7,7 @@ import be.kdg.integration2.take5.ui.game_over.GameOverView;
 import be.kdg.integration2.take5.ui.help.HelpPresenter;
 import be.kdg.integration2.take5.ui.help.HelpView;
 import javafx.animation.ParallelTransition;
+import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
@@ -23,11 +24,9 @@ import javafx.scene.text.Font;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import javafx.util.Duration;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class GamePresenter {
 
@@ -36,46 +35,41 @@ public class GamePresenter {
     private HBox humanCards = new HBox();
     private HBox aiCards = new HBox();
     private GridPane boardCards = new GridPane();
-    private Player player;
-    //    private HBox board = new HBox();
     private int humanScore = 0;
     private int aiScore = 0;
     private boolean isSelected = false;
+    LinkedList<Card> stack1;
+    LinkedList<Card> stack2;
+    LinkedList<Card> stack3;
+    LinkedList<Card> stack4;
+    boolean cardPlayed = false;
+    PauseTransition delay = new PauseTransition(Duration.seconds(4));
 
     public GamePresenter(GameSession model, GameView gameView) {
         this.model = model;
         this.gameView = gameView;
         addEventHandlers();
-        updateView();
+        displayHands(humanCards, aiCards);
+        displayBoard(boardCards);
+        gameView.setHumanCards(humanCards);
+        gameView.setAiCards(aiCards);
+        gameView.setBoardCards(boardCards);
     }
 
     private void addEventHandlers() {
-        gameView.getRestartGame().setOnAction(event -> restartGame());
-        gameView.getQuitGame().setOnAction(event -> quitGame());
-        gameView.getHumanCards().setOnMouseClicked(event -> playOnBoard(player));
-        gameView.getHelpMenuItem().setOnAction(event -> showRules());
-//        gameView.getRestartGame().setOnAction(event -> gameStopped());    //this works, but the one above is the one that should work
-//        gameView.getQuitGame().setOnAction(event -> )
+//        gameView.getMenu().setOnAction(event -> showHelp()); //shows next screen
+        model.makeBoard();
+        model.startGame();
+        getRows();
+//        gameView.getRestartGame().setOnAction(event -> gameView.restartGame());
+        gameView.getHumanCards().setOnMouseClicked(event -> {
+            playCard();
+            if (cardPlayed){
+                playAiCard();
+            }
+        });
     }
 
-    private void gameStopped() {
-        GameOverView gameOverView = new GameOverView();
-        new GameOverPresenter(model, gameOverView);
-        gameView.getScene().setRoot(gameOverView);
-        gameOverView.getScene().getWindow();
-    }
-
-    private void showRules() {
-        HelpView helpView = new HelpView();
-        new HelpPresenter(model, helpView);
-        Stage helpStage = new Stage();
-        helpStage.initOwner(gameView.getScene().getWindow());
-        helpStage.initModality(Modality.APPLICATION_MODAL);
-        helpStage.setScene(new Scene(helpView));
-        helpStage.setX(gameView.getScene().getWindow().getX() + 250);
-        helpStage.setY(gameView.getScene().getWindow().getY() + 150);
-        helpStage.showAndWait();
-    }
 //    public static int calculateHumanScore() {
 //        ObservableList<Card> humanHand = humanCards.getChildren();
 //        return ScoreCalc.calculateScore(humanHand);
@@ -86,225 +80,102 @@ public class GamePresenter {
 //        return ScoreCalc.calculateScore(aiHand);
 //    }
 
-    public void updateView() {
-// update score and send to UI
-        displayCards(humanCards, aiCards, boardCards);
-        gameView.setHumanCards(humanCards);
-        gameView.setAiCards(aiCards);
-        gameView.setBoardCards(boardCards);
+    public void getRows(){
+        stack1 = model.getRow(1);
+        stack2 = model.getRow(2);
+        stack3 = model.getRow(3);
+        stack4 = model.getRow(4);
     }
 
-    public void displayCards(HBox humanCards, HBox aiCards, GridPane boardCards) {
-        List<Card> deck = new ArrayList<>(Arrays.asList(Card.values()));
-        Collections.shuffle(deck);
 
-        for (int i = 0; i < 10; i++) {
-            CardView cardView = new CardView(deck.remove(0));
+    public void displayHands(HBox humanCards, HBox aiCards) {
+        LinkedList<Card> humanHand = model.getHand("human");
+        LinkedList<Card> aiHand = model.getHand("ai");
+
+
+        for (Card value : humanHand) {
+            CardView cardView = new CardView(value);
             humanCards.getChildren().add(cardView);
         }
 
-        for (int i = 0; i < 10; i++) {
-            CardView cardView = new CardView(deck.remove(0));
+        for (Card card : aiHand) {
+            CardView cardView = new CardView(card);
             aiCards.getChildren().add(cardView);
-        }
-
-        for (int i = 0; i < 4; i++) {
-            CardView cardView = new CardView(deck.remove(0));
-            boardCards.add(cardView, 0, i);
         }
 
     }
 
-
-    //    private void playOnBoard() {
-//        VBox oldBoardCards = gameView.getBoardCards();
-//        VBox newBoardCards = new VBox();
-//        for (Node cardNode : gameView.getHumanCards().getChildren()) {
-//            if (cardNode instanceof CardView) {
-//                CardView cardView = (CardView) cardNode;
-//                cardView.setOnMouseClicked(event -> {
-//                    // Remove the card from the humanCards HBox
-//                    gameView.getHumanCards().getChildren().remove(cardView);
-//                    // Add the card to the boardCards VBox
-//                    gameView.getBoardCards().getChildren().add(cardView);
-//                    // Add the card to the newBoardCards VBox
-//                    newBoardCards.getChildren().add(cardView);
-//
-//                });
-//            }
-//        }
-//        // Add the newBoardCards VBox next to the oldBoardCards VBox
-//        int oldIndex = gameView.getBoardCards().getChildren().indexOf(oldBoardCards);
-//        gameView.getBoardCards().getChildren().add(oldIndex + 1, newBoardCards);
-//    }
-
-// TODO CORRECT!
-
-    //    private void playOnBoard() {
-//        VBox boardCards = new VBox();
-//        boardCards.setSpacing(10);
-//        boardCards.setAlignment(Pos.CENTER);
-//
-//        for (Node cardNode : gameView.getHumanCards().getChildren()) {
-//            if (cardNode instanceof CardView) {
-//                CardView cardView = (CardView) cardNode;
-//                cardView.setOnMouseClicked(event -> {
-//                    // Remove the card from the humanCards HBox
-//                    gameView.getHumanCards().getChildren().remove(cardView);
-//                    // Create a new VBox and add the card to it
-//                    VBox newBoardCards = new VBox();
-//                    newBoardCards.setSpacing(10);
-//                    newBoardCards.setAlignment(Pos.CENTER);
-//                    newBoardCards.getChildren().add(cardView);
-//                    // Add the new VBox to the board
-//                    gameView.getBoardCards().getChildren().add(newBoardCards);
-//                });
-//            }
-//        }
-//    }
-
-    //TODO ALSO KINDA WORKRD
-//    private VBox lastVBox;
-//
-//    private void playOnBoard() {
-//        for (Node cardNode : gameView.getHumanCards().getChildren()) {
-//            if (cardNode instanceof CardView) {
-//                CardView cardView = (CardView) cardNode;
-//                cardView.setOnMouseClicked(event -> {
-//                    // Remove the card from the humanCards HBox
-//                    gameView.getHumanCards().getChildren().remove(cardView);
-//                    // Create a new VBox and add the card to it
-//                    VBox boardCards = new VBox();
-//                    boardCards.setSpacing(10);
-//                    boardCards.setAlignment(Pos.CENTER);
-//                    boardCards.getChildren().add(cardView);
-//                    // Add the new VBox to the board
-//                    if (lastVBox == null || lastVBox.getChildren().size() == 3) {
-//                        gameView.getBoardCards().getChildren().add(boardCards);
-//                        lastVBox = boardCards;
-//                    } else {
-//                        gameView.getBoardCards().getChildren().add(boardCards);
-//                        HBox.setMargin(boardCards, new Insets(0, 0, 0, 20));
-//                        lastVBox = boardCards;
-//                    }
-//                });
-//            }
-//        }
-//    }
-//private GridPane lastGridPane;
-//
-//    private void playOnBoard() {
-//        for (Node cardNode : gameView.getHumanCards().getChildren()) {
-//            if (cardNode instanceof CardView) {
-//                CardView cardView = (CardView) cardNode;
-//                cardView.setOnMouseClicked(event -> {
-//                    // Remove the card from the humanCards HBox
-//                    gameView.getHumanCards().getChildren().remove(cardView);
-//
-//                    // Create a new GridPane and add the card to it
-//                    GridPane boardCards = new GridPane();
-//                    boardCards.setHgap(10);
-//                    boardCards.setAlignment(Pos.CENTER);
-//                    boardCards.add(cardView, 0, 0);
-//
-//                    // Add the new GridPane to the board
-//                    if (lastGridPane == null || lastGridPane.getChildren().size() == 4) {
-//                        gameView.getBoardCards().getChildren().add(boardCards);
-//                        lastGridPane = boardCards;
-//                    } else {
-//                        gameView.getBoardCards().getChildren().add(boardCards);
-//                        GridPane.setMargin(boardCards, new Insets(0, 0, 0, 100));
-//                        lastGridPane = boardCards;
-//                    }
-//                });
-//            }
-//        }
-//    }
-//
-    private int getCardColumnIndex(CardView cardView) {
-        int cardValue = cardView.getCard().getValue();
-        int closestValue = Integer.MAX_VALUE;
-        int closestIndex = -1;
-        for (int i = 0; i < boardCards.getChildren().size(); i++) {
-            Node node = boardCards.getChildren().get(i);
-            if (node instanceof GridPane) {
-                GridPane gridPane = (GridPane) node;
-                int lastCardValue = ((CardView) gridPane.getChildren().get(gridPane.getChildren().size() - 1)).getCard().getValue();
-                if (cardValue <= lastCardValue && lastCardValue - cardValue < closestValue) {
-                    closestValue = lastCardValue - cardValue;
-                    closestIndex = GridPane.getColumnIndex(gridPane);
-                }
-            }
+    public void displayBoard(GridPane boardCards) {
+        for (int i = 0; i < stack1.size(); i++) {
+            CardView cardView = new CardView(stack1.get(i));
+            boardCards.add(cardView, i, 0);
         }
-        return closestIndex;
+
+        for (int i = 0; i < stack2.size(); i++) {
+            CardView cardView = new CardView(stack2.get(i));
+            boardCards.add(cardView, i, 1);
+        }
+
+        for (int i = 0; i < stack3.size(); i++) {
+            CardView cardView = new CardView(stack3.get(i));
+            boardCards.add(cardView, i, 2);
+        }
+
+        for (int i = 0; i < stack4.size(); i++) {
+            CardView cardView = new CardView(stack4.get(i));
+            boardCards.add(cardView, i, 3);
+        }
+
     }
 
     //todo works but still have to apply the logic of card placement
     //player instanceOf Human / AI
     //read clickedCard
     //get card with closest card value (will create other method)
-    private void playOnBoard(Player player) {
-        HBox handCard = new HBox();
-        if (player instanceof Human) {
-            handCard = gameView.getHumanCards();
-        } else if (player instanceof AI) {
-            handCard = gameView.getAiCards();
-        }
-        //i think the board is added as a GridPane, but all 4 of the cards are put into one cell of the grid (what i assume, gottta fix)
+    public void playCard() {
+        Card card = null;
         for (Node cardNode : gameView.getHumanCards().getChildren()) {
             if (cardNode instanceof CardView) {
                 CardView cardView = (CardView) cardNode;
-                Card card = cardView.getCard();
+                card = cardView.getCard();
+                Card finalCard = card;
                 cardView.setOnMouseClicked(event -> {
                     gameView.getHumanCards().getChildren().remove(cardView);
-                    int clickedCardValue = card.getValue();
-                    // Find the closest but bigger card among the 4 already on the board
-                    int closestButSmallerCardValue = Integer.MAX_VALUE;
-                    CardView closestButSmallerCard = null;
-                    for (Node boardNode : gameView.getBoardCards().getChildren()) {
-                        if (boardNode instanceof GridPane) {
-                            GridPane column = (GridPane) boardNode;
-                            for (Node cardNodeOnBoard : column.getChildren()) {
-                                if (cardNodeOnBoard instanceof CardView) {
-                                    CardView cardOnBoard = (CardView) cardNodeOnBoard;
-                                    int cardOnBoardValue = cardOnBoard.getCard().getValue();
-                                    if (cardOnBoardValue > clickedCardValue && cardOnBoardValue < closestButSmallerCardValue) {
-                                        closestButSmallerCardValue = cardOnBoardValue;
-                                        closestButSmallerCard = cardOnBoard;
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    int clickedCardValue = finalCard.getValue();
+                    boolean validPlay = model.playCard(finalCard);
+                });
+            }
+        }
+        updateView();
+//        if (validPlay) {
+////            gameView.updateGameView(model.getGameState);
+//        } else {
+////            alert invalid play
+//        }
+        cardPlayed = true;
+    }
 
-                    // if there's no closest but bigger card, add the clicked card to a new column on the board
-                    if (closestButSmallerCard == null) {
-                        GridPane newColumn = new GridPane();
-                        newColumn.setAlignment(Pos.CENTER); // if i leave this out, nothing appears, even though the condition isnt met...
-                        newColumn.setVgap(10);
-                        newColumn.add(cardView, 0, 0);
-                        gameView.getBoardCards().add(newColumn, gameView.getBoardCards().getChildren().size(), 0);
-                    } else {
-                        GridPane closestButSmallerCardColumn = (GridPane) closestButSmallerCard.getParent();
-                        int closestButSmallerCardIndex = closestButSmallerCardColumn.getChildren().indexOf(closestButSmallerCard);
-                        closestButSmallerCardColumn.add(cardView, 0, closestButSmallerCardIndex + 1);
-                    }
+    public void playAiCard(){
+        Card aiCard = model.playAICard();
+        for (Node cardNode : gameView.getAiCards().getChildren()) {
+            if (cardNode instanceof CardView) {
+                CardView cardView = (CardView) cardNode;
+                aiCard = cardView.getCard();
+                Card finalCard = aiCard;
+                cardView.setOnMouseClicked(event -> {
+                    gameView.getAiCards().getChildren().remove(cardView);
+                    int clickedCardValue = finalCard.getValue();
+                    boolean validPlay = model.playCard(finalCard);
                 });
             }
         }
     }
 
-    private Card getLastCard(VBox vBox) {
-        ObservableList<Node> children = vBox.getChildren();
-        if (children.isEmpty()) {
-            return null;
-        }
-        Node lastNode = children.get(children.size() - 1);
-        if (lastNode instanceof CardView) {
-            CardView lastCardView = (CardView) lastNode;
-            return lastCardView.getCard();
-        }
-        return null;
+    public void updateView(){
+        getRows();
+        boardCards.getChildren().clear();
+        displayBoard(boardCards);
+        gameView.setBoardCards(boardCards);
     }
 
     private void checkLists() {
@@ -329,51 +200,6 @@ public class GamePresenter {
             }
         }
     }
-
-
-//    private void playOnBoard() {
-//        for (Node cardNode : gameView.getHumanCards().getChildren()) {
-//            if (cardNode instanceof CardView) {
-//                CardView cardView = (CardView) cardNode;
-//                Card card = cardView.getCard();
-//                cardView.setOnMouseClicked(event -> {
-//                    // Remove the card from the humanCards HBox
-//                    gameView.getHumanCards().getChildren().remove(cardView);
-//
-//                    // Determine where to add the card on the board
-//                    VBox board = gameView.getBoardCards();
-//                    int numVBoxes = board.getChildren().size();
-//                    int cardValue = card.getValue();
-//                    int bestDiff = Integer.MAX_VALUE;
-//                    int bestIndex = -1;
-//                    for (int i = 0; i < numVBoxes; i++) {
-//                        VBox vBox = (VBox) board.getChildren().get(i);
-//                        Card lastCard = getLastCard(vBox);
-//                        if (lastCard == null || cardValue < lastCard.getValue()) {
-//                            int diff = lastCard == null ? Integer.MAX_VALUE : lastCard.getValue() - cardValue;
-//                            if (diff < bestDiff) {
-//                                bestDiff = diff;
-//                                bestIndex = i;
-//                            }
-//                        }
-//                    }
-//
-//                    // Add the card to the appropriate VBox on the board
-//                    VBox newVBox = new VBox();
-//                    newVBox.setAlignment(Pos.CENTER);
-//                    newVBox.getChildren().add(cardView);
-//                    if (bestIndex == -1) {
-//                        // Create a new VBox to the right of the existing ones
-//                        board.getChildren().add(newVBox);
-//                    } else {
-//                        // Add the card to the appropriate VBox
-//                        VBox vBox = (VBox) board.getChildren().get(bestIndex);
-//                        vBox.getChildren().add(cardView);
-//                    }
-//                });
-//            }
-//        }
-//    }
 
 //    private Card getLastCard(VBox vBox) {
 //        ObservableList<Node> children = vBox.getChildren();
@@ -405,26 +231,11 @@ public class GamePresenter {
 //    }
 
 
-    private void restartGame() {
-        model.makeBoard();  //should work, doesnt
-        model.startGame();  //should work, doesnt
-        updateView();   //works
-    }
-
-    private void quitGame() {
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setHeaderText("You're about to exit the game");
-        alert.setContentText("Are you sure? If so, your data will be lost.");
-        alert.setTitle("Exiting...");
-        alert.getButtonTypes().clear();
-        ButtonType no = new ButtonType("no");
-        ButtonType yes = new ButtonType("yes");
-        alert.getButtonTypes().addAll(no, yes);
-        alert.showAndWait();
-        if (alert.getResult().equals(yes)) {
-            ((Stage) this.gameView.getScene().getWindow()).close();
-        }
-    }
+//    private void restartGame() {
+//        model.makeBoard();
+//        model.startGame();
+////        updateView();
+//    }
 
 //    private void updateCards() {
 //        // get the current list of cards from the model
@@ -451,22 +262,36 @@ public class GamePresenter {
 
 
     //literally has no effect on the board rip
+//    public void updateView() {
+// update score and send to UI
+     /*   HBox board = new HBox();
+        board.setSpacing(10);
+
+        Card[] cards = model.makeBoard();
+        for (Card card : cards) {
+            Label cardLabel = new Label(card.toString());
+            cardLabel.setStyle("-fx-background-color: white; -fx-border-color: black;");
+            cardLabel.setPadding(new Insets(10));
+            cardLabel.setFont(new Font(20));
+            board.getChildren().add(cardLabel);
+        }*/
+//    }
 ////
 //    //help screen empty for now
-//    private void showHelp() {
-//        HelpView helpView = new HelpView();
-//        HelpPresenter presenter = new HelpPresenter(model, helpView);
-//        Stage helpStage = new Stage();
-//        helpStage.initOwner(gameView.getScene().getWindow());
-//        helpStage.initModality(Modality.APPLICATION_MODAL);
-//        helpStage.setScene(new Scene(helpView));
-//        helpStage.setX(gameView.getScene().getWindow().getX());
-//        helpStage.setY(gameView.getScene().getWindow().getY());
-//        helpStage.showAndWait();
-//    }
-
-    public void addWindowEventHandlers() {
-        Window window = gameView.getScene().getWindow();
-
+    private void showHelp() {
+        HelpView helpView = new HelpView();
+        HelpPresenter presenter = new HelpPresenter(model, helpView);
+        Stage helpStage = new Stage();
+        helpStage.initOwner(gameView.getScene().getWindow());
+        helpStage.initModality(Modality.APPLICATION_MODAL);
+        helpStage.setScene(new Scene(helpView));
+        helpStage.setX(gameView.getScene().getWindow().getX());
+        helpStage.setY(gameView.getScene().getWindow().getY());
+        helpStage.showAndWait();
     }
+
+//    public void addWindowEventHandlers() {
+//        Window window = gameView.getScene().getWindow();
+//
+//    }
 }

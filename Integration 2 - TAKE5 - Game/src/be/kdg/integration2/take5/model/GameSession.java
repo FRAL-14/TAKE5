@@ -10,23 +10,14 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class GameSession {
-    Board board = new Board();
     Deck mainDeck = new Deck();
-    Human human = new Human();
+    Board board = new Board(mainDeck);
+    Human human = new Human("human");
     AI ai = new AI();
-    private List<CardView> boardCardViews;
-    private LinkedList<Card>[] rows;
-
     private List<Double> moveDurations;
     private double averageDuration;
     private List<Double> outliers;
     private XYChart.Series<Number, Number> durationData;
-
-
-
-    public GameSession(List<Double> moveDurations) {
-        this.moveDurations = moveDurations;
-    }
 
     public double getAverageDuration() {
         if (moveDurations.isEmpty()) {
@@ -75,6 +66,7 @@ public class GameSession {
             return sortedDurations.get(midIndex);
         }
     }
+
     private double getMedianAbsoluteDeviation(double median) {
         List<Double> deviations = new ArrayList<>();
         for (Double duration : moveDurations) {
@@ -99,25 +91,6 @@ public class GameSession {
         }
     }
 
-    public Card[] makeBoard() {
-        mainDeck.startRound();
-//        board.initializeRow(mainDeck);
-//        presenter.updateView();
-        rows = new LinkedList[4];
-        for (int i = 0; i < rows.length; i++) {
-            rows[i] = new LinkedList<>();
-        }
-        return new Card[0];
-    }
-
-    public void displayBoard() {
-        for (int i = 0; i < 4; i++) {
-            CardView cardView = new CardView(rows[i].getFirst());
-            boardCardViews.get(i).getChildren().clear();
-            boardCardViews.get(i).getChildren().add(cardView);
-        }
-    }
-
     public XYChart.Series<Number, Number> getDurationData() {
         return durationData;
     }
@@ -129,93 +102,44 @@ public class GameSession {
         }
     }
 
-// In the Model class:
 
-//    public int findRowToPlace(Card selectedCard) {
-//        List<List<Card>> rows = getRows();
-//        int minDiff = Integer.MAX_VALUE;
-//        int minDiffIndex = 0;
-//
-//        // Iterate over each row to find the one with the lowest difference
-//        for (int i = 0; i < rows.size(); i++) {
-//            List<Card> row = rows.get(i);
-//            int diff = row.get(row.size() - 1).getValue() - selectedCard.getValue();
-//            if (diff >= 0 && diff < minDiff) {
-//                minDiff = diff;
-//                minDiffIndex = i;
-//            }
-//        }
-//
-//        return minDiffIndex;
-//    }
-//
-//    public List<List<Card>> getRows() {
-//        return List.of(rows);
-//    }
-
-    public Card getBoardCard(int i) {
-        return rows[i].getFirst();
+    public void makeBoard(){
+        mainDeck.startRound();
+        board.initializeRow(mainDeck);
     }
 
-    public void startGame() {
-//        board.playCard(mainDeck, human);
-        board.checkLists(human);
-//        board.playCard(mainDeck, ai);
-        board.checkLists(ai);
-    }
-
-    public ArrayList<Card> getDeck() {
-        return mainDeck.dealPlay(mainDeck.cards, 104);
-    }
-
-    public Board getBoard() {
-        return board;
-    }
-
-    public void setBoard(Board board) {
-        this.board = board;
-    }
-
-    public Deck getMainDeck() {
+    public Deck getDeck(){
         return mainDeck;
     }
 
-    public void setMainDeck(Deck mainDeck) {
-        this.mainDeck = mainDeck;
+    public void startGame(){
     }
 
-    public Human getHuman() {
-        return human;
+    public boolean playCard(Card card){
+        board.playCard(card);
+        return true;
     }
 
-    public void setHuman(Human human) {
-        this.human = human;
+    public Card playAICard(){
+        return board.playAICard();
     }
 
-    public AI getAi() {
-        return ai;
+    public LinkedList<Card> getRow(int row){
+        return switch (row) {
+            case 1 -> board.getRow1();
+            case 2 -> board.getRow2();
+            case 3 -> board.getRow3();
+            case 4 -> board.getRow4();
+            default -> throw new IllegalArgumentException("Invalid stack number");
+        };
     }
 
-    public void setAi(AI ai) {
-        this.ai = ai;
+    public LinkedList<Card> getHand(String type){
+        return switch (type) {
+            case "human" -> mainDeck.getHumanHand();
+            case "ai" -> mainDeck.getAiHand();
+            default -> throw new IllegalStateException("Unexpected value: " + type);
+        };
     }
-
-    public List<CardView> getBoardCardViews() {
-        return boardCardViews;
-    }
-
-    public void setBoardCardViews(List<CardView> boardCardViews) {
-        this.boardCardViews = boardCardViews;
-    }
-
-//    public LinkedList<Card>[] getRows() {
-//        return rows;
-//    }
-
-    public void setRows(LinkedList<Card>[] rows) {
-        this.rows = rows;
-    }
-
-
 
 }
