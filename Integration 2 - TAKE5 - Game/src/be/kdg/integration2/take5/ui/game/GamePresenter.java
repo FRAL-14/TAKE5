@@ -29,7 +29,6 @@ import javafx.util.Duration;
 import java.util.*;
 
 public class GamePresenter {
-
     private GameSession model;
     private GameView gameView;
     private HBox humanCards = new HBox();
@@ -60,24 +59,62 @@ public class GamePresenter {
      * method that takes different methods that are used for game flow and logic and puts corresponding methods together
      */
     private void addEventHandlers() {
-//        gameView.getMenu().setOnAction(event -> showHelp()); //shows next screen
         model.makeBoard();
         model.startGame();
         getRows();
-//        gameView.getRestartGame().setOnAction(event -> gameView.restartGame());
+        gameView.getRestartGame().setOnAction(event -> restartGame());
+        gameView.getQuitGame().setOnAction(event -> quitGame());
         gameView.getHumanCards().setOnMouseClicked(event -> {
             playCard();
-            if (cardPlayed){
+            if (cardPlayed) {
                 playAiCard();
             }
         });
     }
 
+    private void quitGame() {
+        GameOverView gameOverView = new GameOverView();
+        new GameOverPresenter(model, gameOverView);
+        gameView.getScene().setRoot(gameOverView);
+        gameOverView.getScene().getWindow();
+    }
+
+    /**
+     * method that takes the card that is clicked on by the user and passes it to the gameSession
+     * to be called in gamePresenter class
+     */
+    private void restartGame() {
+        model.clear();
+        model.makeBoard();
+        model.startGame();
+        updateView();
+    }
+
+    /**
+     * updateView method to update the cards on the board after a card has been played
+     */
+    public void updateView() {
+        getRows();
+        boardCards.getChildren().clear();
+        displayBoard(boardCards);
+        gameView.setBoardCards(boardCards);
+    }
+//TODO scores still implemented
+    //    public static int calculateHumanScore() {
+//        ObservableList<Card> humanHand = humanCards.getChildren();
+//        return ScoreCalc.calculateScore(humanHand);
+//    }
+//
+//    public static int calculateAiScore() {
+//        ObservableList<Card> aiHand = aiCards.getChildren();
+//        return ScoreCalc.calculateScore(aiHand);
+//    }
+
     /**
      * method that takes the 4 rows initially created in the board class and passes them to the gameSession
      * to be called in gamePresenter class
      */
-    public void getRows(){
+    public void getRows() {
         stack1 = model.getRow(1);
         stack2 = model.getRow(2);
         stack3 = model.getRow(3);
@@ -86,6 +123,7 @@ public class GamePresenter {
 
     /**
      * displayHand is used to take the cards from the Human hand and the AI hand and displays them on the board
+     *
      * @param humanCards
      * @param aiCards
      */
@@ -108,6 +146,7 @@ public class GamePresenter {
 
     /**
      * displayBoard is used to take the cards from the 4 rows and display them on the board
+     *
      * @param boardCards
      */
     public void displayBoard(GridPane boardCards) {
@@ -146,25 +185,21 @@ public class GamePresenter {
                 CardView cardView = (CardView) cardNode;
                 card = cardView.getCard();
                 Card finalCard = card;
-
+                cardView.setOnMouseClicked(event -> {
                     gameView.getHumanCards().getChildren().remove(cardView);
                     int clickedCardValue = finalCard.getValue();
                     boolean validPlay = model.playCard(finalCard);
+                });
             }
         }
-//        if (validPlay) {
-//            gameView.updateGameView(model.getGameState);
-//        } else {
-////            alert invalid play
-//        }
-        cardPlayed = true;
+        updateView();
     }
 
     /**
      * Same method as playCard but for AI, instead of input from a user a card is randomly chosen from the hand of the AI
      * method works the same way as playCard
      */
-    public void playAiCard(){
+    public void playAiCard() {
         Card aiCard = model.playAICard();
         for (Node cardNode : gameView.getAiCards().getChildren()) {
             if (cardNode instanceof CardView) {
@@ -179,40 +214,4 @@ public class GamePresenter {
             }
         }
     }
-
-    /**
-     * updateView method to update the cards on the board after a card has been played
-     */
-    public void updateView(){
-        getRows();
-        boardCards.getChildren().clear();
-        displayBoard(boardCards);
-        gameView.setBoardCards(boardCards);
-    }
-
-
-//    private void restartGame() {
-//        model.makeBoard();
-//        model.startGame();
-////        updateView();
-//    }
-
-    /**
-     * showHelp method that pops up a screen with explanations
-     */
-    private void showHelp() {
-        HelpView helpView = new HelpView();
-        HelpPresenter presenter = new HelpPresenter(model, helpView);
-        Stage helpStage = new Stage();
-        helpStage.initOwner(gameView.getScene().getWindow());
-        helpStage.initModality(Modality.APPLICATION_MODAL);
-        helpStage.setScene(new Scene(helpView));
-        helpStage.setX(gameView.getScene().getWindow().getX());
-        helpStage.setY(gameView.getScene().getWindow().getY());
-        helpStage.showAndWait();
-    }
-
-//    public void addWindowEventHandlers() {
-//        Window window = gameView.getScene().getWindow();
-//    }
 }
