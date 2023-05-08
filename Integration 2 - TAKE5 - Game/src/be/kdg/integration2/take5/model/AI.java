@@ -67,10 +67,6 @@ private Deck deck;
         return deck.getAiHand();
     }
 
-    Card row1;
-    Card row2;
-    Card row3;
-    Card row4;
 
 
     /**
@@ -83,25 +79,21 @@ private Deck deck;
     public Card chooseCard(Deck deck, Board board) {
             LinkedList<Card> closestHigherCards = new LinkedList<>();
             LinkedList<Card> hand = deck.getAiHand();
-            row1 = board.getRow1().getLast();
-            row2 = board.getRow2().getLast();
-            row3 = board.getRow3().getLast();
-            row4 = board.getRow4().getLast();
 
             for (Card card : hand) {
-                if (card.getValue() > row1.getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
+                if (card.getValue() > board.getRow1().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
                     closestHigherCards.clear();
                     closestHigherCards.add(card);
                 }
-                if (card.getValue() > row2.getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
+                if (card.getValue() > board.getRow1().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
                     closestHigherCards.clear();
                     closestHigherCards.add(card);
                 }
-                if (card.getValue() > row3.getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
+                if (card.getValue() > board.getRow1().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
                     closestHigherCards.clear();
                     closestHigherCards.add(card);
                 }
-                if (card.getValue() > row4.getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
+                if (card.getValue() > board.getRow1().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
                     closestHigherCards.clear();
                     closestHigherCards.add(card);
                 }
