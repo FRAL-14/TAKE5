@@ -159,7 +159,7 @@ public class GameSession {
      * @return
      */
     public Card playAICard() {
-        return board.playAICard();
+        return board.playAICard(ai.chooseCard(mainDeck, board));
     }
 
     /**

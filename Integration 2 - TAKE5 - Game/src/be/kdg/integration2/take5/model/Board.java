@@ -116,9 +116,9 @@ public class Board {
             Player player = null;
             for (int i = 0; i < 5; i++) {
                 if (type.equals("human")) {
-                    Player.humanBullTotal = player.humanBullTotal + Card.getPointValue(removeCards.get(i));
+                    Player.humanBullTotal += Card.getPointValue(removeCards.get(i));
                 } else if (type.equals("ai")) {
-                    Player.aiBullTotal = player.aiBullTotal + Card.getPointValue(removeCards.get(i));
+                    Player.aiBullTotal += Card.getPointValue(removeCards.get(i));
                 }
             }
         }
@@ -222,12 +222,7 @@ public class Board {
      * both the method for the AI and the human are passed through gameSession to be called in gamePresenter
      * @return
      */
-    public Card playAICard() {
-        // Get the card number at the given index
-        Random random = new Random();
-        int i = random.nextInt(deck.aiHand.size());
-
-        Card card = deck.aiHand.get(i);
+    public Card playAICard(Card card) {
         int playedCard = card.getValue();
 //        LinkedList<Card> playHand = deck.humanHand;
 
