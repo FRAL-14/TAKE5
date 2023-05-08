@@ -1,9 +1,10 @@
 package be.kdg.integration2.take5.model;
+
 import java.util.*;
 
-public class AI extends Player{
+public class AI extends Player {
 
-private Deck deck;
+    private Deck deck;
     // rule to play check whether the AI has the lowest card (1) and if yes to play it
     private void playLowestCardIfAvailable() {
         //  Check the lowest card
@@ -68,7 +69,6 @@ private Deck deck;
     }
 
 
-
     /**
      * gets aiHand and chooses the most fitting card for each row, it then takes the 4 cards and
      * checks which card has the highest/lowest bullValue
@@ -77,27 +77,27 @@ private Deck deck;
      * @return
      */
     public Card chooseCard(Deck deck, Board board) {
-            LinkedList<Card> closestHigherCards = new LinkedList<>();
-            LinkedList<Card> hand = deck.getAiHand();
+        LinkedList<Card> closestHigherCards = new LinkedList<>();
+        LinkedList<Card> hand = deck.getAiHand();
 
-            for (Card card : hand) {
-                if (card.getValue() > board.getRow1().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
-                    closestHigherCards.clear();
-                    closestHigherCards.add(card);
-                }
-                if (card.getValue() > board.getRow1().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
-                    closestHigherCards.clear();
-                    closestHigherCards.add(card);
-                }
-                if (card.getValue() > board.getRow1().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
-                    closestHigherCards.clear();
-                    closestHigherCards.add(card);
-                }
-                if (card.getValue() > board.getRow1().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
-                    closestHigherCards.clear();
-                    closestHigherCards.add(card);
-                }
+        for (Card card : hand) {
+            if (card.getValue() > board.getRow1().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
+                closestHigherCards.clear();
+                closestHigherCards.add(card);
             }
+            if (card.getValue() > board.getRow2().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
+                closestHigherCards.clear();
+                closestHigherCards.add(card);
+            }
+            if (card.getValue() > board.getRow3().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
+                closestHigherCards.clear();
+                closestHigherCards.add(card);
+            }
+            if (card.getValue() > board.getRow4().getLast().getValue() && (closestHigherCards.isEmpty() || card.getValue() < closestHigherCards.getFirst().getValue())) {
+                closestHigherCards.clear();
+                closestHigherCards.add(card);
+            }
+        }
 
         Card cardWithHighestBulls = null;
         int highestBulls = Integer.MIN_VALUE;
@@ -110,6 +110,6 @@ private Deck deck;
             }
         }
 
-            return cardWithHighestBulls;
-        }
+        return cardWithHighestBulls;
+    }
 }

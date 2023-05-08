@@ -6,6 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="AI rules">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Take5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Take5.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/AI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/GameSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/GameSession.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/CardView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/CardView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GamePresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GamePresenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/AI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" afterDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
