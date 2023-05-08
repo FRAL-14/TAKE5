@@ -18,8 +18,8 @@ public class CardView extends StackPane {
     public CardView(Card card) {
         this.card = card;
         this.imageView = new ImageView(new Image(getClass().getResourceAsStream("/cards/" + card.getValue() + ".png")));
-        imageView.setFitWidth(100);
-        imageView.setFitHeight(90);
+        imageView.setFitWidth(140);
+        imageView.setFitHeight(100);
         Rectangle border = new Rectangle(90, 125);
         border.setFill(Color.TRANSPARENT);
 //        border.setStroke(selected ? Color.RED : Color.BLACK);
