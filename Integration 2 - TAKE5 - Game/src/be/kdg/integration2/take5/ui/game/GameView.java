@@ -61,6 +61,8 @@ public class GameView extends BorderPane {
     }
 
     private void layoutNodes() {
+
+
         this.setStyle("-fx-background-color: linear-gradient(to bottom, #ffdcb6, #E06469);");
 
         //top part of BorderPane
