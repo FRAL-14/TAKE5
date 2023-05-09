@@ -61,19 +61,20 @@ public class GameView extends BorderPane {
     }
 
     private void layoutNodes() {
-        this.setStyle("-fx-background-color: #fffced;");
+        this.setStyle("-fx-background-color: linear-gradient(to bottom, #ffdcb6, #E06469);");
 
         //top part of BorderPane
-        HBox top = new HBox(50, aiCards);
+        HBox top = new HBox(60, aiCards);
         setTop(top);
         setAlignment(top, Pos.TOP_CENTER);
-        setMargin(top, new Insets(10, 0, 0, 150));
+        setMargin(top, new Insets(10, 0, 0, 10));
 
         //bottom part of BorderPane
         HBox bottom = new HBox(60, humanCards);
         setBottom(bottom);
         setAlignment(bottom, Pos.BOTTOM_CENTER);
-        setMargin(bottom, new Insets(10, 0, 0, 150));
+        setMargin(bottom, new Insets(10, 0, 0, 10));
+
 
         //left part of BorderPane
         HBox left = new HBox(20, helpMBar, gameMBar);
@@ -90,7 +91,7 @@ public class GameView extends BorderPane {
         //center part of BorderPane
         setCenter(boardCards);
         setAlignment(boardCards, Pos.CENTER_LEFT);
-        setMargin(boardCards, new Insets(0, 0, 0, 0));
+        setMargin(boardCards, new Insets(60, 0, 0, 0));
 
         //fontsizes
         scoreAILbl.setFont(new Font(25));

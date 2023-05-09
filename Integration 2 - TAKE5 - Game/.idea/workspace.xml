@@ -5,16 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="AI rules">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Take5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Take5.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/AI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/GameSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/GameSession.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/CardView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/CardView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/MainView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/MainView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GamePresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GamePresenter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/AI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GameView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/CardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/CardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" afterDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
@@ -54,27 +55,27 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17 (2)&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/allyangelova/Downloads/S2-20-main 2/Integration 2 - TAKE5 - Game&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.119617224&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "17 (2)",
+    "last_opened_file_path": "/Users/allyangelova/Documents/GitHub/S2-20/Integration 2 - TAKE5 - Game",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.119617224",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -212,6 +213,7 @@
       <workItem from="1683530840217" duration="1829000" />
       <workItem from="1683549949410" duration="75000" />
       <workItem from="1683550217361" duration="6000" />
+      <workItem from="1683625930240" duration="11966000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -330,13 +332,6 @@
         <entry key="MAIN">
           <value>
             <State>
-              <option name="COLUMN_ID_WIDTH">
-                <map>
-                  <entry key="Table.Default.Author.ColumnIdWidth" value="86" />
-                  <entry key="Table.Default.Date.ColumnIdWidth" value="80" />
-                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="79" />
-                </map>
-              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -346,6 +341,13 @@
                       </list>
                     </value>
                   </entry>
+                </map>
+              </option>
+              <option name="COLUMN_ID_WIDTH">
+                <map>
+                  <entry key="Table.Default.Author.ColumnIdWidth" value="86" />
+                  <entry key="Table.Default.Date.ColumnIdWidth" value="80" />
+                  <entry key="Table.Space.CommitStatus.ColumnIdWidth" value="79" />
                 </map>
               </option>
             </State>
