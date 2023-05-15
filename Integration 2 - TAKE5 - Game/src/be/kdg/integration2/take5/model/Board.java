@@ -116,9 +116,9 @@ public class Board {
             Player player = null;
             for (int i = 0; i < 5; i++) {
                 if (type.equals("human")) {
-                    Player.humanBullTotal += Card.getPointValue(removeCards.get(i));
+                    Player.humanBullTotal += ScoreCalc.calculateScore(removeCards);
                 } else if (type.equals("ai")) {
-                    Player.aiBullTotal += Card.getPointValue(removeCards.get(i));
+                    Player.aiBullTotal += ScoreCalc.calculateScore(removeCards);
                 }
             }
         }

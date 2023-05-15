@@ -2,11 +2,13 @@ package be.kdg.integration2.take5.model;
 
 import be.kdg.integration2.take5.model.Card;
 import javafx.collections.ObservableList;
+import javafx.scene.shape.StrokeLineJoin;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class ScoreCalc {
-    public static int calculateScore(ObservableList<Card> cards) {
+    public static int calculateScore(LinkedList<Card> cards) {
 
         int totalScore = 0;
         List<Card> cardList = cards.stream().toList();

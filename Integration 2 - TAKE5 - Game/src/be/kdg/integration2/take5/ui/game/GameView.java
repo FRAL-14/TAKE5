@@ -217,4 +217,9 @@ public class GameView extends BorderPane {
     public void setScoreAILbl(Label scoreAILbl) {
         this.scoreAILbl = scoreAILbl;
     }
+
+    public void setScoreLabel(Label scoreHumanLbl, Label scoreAILbl){
+        this.scoreHumanLbl = scoreHumanLbl;
+        this.scoreAILbl = scoreAILbl;
+    }
 }

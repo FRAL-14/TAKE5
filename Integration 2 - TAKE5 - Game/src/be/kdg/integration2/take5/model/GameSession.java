@@ -10,6 +10,8 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 public class GameSession {
+
+    int turn = 0;
     Deck mainDeck = new Deck();
     Player player;
     Board board = new Board(mainDeck);
@@ -151,6 +153,7 @@ public class GameSession {
      */
     public boolean playCard(Card card) {
         board.playCard(card);
+        turn++;
         return true;
     }
 

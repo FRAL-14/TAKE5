@@ -27,6 +27,7 @@ import javafx.stage.Window;
 import javafx.util.Duration;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class GamePresenter {
     private GameSession model;
@@ -36,13 +37,14 @@ public class GamePresenter {
     private GridPane boardCards = new GridPane();
     private int humanScore = 0;
     private int aiScore = 0;
+    private Label humanScoreLbl = new Label("Score: " + humanScore);
+    private Label aiScoreLbl = new Label("Score: " + aiScore);
     private boolean isSelected = false;
     LinkedList<Card> stack1;
     LinkedList<Card> stack2;
     LinkedList<Card> stack3;
     LinkedList<Card> stack4;
     boolean cardPlayed = false;
-    PauseTransition delay = new PauseTransition(Duration.seconds(4));
 
     public GamePresenter(GameSession model, GameView gameView) {
         this.model = model;
@@ -53,7 +55,10 @@ public class GamePresenter {
         gameView.setHumanCards(humanCards);
         gameView.setAiCards(aiCards);
         gameView.setBoardCards(boardCards);
+        gameView.setScoreLabel(humanScoreLbl, aiScoreLbl);
     }
+
+
 
     /**
      * method that takes different methods that are used for game flow and logic and puts corresponding methods together
@@ -98,6 +103,9 @@ public class GamePresenter {
         boardCards.getChildren().clear();
         displayBoard(boardCards);
         gameView.setBoardCards(boardCards);
+        displayHands(humanCards, aiCards);
+        gameView.setAiCards(aiCards);
+        gameView.setScoreLabel(humanScoreLbl, aiScoreLbl);
     }
 //TODO scores still implemented
     //    public static int calculateHumanScore() {
@@ -193,6 +201,7 @@ public class GamePresenter {
             }
         }
         updateView();
+        cardPlayed = true;
     }
 
     /**
@@ -213,5 +222,6 @@ public class GamePresenter {
                 });
             }
         }
+        updateView();
     }
 }
