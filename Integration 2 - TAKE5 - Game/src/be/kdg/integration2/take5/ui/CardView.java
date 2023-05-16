@@ -13,25 +13,20 @@ import javafx.scene.shape.Rectangle;
 public class CardView extends StackPane {
     private final Card card;
     private final ImageView imageView;
-    private boolean selected;
 
     public CardView(Card card) {
         this.card = card;
         this.imageView = new ImageView(new Image(getClass().getResourceAsStream("/cards/" + card.getValue() + ".png")));
-        imageView.setFitWidth(140);
-        imageView.setFitHeight(100);
-        Rectangle border = new Rectangle(10, 10, 10, 10);
-        border.setFill(Color.TRANSPARENT);
-//        border.setStroke(selected ? Color.RED : Color.BLACK);
-        getChildren().addAll(border, imageView);
+//      old design
+//        imageView.setFitWidth(140);
+//        imageView.setFitHeight(100);
+        imageView.setFitHeight(120);
+//        imageView.setFitWidth(100);
+        imageView.setPreserveRatio(true);
+        getChildren().addAll(imageView);
     }
 
     public Card getCard() {
         return card;
-    }
-
-    public void setSelected(boolean selected) {
-        this.selected = selected;
-        ((Rectangle) getChildren().get(0)).setStroke(selected ? Color.RED : Color.BLACK);
     }
 }
