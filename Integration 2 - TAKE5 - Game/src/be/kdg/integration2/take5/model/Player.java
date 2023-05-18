@@ -5,6 +5,8 @@ import java.util.List;
 
 public abstract class Player {
 
+    private String name;
+    private int id;
     public static int aiBullTotal;
     public static int humanBullTotal;
 
@@ -29,6 +31,14 @@ public abstract class Player {
         aiBullTotal += aiScore;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public static int bullValues(LinkedList<Card> cards) {
         int totalScore = 0;
         List<Card> cardList = cards.stream().toList();
@@ -47,4 +57,10 @@ public abstract class Player {
         }
         return totalScore;
     }
+
+    public void setId() {
+        this.id = Leaderboard.getPlayerID(this.name);
+    }
+
+
 }

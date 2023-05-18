@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 public class GameSession {
 
+    private Leaderboard leaderboard;
     int turn = 0;
     int humanScore;
     int aiScore;
@@ -150,6 +151,11 @@ public class GameSession {
     }
 
     public void startGame() {
+        leaderboard.addPlayer(human);
+        human.setId();
+        leaderboard.addPlayer(ai);
+       ai.setId();
+
     }
 
     /**
