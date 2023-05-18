@@ -35,10 +35,10 @@ public class GamePresenter {
     private HBox humanCards = new HBox();
     private HBox aiCards = new HBox();
     private GridPane boardCards = new GridPane();
-    private int humanScore = 0;
-    private int aiScore = 0;
-    private Label humanScoreLbl = new Label("Score: " + humanScore);
-    private Label aiScoreLbl = new Label("Score: " + aiScore);
+    private int humanScore;
+    private int aiScore;
+    private Label humanScoreLbl;
+    private Label aiScoreLbl;
     private boolean isSelected = false;
     LinkedList<Card> stack1;
     LinkedList<Card> stack2;
@@ -57,8 +57,6 @@ public class GamePresenter {
         gameView.setBoardCards(boardCards);
         gameView.setScoreLabel(humanScoreLbl, aiScoreLbl);
     }
-
-
 
     /**
      * method that takes different methods that are used for game flow and logic and puts corresponding methods together
@@ -106,18 +104,8 @@ public class GamePresenter {
         displayHands(humanCards, aiCards);
         gameView.setAiCards(aiCards);
         gameView.setScoreLabel(humanScoreLbl, aiScoreLbl);
+        updateScores();
     }
-//TODO scores still implemented
-    //    public static int calculateHumanScore() {
-//        ObservableList<Card> humanHand = humanCards.getChildren();
-//        return ScoreCalc.calculateScore(humanHand);
-//    }
-//
-//    public static int calculateAiScore() {
-//        ObservableList<Card> aiHand = aiCards.getChildren();
-//        return ScoreCalc.calculateScore(aiHand);
-//    }
-
     /**
      * method that takes the 4 rows initially created in the board class and passes them to the gameSession
      * to be called in gamePresenter class
@@ -223,5 +211,30 @@ public class GamePresenter {
             }
         }
         updateView();
+    }
+
+    public void updateScores() {
+        int humanScore = model.calculateHumanScore(model.getHand("human"));
+        int aiScore = model.calculateAiScore(model.getHand("ai"));
+        gameView.displayScores(humanScore, aiScore);
+        gameView.updateScoreHuman(humanScore);
+        gameView.updateScoreAI(aiScore);
+    }
+    public int calculateHumanScore() {
+        LinkedList<Card> humanCards = model.getHand("human");
+        return model.calculateHumanScore(humanCards);
+    }
+
+    public int calculateAIScore() {
+        LinkedList<Card> aiCards =  model.getHand("ai");
+        return model.calculateAiScore(aiCards);
+    }
+
+    public int getHumanScore() {
+        return humanScore;
+    }
+
+    public int getAiScore() {
+        return aiScore;
     }
 }

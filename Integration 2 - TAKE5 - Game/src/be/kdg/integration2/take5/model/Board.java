@@ -1,6 +1,6 @@
 package be.kdg.integration2.take5.model;
 
-import javafx.scene.control.Cell;
+import be.kdg.integration2.take5.ui.game.GamePresenter;
 
 import java.util.*;
 
@@ -13,10 +13,10 @@ public class Board {
     LinkedList<Card> playHand;
     Card[] firstFiveCards = new Card[5];
     Deck deck;
-    public Board(Deck deck){
+
+    public Board(Deck deck) {
         this.deck = deck;
     }
-
 
 
     public LinkedList<Card> getRow1() {
@@ -54,13 +54,15 @@ public class Board {
     public LinkedList<Card> getHumanHand() {
         return deck.humanHand;
     }
-    public LinkedList<Card> getAIHand(){
+
+    public LinkedList<Card> getAIHand() {
         return deck.aiHand;
     }
 
 
     /**
      * method to take 4 cards from boardHand List and adds them to the first place in each row
+     *
      * @param deck
      */
     public void initializeRow(Deck deck) {
@@ -74,9 +76,12 @@ public class Board {
     /**
      * method to check if a row had 6 cards, if a row has 6 cards the player that placed the last card must collect
      * the 5 first cards and add the bulls to his total, the last card becomes the first one in the row
+     *
      * @param type
      */
-    public void checkLists(String type) {
+    Human human;
+    AI ai;
+    public LinkedList<Card> checkLists(Player player) {
         boolean listFilled = false;
         LinkedList<Card> removeCards = new LinkedList<>();
         if (row1.size() == 6) {
@@ -113,21 +118,22 @@ public class Board {
             }
         }
         if (listFilled) {
-            Player player = null;
             for (int i = 0; i < 5; i++) {
-                if (type.equals("human")) {
-                    Player.humanBullTotal += ScoreCalc.calculateScore(removeCards);
-                } else if (type.equals("ai")) {
-                    Player.aiBullTotal += ScoreCalc.calculateScore(removeCards);
+                if (human instanceof Player) {
+                    Player.humanBullTotal += Player.bullValues(removeCards);
+                } else {
+                    Player.aiBullTotal += Player.bullValues(removeCards);
                 }
             }
         }
+        return removeCards;
     }
 
 
     /**
      * method used to calculate which row is the most suitable for the card being played,
      * method is called in the playCard method
+     *
      * @param playedCard
      * @return
      */
@@ -178,7 +184,7 @@ public class Board {
             }
         }
 
-        if (isTooLow = false){
+        if (isTooLow = false) {
             System.out.print("The card is too low to be played, choose a row to take away: ");
             int rowChosen = scan.nextInt();
             System.out.println();
@@ -191,6 +197,7 @@ public class Board {
     /**
      * playCard method takes parameter card that is inputted in gamePresenter class and then uses the findClosestNumber
      * class to determine position, card is then placed in correct row
+     *
      * @param card
      */
     //TODO: this should be written in the Player class, and then you can call it in the Board class (!!)
@@ -199,49 +206,52 @@ public class Board {
         int playedCard = card.getValue();
 //        LinkedList<Card> playHand = deck.humanHand;
 
-        closestRow = findClosestNumber(playedCard);;
+        closestRow = findClosestNumber(playedCard);
+        ;
 
         // Remove the card from the hand list
 //        playHand.remove(card);
         deck.humanHand.remove(card);
 
-        if (closestRow == row1){
+        if (closestRow == row1) {
             row1.addLast(card);
-        } else if (closestRow == row2){
+        } else if (closestRow == row2) {
             row2.addLast(card);
-        } else if (closestRow == row3){
+        } else if (closestRow == row3) {
             row3.addLast(card);
-        } else if (closestRow == row4){
+        } else if (closestRow == row4) {
             row4.addLast(card);
         }
-        checkLists("human");
+        checkLists(human);
     }
 
     /**
      * same method as playCard but for the AI where index of the card of the hand is randomly chosen,
      * both the method for the AI and the human are passed through gameSession to be called in gamePresenter
+     *
      * @return
      */
     public Card playAICard(Card card) {
         int playedCard = card.getValue();
 //        LinkedList<Card> playHand = deck.humanHand;
 
-        closestRow = findClosestNumber(playedCard);;
+        closestRow = findClosestNumber(playedCard);
+        ;
 
         // Remove the card from the hand list
 //        playHand.remove(card);
         deck.aiHand.remove(card);
 
-        if (closestRow == row1){
+        if (closestRow == row1) {
             row1.addLast(card);
-        } else if (closestRow == row2){
+        } else if (closestRow == row2) {
             row2.addLast(card);
-        } else if (closestRow == row3){
+        } else if (closestRow == row3) {
             row3.addLast(card);
-        } else if (closestRow == row4){
+        } else if (closestRow == row4) {
             row4.addLast(card);
         }
-        checkLists("ai");
+        checkLists(ai);
         return card;
     }
 
@@ -256,5 +266,4 @@ public class Board {
         row3.clear();
         row4.clear();
     }
-
 }

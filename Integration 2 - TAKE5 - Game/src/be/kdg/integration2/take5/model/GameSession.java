@@ -1,6 +1,5 @@
 package be.kdg.integration2.take5.model;
 
-import be.kdg.integration2.take5.ui.CardView;
 import javafx.scene.chart.XYChart;
 
 import java.util.ArrayList;
@@ -12,6 +11,8 @@ import java.util.stream.Collectors;
 public class GameSession {
 
     int turn = 0;
+    int humanScore;
+    int aiScore;
     Deck mainDeck = new Deck();
     Player player;
     Board board = new Board(mainDeck);
@@ -24,6 +25,7 @@ public class GameSession {
 
     /**
      * Calculates the average move duration of the current game session.
+     *
      * @return The average move duration, or 0.0 if no moves have been made yet.
      */
     public double getAverageDuration() {
@@ -40,6 +42,7 @@ public class GameSession {
 
     /**
      * Calculates the outliers of move durations in the current game session.
+     *
      * @return A string containing a comma-separated list of outliers, or "None" if there are no outliers.
      */
     public String getOutliers() {
@@ -65,6 +68,7 @@ public class GameSession {
 
     /**
      * Calculates the median move duration of the current game session.
+     *
      * @return The median move duration.
      */
     private double getMedianDuration() {
@@ -84,6 +88,7 @@ public class GameSession {
 
     /**
      * Calculates the median absolute deviation of move durations from the median duration.
+     *
      * @param median The median move duration.
      * @return The median absolute deviation.
      */
@@ -98,6 +103,7 @@ public class GameSession {
 
     /**
      * Calculates the median of a list of values.
+     *
      * @param values The list of values.
      * @return The median value.
      */
@@ -148,17 +154,20 @@ public class GameSession {
 
     /**
      * method to call playCard from board inside javaFx classes
+     *
      * @param card
      * @return
      */
     public boolean playCard(Card card) {
         board.playCard(card);
         turn++;
+        Player.updateTotalScores(humanScore, aiScore);
         return true;
     }
 
     /**
      * same as playCard but for AI
+     *
      * @return
      */
     public Card playAICard() {
@@ -167,6 +176,7 @@ public class GameSession {
 
     /**
      * method used to call rows and use them in javaFx classes
+     *
      * @param row
      * @return
      */
@@ -182,6 +192,7 @@ public class GameSession {
 
     /**
      * same as getRow but for humanHand and AIHand
+     *
      * @param type
      * @return
      */
@@ -193,8 +204,7 @@ public class GameSession {
         };
     }
 
-    //ToDo: implement working methods to be able to calculate bullTotals
-    public int getBullTotal(String type){
+    public int getBullTotal(String type) {
         return switch (type) {
             case "human" -> player.getHumanBullTotal();
             case "ai" -> player.getAiBullTotal();
@@ -202,4 +212,11 @@ public class GameSession {
         };
     }
 
+    public int calculateHumanScore(LinkedList<Card> humanCards) {
+        return Player.bullValues(humanCards);
+    }
+
+    public int calculateAiScore(LinkedList<Card> aiCards) {
+        return Player.bullValues(aiCards);
+    }
 }

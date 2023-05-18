@@ -4,10 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="AI rules">
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="feedback display of cards">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/GameSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/GameSession.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/ScoreCalc.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/ScoreCalc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/CardView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/CardView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GamePresenter.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GameView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/ScoreCalc.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/CardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/CardView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" afterDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
@@ -208,6 +220,7 @@
       <workItem from="1683550217361" duration="6000" />
       <workItem from="1683625930240" duration="14861000" />
       <workItem from="1684136719155" duration="14178000" />
+      <workItem from="1684409661666" duration="12651000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -314,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683550013883</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="feedback display of cards">
+      <created>1684268610494</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1684268610494</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -364,7 +384,8 @@
     <MESSAGE value="fixing layout GridPane (board)" />
     <MESSAGE value="cleaned code" />
     <MESSAGE value="AI rules" />
-    <option name="LAST_COMMIT_MESSAGE" value="AI rules" />
+    <MESSAGE value="feedback display of cards" />
+    <option name="LAST_COMMIT_MESSAGE" value="feedback display of cards" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

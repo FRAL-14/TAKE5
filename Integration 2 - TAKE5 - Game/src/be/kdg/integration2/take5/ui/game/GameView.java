@@ -32,7 +32,8 @@ public class GameView extends BorderPane {
     private GridPane boardCards = new GridPane();
     private Label scoreHumanLbl;
     private Label scoreAILbl;
-
+    private int humanScore;
+    private int aiScore;
 
     public GameView() {
         initialiseNodes();
@@ -55,9 +56,7 @@ public class GameView extends BorderPane {
         helpMBar = new MenuBar(helpMenu);
         gameMBar = new MenuBar(gameMenu);
 
-        scoreHumanLbl = new Label("Score: " + Player.getHumanBullTotal());
-        scoreAILbl = new Label("Score: " + Player.getAiBullTotal());
-
+        displayScores(humanScore, aiScore);
     }
 
     private void layoutNodes() {
@@ -94,14 +93,16 @@ public class GameView extends BorderPane {
         scoreAILbl.setFont(new Font(25));
         scoreHumanLbl.setFont(new Font(25));
     }
-    //TODO displaying scores has yet to be implemented
-//    public void displayScores() {
-//        int humanScore = GamePresenter.calculateHumanScore();
-//        int aiScore = GamePresenter.calculateAiScore();
-//
-//        scoreHumanLbl.setText("Human score: " + humanScore);
-//        scoreAILbl.setText("AI score: " + aiScore);
-//    }
+    public void setScoreLabel(Label scoreHumanLbl, Label scoreAILbl) {
+        this.scoreHumanLbl = scoreHumanLbl;
+        this.scoreAILbl = scoreAILbl;
+    }
+    public void displayScores(int humanScore,int aiScore) {
+//        scoreHumanLbl = new Label("Score: " + Player.getHumanBullTotal());
+//        scoreAILbl = new Label("Score: " + Player.getAiBullTotal());
+        scoreHumanLbl = new Label("Score: " + humanScore);
+        scoreAILbl = new Label("Score: " + aiScore);
+    }
 
 
     public void setHumanCards(HBox humanCards) {
@@ -121,70 +122,13 @@ public class GameView extends BorderPane {
 
     //TODO displaying scores has yet to be implemented
     public void updateScoreHuman(int score) {
-        this.scoreHumanLbl.setText(String.valueOf(score));
+        this.scoreHumanLbl.setText(String.valueOf(Player.getHumanBullTotal()));
     }
-
     public void updateScoreAI(int score) {
-        this.scoreAILbl.setText(String.valueOf(score));
-    }
-//setter and getter
-
-    public MenuBar getHelpMBar() {
-        return helpMBar;
+        this.scoreAILbl.setText(String.valueOf(Player.getAiBullTotal()));
     }
 
-    public void setHelpMBar(MenuBar helpMBar) {
-        this.helpMBar = helpMBar;
-    }
-
-    public MenuItem getHelpMenuItem() {
-        return helpMenuItem;
-    }
-
-    public void setHelpMenuItem(MenuItem helpMenuItem) {
-        this.helpMenuItem = helpMenuItem;
-    }
-
-    public Menu getHelpMenu() {
-        return helpMenu;
-    }
-
-    public void setHelpMenu(Menu helpMenu) {
-        this.helpMenu = helpMenu;
-    }
-
-    public Menu getGameMenu() {
-        return gameMenu;
-    }
-
-    public void setGameMenu(Menu gameMenu) {
-        this.gameMenu = gameMenu;
-    }
-
-    public MenuBar getGameMBar() {
-        return gameMBar;
-    }
-
-    public void setGameMBar(MenuBar gameMBar) {
-        this.gameMBar = gameMBar;
-    }
-
-    public MenuItem getRestartGame() {
-        return restartGame;
-    }
-
-    public void setRestartGame(MenuItem restartGame) {
-        this.restartGame = restartGame;
-    }
-
-    public MenuItem getQuitGame() {
-        return quitGame;
-    }
-
-    public void setQuitGame(MenuItem quitGame) {
-        this.quitGame = quitGame;
-    }
-
+    //setter and getter
     public HBox getHumanCards() {
         return humanCards;
     }
@@ -193,28 +137,11 @@ public class GameView extends BorderPane {
         return aiCards;
     }
 
-    public GridPane getBoardCards() {
-        return boardCards;
+    public MenuItem getRestartGame() {
+        return restartGame;
     }
 
-    public Label getScoreHumanLbl() {
-        return scoreHumanLbl;
-    }
-
-    public void setScoreHumanLbl(Label scoreHumanLbl) {
-        this.scoreHumanLbl = scoreHumanLbl;
-    }
-
-    public Label getScoreAILbl() {
-        return scoreAILbl;
-    }
-
-    public void setScoreAILbl(Label scoreAILbl) {
-        this.scoreAILbl = scoreAILbl;
-    }
-
-    public void setScoreLabel(Label scoreHumanLbl, Label scoreAILbl){
-        this.scoreHumanLbl = scoreHumanLbl;
-        this.scoreAILbl = scoreAILbl;
+    public MenuItem getQuitGame() {
+        return quitGame;
     }
 }
