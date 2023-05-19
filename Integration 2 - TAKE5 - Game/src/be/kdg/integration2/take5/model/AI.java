@@ -24,41 +24,41 @@ public class AI extends Player {
 
 
     // rule to play middle cards before high and low cards
-//    private void playMiddleCardsBeforeHighAndLow() {
-//        LinkedList<Card> hand = showHand();
-//        ArrayList<Card> middleCards = new ArrayList<Card>();
-//        ArrayList<Card> highCards = new ArrayList<Card>();
-//        ArrayList<Card> lowCards = new ArrayList<Card>();
-//
-//        // Separate the cards into middle, high, and low
-//        for (Card card : hand) {
-//            if (card.getValue() >= 40 && card.getValue() <= 60) {
-//                middleCards.add(card);
-//            } else if (card.getValue() > 60) {
-//                highCards.add(card);
-//            } else {
-//                lowCards.add(card);
-//            }
-//        }
-//
-//        // Play the middle cards first
-//        for (Card card : middleCards) {
-//            playAICard(card);
-//            hand.remove(card);
-//        }
-//
-//        // Play the high cards next
-//        for (Card card : highCards) {
-//            playAICard(card);
-//            hand.remove(card);
-//        }
-//
-//        // Play the low cards last
-//        for (Card card : lowCards) {
-//            playAICard(card);
-//            hand.remove(card);
-//        }
-//    }
+    private void playMiddleCardsBeforeHighAndLow() {
+        LinkedList<Card> hand = showHand();
+        ArrayList<Card> middleCards = new ArrayList<Card>();
+        ArrayList<Card> highCards = new ArrayList<Card>();
+        ArrayList<Card> lowCards = new ArrayList<Card>();
+
+        // Separate the cards into middle, high, and low
+        for (Card card : hand) {
+            if (card.getValue() >= 40 && card.getValue() <= 60) {
+                middleCards.add(card);
+            } else if (card.getValue() > 60) {
+                highCards.add(card);
+            } else {
+                lowCards.add(card);
+            }
+        }
+
+        // Play the middle cards first
+        for (Card card : middleCards) {
+            playAICard(card);
+            hand.remove(card);
+        }
+
+        // Play the high cards next
+        for (Card card : highCards) {
+            playAICard(card);
+            hand.remove(card);
+        }
+
+        // Play the low cards last
+        for (Card card : lowCards) {
+            playAICard(card);
+            hand.remove(card);
+        }
+    }
 
     private void playAICard(Card card) {
     }
