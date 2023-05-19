@@ -39,6 +39,12 @@ public abstract class Player {
         this.name = name;
     }
 
+    public int getId() {
+        return id;
+    }
+
+
+
     public static int bullValues(LinkedList<Card> cards) {
         int totalScore = 0;
         List<Card> cardList = cards.stream().toList();
