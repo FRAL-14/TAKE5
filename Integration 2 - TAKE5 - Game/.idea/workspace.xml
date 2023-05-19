@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="feedback display of cards">
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Leaderboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Leaderboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/AI.java" afterDir="false" />
     </list>
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
@@ -207,7 +207,7 @@
       <workItem from="1684136719155" duration="14178000" />
       <workItem from="1684409661666" duration="12651000" />
       <workItem from="1684443000142" duration="2135000" />
-      <workItem from="1684512162036" duration="445000" />
+      <workItem from="1684512162036" duration="765000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
