@@ -4,228 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="feedback display of cards">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ConsoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ConsoleController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/AI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/AI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GameView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/10.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/100.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/100.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/101.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/101.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/102.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/102.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/103.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/103.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/104.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/104.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/11.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/12.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/13.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/13.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/14.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/14.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/15.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/15.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/16.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/17.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/17.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/18.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/19.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/19.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/20.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/21.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/21.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/22.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/22.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/23.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/23.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/24.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/24.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/25.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/25.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/26.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/26.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/27.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/27.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/28.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/28.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/29.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/29.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/30.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/30.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/31.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/31.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/32.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/33.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/33.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/34.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/34.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/35.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/35.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/36.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/36.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/37.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/37.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/38.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/38.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/39.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/39.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/40.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/40.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/41.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/41.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/42.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/42.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/43.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/43.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/44.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/44.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/45.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/45.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/46.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/46.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/47.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/47.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/48.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/48.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/49.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/49.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/50.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/50.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/51.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/51.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/52.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/53.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/53.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/54.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/54.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/55.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/55.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/56.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/56.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/57.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/57.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/58.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/58.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/59.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/59.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/60.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/60.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/61.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/61.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/62.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/62.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/63.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/63.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/64.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/64.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/65.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/65.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/66.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/66.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/67.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/67.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/68.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/68.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/69.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/69.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/70.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/70.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/71.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/71.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/72.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/72.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/73.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/73.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/74.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/74.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/75.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/75.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/76.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/76.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/77.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/77.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/78.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/78.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/79.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/79.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/8.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/80.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/80.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/81.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/81.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/82.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/82.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/83.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/83.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/84.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/84.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/85.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/85.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/86.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/86.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/87.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/87.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/88.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/88.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/89.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/89.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/9.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/90.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/90.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/91.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/91.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/92.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/92.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/93.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/93.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/94.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/94.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/95.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/95.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/96.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/96.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/97.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/97.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/98.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/98.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/99.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/99.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/cards/back.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/cards/back.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Take5/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/module-info.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/10.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/100.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/100.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/101.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/101.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/102.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/102.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/103.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/103.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/104.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/104.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/11.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/12.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/13.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/13.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/14.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/14.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/15.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/15.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/16.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/16.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/17.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/17.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/18.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/18.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/19.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/19.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/20.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/20.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/21.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/21.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/22.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/22.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/23.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/23.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/24.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/24.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/25.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/25.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/26.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/26.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/27.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/27.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/28.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/28.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/29.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/29.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/3.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/30.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/30.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/31.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/31.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/32.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/33.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/33.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/34.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/34.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/35.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/35.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/36.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/36.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/37.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/37.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/38.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/38.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/39.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/39.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/4.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/40.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/40.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/41.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/41.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/42.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/42.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/43.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/43.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/44.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/44.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/45.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/45.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/46.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/46.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/47.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/47.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/48.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/48.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/49.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/49.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/5.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/50.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/50.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/51.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/51.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/52.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/52.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/53.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/53.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/54.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/54.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/55.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/55.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/56.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/56.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/57.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/57.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/58.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/58.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/59.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/59.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/6.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/60.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/60.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/61.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/61.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/62.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/62.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/63.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/63.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/64.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/64.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/65.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/65.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/66.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/66.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/67.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/67.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/68.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/68.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/69.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/69.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/7.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/70.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/70.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/71.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/71.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/72.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/72.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/73.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/73.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/74.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/74.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/75.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/75.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/76.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/76.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/77.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/77.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/78.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/78.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/79.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/79.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/8.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/80.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/80.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/81.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/81.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/82.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/82.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/83.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/83.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/84.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/84.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/85.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/85.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/86.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/86.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/87.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/87.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/88.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/88.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/89.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/89.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/9.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/90.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/90.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/91.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/91.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/92.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/92.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/93.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/93.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/94.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/94.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/95.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/95.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/96.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/96.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/97.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/97.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/98.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/98.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/99.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/99.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/back.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/back.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/main1.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/main1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/recources/cards/main2.png" beforeDir="false" afterPath="$PROJECT_DIR$/recources/cards/main2.png" afterDir="false" />
-    </list>
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="attempt" />
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -264,27 +43,27 @@
     <option name="showExcludedFiles" value="false" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17 (2)&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/allyangelova/Documents/GitHub/S2-20/Integration 2 - TAKE5 - Game&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.119617224&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "d28586de",
+    "jdk.selected.JAVA_MODULE": "17 (2)",
+    "last_opened_file_path": "/Users/allyangelova/Documents/GitHub/S2-20/Integration 2 - TAKE5 - Game",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.119617224",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -428,8 +207,7 @@
       <workItem from="1684443000142" duration="2135000" />
       <workItem from="1684512162036" duration="765000" />
       <workItem from="1684741356923" duration="6885000" />
-      <workItem from="1684748734238" duration="84000" />
-      <workItem from="1684748872170" duration="45000" />
+      <workItem from="1684753924579" duration="328000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -543,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684268610494</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="attempt">
+      <created>1684753988854</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1684753988854</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -594,7 +379,9 @@
     <MESSAGE value="cleaned code" />
     <MESSAGE value="AI rules" />
     <MESSAGE value="feedback display of cards" />
-    <option name="LAST_COMMIT_MESSAGE" value="feedback display of cards" />
+    <MESSAGE value="fixed cards" />
+    <MESSAGE value="attempt" />
+    <option name="LAST_COMMIT_MESSAGE" value="attempt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
