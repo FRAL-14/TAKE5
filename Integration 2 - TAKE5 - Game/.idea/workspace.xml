@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="attempt">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Take5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Take5.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5JavafxApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/Take5JavafxApplication.java" afterDir="false" />
-    </list>
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="feedback display of cards" />
     <list id="a8c459d3-fb77-476d-9597-ff7ca7417463" name="Changes by allyangelova" comment="" />
     <list id="33445405-eb17-4992-a077-26c9ecf9c6cb" name="Changes by macbookpronathan" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,6 +28,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -55,7 +52,7 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "17 (2)",
-    "last_opened_file_path": "C:/Users/laisa/S2-20/Integration 2 - TAKE5 - Game",
+    "last_opened_file_path": "/Users/allyangelova/Documents/GitHub/S2-20/Integration 2 - TAKE5 - Game",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -211,8 +208,6 @@
       <workItem from="1684443000142" duration="2135000" />
       <workItem from="1684512162036" duration="765000" />
       <workItem from="1684741356923" duration="6885000" />
-      <workItem from="1684753924579" duration="328000" />
-      <workItem from="1684754656490" duration="145000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -326,14 +321,7 @@
       <option name="project" value="LOCAL" />
       <updated>1684268610494</updated>
     </task>
-    <task id="LOCAL-00017" summary="attempt">
-      <created>1684753988854</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1684753988854</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -384,9 +372,7 @@
     <MESSAGE value="cleaned code" />
     <MESSAGE value="AI rules" />
     <MESSAGE value="feedback display of cards" />
-    <MESSAGE value="fixed cards" />
-    <MESSAGE value="attempt" />
-    <option name="LAST_COMMIT_MESSAGE" value="attempt" />
+    <option name="LAST_COMMIT_MESSAGE" value="feedback display of cards" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
