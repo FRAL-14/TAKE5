@@ -201,7 +201,7 @@ public class Board {
      * @param card
      */
     //TODO: this should be written in the Player class, and then you can call it in the Board class (!!)
-    public void playCard(Card card) {
+    public void playCard(Card card, Player player) {
         // Get the card number at the given index
         int playedCard = card.getValue();
 //        LinkedList<Card> playHand = deck.humanHand;
@@ -211,7 +211,11 @@ public class Board {
 
         // Remove the card from the hand list
 //        playHand.remove(card);
-        deck.humanHand.remove(card);
+        if (player instanceof Human){
+            deck.humanHand.remove(card);
+        } else {
+            deck.aiHand.remove(card);
+        }
 
         if (closestRow == row1) {
             row1.addLast(card);
@@ -222,37 +226,12 @@ public class Board {
         } else if (closestRow == row4) {
             row4.addLast(card);
         }
-        checkLists(human);
-    }
 
-    /**
-     * same method as playCard but for the AI where index of the card of the hand is randomly chosen,
-     * both the method for the AI and the human are passed through gameSession to be called in gamePresenter
-     *
-     * @return
-     */
-    public Card playAICard(Card card) {
-        int playedCard = card.getValue();
-//        LinkedList<Card> playHand = deck.humanHand;
-
-        closestRow = findClosestNumber(playedCard);
-        ;
-
-        // Remove the card from the hand list
-//        playHand.remove(card);
-        deck.aiHand.remove(card);
-
-        if (closestRow == row1) {
-            row1.addLast(card);
-        } else if (closestRow == row2) {
-            row2.addLast(card);
-        } else if (closestRow == row3) {
-            row3.addLast(card);
-        } else if (closestRow == row4) {
-            row4.addLast(card);
+        if (player instanceof Human){
+            checkLists(human);
+        } else {
+            checkLists(ai);
         }
-        checkLists(ai);
-        return card;
     }
 
 
