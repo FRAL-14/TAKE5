@@ -201,30 +201,30 @@ public class GamePresenter {
         cardPlayed = true;
     }
 
-    public void playAiCard(){
-        CardView cardView = new CardView(model.playAICard());
-        gameView.getAiCards().getChildren().remove(cardView);
-        updateView();
-    }
+//    public void playAiCard(){
+//        CardView cardView = new CardView(model.playAICard());
+//        gameView.getAiCards().getChildren().remove(cardView);
+//        updateView();
+//    }
 
     /**
      * Same method as playCard but for AI, instead of input from a user a card is randomly chosen from the hand of the AI
      * method works the same way as playCard
      */
-//    public void playAiCard() {
-//        Card aiCard = model.playAICard();
-//        for (Node cardNode : gameView.getAiCards().getChildren()) {
-//            if (cardNode instanceof CardView) {
-//                CardView cardView = (CardView) cardNode;
-//                aiCard = cardView.getCard();
-//                Card finalCard = aiCard;
-//                gameView.getAiCards().getChildren().remove(cardView);
-////                int clickedCardValue = finalCard.getValue();
-////                boolean validPlay = model.playCard(finalCard);
-//            }
-//        }
-//        updateView();
-//    }
+    public void playAiCard() {
+        Card aiCard = model.playAICard();
+        for (Node cardNode : gameView.getAiCards().getChildren()) {
+            if (cardNode instanceof CardView) {
+                CardView cardView = (CardView) cardNode;
+                aiCard = cardView.getCard();
+                Card finalCard = aiCard;
+                gameView.getAiCards().getChildren().remove(cardView);
+//                int clickedCardValue = finalCard.getValue();
+//                boolean validPlay = model.playCard(finalCard);
+            }
+        }
+        updateView();
+    }
 
 //    public void updateScores() {
 ////        int humanScore = model.calculateHumanScore(model.getHand("human"));
