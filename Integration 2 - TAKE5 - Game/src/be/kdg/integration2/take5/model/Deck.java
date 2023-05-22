@@ -87,4 +87,15 @@ public class Deck {
         roundCounter++;
     }
 
+    public void newRound(LinkedList<Card> activeCards){
+        for (Card card : activeCards) {
+            cards.remove(card);
+        }
+        Collections.shuffle(cards);
+        humanHand = dealPlay(cards,10);
+        aiHand = dealPlay(cards, 10);
+        Collections.sort(humanHand);
+        Collections.sort(aiHand);
+    }
+
 }

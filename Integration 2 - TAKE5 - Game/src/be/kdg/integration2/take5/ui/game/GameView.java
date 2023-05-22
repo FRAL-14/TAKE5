@@ -30,8 +30,8 @@ public class GameView extends BorderPane {
     private HBox humanCards = new HBox();
     private HBox aiCards = new HBox();
     private GridPane boardCards = new GridPane();
-    private Label scoreHumanLbl;
-    private Label scoreAILbl;
+    private Label scoreHumanLbl = new Label("Score: ");
+    private Label scoreAILbl = new Label("Score: ");
     private int humanScore;
     private int aiScore;
 
@@ -56,7 +56,7 @@ public class GameView extends BorderPane {
         helpMBar = new MenuBar(helpMenu);
         gameMBar = new MenuBar(gameMenu);
 
-        displayScores(humanScore, aiScore);
+//        displayScores(humanScore, aiScore);
     }
 
     private void layoutNodes() {

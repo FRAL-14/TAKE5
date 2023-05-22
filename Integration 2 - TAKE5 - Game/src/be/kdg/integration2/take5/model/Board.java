@@ -79,8 +79,8 @@ public class Board {
      *
      * @param type
      */
-    Human human;
-    AI ai;
+    Human human = new Human("human");
+    AI ai = new AI();
     public LinkedList<Card> checkLists(Player player) {
         boolean listFilled = false;
         LinkedList<Card> removeCards = new LinkedList<>();
@@ -118,11 +118,15 @@ public class Board {
             }
         }
         if (listFilled) {
-            for (int i = 0; i < 5; i++) {
-                if (human instanceof Player) {
-                    Player.humanBullTotal += Player.bullValues(removeCards);
-                } else {
-                    Player.aiBullTotal += Player.bullValues(removeCards);
+            if (player instanceof Human){
+                for ( Card card : removeCards ) {
+                    int bullTotal =+ card.getValue();
+                    this.human.setHumanBullTotal(bullTotal);
+                }
+            } else {
+                for ( Card card : removeCards ) {
+                    int bullTotal =+ card.getValue();
+                    this.ai.setAiBullTotal(bullTotal);
                 }
             }
         }
@@ -142,7 +146,7 @@ public class Board {
         Scanner scan = new Scanner(System.in);
         int closestNumber = Integer.MAX_VALUE;
         int smallestDifference = Integer.MAX_VALUE;
-        boolean isTooLow = true;
+        boolean isTooLow = false;
 
         if (row1.getLast().getValue() < playedCard) {
             int difference = playedCard - row1.getLast().getValue();
@@ -150,7 +154,7 @@ public class Board {
                 smallestDifference = difference;
                 closestNumber = row1.getLast().getValue();
                 closestRow = row1;
-                isTooLow = false;
+                isTooLow = true;
             }
         }
 
@@ -160,7 +164,7 @@ public class Board {
                 smallestDifference = difference;
                 closestNumber = row2.getLast().getValue();
                 closestRow = row2;
-                isTooLow = false;
+                isTooLow = true;
             }
         }
 
@@ -170,7 +174,7 @@ public class Board {
                 smallestDifference = difference;
                 closestNumber = row3.getLast().getValue();
                 closestRow = row3;
-                isTooLow = false;
+                isTooLow = true;
             }
         }
 
@@ -180,14 +184,12 @@ public class Board {
                 smallestDifference = difference;
                 closestNumber = row4.getLast().getValue();
                 closestRow = row4;
-                isTooLow = false;
+                isTooLow = true;
             }
         }
 
-        if (isTooLow = false) {
-            System.out.print("The card is too low to be played, choose a row to take away: ");
+        if (isTooLow) {
             int rowChosen = scan.nextInt();
-            System.out.println();
         }
 
         return closestRow;
@@ -201,7 +203,7 @@ public class Board {
      * @param card
      */
     //TODO: this should be written in the Player class, and then you can call it in the Board class (!!)
-    public void playCard(Card card) {
+    public void playCard(Card card, Player player) {
         // Get the card number at the given index
         int playedCard = card.getValue();
 //        LinkedList<Card> playHand = deck.humanHand;
@@ -211,7 +213,11 @@ public class Board {
 
         // Remove the card from the hand list
 //        playHand.remove(card);
-        deck.humanHand.remove(card);
+        if (player instanceof Human){
+            deck.humanHand.remove(card);
+        } else if (player instanceof AI) {
+            deck.aiHand.remove(card);
+        }
 
         if (closestRow == row1) {
             row1.addLast(card);
@@ -222,7 +228,13 @@ public class Board {
         } else if (closestRow == row4) {
             row4.addLast(card);
         }
-        checkLists(human);
+
+        if (player instanceof Human){
+            checkLists(human);
+        } else if (player instanceof AI) {
+            checkLists(ai);
+        }
+
     }
 
     /**
@@ -231,29 +243,29 @@ public class Board {
      *
      * @return
      */
-    public Card playAICard(Card card) {
-        int playedCard = card.getValue();
-//        LinkedList<Card> playHand = deck.humanHand;
-
-        closestRow = findClosestNumber(playedCard);
-        ;
-
-        // Remove the card from the hand list
-//        playHand.remove(card);
-        deck.aiHand.remove(card);
-
-        if (closestRow == row1) {
-            row1.addLast(card);
-        } else if (closestRow == row2) {
-            row2.addLast(card);
-        } else if (closestRow == row3) {
-            row3.addLast(card);
-        } else if (closestRow == row4) {
-            row4.addLast(card);
-        }
-        checkLists(ai);
-        return card;
-    }
+//    public Card playAICard(Card card) {
+//        int playedCard = card.getValue();
+////        LinkedList<Card> playHand = deck.humanHand;
+//
+//        closestRow = findClosestNumber(playedCard);
+//        ;
+//
+//        // Remove the card from the hand list
+////        playHand.remove(card);
+//        deck.aiHand.remove(card);
+//
+//        if (closestRow == row1) {
+//            row1.addLast(card);
+//        } else if (closestRow == row2) {
+//            row2.addLast(card);
+//        } else if (closestRow == row3) {
+//            row3.addLast(card);
+//        } else if (closestRow == row4) {
+//            row4.addLast(card);
+//        }
+//        checkLists(ai);
+//        return card;
+//    }
 
 
     /**
