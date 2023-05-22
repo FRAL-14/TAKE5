@@ -76,7 +76,7 @@ public class GameView extends BorderPane {
         HBox left = new HBox(20, helpMBar, gameMBar);
         setLeft(left);
         setAlignment(left, Pos.TOP_LEFT);
-        setMargin(left, new Insets(-150, 75, 0, 10));
+        setMargin(left, new Insets(-175, 75, 0, 10));
 
         //right part of BorderPane
         VBox right = new VBox(500, scoreAILbl, scoreHumanLbl);
