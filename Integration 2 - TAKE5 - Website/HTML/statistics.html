@@ -5,7 +5,7 @@
     <title>Statistics - TAKE5!</title>
     <link rel="stylesheet" href="../CSS/stylesheet.css">
     <link rel="icon" href="../MEDIA/layout/favicon-yellow.png">
-    <script src="../JavaScript/main_script.js"></script>
+    <script src="../JavaScript/statistics-script.js"></script>
 </head>
 
 <body>
@@ -25,12 +25,14 @@
 </header>
 
 <main>
-    <div class="login-page">
+    <div class="login-page" id="login-form">
         <div class="form">
             <form class="login-form">
-                <input class="hover-zoom" type="text" placeholder="username"/>
-                <input class="hover-zoom" type="password" placeholder="password"/>
-                <button class="hover-zoom">login</button>
+                <input class="hover-zoom" type="text" placeholder="username" id="username-field" required="required"
+                       autocomplete="off"/>
+                <input class="hover-zoom" type="password" placeholder="password" id="password-field"
+                       required="required"/>
+                <button type="submit"><a>login</a></button>
             </form>
         </div>
     </div>
