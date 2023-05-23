@@ -17,14 +17,14 @@ section {
 }
 
 h1 {
-    text-decoration: underline;
+    /*text-decoration: underline;*/
     margin: 10px;
 }
 
 h2 {
-    text-decoration: underline;
     margin: 10px;
 }
+
 
 h3 {
     margin-top: 10px;
@@ -62,12 +62,13 @@ a {
 }
 
 .hover-zoom {
-    transition: transform .3s;
+    transition: transform .25s ease-in-out;
 }
 
 .hover-zoom:hover {
     transform: scale(1.1);
     transform-origin: center;
+
 }
 
 /* ----------------------------------------------------------------------------------------------------------------- */
@@ -77,7 +78,7 @@ a {
     margin: auto;
     display: block;
     width: 115px;
-    transition: transform .3s;
+    transition: transform .3s ease-in-out;
 }
 
 .logo:hover {
