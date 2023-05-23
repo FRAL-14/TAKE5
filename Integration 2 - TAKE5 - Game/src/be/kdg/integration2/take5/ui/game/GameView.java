@@ -5,6 +5,8 @@ import be.kdg.integration2.take5.model.Human;
 import be.kdg.integration2.take5.model.Player;
 import javafx.animation.ParallelTransition;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
@@ -20,6 +22,27 @@ import java.util.List;
  * It contains the layout of the game and the event handlers.
  */
 public class GameView extends BorderPane {
+
+    int selectedRow = 0; // Initialize the selected row variable
+
+    // Create the event handler
+    EventHandler<ActionEvent> menuItemHandler = event -> {
+        MenuItem menuItem = (MenuItem) event.getSource();
+
+        // Determine which MenuItem was pressed
+        if (menuItem.getText().equals("row1")) {
+            selectedRow = 1;
+        } else if (menuItem.getText().equals("row2")) {
+            selectedRow = 2;
+        } else if (menuItem.getText().equals("row3")) {
+            selectedRow = 3;
+        } else if (menuItem.getText().equals("row4")) {
+            selectedRow = 4;
+        }
+    };
+
+
+
     private MenuBar helpMBar;
     private MenuItem helpMenuItem;
     private Menu helpMenu;
@@ -27,6 +50,13 @@ public class GameView extends BorderPane {
     private MenuBar gameMBar;
     private MenuItem restartGame;
     private MenuItem quitGame;
+    private MenuBar rowBar;
+    private MenuItem row1;
+    private Menu row1Menu;
+    private MenuItem row2;
+    private MenuItem row3;
+    private MenuItem row4;
+    VBox midLeft;
     //    private HBox board = new HBox(10);
     private HBox humanCards = new HBox();
     private HBox aiCards = new HBox();
@@ -49,6 +79,7 @@ public class GameView extends BorderPane {
         helpMenu = new Menu("Help");
         helpMenuItem = new MenuItem("Rules");
         helpMenu.getItems().addAll(helpMenuItem);
+
         gameMenu = new Menu("Game");
         restartGame = new MenuItem("Restart");
         quitGame = new MenuItem("Quit");
@@ -57,7 +88,19 @@ public class GameView extends BorderPane {
         helpMBar = new MenuBar(helpMenu);
         gameMBar = new MenuBar(gameMenu);
 
-//        displayScores(humanScore, aiScore);
+        row1Menu = new Menu("Rows");
+        row1 = new MenuItem("Row 1");
+        row2 = new MenuItem("Row 2");
+        row3 = new MenuItem("Row 3");
+        row4 = new MenuItem("Row 4");
+        row1Menu.getItems().addAll(row1, row2, row3, row4);
+
+        rowBar = new MenuBar(row1Menu);
+
+        row1.setOnAction(menuItemHandler);
+        row2.setOnAction(menuItemHandler);
+        row3.setOnAction(menuItemHandler);
+        row4.setOnAction(menuItemHandler);
     }
 
     private void layoutNodes() {
@@ -79,6 +122,11 @@ public class GameView extends BorderPane {
         setAlignment(left, Pos.TOP_LEFT);
         setMargin(left, new Insets(-175, 75, 0, 10));
 
+//        midLeft = new VBox(rowBar);
+//        setLeft(midLeft);
+//        setAlignment(midLeft, Pos.CENTER_LEFT);
+//        midLeft.setVisible(false);
+
         //right part of BorderPane
         VBox right = new VBox(500, scoreAILbl, scoreHumanLbl);
         setRight(right);
@@ -98,6 +146,17 @@ public class GameView extends BorderPane {
         this.scoreHumanLbl.setText(scoreHumanLbl);
         this.scoreAILbl.setText(scoreAILbl);
     }
+
+//    public void showRows(boolean show){
+//        if (show){
+//            midLeft.setVisible(true);
+//        } else {
+//            midLeft.setVisible(false);
+//        }
+//    }
+
+
+
 //    public void displayScores(int humanScore,int aiScore) {
 ////        scoreHumanLbl = new Label("Score: " + Player.getHumanBullTotal());
 ////        scoreAILbl = new Label("Score: " + Player.getAiBullTotal());
@@ -150,4 +209,9 @@ public class GameView extends BorderPane {
 //        this.humanScore = human;
 //        this.aiScore = ai;
 //    }
+
+    public int getSelectedRow() {
+        return selectedRow;
+    }
+
 }

@@ -7,8 +7,8 @@ public abstract class Player {
 
     private String name;
     private int id;
-    public int aiBullTotal = 0;
-    public int humanBullTotal = 0;
+    public int aiBullTotal;
+    public int humanBullTotal;
 
     public int getAiBullTotal() {
         return aiBullTotal;
@@ -19,11 +19,11 @@ public abstract class Player {
     }
 
     public void setAiBullTotal(int aiBullTotal) {
-        this.aiBullTotal = aiBullTotal;
+        this.aiBullTotal = this.aiBullTotal + aiBullTotal;
     }
 
     public void setHumanBullTotal(int humanBullTotal) {
-        this.humanBullTotal = humanBullTotal;
+        this.humanBullTotal = this.humanBullTotal + humanBullTotal;
     }
 
     public void updateTotalScores(int humanScore, int aiScore) {

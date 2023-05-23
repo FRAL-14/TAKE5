@@ -54,11 +54,13 @@ public class GamePresenter {
             playAiCard();
             cardPlayed = false;
         }
-        if (model.getTurn() == 10){
-            model.newRound(getBoardCards());
-            newRound();
-            updateView();
-        }
+
+//        if (model.getTurn() % 10 == 0){
+//            model.newRound(getBoardCards());
+//            newRound();
+//            updateView();
+//            cardPlayed = false;
+//        }
         });
     }
 
@@ -194,17 +196,29 @@ public class GamePresenter {
                 Node selectedCardView = (Node) event.getSource();
                 CardView cardView = (CardView) selectedCardView;
                 Card selectedCard = cardView.getCard();
-                model.playCard(selectedCard);
+                boolean played = model.playCard(selectedCard);
                 gameView.getHumanCards().getChildren().remove(selectedCardView);
                 cardPlayed = true;
                 cardSelectionFuture.complete(selectedCard);
+//                if (!played){
+//                    chooseRow("human", selectedCard);
+//                    cardPlayed = true;
+//                    return;
+//                }
                 updateView();
             });
         }
     }
 
     public void playAiCard(){
-        CardView cardView = new CardView(model.playAICard());
+        Card card = model.playAICard();
+
+//        if (card == null){
+//            chooseRow("ai", card);
+//            return;
+//        }
+
+        CardView cardView = new CardView(card);
         gameView.getAiCards().getChildren().remove(cardView);
         updateView();
     }
@@ -266,4 +280,14 @@ public class GamePresenter {
         humanScore = 0;
         aiScore = 0;
     }
+
+//    public void chooseRow(String type, Card card){
+//        while (gameView.getSelectedRow() == 0){
+//            gameView.showRows(true);
+//        }
+//        gameView.showRows(false);
+//        model.chooseRow(gameView.getSelectedRow(), type, card);
+//        updateView();
+////        gameView.showRows(false);
+//    }
 }

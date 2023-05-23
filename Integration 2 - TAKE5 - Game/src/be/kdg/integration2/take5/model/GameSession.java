@@ -171,10 +171,11 @@ public class GameSession {
      * @return
      */
     public boolean playCard(Card card) {
-        board.playCard(card, human);
+        boolean played = board.playCard(card, human);
         board.checkLists(human);
         turn++;
-        return true;
+        return played;
+
     }
 
     /**
@@ -183,8 +184,12 @@ public class GameSession {
      * @return
      */
     public Card playAICard() {
+        boolean notValid;
         Card card = ai.chooseCard(mainDeck, board);
-        board.playCard(card, ai);
+        notValid = board.playCard(card, ai);
+        if (!notValid){
+            return null;
+        }
         board.checkLists(ai);
         return card;
     }
@@ -234,4 +239,14 @@ public class GameSession {
     public int calculateAiScore(LinkedList<Card> aiCards) {
         return ai.bullValues(aiCards);
     }
+
+
+//    public void chooseRow(int row, String type, Card card){
+//        if (type.equals("human")){
+//            board.chooseRow(row, human, card);
+//        } else {
+//            board.chooseRow(row, ai, card);
+//        }
+//    }
+
 }

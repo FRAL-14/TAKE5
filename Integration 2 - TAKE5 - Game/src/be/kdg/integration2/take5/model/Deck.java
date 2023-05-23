@@ -88,6 +88,8 @@ public class Deck {
     }
 
     public void newRound(LinkedList<Card> activeCards){
+        humanHand.clear();
+        aiHand.clear();
         for (Card card : activeCards) {
             cards.remove(card);
         }

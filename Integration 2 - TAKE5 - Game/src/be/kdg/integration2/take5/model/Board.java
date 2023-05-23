@@ -1,7 +1,5 @@
 package be.kdg.integration2.take5.model;
 
-import be.kdg.integration2.take5.ui.game.GamePresenter;
-
 import java.util.*;
 
 public class Board {
@@ -76,10 +74,10 @@ public class Board {
     /**
      * method to check if a row had 6 cards, if a row has 6 cards the player that placed the last card must collect
      * the 5 first cards and add the bulls to his total, the last card becomes the first one in the row
+     *
      * @param player
-     * @return
      */
-    public LinkedList<Card> checkLists(Player player) {
+    public void checkLists(Player player) {
         boolean listFilled = false;
         LinkedList<Card> removeCards = new LinkedList<>();
         if (row1.size() == 6) {
@@ -137,7 +135,6 @@ public class Board {
 //            player.setAiBullTotal(aiBullTotal);
 
         }
-        return removeCards;
     }
 
 
@@ -195,12 +192,9 @@ public class Board {
             }
         }
 
-        if (isTooLow = false) {
-            System.out.print("The card is too low to be played, choose a row to take away: ");
-            int rowChosen = scan.nextInt();
-            System.out.println();
+        if (isTooLow) {
+            closestRow = null;
         }
-
         return closestRow;
     }
 
@@ -212,31 +206,44 @@ public class Board {
      * @param card
      */
     //TODO: this should be written in the Player class, and then you can call it in the Board class (!!)
-    public void playCard(Card card, Player player) {
+    public boolean playCard(Card card, Player player) {
+//        if (card == null){
+//            return false;
+//        }
+        boolean lower = checkIfLower(card);
+        if (lower){
+            removeRow(card, player);
+            return true;
+        }
+
         // Get the card number at the given index
         int playedCard = card.getValue();
 //        LinkedList<Card> playHand = deck.humanHand;
 
         closestRow = findClosestNumber(playedCard);
-        ;
 
-        // Remove the card from the hand list
+//        if (closestRow == null){
+//            return false;
+//        } else {
+            // Remove the card from the hand list
 //        playHand.remove(card);
-        if (player instanceof Human){
-            deck.humanHand.remove(card);
-        } else {
-            deck.aiHand.remove(card);
-        }
+            if (player instanceof Human){
+                deck.humanHand.remove(card);
+            } else {
+                deck.aiHand.remove(card);
+            }
 
-        if (closestRow == row1) {
-            row1.addLast(card);
-        } else if (closestRow == row2) {
-            row2.addLast(card);
-        } else if (closestRow == row3) {
-            row3.addLast(card);
-        } else if (closestRow == row4) {
-            row4.addLast(card);
-        }
+            if (closestRow == row1) {
+                row1.addLast(card);
+            } else if (closestRow == row2) {
+                row2.addLast(card);
+            } else if (closestRow == row3) {
+                row3.addLast(card);
+            } else if (closestRow == row4) {
+                row4.addLast(card);
+            }
+            return true;
+//        }
     }
 
 
@@ -249,5 +256,127 @@ public class Board {
         row2.clear();
         row3.clear();
         row4.clear();
+    }
+
+
+//    public void chooseRow(int row, Player player, Card card){
+//        boolean listFilled = false;
+//        LinkedList<Card> removeCards = new LinkedList<>();
+//        if (row == 1){
+//            row1.add(card);
+//            for (int i = 1; i < row1.size(); i++){
+//                removeCards.add(row1.getFirst());
+//                row1.remove(row1.getFirst());
+//                listFilled = true;
+//            }
+//        }
+//        if (row == 2){
+//            row2.add(card);
+//            for (int i = 1; i < row2.size(); i++){
+//                removeCards.add(row2.getFirst());
+//                row2.remove(row2.getFirst());
+//                listFilled = true;
+//            }
+//        }
+//        if (row == 3){
+//            row3.add(card);
+//            for (int i = 1; i < row3.size(); i++){
+//                removeCards.add(row3.getFirst());
+//                row3.remove(row3.getFirst());
+//                listFilled = true;
+//            }
+//        }
+//        if (row == 4){
+//            row4.add(card);
+//            for (int i = 1; i < row4.size(); i++){
+//                removeCards.add(row4.getFirst());
+//                row4.remove(row4.getFirst());
+//                listFilled = true;
+//            }
+//        }
+//
+//        if (listFilled) {
+//            int humanBullTotal = 0;
+//            int aiBullTotal = 0;
+//            if (player instanceof Human) {
+//                humanBullTotal = player.bullValues(removeCards);
+//                player.setHumanBullTotal(humanBullTotal);
+//            } else {
+//                aiBullTotal = player.bullValues(removeCards);
+//                player.setAiBullTotal(aiBullTotal);
+//            }
+//        }
+//    }
+
+    public boolean checkIfLower(Card card){
+        return row1.getLast().getValue() > card.getValue() && row2.getLast().getValue() > card.getValue() && row3.getLast().getValue() > card.getValue() && row4.getLast().getValue() > card.getValue();
+    }
+
+    public void removeRow(Card card, Player player){
+        int row = findBiggest();
+        LinkedList<Card> removeCard = new LinkedList<>();
+        if (row == 1){
+            row1.add(card);
+            for (int i = 1; i < row1.size(); i++){
+                removeCard.add(row1.getFirst());
+                row1.remove(row1.getFirst());
+            }
+        }
+        if (row == 2){
+            row2.add(card);
+            for (int i = 1; i < row2.size(); i++){
+                removeCard.add(row2.getFirst());
+                row2.remove(row2.getFirst());
+            }
+        }
+        if (row == 3){
+            row3.add(card);
+            for (int i = 1; i < row3.size(); i++){
+                removeCard.add(row3.getFirst());
+                row3.remove(row3.getFirst());
+            }
+        }
+        if (row == 4){
+            row4.add(card);
+            for (int i = 1; i < row4.size(); i++){
+                removeCard.add(row4.getFirst());
+                row4.remove(row4.getFirst());
+            }
+        }
+
+        if (player instanceof Human){
+            deck.humanHand.remove(card);
+        } else {
+            deck.aiHand.remove(card);
+        }
+
+        int humanBullTotal = 0;
+        int aiBullTotal = 0;
+        if (player instanceof Human) {
+            humanBullTotal = player.bullValues(removeCard);
+            player.setHumanBullTotal(humanBullTotal);
+        } else {
+            aiBullTotal = player.bullValues(removeCard);
+            player.setAiBullTotal(aiBullTotal);
+        }
+
+    }
+
+    public int findBiggest() {
+        int max = row1.getLast().getValue();
+        int row = 1;
+        if (row2.getLast().getValue() > max) {
+            max = row2.getLast().getValue();
+            row = 2;
+        }
+        if (row3.getLast().getValue() > max) {
+            max = row3.getLast().getValue();
+            row = 3;
+        }
+        if (row4.getLast().getValue() > max) {
+            max = row4.getLast().getValue();
+            row = 4;
+        }
+        return row;
     }
 }
