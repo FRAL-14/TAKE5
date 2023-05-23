@@ -172,6 +172,7 @@ public class GameSession {
      */
     public boolean playCard(Card card) {
         board.playCard(card, human);
+        board.checkLists(human);
         turn++;
         return true;
     }
@@ -184,6 +185,7 @@ public class GameSession {
     public Card playAICard() {
         Card card = ai.chooseCard(mainDeck, board);
         board.playCard(card, ai);
+        board.checkLists(ai);
         return card;
     }
 
@@ -219,17 +221,17 @@ public class GameSession {
 
     public int getBullTotal(String type) {
         return switch (type) {
-            case "human" -> Player.getHumanBullTotal();
-            case "ai" -> Player.getAiBullTotal();
+            case "human" -> human.getHumanBullTotal();
+            case "ai" -> ai.getAiBullTotal();
             default -> throw new IllegalStateException("Unexpected value: " + type);
         };
     }
 
     public int calculateHumanScore(LinkedList<Card> humanCards) {
-        return Player.bullValues(humanCards);
+        return human.bullValues(humanCards);
     }
 
     public int calculateAiScore(LinkedList<Card> aiCards) {
-        return Player.bullValues(aiCards);
+        return ai.bullValues(aiCards);
     }
 }

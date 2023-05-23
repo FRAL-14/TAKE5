@@ -76,11 +76,9 @@ public class Board {
     /**
      * method to check if a row had 6 cards, if a row has 6 cards the player that placed the last card must collect
      * the 5 first cards and add the bulls to his total, the last card becomes the first one in the row
-     *
-     * @param type
+     * @param player
+     * @return
      */
-    Human human;
-    AI ai;
     public LinkedList<Card> checkLists(Player player) {
         boolean listFilled = false;
         LinkedList<Card> removeCards = new LinkedList<>();
@@ -118,11 +116,15 @@ public class Board {
             }
         }
         if (listFilled) {
+            int humanBullTotal = 0;
+            int aiBullTotal = 0;
             for (int i = 0; i < 5; i++) {
                 if (player instanceof Human) {
-                    Player.humanBullTotal += Player.bullValues(removeCards);
+                    humanBullTotal += player.bullValues(removeCards);
+                    player.setHumanBullTotal(humanBullTotal);
                 } else {
-                    Player.aiBullTotal += Player.bullValues(removeCards);
+                    aiBullTotal += player.bullValues(removeCards);
+                    player.setAiBullTotal(aiBullTotal);
                 }
             }
         }
@@ -225,12 +227,6 @@ public class Board {
             row3.addLast(card);
         } else if (closestRow == row4) {
             row4.addLast(card);
-        }
-
-        if (player instanceof Human){
-            checkLists(human);
-        } else {
-            checkLists(ai);
         }
     }
 

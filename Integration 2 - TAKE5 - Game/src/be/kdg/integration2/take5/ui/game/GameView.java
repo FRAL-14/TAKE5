@@ -30,10 +30,10 @@ public class GameView extends BorderPane {
     private HBox humanCards = new HBox();
     private HBox aiCards = new HBox();
     private GridPane boardCards = new GridPane();
-    private Label scoreHumanLbl = new Label("Score: ");
-    private Label scoreAILbl = new Label("Score: ");
-    private int humanScore;
-    private int aiScore;
+    private int humanScore = 0;
+    private int aiScore = 0;
+    private Label scoreHumanLbl = new Label("Bulls: " + humanScore);
+    private Label scoreAILbl = new Label("Bulls: " + aiScore);
 
     public GameView() {
         initialiseNodes();
@@ -97,12 +97,12 @@ public class GameView extends BorderPane {
         this.scoreHumanLbl = scoreHumanLbl;
         this.scoreAILbl = scoreAILbl;
     }
-    public void displayScores(int humanScore,int aiScore) {
-//        scoreHumanLbl = new Label("Score: " + Player.getHumanBullTotal());
-//        scoreAILbl = new Label("Score: " + Player.getAiBullTotal());
-        scoreHumanLbl = new Label("Score: " + humanScore);
-        scoreAILbl = new Label("Score: " + aiScore);
-    }
+//    public void displayScores(int humanScore,int aiScore) {
+////        scoreHumanLbl = new Label("Score: " + Player.getHumanBullTotal());
+////        scoreAILbl = new Label("Score: " + Player.getAiBullTotal());
+//        scoreHumanLbl = new Label("Score: " + humanScore);
+//        scoreAILbl = new Label("Score: " + aiScore);
+//    }
 
 
     public void setHumanCards(HBox humanCards) {
@@ -121,12 +121,12 @@ public class GameView extends BorderPane {
     }
 
     //TODO displaying scores has yet to be implemented
-    public void updateScoreHuman(int score) {
-        this.scoreHumanLbl.setText(String.valueOf(Player.getHumanBullTotal()));
-    }
-    public void updateScoreAI(int score) {
-        this.scoreAILbl.setText(String.valueOf(Player.getAiBullTotal()));
-    }
+//    public void updateScoreHuman(int score) {
+//        this.scoreHumanLbl.setText(String.valueOf(m.getHumanBullTotal()));
+//    }
+//    public void updateScoreAI(int score) {
+//        this.scoreAILbl.setText(String.valueOf(Player.getAiBullTotal()));
+//    }
 
     //setter and getter
     public HBox getHumanCards() {
@@ -143,5 +143,10 @@ public class GameView extends BorderPane {
 
     public MenuItem getQuitGame() {
         return quitGame;
+    }
+
+    public void updateScores(int human, int ai){
+        this.humanScore = human;
+        this.aiScore = ai;
     }
 }

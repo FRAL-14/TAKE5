@@ -7,23 +7,23 @@ public abstract class Player {
 
     private String name;
     private int id;
-    public static int aiBullTotal = 0;
-    public static int humanBullTotal = 0;
+    public int aiBullTotal = 0;
+    public int humanBullTotal = 0;
 
-    public static int getAiBullTotal() {
+    public int getAiBullTotal() {
         return aiBullTotal;
     }
 
-    public static int getHumanBullTotal() {
+    public int getHumanBullTotal() {
         return humanBullTotal;
     }
 
     public void setAiBullTotal(int aiBullTotal) {
-        Player.aiBullTotal = aiBullTotal;
+        this.aiBullTotal = aiBullTotal;
     }
 
     public void setHumanBullTotal(int humanBullTotal) {
-        Player.humanBullTotal = humanBullTotal;
+        this.humanBullTotal = humanBullTotal;
     }
 
     public void updateTotalScores(int humanScore, int aiScore) {
@@ -45,7 +45,7 @@ public abstract class Player {
 
 
 
-    public static int bullValues(LinkedList<Card> cards) {
+    public int bullValues(LinkedList<Card> cards) {
         int totalScore = 0;
         List<Card> cardList = cards.stream().toList();
         for (Card card : cardList) {

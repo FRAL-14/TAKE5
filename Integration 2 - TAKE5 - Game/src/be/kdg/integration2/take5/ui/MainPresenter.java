@@ -77,7 +77,7 @@ public class MainPresenter {
         alert.getButtonTypes().clear();
         ButtonType no = new ButtonType("no");
         ButtonType yes = new ButtonType("yes");
-        alert.getButtonTypes().addAll(no, yes);
+        alert.getButtonTypes().addAll(yes, no);
         alert.showAndWait();
         if (!(alert.getResult().equals(yes))) {
             event.consume();

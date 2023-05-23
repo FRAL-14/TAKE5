@@ -28,7 +28,7 @@ public class ConsoleController {
             while (inGame = true) {
 //                ctrl.startGame();
 //                ask GameSession to give you the info
-                if (Player.getHumanBullTotal() == 66 || Player.getAiBullTotal() == 66){
+                if (ctrl.getBullTotal("human") == 66 || ctrl.getBullTotal("ai") == 66){
                     inGame = false;
                     break;
                 }

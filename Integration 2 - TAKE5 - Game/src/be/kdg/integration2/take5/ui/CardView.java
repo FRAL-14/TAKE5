@@ -15,6 +15,7 @@ public class CardView extends StackPane {
     private final Card card;
     private final ImageView imageView;
 
+
     public CardView(Card card) {
         this.card = card;
         this.imageView = new ImageView(new Image(getClass().getResourceAsStream("/cards/" + card.getValue() + ".png")));
