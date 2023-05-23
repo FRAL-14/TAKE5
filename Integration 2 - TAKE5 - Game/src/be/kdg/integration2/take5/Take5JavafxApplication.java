@@ -14,7 +14,6 @@ import javafx.stage.Stage;
  * It also creates the scene and the stage.
  */
 public class Take5JavafxApplication extends Application {
-
     public static void main(String[] args) {
         launch(args);
     }
