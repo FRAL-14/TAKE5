@@ -28,44 +28,13 @@
     <div class="login-page">
         <div class="form">
             <form class="login-form">
-                <label for="username">Username:</label>
-                <input class="hover-zoom" type="text" id="username" required/>
-                <label for="password">Password:</label>
-                <input class="hover-zoom" type="password" id="password" required/>
-                <button class="hover-zoom" type="button" id="loginButton" disabled>login</button>
+                <input class="hover-zoom" type="text" placeholder="username"/>
+                <input class="hover-zoom" type="password" placeholder="password"/>
+                <button class="hover-zoom">login</button>
             </form>
         </div>
     </div>
 </main>
-
-<script>
-    const usernameInput = document.getElementById('username');
-    const passwordInput = document.getElementById('password');
-    const loginButton = document.getElementById('loginButton');
-
-    // Function to check if both fields are filled
-    function checkInputs() {
-        if (usernameInput.value.trim() !== '' && passwordInput.value.trim() !== '') {
-            loginButton.disabled = false;
-        } else {
-            loginButton.disabled = true;
-        }
-    }
-
-    // Event listeners to check inputs on keyup and change
-    usernameInput.addEventListener('keyup', checkInputs);
-    passwordInput.addEventListener('keyup', checkInputs);
-
-    // Event listener for login button click
-    loginButton.addEventListener('click', function() {
-        if (usernameInput.value.trim() === '' || passwordInput.value.trim() === '') {
-            alert('Username and password are required.');
-        } else {
-            // Perform login logic here
-            alert('Login successful!');
-        }
-    });
-</script>
 
 <footer>
     Copyright &copy; 2023 Team20, All rights reserved.

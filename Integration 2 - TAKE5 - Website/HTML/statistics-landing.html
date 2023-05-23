@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics - TAKE5!</title>
+    <link rel="stylesheet" href="../CSS/stylesheet.css">
+    <link rel="icon" href="../MEDIA/layout/favicon-yellow.png">
+    <script src="../JavaScript/statistics-landing-script.js"></script>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="../HTML/preview.html">PREVIEW</a></li>
+            <li><a href="../HTML/download.html">DOWNLOAD</a></li>
+            <li><img class="logo" src="../MEDIA/layout/logo.png" alt="Website logo"></li>
+            <li><a href="../HTML/statistics.html" class="current">STATISTICS</a></li>
+            <li><a href="../HTML/roadmap.html">ROADMAP</a></li>
+            <li><a href="../HTML/about.html">ABOUT</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="article">
+    <article>
+        <form>
+            <div>
+                <label for="name">Player Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+
+            <div>
+                <label for="id">Game ID:</label>
+                <input type="number" id="id" name="id">
+            </div>
+
+            <div>
+                <label for="W/L">Did you win?</label>
+                <select name="W/L" id="W/L">
+                    <option></option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="date">Select the Date:</label>
+                <input type="date" id="date" name="date">
+            </div>
+
+            <button class=hover-zoom type="submit" id="submit">Search</button>
+        </form>
+    </article>
+</main>
+
+<footer>
+    Copyright &copy; 2023 Team20, All rights reserved.
+</footer>
+
+</body>
+</html>
