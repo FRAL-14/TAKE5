@@ -118,15 +118,24 @@ public class Board {
         if (listFilled) {
             int humanBullTotal = 0;
             int aiBullTotal = 0;
-            for (int i = 0; i < 5; i++) {
-                if (player instanceof Human) {
-                    humanBullTotal += player.bullValues(removeCards);
-                    player.setHumanBullTotal(humanBullTotal);
-                } else {
-                    aiBullTotal += player.bullValues(removeCards);
-                    player.setAiBullTotal(aiBullTotal);
-                }
+            if (player instanceof Human) {
+                humanBullTotal = player.bullValues(removeCards);
+                player.setHumanBullTotal(humanBullTotal);
+            } else {
+                aiBullTotal = player.bullValues(removeCards);
+                player.setAiBullTotal(aiBullTotal);
             }
+
+//            for (int i = 0; i < 5; i++) {
+//                if (player instanceof Human){
+//                    humanBullTotal += removeCards.get(i).getValue();
+//                } else {
+//                    aiBullTotal += removeCards.get(i).getValue();
+//                }
+//            }
+//            player.setHumanBullTotal(humanBullTotal);
+//            player.setAiBullTotal(aiBullTotal);
+
         }
         return removeCards;
     }

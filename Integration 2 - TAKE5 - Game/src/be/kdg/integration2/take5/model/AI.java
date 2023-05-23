@@ -112,4 +112,17 @@ public class AI extends Player {
 
         return cardWithHighestBulls;
     }
+
+
+    public int aiBullTotal = 0;
+
+    public int getAiBullTotal() {
+        return aiBullTotal;
+    }
+
+
+    public void setAiBullTotal(int aiBullTotal) {
+        this.aiBullTotal = aiBullTotal;
+    }
+
 }

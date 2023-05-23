@@ -4,31 +4,12 @@ import be.kdg.integration2.take5.model.*;
 import be.kdg.integration2.take5.ui.CardView;
 import be.kdg.integration2.take5.ui.game_over.GameOverPresenter;
 import be.kdg.integration2.take5.ui.game_over.GameOverView;
-import be.kdg.integration2.take5.ui.help.HelpPresenter;
-import be.kdg.integration2.take5.ui.help.HelpView;
-import javafx.animation.ParallelTransition;
-import javafx.animation.PauseTransition;
-import javafx.animation.Timeline;
-import javafx.collections.ObservableList;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.text.Font;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import javafx.stage.Window;
-import javafx.util.Duration;
 
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeUnit;
 
 public class GamePresenter {
     private GameSession model;
@@ -36,10 +17,10 @@ public class GamePresenter {
     private HBox humanCards = new HBox();
     private HBox aiCards = new HBox();
     private GridPane boardCards = new GridPane();
-    private int humanScore;
-    private int aiScore;
-    private Label humanScoreLbl;
-    private Label aiScoreLbl;
+    private int humanScore = 0;
+    private int aiScore = 0;
+    private String humanScoreLbl;
+    private String aiScoreLbl;
     private boolean isSelected = false;
     LinkedList<Card> stack1;
     LinkedList<Card> stack2;
@@ -67,15 +48,17 @@ public class GamePresenter {
         getRows();
         gameView.getRestartGame().setOnAction(event -> restartGame());
         gameView.getQuitGame().setOnAction(event -> quitGame());
-        gameView.getHumanCards().setOnMouseClicked(event -> {
-            playCard();
-            if (cardPlayed) {
-                playAiCard();
-            }
-            if (model.getTurn() == 10){
-                model.newRound(getBoardCards());
-                updateView();
-            }
+        gameView.setOnMouseClicked(event -> {
+        playCard();
+        if (cardPlayed) {
+            playAiCard();
+            cardPlayed = false;
+        }
+        if (model.getTurn() == 10){
+            model.newRound(getBoardCards());
+            newRound();
+            updateView();
+        }
         });
     }
 
@@ -92,8 +75,15 @@ public class GamePresenter {
      */
     private void restartGame() {
         model.clear();
+        clearHand();
         model.makeBoard();
+        resetScores();
 //        model.startGame();
+        updateView();
+    }
+
+    private void newRound() {
+        clearHand();
         updateView();
     }
 
@@ -106,10 +96,10 @@ public class GamePresenter {
         displayBoard(boardCards);
         gameView.setBoardCards(boardCards);
         displayHands(humanCards, aiCards);
+        gameView.setHumanCards(humanCards);
         gameView.setAiCards(aiCards);
-//        gameView.setHumanCards(humanCards);
+        updateScores();
         gameView.setScoreLabel(humanScoreLbl, aiScoreLbl);
-        gameView.updateScores(model.getBullTotal("human"), model.getBullTotal("ai"));
     }
     /**
      * method that takes the 4 rows initially created in the board class and passes them to the gameSession
@@ -208,6 +198,7 @@ public class GamePresenter {
                 gameView.getHumanCards().getChildren().remove(selectedCardView);
                 cardPlayed = true;
                 cardSelectionFuture.complete(selectedCard);
+                updateView();
             });
         }
     }
@@ -237,14 +228,16 @@ public class GamePresenter {
 //        updateView();
 //    }
 
-//    public void updateScores() {
-////        int humanScore = model.calculateHumanScore(model.getHand("human"));
-////        int aiScore = model.calculateAiScore(model.getHand("ai"));
+    public void updateScores() {
+        int humanScore = model.getBullTotal("human");
+        int aiScore = model.getBullTotal("ai");
+        humanScoreLbl = ("Score: " + humanScore);
+        aiScoreLbl = ("Score: " + aiScore);
 //        gameView.setScoreLabel(humanScoreLbl, aiScoreLbl);
 //        gameView.displayScores(humanScore, aiScore);
 //        gameView.updateScoreHuman(humanScore);
 //        gameView.updateScoreAI(aiScore);
-//    }
+    }
     public int calculateHumanScore() {
         LinkedList<Card> humanCards = model.getHand("human");
         return model.calculateHumanScore(humanCards);
@@ -255,14 +248,6 @@ public class GamePresenter {
         return model.calculateAiScore(aiCards);
     }
 
-    public Label getHumanScore() {
-        return humanScoreLbl;
-    }
-
-    public Label getAiScore() {
-        return aiScoreLbl;
-    }
-
     public LinkedList<Card> getBoardCards(){
         LinkedList<Card> cardList = new LinkedList<>();
         cardList.addAll(stack1);
@@ -270,5 +255,15 @@ public class GamePresenter {
         cardList.addAll(stack3);
         cardList.addAll(stack4);
         return cardList;
+    }
+
+    public void clearHand(){
+        humanCards.getChildren().clear();
+        aiCards.getChildren().clear();
+    }
+
+    public void resetScores(){
+        humanScore = 0;
+        aiScore = 0;
     }
 }

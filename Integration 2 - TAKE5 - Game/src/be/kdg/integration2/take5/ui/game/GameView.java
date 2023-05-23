@@ -1,6 +1,7 @@
 package be.kdg.integration2.take5.ui.game;
 
 import be.kdg.integration2.take5.model.Card;
+import be.kdg.integration2.take5.model.Human;
 import be.kdg.integration2.take5.model.Player;
 import javafx.animation.ParallelTransition;
 import javafx.application.Platform;
@@ -93,9 +94,9 @@ public class GameView extends BorderPane {
         scoreAILbl.setFont(new Font(25));
         scoreHumanLbl.setFont(new Font(25));
     }
-    public void setScoreLabel(Label scoreHumanLbl, Label scoreAILbl) {
-        this.scoreHumanLbl = scoreHumanLbl;
-        this.scoreAILbl = scoreAILbl;
+    public void setScoreLabel(String scoreHumanLbl, String scoreAILbl) {
+        this.scoreHumanLbl.setText(scoreHumanLbl);
+        this.scoreAILbl.setText(scoreAILbl);
     }
 //    public void displayScores(int humanScore,int aiScore) {
 ////        scoreHumanLbl = new Label("Score: " + Player.getHumanBullTotal());
@@ -145,8 +146,8 @@ public class GameView extends BorderPane {
         return quitGame;
     }
 
-    public void updateScores(int human, int ai){
-        this.humanScore = human;
-        this.aiScore = ai;
-    }
+//    public void updateScores(int human, int ai){
+//        this.humanScore = human;
+//        this.aiScore = ai;
+//    }
 }

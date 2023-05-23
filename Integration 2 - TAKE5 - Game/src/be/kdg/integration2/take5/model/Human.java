@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Human extends Player{
     private String name;
 
-
     public Human(String name) {
         this.name = name;
     }
@@ -21,4 +20,16 @@ public class Human extends Player{
         this.username = username;
     }
 
+
+    public int humanBullTotal = 0;
+
+
+    public int getHumanBullTotal() {
+        return humanBullTotal;
+    }
+
+
+    public void setHumanBullTotal(int humanBullTotal) {
+        this.humanBullTotal = humanBullTotal;
+    }
 }

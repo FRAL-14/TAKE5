@@ -4,15 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="feedback display of cards">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="ded12c7b-56b3-4ba3-9abe-0ef2450280ea" name="Changes" comment="Human plays first, tried to fix score not yet successful">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ConsoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ConsoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ConsoleController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ConsoleController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/GameSession.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/GameSession.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/model/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/CardView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/CardView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/MainPresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/MainPresenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GamePresenter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GamePresenter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Take5/be/kdg/integration2/take5/ui/game/GameView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/AI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/AI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/GameSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/CardView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/CardView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/MainPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/model/Human.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GamePresenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/be/kdg/integration2/take5/ui/game/GameView.java" afterDir="false" />
     </list>
@@ -223,7 +227,8 @@
       <workItem from="1684766776328" duration="390000" />
       <workItem from="1684782451897" duration="3684000" />
       <workItem from="1684830338371" duration="105000" />
-      <workItem from="1684830584558" duration="3983000" />
+      <workItem from="1684830584558" duration="4617000" />
+      <workItem from="1684838064295" duration="6230000" />
     </task>
     <task id="LOCAL-00001" summary="no changes">
       <created>1678287557570</created>
@@ -337,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684268610494</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Human plays first, tried to fix score not yet successful">
+      <created>1684834616193</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1684834616194</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +401,8 @@
     <MESSAGE value="AI rules" />
     <MESSAGE value="feedback display of cards" />
     <MESSAGE value="FML" />
-    <option name="LAST_COMMIT_MESSAGE" value="FML" />
+    <MESSAGE value="Human plays first, tried to fix score not yet successful" />
+    <option name="LAST_COMMIT_MESSAGE" value="Human plays first, tried to fix score not yet successful" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
