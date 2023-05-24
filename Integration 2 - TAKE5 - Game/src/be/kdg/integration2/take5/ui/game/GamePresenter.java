@@ -54,13 +54,12 @@ public class GamePresenter {
             playAiCard();
             cardPlayed = false;
         }
-
-//        if (model.getTurn() % 10 == 0){
-//            model.newRound(getBoardCards());
-//            newRound();
-//            updateView();
-//            cardPlayed = false;
-//        }
+        if (model.getTurn()!= 0 && model.getTurn() % 10 == 0){
+            model.newRound(getBoardCards());
+            newRound();
+            updateView(false);
+            cardPlayed = false;
+        }
         });
     }
 
@@ -81,20 +80,22 @@ public class GamePresenter {
         model.makeBoard();
         resetScores();
 //        model.startGame();
-        updateView();
+        updateView(false);
     }
 
     private void newRound() {
         clearHand();
-        updateView();
+        updateView(true);
     }
 
     /**
      * updateView method to update the cards on the board after a card has been played
      */
-    public void updateView() {
+    public void updateView(boolean newRound) {
         getRows();
-        boardCards.getChildren().clear();
+        if (!newRound){
+            boardCards.getChildren().clear();
+        }
         displayBoard(boardCards);
         gameView.setBoardCards(boardCards);
         displayHands(humanCards, aiCards);
@@ -170,25 +171,6 @@ public class GamePresenter {
      * card gets compared to the last card of each row on the board and gets placed behind the closest value that is lower
      * than that of the card itself
      */
-    //ToDo: if card value is too low for all rows, user or AI has to choose a row and add bulls to his total
-//    public void playCard() {
-//        Card card = null;
-//        for (Node cardNode : gameView.getHumanCards().getChildren()) {
-//            if (cardNode instanceof CardView) {
-//                CardView cardView = (CardView) cardNode;
-//                card = cardView.getCard();
-//                Card finalCard = card;
-//                cardView.setOnMouseClicked(event -> {
-//                    gameView.getHumanCards().getChildren().remove(cardView);
-//                    int clickedCardValue = finalCard.getValue();
-//                    boolean validPlay = model.playCard(finalCard);
-//                });
-//            }
-//        }
-//        updateView();
-//        cardPlayed = true;
-//    }
-
     public void playCard(){
         CompletableFuture<Card> cardSelectionFuture = new CompletableFuture<>();
         for (Node cardNode : gameView.getHumanCards().getChildren()) {
@@ -200,27 +182,16 @@ public class GamePresenter {
                 gameView.getHumanCards().getChildren().remove(selectedCardView);
                 cardPlayed = true;
                 cardSelectionFuture.complete(selectedCard);
-//                if (!played){
-//                    chooseRow("human", selectedCard);
-//                    cardPlayed = true;
-//                    return;
-//                }
-                updateView();
+                updateView(false);
             });
         }
     }
 
     public void playAiCard(){
         Card card = model.playAICard();
-
-//        if (card == null){
-//            chooseRow("ai", card);
-//            return;
-//        }
-
         CardView cardView = new CardView(card);
         gameView.getAiCards().getChildren().remove(cardView);
-        updateView();
+        updateView(false);
     }
 
     /**

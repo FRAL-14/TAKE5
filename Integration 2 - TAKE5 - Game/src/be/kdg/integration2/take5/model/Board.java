@@ -207,9 +207,6 @@ public class Board {
      */
     //TODO: this should be written in the Player class, and then you can call it in the Board class (!!)
     public boolean playCard(Card card, Player player) {
-//        if (card == null){
-//            return false;
-//        }
         boolean lower = checkIfLower(card);
         if (lower){
             removeRow(card, player);
@@ -317,28 +314,28 @@ public class Board {
         LinkedList<Card> removeCard = new LinkedList<>();
         if (row == 1){
             row1.add(card);
-            for (int i = 1; i < row1.size(); i++){
+            for (int i = 0; i < row1.size(); i++){
                 removeCard.add(row1.getFirst());
                 row1.remove(row1.getFirst());
             }
         }
         if (row == 2){
             row2.add(card);
-            for (int i = 1; i < row2.size(); i++){
+            for (int i = 0; i < row2.size(); i++){
                 removeCard.add(row2.getFirst());
                 row2.remove(row2.getFirst());
             }
         }
         if (row == 3){
             row3.add(card);
-            for (int i = 1; i < row3.size(); i++){
+            for (int i = 0; i < row3.size(); i++){
                 removeCard.add(row3.getFirst());
                 row3.remove(row3.getFirst());
             }
         }
         if (row == 4){
             row4.add(card);
-            for (int i = 1; i < row4.size(); i++){
+            for (int i = 0; i < row4.size(); i++){
                 removeCard.add(row4.getFirst());
                 row4.remove(row4.getFirst());
             }

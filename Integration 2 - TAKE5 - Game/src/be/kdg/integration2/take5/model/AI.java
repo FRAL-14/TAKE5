@@ -2,6 +2,11 @@ package be.kdg.integration2.take5.model;
 
 import java.util.*;
 
+
+
+
+//TODO removing a row when a card is too low doesnt work for ai yet!!!
+
 public class AI extends Player {
 
     private Deck deck;
@@ -78,6 +83,7 @@ public class AI extends Player {
      */
     public Card chooseCard(Deck deck, Board board) {
         LinkedList<Card> closestHigherCards = new LinkedList<>();
+        LinkedList<Card> tooLowCards = new LinkedList<>();
         LinkedList<Card> hand = deck.getAiHand();
 
         for (Card card : hand) {
@@ -97,6 +103,9 @@ public class AI extends Player {
                 closestHigherCards.clear();
                 closestHigherCards.add(card);
             }
+            if (cardIsLower(card, board)){
+                tooLowCards.add(card);
+            }
         }
 
         Card cardWithHighestBulls = null;
@@ -110,7 +119,21 @@ public class AI extends Player {
             }
         }
 
+        for (Card card : tooLowCards) {
+            int bulls = card.getPointValue(card);
+            if (bulls > highestBulls) {
+                highestBulls = bulls;
+                cardWithHighestBulls = card;
+            }
+        }
+
+
         return cardWithHighestBulls;
+    }
+
+
+    public boolean cardIsLower(Card card, Board board){
+        return card.getValue() < board.getRow1().getLast().getValue() && card.getValue() < board.getRow2().getLast().getValue() && card.getValue() < board.getRow3().getLast().getValue() && card.getValue() < board.getRow4().getLast().getValue();
     }
 
 

@@ -186,10 +186,7 @@ public class GameSession {
     public Card playAICard() {
         boolean notValid;
         Card card = ai.chooseCard(mainDeck, board);
-        notValid = board.playCard(card, ai);
-        if (!notValid){
-            return null;
-        }
+        board.playCard(card, ai);
         board.checkLists(ai);
         return card;
     }

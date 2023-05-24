@@ -88,6 +88,7 @@ public class Deck {
     }
 
     public void newRound(LinkedList<Card> activeCards){
+        remakeCards();
         humanHand.clear();
         aiHand.clear();
         for (Card card : activeCards) {
@@ -98,6 +99,15 @@ public class Deck {
         aiHand = dealPlay(cards, 10);
         Collections.sort(humanHand);
         Collections.sort(aiHand);
+    }
+
+
+    public void remakeCards(){
+        cards.clear();
+        for (int i = 0; i < 104; i++) {
+            int cardValue = i + 1;
+            cards.add(new Card(cardValue));
+        }
     }
 
 }
