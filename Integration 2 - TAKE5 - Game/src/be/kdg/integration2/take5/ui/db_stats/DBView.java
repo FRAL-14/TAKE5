@@ -1,69 +1,99 @@
 package be.kdg.integration2.take5.ui.db_stats;
 
-
-
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
-public class DBView {
-    private final Stage stage;  // Stage for displaying the view
-    private final Label averageDurationLabel;  // Label to display the average duration of moves
-    private final Label outliersLabel;  // Label to display the outlier moves
-    private final LineChart<Number, Number> durationChart;  // Chart to display the move durations
+public class DBView extends Parent {
+    private Stage stage;
+    private Label averageDurationLabel;
+    private Label outliersLabel;
+    private LineChart<Number, Number> durationChart;
 
     public DBView() {
-        // Create UI elements
-        Label titleLabel = new Label("Game Statistics"); // Title label for the view
+        initializeUI();
+        configureLayout();
+    }
+
+    private void initializeUI() {
+        Label titleLabel = new Label("Game Statistics");
         titleLabel.setStyle("-fx-font-size: 24pt; -fx-font-weight: bold;");
 
-        Label averageLabel = new Label("Average duration of moves:"); // Label to describe the average duration
-        averageDurationLabel = new Label(); // Label to display the average duration
+        Label averageLabel = new Label("Average duration of moves:");
+        averageDurationLabel = new Label();
         averageDurationLabel.setStyle("-fx-font-size: 16pt;");
 
-        Label outliersTitleLabel = new Label("Outlier moves:"); // Label to describe the outlier moves
+        Label outliersTitleLabel = new Label("Outlier moves:");
         outliersTitleLabel.setStyle("-fx-font-size: 20pt; -fx-font-weight: bold;");
 
-        outliersLabel = new Label(); // Label to display the outlier moves
+        outliersLabel = new Label();
         outliersLabel.setStyle("-fx-font-size: 16pt;");
 
-        // Create line chart to display move durations
-        NumberAxis xAxis = new NumberAxis(); // X-axis for the chart
-        NumberAxis yAxis = new NumberAxis(); // Y-axis for the chart
-        durationChart = new LineChart<>(xAxis, yAxis); // Create the chart
-        durationChart.setTitle("Move Durations"); // Set the chart title
-        durationChart.setLegendVisible(false); // Hide the legend
+        NumberAxis xAxis = new NumberAxis();
+        NumberAxis yAxis = new NumberAxis();
+        durationChart = new LineChart<>(xAxis, yAxis);
+        durationChart.setTitle("Move Durations");
+        durationChart.setLegendVisible(false);
 
-        // Create close button
         Button closeButton = new Button("Close");
 
-        // Create layout and add elements
-        GridPane layout = new GridPane(); // Grid layout for the UI elements
-        layout.setAlignment(Pos.CENTER); // Center the layout
-        layout.setPadding(new Insets(20));  // Add padding
-        layout.setVgap(20); // Add vertical gap between elements
-        layout.add(titleLabel, 0, 0); // Add the title label
-        layout.add(averageLabel, 0, 1); // Add the label to describe the average duration
-        layout.add(averageDurationLabel, 1, 1); // Add the label to display the average duration
-        layout.add(outliersTitleLabel, 0, 2); // Add the label to describe the outlier moves
-        layout.add(outliersLabel, 1, 2); // Add the label to display the outlier moves
-        layout.add(durationChart, 0, 3, 2, 1);  // Add the chart
-        layout.add(closeButton, 0, 4, 2, 1); // Add the close button
+        GridPane layout = new GridPane();
+        layout.setAlignment(Pos.CENTER);
+        layout.setPadding(new Insets(20));
+        layout.setVgap(20);
+        layout.add(titleLabel, 0, 0);
+        layout.add(averageLabel, 0, 1);
+        layout.add(averageDurationLabel, 1, 1);
+        layout.add(outliersTitleLabel, 0, 2);
+        layout.add(outliersLabel, 1, 2);
+        layout.add(durationChart, 0, 3, 2, 1);
+        layout.add(closeButton, 0, 4, 2, 1);
 
-        // Create scene and set layout
-        Scene scene = new Scene(layout, 800, 600);
+        BorderPane rootPane = new BorderPane(layout);
+        rootPane.setStyle("-fx-background-color: linear-gradient(to bottom, #ffdcb6, #E06469);");
 
-        // Set stage properties
+        Scene scene = new Scene(rootPane, 800, 600);
+
         stage = new Stage();
         stage.setTitle("Game Statistics");
         stage.setScene(scene);
+    }
+
+    private void configureLayout() {
+        averageDurationLabel.setFont(Font.font("Georgia", FontWeight.BOLD, 30));
+        averageDurationLabel.setTextFill(Color.WHITE);
+
+        outliersLabel.setFont(Font.font("Georgia", FontWeight.BOLD, 30));
+        outliersLabel.setTextFill(Color.WHITE);
+
+        durationChart.setStyle("-fx-background-color: transparent;");
+
+        Button closeButton = (Button) stage.getScene().lookup("Button");
+        closeButton.setStyle("-fx-background-color: #C9CCD5; -fx-background-radius: 15px;");
+        closeButton.setFont(Font.font("Georgia", FontWeight.BOLD, 30));
+        closeButton.setTextFill(Color.WHITE);
+
+        closeButton.setOnMouseEntered(e -> {
+            closeButton.setStyle("-fx-background-color: #a8acb4; -fx-cursor: hand; -fx-font-size: 30px;-fx-background-radius: 15px;");
+        });
+
+        closeButton.setOnMouseExited(e -> {
+            closeButton.setStyle("-fx-background-color: #C9CCD5; -fx-font-size: 30px;-fx-background-radius: 15px;");
+        });
     }
 
     public void show() {
@@ -84,12 +114,17 @@ public class DBView {
     }
 
     public void setCloseButtonAction(Runnable action) {
-        stage.setOnCloseRequest(event -> action.run());
+        Button closeButton = (Button) stage.getScene().lookup("Button");
+        closeButton.setOnAction(event -> action.run());
     }
 
     public void close() {
         stage.close();
     }
 
+    @Override
+    public Node getStyleableNode() {
+        return super.getStyleableNode();
+    }
 }
 

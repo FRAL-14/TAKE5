@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+
 /**
  * This class is responsible for displaying the GameOverView.
  * It is the link between the GameOverView and the model.
@@ -13,6 +14,7 @@ import javafx.scene.layout.HBox;
 public class GameOverView extends BorderPane {
     private Label congrLbl;
     private Button tryAgain;
+    private Button gameStatsButton;
     private Button exitGame;
 
     public GameOverView() {
@@ -21,11 +23,12 @@ public class GameOverView extends BorderPane {
     }
 
     /**
-     * This method initialises the nodes in the view.
+     * This method initializes the nodes in the view.
      */
     private void initialiseNodes() {
         congrLbl = new Label();
         tryAgain = new Button("Play again!");
+        gameStatsButton = new Button("Game Statistics");
         exitGame = new Button("Exit");
     }
 
@@ -33,13 +36,12 @@ public class GameOverView extends BorderPane {
      * This method lays out the nodes in the view.
      */
     private void layoutNodes() {
-        this.setStyle("-fx-background-color: #EFD0CA"); //or #F9B3D1
+        this.setStyle("-fx-background-color: #EFD0CA"); // or #F9B3D1
 
-        HBox box = new HBox(500, tryAgain, exitGame);
-        setBottom(box);
-        setAlignment(box, Pos.BOTTOM_CENTER);
-        setMargin(box, new Insets(10, 10, 50, 150));
-
+        HBox buttonBox = new HBox(10, tryAgain, gameStatsButton, exitGame);
+        buttonBox.setAlignment(Pos.CENTER);
+        setBottom(buttonBox);
+        setMargin(buttonBox, new Insets(10, 10, 50, 150));
     }
 
     public Label getCongrLbl() {
@@ -56,6 +58,14 @@ public class GameOverView extends BorderPane {
 
     public void setTryAgain(Button tryAgain) {
         this.tryAgain = tryAgain;
+    }
+
+    public Button getGameStatsButton() {
+        return gameStatsButton;
+    }
+
+    public void setGameStatsButton(Button gameStatsButton) {
+        this.gameStatsButton = gameStatsButton;
     }
 
     public Button getExitGame() {
