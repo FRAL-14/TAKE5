@@ -31,7 +31,7 @@ public class Card implements Comparable<Card> {
      * @param card the card from which we need to calculate how many bulls it is worth
      * @return the amount of bulls a card is worth
      */
-    public int getPointValue(Card card) {
+    public static int getPointValue(Card card) {
         if (card.getValue() % 10 == 0) {
             return 3;
         } else if (card.getValue() % 55 == 0) {
