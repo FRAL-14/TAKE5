@@ -52,7 +52,7 @@ public class MainPresenter {
         helpStage.initOwner(startView.getScene().getWindow());
         helpStage.initModality(Modality.APPLICATION_MODAL);
         helpStage.setScene(new Scene(helpView));
-        helpStage.setX(startView.getScene().getWindow().getX() + 200);
+        helpStage.setX(startView.getScene().getWindow().getX() + 250);
         helpStage.setY(startView.getScene().getWindow().getY() + 200);
         helpStage.showAndWait();
     }

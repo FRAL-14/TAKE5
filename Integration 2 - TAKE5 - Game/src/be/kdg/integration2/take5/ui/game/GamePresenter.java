@@ -57,10 +57,7 @@ public class GamePresenter {
             cardPlayed = false;
         }
         if (model.getBullTotal("human") >= 66 || model.getBullTotal("ai") >= 66){
-            GameOverView gameOverView = new GameOverView();
-            new GameOverPresenter(model, gameOverView);
-            gameView.getScene().setRoot(gameOverView);
-            gameOverView.getScene().getWindow();
+            quitGame();
         }
         });
     }

@@ -30,7 +30,7 @@ public class HelpView extends BorderPane {
     }
 
     private void layoutNodes() {
-        this.setStyle("-fx-background-color: #DDFFC1");
+        this.setStyle("-fx-background-color: #fcc488");
         setTop(header);
         header.setFont(new Font(80));
         setAlignment(header, Pos.TOP_CENTER);

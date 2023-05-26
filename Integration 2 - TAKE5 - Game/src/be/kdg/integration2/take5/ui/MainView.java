@@ -27,9 +27,6 @@ public class MainView extends BorderPane {
         lb = new Label("Take 5");
         play = new Button("Start!");
         help = new Button("Help & Rules");
-
-
-
     }
 
 

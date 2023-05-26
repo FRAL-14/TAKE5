@@ -42,6 +42,7 @@ public class GameOverView extends BorderPane {
         buttonBox.setAlignment(Pos.CENTER);
         setBottom(buttonBox);
         setMargin(buttonBox, new Insets(10, 10, 50, 150));
+
     }
 
     public Label getCongrLbl() {
