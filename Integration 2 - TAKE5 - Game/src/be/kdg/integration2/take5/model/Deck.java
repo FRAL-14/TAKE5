@@ -1,11 +1,7 @@
 package be.kdg.integration2.take5.model;
 
-import be.kdg.integration2.take5.model.Card;
-
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
-import java.util.Random;
 
 public class Deck {
     LinkedList<Card> cards = new LinkedList<>();
@@ -40,9 +36,9 @@ public class Deck {
 
     /**
      * DealPlay takes cards from the deck and randomly assigns to a hand while removing them from the initial stack as well
-     * @param cards
-     * @param numCards
-     * @return
+     * @param cards list with 104 cards that exist in the game
+     * @param numCards the amount of cards that have to be distributed
+     * @return a list with all the cards that got dealt
      */
     public static LinkedList<Card> dealPlay(LinkedList<Card> cards, int numCards) {
         if (numCards > cards.size()) {
@@ -81,12 +77,17 @@ public class Deck {
      * startRound method to be called in gameSession and increase the roundCounter by one, as soon as 10 cards
      * from each hand have been played a new round starts if game is not finished
      */
-    //TODO: shouldnt startRound() maybe be in for example Controller/GameSession
+    //TODO: shouldn't startRound() maybe be in for example Controller/GameSession
     public void startRound() {
         initialiseHand();
         roundCounter++;
     }
 
+
+    /**
+     * method used to give player and AI new cards once all cards have been played
+     * @param activeCards list with all the active cards in the ongoing game to avoid duplicates
+     */
     public void newRound(LinkedList<Card> activeCards){
         remakeCards();
         humanHand.clear();
@@ -102,6 +103,9 @@ public class Deck {
     }
 
 
+    /**
+     * method to reinitialise cards after a round
+     */
     public void remakeCards(){
         cards.clear();
         for (int i = 0; i < 104; i++) {

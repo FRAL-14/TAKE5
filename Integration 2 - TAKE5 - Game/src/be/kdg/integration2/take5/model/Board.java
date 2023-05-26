@@ -8,8 +8,6 @@ public class Board {
     public LinkedList<Card> row3 = new LinkedList<>();
     public LinkedList<Card> row4 = new LinkedList<>();
     LinkedList<Card> closestRow = new LinkedList<>();
-    LinkedList<Card> playHand;
-    Card[] firstFiveCards = new Card[5];
     Deck deck;
 
     public Board(Deck deck) {
@@ -33,35 +31,11 @@ public class Board {
         return row4;
     }
 
-    public void setRow1(LinkedList<Card> row1) {
-        this.row1 = row1;
-    }
-
-    public void setRow2(LinkedList<Card> row2) {
-        this.row2 = row2;
-    }
-
-    public void setRow3(LinkedList<Card> row3) {
-        this.row3 = row3;
-    }
-
-    public void setRow4(LinkedList<Card> row4) {
-        this.row4 = row4;
-    }
-
-    public LinkedList<Card> getHumanHand() {
-        return deck.humanHand;
-    }
-
-    public LinkedList<Card> getAIHand() {
-        return deck.aiHand;
-    }
-
 
     /**
      * method to take 4 cards from boardHand List and adds them to the first place in each row
      *
-     * @param deck
+     * @param deck the active object of deck during the game
      */
     public void initializeRow(Deck deck) {
         row1.add(0, deck.boardHand.get(0));
@@ -75,7 +49,7 @@ public class Board {
      * method to check if a row had 6 cards, if a row has 6 cards the player that placed the last card must collect
      * the 5 first cards and add the bulls to his total, the last card becomes the first one in the row
      *
-     * @param player
+     * @param player the player that just played a card and who will get bulls if method goes through
      */
     public void checkLists(Player player) {
         boolean listFilled = false;
@@ -114,8 +88,8 @@ public class Board {
             }
         }
         if (listFilled) {
-            int humanBullTotal = 0;
-            int aiBullTotal = 0;
+            int humanBullTotal;
+            int aiBullTotal;
             if (player instanceof Human) {
                 humanBullTotal = player.bullValues(removeCards);
                 player.setHumanBullTotal(humanBullTotal);
@@ -123,17 +97,6 @@ public class Board {
                 aiBullTotal = player.bullValues(removeCards);
                 player.setAiBullTotal(aiBullTotal);
             }
-
-//            for (int i = 0; i < 5; i++) {
-//                if (player instanceof Human){
-//                    humanBullTotal += removeCards.get(i).getValue();
-//                } else {
-//                    aiBullTotal += removeCards.get(i).getValue();
-//                }
-//            }
-//            player.setHumanBullTotal(humanBullTotal);
-//            player.setAiBullTotal(aiBullTotal);
-
         }
     }
 
@@ -142,13 +105,11 @@ public class Board {
      * method used to calculate which row is the most suitable for the card being played,
      * method is called in the playCard method
      *
-     * @param playedCard
-     * @return
+     * @param playedCard the card being played by the player
+     * @return the row in which the card has to be added
      */
     //TODO: not sure but maybe this can be written in Card instead of Board?
     public LinkedList<Card> findClosestNumber(int playedCard) {
-        Scanner scan = new Scanner(System.in);
-        int closestNumber = Integer.MAX_VALUE;
         int smallestDifference = Integer.MAX_VALUE;
         boolean isTooLow = true;
 
@@ -156,7 +117,6 @@ public class Board {
             int difference = playedCard - row1.getLast().getValue();
             if (difference < smallestDifference) {
                 smallestDifference = difference;
-                closestNumber = row1.getLast().getValue();
                 closestRow = row1;
                 isTooLow = false;
             }
@@ -166,7 +126,6 @@ public class Board {
             int difference = playedCard - row2.getLast().getValue();
             if (difference < smallestDifference) {
                 smallestDifference = difference;
-                closestNumber = row2.getLast().getValue();
                 closestRow = row2;
                 isTooLow = false;
             }
@@ -176,7 +135,6 @@ public class Board {
             int difference = playedCard - row3.getLast().getValue();
             if (difference < smallestDifference) {
                 smallestDifference = difference;
-                closestNumber = row3.getLast().getValue();
                 closestRow = row3;
                 isTooLow = false;
             }
@@ -185,8 +143,6 @@ public class Board {
         if (row4.getLast().getValue() < playedCard) {
             int difference = playedCard - row4.getLast().getValue();
             if (difference < smallestDifference) {
-                smallestDifference = difference;
-                closestNumber = row4.getLast().getValue();
                 closestRow = row4;
                 isTooLow = false;
             }
@@ -203,7 +159,7 @@ public class Board {
      * playCard method takes parameter card that is inputted in gamePresenter class and then uses the findClosestNumber
      * class to determine position, card is then placed in correct row
      *
-     * @param card
+     * @param card the card being played by the player
      */
     //TODO: this should be written in the Player class, and then you can call it in the Board class (!!)
     public boolean playCard(Card card, Player player) {
@@ -256,59 +212,78 @@ public class Board {
     }
 
 
-//    public void chooseRow(int row, Player player, Card card){
-//        boolean listFilled = false;
-//        LinkedList<Card> removeCards = new LinkedList<>();
-//        if (row == 1){
-//            row1.add(card);
-//            for (int i = 1; i < row1.size(); i++){
-//                removeCards.add(row1.getFirst());
-//                row1.remove(row1.getFirst());
-//                listFilled = true;
-//            }
-//        }
-//        if (row == 2){
-//            row2.add(card);
-//            for (int i = 1; i < row2.size(); i++){
-//                removeCards.add(row2.getFirst());
-//                row2.remove(row2.getFirst());
-//                listFilled = true;
-//            }
-//        }
-//        if (row == 3){
-//            row3.add(card);
-//            for (int i = 1; i < row3.size(); i++){
-//                removeCards.add(row3.getFirst());
-//                row3.remove(row3.getFirst());
-//                listFilled = true;
-//            }
-//        }
-//        if (row == 4){
-//            row4.add(card);
-//            for (int i = 1; i < row4.size(); i++){
-//                removeCards.add(row4.getFirst());
-//                row4.remove(row4.getFirst());
-//                listFilled = true;
-//            }
-//        }
-//
-//        if (listFilled) {
-//            int humanBullTotal = 0;
-//            int aiBullTotal = 0;
-//            if (player instanceof Human) {
-//                humanBullTotal = player.bullValues(removeCards);
-//                player.setHumanBullTotal(humanBullTotal);
-//            } else {
-//                aiBullTotal = player.bullValues(removeCards);
-//                player.setAiBullTotal(aiBullTotal);
-//            }
-//        }
-//    }
+    /**
+     * this method would've allowed the user to choose a row out of the 4 rows to remove and take in case of when his card
+     * would be too low for the cards on the board
+     * @param row is the row the player chose to remove from the board
+     * @param player if it is the AI or the human removing a row
+     * @param card is the card being played by the user
+     */
+    public void chooseRow(int row, Player player, Card card){
+        boolean listFilled = false;
+        LinkedList<Card> removeCards = new LinkedList<>();
+        if (row == 1){
+            row1.add(card);
+            for (int i = 1; i < row1.size(); i++){
+                removeCards.add(row1.getFirst());
+                row1.remove(row1.getFirst());
+                listFilled = true;
+            }
+        }
+        if (row == 2){
+            row2.add(card);
+            for (int i = 1; i < row2.size(); i++){
+                removeCards.add(row2.getFirst());
+                row2.remove(row2.getFirst());
+                listFilled = true;
+            }
+        }
+        if (row == 3){
+            row3.add(card);
+            for (int i = 1; i < row3.size(); i++){
+                removeCards.add(row3.getFirst());
+                row3.remove(row3.getFirst());
+                listFilled = true;
+            }
+        }
+        if (row == 4){
+            row4.add(card);
+            for (int i = 1; i < row4.size(); i++){
+                removeCards.add(row4.getFirst());
+                row4.remove(row4.getFirst());
+                listFilled = true;
+            }
+        }
 
+        if (listFilled) {
+            int humanBullTotal;
+            int aiBullTotal;
+            if (player instanceof Human) {
+                humanBullTotal = player.bullValues(removeCards);
+                player.setHumanBullTotal(humanBullTotal);
+            } else {
+                aiBullTotal = player.bullValues(removeCards);
+                player.setAiBullTotal(aiBullTotal);
+            }
+        }
+    }
+
+
+    /**
+     * method to check if card is lower than all cards on board
+     * @param card the card that is being compared to other cards on the board
+     * @return if the card is lower than cards on board method returns true
+     */
     public boolean checkIfLower(Card card){
         return row1.getLast().getValue() > card.getValue() && row2.getLast().getValue() > card.getValue() && row3.getLast().getValue() > card.getValue() && row4.getLast().getValue() > card.getValue();
     }
 
+
+    /**
+     * method to remove a row when a player plays an invalid card
+     * @param card being played by the player
+     * @param player either the AI or the human, this determines who played and who gets bulls
+     */
     public void removeRow(Card card, Player player){
         int row = findBiggest();
         LinkedList<Card> removeCard = new LinkedList<>();
@@ -347,8 +322,8 @@ public class Board {
             deck.aiHand.remove(card);
         }
 
-        int humanBullTotal = 0;
-        int aiBullTotal = 0;
+        int humanBullTotal;
+        int aiBullTotal;
         if (player instanceof Human) {
             humanBullTotal = player.bullValues(removeCard);
             player.setHumanBullTotal(humanBullTotal);
@@ -356,9 +331,13 @@ public class Board {
             aiBullTotal = player.bullValues(removeCard);
             player.setAiBullTotal(aiBullTotal);
         }
-
     }
 
+
+    /**
+     * method used to find the row with the biggest last card, used in removeRow
+     * @return the integer is the row that has the biggest card out of all the rows on the board
+     */
     public int findBiggest() {
         int max = row1.getLast().getValue();
         int row = 1;
@@ -371,7 +350,6 @@ public class Board {
             row = 3;
         }
         if (row4.getLast().getValue() > max) {
-            max = row4.getLast().getValue();
             row = 4;
         }
         return row;

@@ -5,7 +5,6 @@ import be.kdg.integration2.take5.ui.CardView;
 import be.kdg.integration2.take5.ui.game_over.GameOverPresenter;
 import be.kdg.integration2.take5.ui.game_over.GameOverView;
 import javafx.scene.Node;
-import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 
 import java.util.*;
@@ -17,11 +16,8 @@ public class GamePresenter {
     private HBox humanCards = new HBox();
     private HBox aiCards = new HBox();
     private GridPane boardCards = new GridPane();
-    private int humanScore = 0;
-    private int aiScore = 0;
     private String humanScoreLbl;
     private String aiScoreLbl;
-    private boolean isSelected = false;
     LinkedList<Card> stack1;
     LinkedList<Card> stack2;
     LinkedList<Card> stack3;
@@ -57,8 +53,14 @@ public class GamePresenter {
         if (model.getTurn()!= 0 && model.getTurn() % 10 == 0){
             model.newRound(getBoardCards());
             newRound();
-            updateView(false);
+            updateView();
             cardPlayed = false;
+        }
+        if (model.getBullTotal("human") >= 66 || model.getBullTotal("ai") >= 66){
+            GameOverView gameOverView = new GameOverView();
+            new GameOverPresenter(model, gameOverView);
+            gameView.getScene().setRoot(gameOverView);
+            gameOverView.getScene().getWindow();
         }
         });
     }
@@ -78,24 +80,24 @@ public class GamePresenter {
         model.clear();
         clearHand();
         model.makeBoard();
-        resetScores();
 //        model.startGame();
-        updateView(false);
+        updateView();
     }
 
     private void newRound() {
         clearHand();
-        updateView(true);
+        getRows();
+        model.newRound(getBoardCards());
+        updateView();
     }
 
     /**
-     * updateView method to update the cards on the board after a card has been played
+     * updateView method to update the cards on the board after a card has been played,
+     * boolean newRound used to identify if method is called after a turn or after a newRound
      */
-    public void updateView(boolean newRound) {
+    public void updateView() {
         getRows();
-        if (!newRound){
-            boardCards.getChildren().clear();
-        }
+        boardCards.getChildren().clear();
         displayBoard(boardCards);
         gameView.setBoardCards(boardCards);
         displayHands(humanCards, aiCards);
@@ -117,9 +119,8 @@ public class GamePresenter {
 
     /**
      * displayHand is used to take the cards from the Human hand and the AI hand and displays them on the board
-     *
-     * @param humanCards
-     * @param aiCards
+     * @param humanCards the HBox used to display all cards from the humanHand
+     * @param aiCards the HBox used to display all cards from the aiHand
      */
     public void displayHands(HBox humanCards, HBox aiCards) {
         LinkedList<Card> humanHand = model.getHand("human");
@@ -140,8 +141,7 @@ public class GamePresenter {
 
     /**
      * displayBoard is used to take the cards from the 4 rows and display them on the board
-     *
-     * @param boardCards
+     * @param boardCards is the gridPane to which all cards are added to be displayed
      */
     public void displayBoard(GridPane boardCards) {
         for (int i = 0; i < stack1.size(); i++) {
@@ -178,61 +178,42 @@ public class GamePresenter {
                 Node selectedCardView = (Node) event.getSource();
                 CardView cardView = (CardView) selectedCardView;
                 Card selectedCard = cardView.getCard();
-                boolean played = model.playCard(selectedCard);
+                model.playCard(selectedCard);
                 gameView.getHumanCards().getChildren().remove(selectedCardView);
                 cardPlayed = true;
                 cardSelectionFuture.complete(selectedCard);
-                updateView(false);
+                updateView();
             });
         }
     }
 
-    public void playAiCard(){
-        Card card = model.playAICard();
-        CardView cardView = new CardView(card);
-        gameView.getAiCards().getChildren().remove(cardView);
-        updateView(false);
-    }
 
     /**
      * Same method as playCard but for AI, instead of input from a user a card is randomly chosen from the hand of the AI
      * method works the same way as playCard
      */
-//    public void playAiCard() {
-//        Card aiCard = model.playAICard();
-//        for (Node cardNode : gameView.getAiCards().getChildren()) {
-//            if (cardNode instanceof CardView) {
-//                CardView cardView = (CardView) cardNode;
-//                aiCard = cardView.getCard();
-//                Card finalCard = aiCard;
-//                gameView.getAiCards().getChildren().remove(cardView);
-////                int clickedCardValue = finalCard.getValue();
-////                boolean validPlay = model.playCard(finalCard);
-//            }
-//        }
-//        updateView();
-//    }
+    public void playAiCard(){
+        Card card = model.playAICard();
+        CardView cardView = new CardView(card);
+        gameView.getAiCards().getChildren().remove(cardView);
+        updateView();
+    }
 
+
+    /**
+     * method used in updateView to update bullTotals after every turn
+     */
     public void updateScores() {
-        int humanScore = model.getBullTotal("human");
-        int aiScore = model.getBullTotal("ai");
-        humanScoreLbl = ("Score: " + humanScore);
-        aiScoreLbl = ("Score: " + aiScore);
-//        gameView.setScoreLabel(humanScoreLbl, aiScoreLbl);
-//        gameView.displayScores(humanScore, aiScore);
-//        gameView.updateScoreHuman(humanScore);
-//        gameView.updateScoreAI(aiScore);
-    }
-    public int calculateHumanScore() {
-        LinkedList<Card> humanCards = model.getHand("human");
-        return model.calculateHumanScore(humanCards);
+        humanScoreLbl = ("Bulls: " + model.getBullTotal("human"));
+        aiScoreLbl = ("Bulls: " + model.getBullTotal("ai"));
     }
 
-    public int calculateAIScore() {
-        LinkedList<Card> aiCards =  model.getHand("ai");
-        return model.calculateAiScore(aiCards);
-    }
 
+    /**
+     * method used in newRound, these cards are removed from the entire cards list so that there are no duplicates
+     * when reassigning the hands
+     * @return list with all the cards active on the board
+     */
     public LinkedList<Card> getBoardCards(){
         LinkedList<Card> cardList = new LinkedList<>();
         cardList.addAll(stack1);
@@ -242,23 +223,12 @@ public class GamePresenter {
         return cardList;
     }
 
+
+    /**
+     * method used when starting a new round or a new game to remove all remaining cards from hands
+     */
     public void clearHand(){
         humanCards.getChildren().clear();
         aiCards.getChildren().clear();
     }
-
-    public void resetScores(){
-        humanScore = 0;
-        aiScore = 0;
-    }
-
-//    public void chooseRow(String type, Card card){
-//        while (gameView.getSelectedRow() == 0){
-//            gameView.showRows(true);
-//        }
-//        gameView.showRows(false);
-//        model.chooseRow(gameView.getSelectedRow(), type, card);
-//        updateView();
-////        gameView.showRows(false);
-//    }
 }

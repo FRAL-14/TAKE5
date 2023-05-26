@@ -23,26 +23,6 @@ import java.util.List;
  */
 public class GameView extends BorderPane {
 
-    int selectedRow = 0; // Initialize the selected row variable
-
-    // Create the event handler
-    EventHandler<ActionEvent> menuItemHandler = event -> {
-        MenuItem menuItem = (MenuItem) event.getSource();
-
-        // Determine which MenuItem was pressed
-        if (menuItem.getText().equals("row1")) {
-            selectedRow = 1;
-        } else if (menuItem.getText().equals("row2")) {
-            selectedRow = 2;
-        } else if (menuItem.getText().equals("row3")) {
-            selectedRow = 3;
-        } else if (menuItem.getText().equals("row4")) {
-            selectedRow = 4;
-        }
-    };
-
-
-
     private MenuBar helpMBar;
     private MenuItem helpMenuItem;
     private Menu helpMenu;
@@ -70,6 +50,26 @@ public class GameView extends BorderPane {
         initialiseNodes();
         layoutNodes();
     }
+
+    int selectedRow = 0; // Initialize the selected row variable
+
+    /**
+     * Event handler to choose a row when card is too low
+     */
+    EventHandler<ActionEvent> menuItemHandler = event -> {
+        MenuItem menuItem = (MenuItem) event.getSource();
+
+        // Determine which MenuItem was pressed
+        if (menuItem.getText().equals("row1")) {
+            selectedRow = 1;
+        } else if (menuItem.getText().equals("row2")) {
+            selectedRow = 2;
+        } else if (menuItem.getText().equals("row3")) {
+            selectedRow = 3;
+        } else if (menuItem.getText().equals("row4")) {
+            selectedRow = 4;
+        }
+    };
 
     /**
      * This method is responsible for displaying the cards of the human player and the AI.
@@ -210,6 +210,10 @@ public class GameView extends BorderPane {
 //        this.aiScore = ai;
 //    }
 
+    /**
+     * Method to get input from user when row has been selected
+     * @return
+     */
     public int getSelectedRow() {
         return selectedRow;
     }

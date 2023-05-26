@@ -7,8 +7,8 @@ public abstract class Player {
 
     private String name;
     private int id;
-    public int aiBullTotal;
-    public int humanBullTotal;
+    public int aiBullTotal = 0;
+    public int humanBullTotal = 0;
 
     public int getAiBullTotal() {
         return aiBullTotal;
@@ -44,7 +44,11 @@ public abstract class Player {
     }
 
 
-
+    /**
+     * method to calculate bullValues of a List
+     * @param cards
+     * @return
+     */
     public int bullValues(LinkedList<Card> cards) {
         int totalScore = 0;
         List<Card> cardList = cards.stream().toList();

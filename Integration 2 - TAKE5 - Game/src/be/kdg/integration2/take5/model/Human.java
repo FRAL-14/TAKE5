@@ -21,15 +21,4 @@ public class Human extends Player{
     }
 
 
-    public int humanBullTotal = 0;
-
-
-    public int getHumanBullTotal() {
-        return humanBullTotal;
-    }
-
-
-    public void setHumanBullTotal(int humanBullTotal) {
-        this.humanBullTotal = humanBullTotal;
-    }
 }

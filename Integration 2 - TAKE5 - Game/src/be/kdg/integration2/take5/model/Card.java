@@ -4,8 +4,8 @@ public class Card implements Comparable<Card> {
 
     //first create cards in deck, then create constructor
 
-    //in deck youre going to have an arraylist of card objects. ur going to have a method that generates the entire deck
-    // its a for loop of i from 1 to 104 and for each i u call the constructor below
+    //In ,deck you're going to have an arraylist of card objects. ur going to have a method that generates the entire deck
+    // it's a for loop of i from 1 to 104 and for each i u call the constructor below
     public Card(int value) {
         this.value = value;
     }
@@ -25,18 +25,13 @@ public class Card implements Comparable<Card> {
     }
 
 
-    @Override
-    public String toString() {
-        return "" + value;
-    }
-
 
     /**
      * method used to calculate bull value of each card
-     * @param card
-     * @return
+     * @param card the card from which we need to calculate how many bulls it is worth
+     * @return the amount of bulls a card is worth
      */
-    public static int getPointValue(Card card) {
+    public int getPointValue(Card card) {
         if (card.getValue() % 10 == 0) {
             return 3;
         } else if (card.getValue() % 55 == 0) {

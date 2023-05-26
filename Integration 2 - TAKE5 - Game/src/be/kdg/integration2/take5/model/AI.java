@@ -31,9 +31,9 @@ public class AI extends Player {
     // rule to play middle cards before high and low cards
     private void playMiddleCardsBeforeHighAndLow() {
         LinkedList<Card> hand = showHand();
-        ArrayList<Card> middleCards = new ArrayList<Card>();
-        ArrayList<Card> highCards = new ArrayList<Card>();
-        ArrayList<Card> lowCards = new ArrayList<Card>();
+        ArrayList<Card> middleCards = new ArrayList<>();
+        ArrayList<Card> highCards = new ArrayList<>();
+        ArrayList<Card> lowCards = new ArrayList<>();
 
         // Separate the cards into middle, high, and low
         for (Card card : hand) {
@@ -77,9 +77,7 @@ public class AI extends Player {
     /**
      * gets aiHand and chooses the most fitting card for each row, it then takes the 4 cards and
      * checks which card has the highest/lowest bullValue
-     * @param deck
-     * @param board
-     * @return
+     * @return card with the highest amount of bulls
      */
     public Card chooseCard(Deck deck, Board board) {
         LinkedList<Card> closestHigherCards = new LinkedList<>();
@@ -132,20 +130,14 @@ public class AI extends Player {
     }
 
 
+    /**
+     * method to check if card is lower than all cards on board, used as condition to perform other actions
+     * @param card is the card being played by the AI
+     * @param board the current object of board being used during the game
+     * @return is true if the card played is indeed lower than all the other cards on the board
+     */
     public boolean cardIsLower(Card card, Board board){
         return card.getValue() < board.getRow1().getLast().getValue() && card.getValue() < board.getRow2().getLast().getValue() && card.getValue() < board.getRow3().getLast().getValue() && card.getValue() < board.getRow4().getLast().getValue();
-    }
-
-
-    public int aiBullTotal = 0;
-
-    public int getAiBullTotal() {
-        return aiBullTotal;
-    }
-
-
-    public void setAiBullTotal(int aiBullTotal) {
-        this.aiBullTotal = aiBullTotal;
     }
 
 }
