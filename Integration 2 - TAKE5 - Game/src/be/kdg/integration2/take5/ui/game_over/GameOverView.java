@@ -27,11 +27,13 @@ public class GameOverView extends BorderPane {
      */
     private void initialiseNodes() {
         congrLbl = new Label();
-        congrLbl.setStyle("-fx-font-size: 36px; -fx-text-fill: #000000 ; -fx-font-weight: bold;"); // Customize label styling
+        congrLbl.setStyle("-fx-font-size: 50px; -fx-text-fill: #000000 ; -fx-font-weight: bold; -fx-font-family: 'monospace'; -fx-alignment: center"); // Customize label styling
         tryAgain = new Button("Play again!");
         gameStatsButton = new Button("Game Statistics");
         exitGame = new Button("Exit");
     }
+
+    //Sukhumvit Set
 
     /**
      * This method lays out the nodes in the view.
@@ -59,7 +61,7 @@ public class GameOverView extends BorderPane {
         } else if (type.equals("ai")){
             congrLbl.setText("Unlucky! You lost.");
         } else if (type.equals("quit")) {
-            congrLbl.setText("Are you leaving for real for real?");
+            congrLbl.setText("Are you leaving for real for real? \n\nTo look at the Statistics press below! \nIt might not work tho");
         }
     }
 

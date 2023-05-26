@@ -141,6 +141,7 @@ public class GameSession {
     }
 
     public void clear() {
+        mainDeck.remakeCards();
         board.clear();
     }
 
@@ -242,6 +243,10 @@ public class GameSession {
             case "ai" -> ai.getAiBullTotal();
             default -> throw new IllegalStateException("Unexpected value: " + type);
         };
+    }
+
+    public void resetBullTotal(){
+        human.resetBullTotal();
     }
 
 

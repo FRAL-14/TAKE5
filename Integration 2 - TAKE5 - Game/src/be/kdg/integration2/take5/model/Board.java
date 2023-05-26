@@ -38,6 +38,12 @@ public class Board {
      * @param deck the active object of deck during the game
      */
     public void initializeRow(Deck deck) {
+        if (!row1.isEmpty()){
+            row1.clear();
+            row2.clear();
+            row3.clear();
+            row4.clear();
+        }
         row1.add(0, deck.boardHand.get(0));
         row2.add(0, deck.boardHand.get(1));
         row3.add(0, deck.boardHand.get(2));

@@ -26,6 +26,11 @@ public abstract class Player {
         this.humanBullTotal = this.humanBullTotal + humanBullTotal;
     }
 
+    public void resetBullTotal(){
+        this.humanBullTotal = 0;
+        this.aiBullTotal = 0;
+    }
+
     public void updateTotalScores(int humanScore, int aiScore) {
         humanBullTotal += humanScore;
         aiBullTotal += aiScore;

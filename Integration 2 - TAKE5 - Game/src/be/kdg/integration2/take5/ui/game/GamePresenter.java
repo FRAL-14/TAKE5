@@ -70,6 +70,7 @@ public class GamePresenter {
         new GameOverPresenter(model, gameOverView, type);
         gameView.getScene().setRoot(gameOverView);
         gameOverView.getScene().getWindow();
+        restartGame();
     }
 
     /**
@@ -80,6 +81,7 @@ public class GamePresenter {
         model.clear();
         clearHand();
         model.makeBoard();
+        model.resetBullTotal();
 //        model.startGame();
         updateView();
     }
