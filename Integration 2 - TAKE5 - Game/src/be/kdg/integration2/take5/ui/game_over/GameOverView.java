@@ -27,6 +27,7 @@ public class GameOverView extends BorderPane {
      */
     private void initialiseNodes() {
         congrLbl = new Label();
+        congrLbl.setStyle("-fx-font-size: 36px; -fx-text-fill: #000000 ; -fx-font-weight: bold;"); // Customize label styling
         tryAgain = new Button("Play again!");
         gameStatsButton = new Button("Game Statistics");
         exitGame = new Button("Exit");
@@ -41,16 +42,25 @@ public class GameOverView extends BorderPane {
         HBox buttonBox = new HBox(10, tryAgain, gameStatsButton, exitGame);
         buttonBox.setAlignment(Pos.CENTER);
         setBottom(buttonBox);
-        setMargin(buttonBox, new Insets(10, 10, 50, 150));
+        setMargin(buttonBox, new Insets(10, 10, 50, 100));
 
+        setCenter(congrLbl);
+        setAlignment(congrLbl, Pos.CENTER);
+        setMargin(congrLbl, new Insets(10, 20, 20 , 100));
     }
 
     public Label getCongrLbl() {
         return congrLbl;
     }
 
-    public void setCongrLbl(Label congrLbl) {
-        this.congrLbl = congrLbl;
+    public void setCongrLbl(String type) {
+        if (type.equals("human")){
+            congrLbl.setText("Congratulations! You won.");
+        } else if (type.equals("ai")){
+            congrLbl.setText("Unlucky! You lost.");
+        } else if (type.equals("quit")) {
+            congrLbl.setText("Are you leaving for real for real?");
+        }
     }
 
     public Button getTryAgain() {

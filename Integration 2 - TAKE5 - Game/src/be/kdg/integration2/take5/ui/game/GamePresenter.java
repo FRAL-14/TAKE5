@@ -43,7 +43,7 @@ public class GamePresenter {
 //        model.startGame();
         getRows();
         gameView.getRestartGame().setOnAction(event -> restartGame());
-        gameView.getQuitGame().setOnAction(event -> quitGame());
+        gameView.getQuitGame().setOnAction(event -> quitGame("quit"));
         gameView.setOnMouseClicked(event -> {
         playCard();
         if (cardPlayed) {
@@ -56,15 +56,18 @@ public class GamePresenter {
             updateView();
             cardPlayed = false;
         }
-        if (model.getBullTotal("human") >= 66 || model.getBullTotal("ai") >= 66){
-            quitGame();
+        if (model.getBullTotal("human") >= 66){
+            quitGame("human");
+        }
+        if (model.getBullTotal("ai") >= 66){
+            quitGame("ai");
         }
         });
     }
 
-    private void quitGame() {
+    private void quitGame(String type) {
         GameOverView gameOverView = new GameOverView();
-        new GameOverPresenter(model, gameOverView);
+        new GameOverPresenter(model, gameOverView, type);
         gameView.getScene().setRoot(gameOverView);
         gameOverView.getScene().getWindow();
     }

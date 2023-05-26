@@ -17,11 +17,11 @@ public class GameOverPresenter {
     private GameSession model;
     private GameOverView gameOverView;
 
-    public GameOverPresenter(GameSession model, GameOverView view) {
+    public GameOverPresenter(GameSession model, GameOverView view, String type) {
         this.model = model;
         this.gameOverView = view;
         addEventHandlers();
-        updateView();
+        updateView(type);
     }
 
     /**
@@ -56,11 +56,10 @@ public class GameOverPresenter {
 //            clearHand();
             model.makeBoard();
 //        model.startGame();
-            updateView();
     }
 
-    private void updateView() {
-
+    private void updateView(String type) {
+        gameOverView.setCongrLbl(type);
     }
 
     public void addWindowEventHandlers() {
