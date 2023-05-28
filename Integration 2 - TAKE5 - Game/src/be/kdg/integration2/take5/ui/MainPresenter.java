@@ -1,6 +1,7 @@
 package be.kdg.integration2.take5.ui;
 
 import be.kdg.integration2.take5.model.GameSession;
+import be.kdg.integration2.take5.model.Leaderboard;
 import be.kdg.integration2.take5.ui.game.GamePresenter;
 import be.kdg.integration2.take5.ui.game.GameView;
 import be.kdg.integration2.take5.ui.help.HelpPresenter;
@@ -40,10 +41,12 @@ public class MainPresenter {
 
     private void setUserInput() {
         InputView ipv = new InputView();
-        new InputPresenter(model, ipv);
+        Leaderboard leaderboard = new Leaderboard(); // Create an instance of the Leaderboard class
+        new InputPresenter(model, ipv, leaderboard); // Pass the leaderboard instance as an argument
         startView.getScene().setRoot(ipv);
         ipv.getScene().getWindow();
     }
+
 
     private void setHelpView() {
         HelpView helpView = new HelpView();

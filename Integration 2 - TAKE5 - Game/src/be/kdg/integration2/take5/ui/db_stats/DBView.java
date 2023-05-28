@@ -31,17 +31,17 @@ public class DBView extends Parent {
 
     private void initializeUI() {
         Label titleLabel = new Label("Game Statistics");
-        titleLabel.setStyle("-fx-font-size: 24pt; -fx-font-weight: bold;");
+        titleLabel.setStyle("-fx-font-size: 34pt; -fx-font-weight: bold;");
 
         Label averageLabel = new Label("Average duration of moves:");
         averageDurationLabel = new Label();
-        averageDurationLabel.setStyle("-fx-font-size: 16pt;");
+        averageDurationLabel.setStyle("-fx-font-size: 20pt;");
 
         Label outliersTitleLabel = new Label("Outlier moves:");
         outliersTitleLabel.setStyle("-fx-font-size: 20pt; -fx-font-weight: bold;");
 
         outliersLabel = new Label();
-        outliersLabel.setStyle("-fx-font-size: 16pt;");
+        outliersLabel.setStyle("-fx-font-size: 20pt;");
 
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
@@ -83,8 +83,8 @@ public class DBView extends Parent {
         durationChart.setStyle("-fx-background-color: transparent;");
 
         Button closeButton = (Button) stage.getScene().lookup("Button");
-        closeButton.setStyle("-fx-background-color: #C9CCD5; -fx-background-radius: 15px;");
-        closeButton.setFont(Font.font("Georgia", FontWeight.BOLD, 30));
+        closeButton.setStyle("-fx-background-color: #C9CCD5; -fx-background-radius: 15px; -fx-font-size: 30px;");
+//        closeButton.setFont(Font.font("Georgia", FontWeight.BOLD, 30));
         closeButton.setTextFill(Color.WHITE);
 
         closeButton.setOnMouseEntered(e -> {

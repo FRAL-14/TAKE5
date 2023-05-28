@@ -35,12 +35,16 @@ public class GameOverPresenter {
         gameOverView.getGameStatsButton().setOnAction(event -> {
             // Handle navigation to the game statistics screen (DBView)
             DBView dbView = new DBView();
+            dbView.show();
+            ((Stage) gameOverView.getScene().getWindow()).close();
             DBPresenter dbPresenter = new DBPresenter(dbView, model);
             Stage dbStage = new Stage();
             Scene dbScene = new Scene(dbView);
             dbStage.setScene(dbScene);
             dbStage.setTitle("Game Statistics");
             dbStage.show();
+
+
 
             // Close the current game over screen
             ((Stage) gameOverView.getScene().getWindow()).close();

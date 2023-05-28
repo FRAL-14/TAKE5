@@ -11,5 +11,14 @@
     <orderEntry type="library" exported="" name="JavaFX" level="application" />
     <orderEntry type="library" exported="" name="javafx" level="application" />
     <orderEntry type="library" name="lib1" level="application" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/postgresql-42.6.0 (1).jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

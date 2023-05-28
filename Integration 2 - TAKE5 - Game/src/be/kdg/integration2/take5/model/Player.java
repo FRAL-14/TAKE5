@@ -73,9 +73,7 @@ public abstract class Player {
         return totalScore;
     }
 
-    public void setId() {
-        this.id = Leaderboard.getPlayerID(this.name);
-    }
+
 
 
 }

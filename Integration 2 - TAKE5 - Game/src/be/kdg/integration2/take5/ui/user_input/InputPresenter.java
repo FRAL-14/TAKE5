@@ -1,6 +1,7 @@
 package be.kdg.integration2.take5.ui.user_input;
 
 import be.kdg.integration2.take5.model.GameSession;
+import be.kdg.integration2.take5.model.Leaderboard;
 import be.kdg.integration2.take5.ui.MainPresenter;
 import be.kdg.integration2.take5.ui.MainView;
 import be.kdg.integration2.take5.ui.game.GamePresenter;
@@ -12,17 +13,23 @@ import javafx.stage.Window;
 public class InputPresenter {
     private GameSession model;
     private InputView ipView;
+    private Leaderboard leaderboard; // Instance of Leaderboard class
 
-    public InputPresenter(GameSession model, InputView ipView) {
+
+    public InputPresenter(GameSession model, InputView ipView, Leaderboard leaderboard) {
         this.model = model;
         this.ipView = ipView;
+        this.leaderboard = leaderboard; // Assign the instance of Leaderboard
         addEventHandlers();
 //        updateView();
     }
 
     private void addEventHandlers() {
         ipView.getReturnBtn().setOnAction(event -> goToMain());
-        ipView.getSubmitBtn().setOnAction(event -> setGameView());
+        ipView.getSubmitBtn().setOnAction(event -> {
+            setGameView();
+            writeToDatabase(); // Call the writeToDatabase method
+        });
         requiredInput();
     }
 
@@ -57,6 +64,11 @@ public class InputPresenter {
 //    private void updateView() {
 //// fills the view with model data
 //    }
+
+    private void writeToDatabase() {
+        String name = ipView.getInputField().getText();
+        leaderboard.writeToDatabase(name); // Call the writeToDatabase method of Leaderboard
+    }
 
     public void addWindowEventHandlers() {
         Window window = ipView.getScene().getWindow();

@@ -6,54 +6,36 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Leaderboard {
 
-    private static Connection connection;
-    private static Statement statement;
-    private String url = "jdbc:postgresql://10.134.178.20:5432/game";
-    private String username = "game";
-    private String password = "7sur7";
+    public static void writeToDatabase(String userName) {
 
-    public Leaderboard() {
-        try {
-            connection = DriverManager.getConnection(url, username, password);
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
+        String url = "jdbc:postgresql://localhost/Take_5_pt2";
+        String user = "postgres";
+        String password = "Aleksandra_1234";
+
+        String name = userName;
+//        String id = userID;
+
+
+        String query = "INSERT INTO players(name) VALUES(?)";
+
+        try (Connection con = DriverManager.getConnection(url, user, password);
+             PreparedStatement pst = con.prepareStatement(query)) {
+
+            pst.setString(1, name);
+//            pst.setString(2, id);
+            pst.executeUpdate();
+            System.out.println("Sucessfully created.");
+        } catch (SQLException ex) {
+
+            Logger lgr = Logger.getLogger(Leaderboard.class.getName());
+            lgr.log(Level.SEVERE, ex.getMessage(), ex);
+
         }
-    }
-
-    public void addPlayer(Player player) {
-        try {
-            String insertQuery = "INSERT INTO players (id, name) VALUES (?, ?)";
-            PreparedStatement preparedStatement = connection.prepareStatement(insertQuery);
-            preparedStatement.setInt(1, player.getId());
-            preparedStatement.setString(2, player.getName());
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    public static int getPlayerID(String playerName) {
-        try {
-            String query = "SELECT id FROM players WHERE name = ?";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, playerName);
-            ResultSet resultSet = preparedStatement.executeQuery();
-
-            if (resultSet.next()) {
-                return resultSet.getInt("id");
-            } else {
-                System.out.printf("User %s not found.%n", playerName);
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-        return 0;
     }
 }
 
