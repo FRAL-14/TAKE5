@@ -38,10 +38,10 @@ public class DBView extends Parent {
         averageDurationLabel.setStyle("-fx-font-size: 20pt;");
 
         Label outliersTitleLabel = new Label("Outlier moves:");
-        outliersTitleLabel.setStyle("-fx-font-size: 20pt; -fx-font-weight: bold;");
+        outliersTitleLabel.setStyle("-fx-font-size: 10pt; -fx-font-weight: bold;");
 
         outliersLabel = new Label();
-        outliersLabel.setStyle("-fx-font-size: 20pt;");
+        outliersLabel.setStyle("-fx-font-size: 10pt;");
 
         NumberAxis xAxis = new NumberAxis();
         NumberAxis yAxis = new NumberAxis();
@@ -74,10 +74,10 @@ public class DBView extends Parent {
     }
 
     private void configureLayout() {
-        averageDurationLabel.setFont(Font.font("Georgia", FontWeight.BOLD, 30));
+        averageDurationLabel.setFont(Font.font("Georgia", FontWeight.BOLD, 20));
         averageDurationLabel.setTextFill(Color.WHITE);
 
-        outliersLabel.setFont(Font.font("Georgia", FontWeight.BOLD, 30));
+        outliersLabel.setFont(Font.font("Georgia", FontWeight.BOLD, 10));
         outliersLabel.setTextFill(Color.WHITE);
 
         durationChart.setStyle("-fx-background-color: transparent;");

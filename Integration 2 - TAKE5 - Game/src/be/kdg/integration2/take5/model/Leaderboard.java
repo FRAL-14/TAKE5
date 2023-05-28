@@ -3,9 +3,8 @@ package be.kdg.integration2.take5.model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -18,24 +17,38 @@ public class Leaderboard {
         String password = "Aleksandra_1234";
 
         String name = userName;
-//        String id = userID;
+
+        try (Connection con = DriverManager.getConnection(url, user, password)) {
+
+            con.setAutoCommit(false); // Start a transaction
+
+            // Insert into players table
+            String playerInsertQuery = "INSERT INTO players(name) VALUES(?)";
+            try (PreparedStatement playerStatement = con.prepareStatement(playerInsertQuery)) {
+                playerStatement.setString(1, name);
+                playerStatement.executeUpdate();
+            }
+
+            // Insert into games table with the current date
+            String gameInsertQuery = "INSERT INTO games(date_played, winner) VALUES(?, ?)";
+            try (PreparedStatement gameStatement = con.prepareStatement(gameInsertQuery)) {
+                gameStatement.setObject(1, LocalDate.now());
+                gameStatement.setInt(2, 1); // Provide an integer value for the winner column
+                gameStatement.executeUpdate();
+            }
 
 
-        String query = "INSERT INTO players(name) VALUES(?)";
 
-        try (Connection con = DriverManager.getConnection(url, user, password);
-             PreparedStatement pst = con.prepareStatement(query)) {
+            con.commit(); // Commit the transaction
 
-            pst.setString(1, name);
-//            pst.setString(2, id);
-            pst.executeUpdate();
-            System.out.println("Sucessfully created.");
+            System.out.println("Record inserted successfully into players and games tables.");
+
         } catch (SQLException ex) {
-
             Logger lgr = Logger.getLogger(Leaderboard.class.getName());
             lgr.log(Level.SEVERE, ex.getMessage(), ex);
-
         }
     }
 }
+
+
 

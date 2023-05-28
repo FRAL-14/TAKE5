@@ -17,6 +17,9 @@ public class GameSession {
     Board board = new Board(mainDeck);
     Human human = new Human("human");
     AI ai = new AI();
+    private long endTime;
+    private Player winner;
+
     private List<Double> moveDurations;
     private double averageDuration;
     private List<Double> outliers;
@@ -263,5 +266,21 @@ public class GameSession {
             board.chooseRow(row, ai, card);
         }
     }
+    /**
+     * Method to record the duration of a move.
+     *
+     * @param duration The duration of the move in seconds.
+     */
+    public void recordMoveDuration(double duration) {
+        moveDurations.add(duration);
+        updateDurationData();
+    }
 
+    public long getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(long endTime) {
+        this.endTime = endTime;
+    }
 }
