@@ -12,9 +12,9 @@ public class Leaderboard {
 
     public static void writeToDatabase(String userName) {
 
-        String url = "jdbc:postgresql://localhost/Take_5_pt2";
-        String user = "postgres";
-        String password = "Aleksandra_1234";
+        String url = "jdbc:postgresql://localhost/dbname";
+        String user = "user";
+        String password = "password";
 
         String name = userName;
 
