@@ -1,6 +1,5 @@
 package be.kdg.integration2.take5.model;
 
-import javafx.scene.chart.XYChart;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -17,123 +16,10 @@ public class GameSession {
     Board board = new Board(mainDeck);
     Human human = new Human("human");
     AI ai = new AI();
-    private long endTime;
-    private Player winner;
 
-    private List<Double> moveDurations;
-    private double averageDuration;
-    private List<Double> outliers;
-    private XYChart.Series<Number, Number> durationData;
 
-    /**
-     * Calculates the average move duration of the current game session.
-     *
-     * @return The average move duration, or 0.0 if no moves have been made yet.
-     */
-    public double getAverageDuration() {
-        if (moveDurations.isEmpty()) {
-            return 0.0;
-        } else {
-            double sum = 0.0;
-            for (double duration : moveDurations) {
-                sum += duration;
-            }
-            return sum / moveDurations.size();
-        }
-    }
 
-    /**
-     * Calculates the outliers of move durations in the current game session.
-     *
-     * @return A string containing a comma-separated list of outliers, or "None" if there are no outliers.
-     */
-    public String getOutliers() {
-        double median = getMedianDuration();
-        double medianAbsoluteDeviation = getMedianAbsoluteDeviation(median);
-        double outlierThreshold = median + (10 * medianAbsoluteDeviation);
 
-        List<Double> outliers = new ArrayList<>();
-        for (Double duration : moveDurations) {
-            if (duration > outlierThreshold) {
-                outliers.add(duration);
-            }
-        }
-
-        if (outliers.isEmpty()) {
-            return "None";
-        } else {
-            return outliers.stream()
-                    .map(duration -> String.format("%.2f", duration))
-                    .collect(Collectors.joining(", "));
-        }
-    }
-
-    /**
-     * Calculates the median move duration of the current game session.
-     *
-     * @return The median move duration.
-     */
-    private double getMedianDuration() {
-        List<Double> sortedDurations = new ArrayList<>(moveDurations);
-        Collections.sort(sortedDurations);
-
-        if (sortedDurations.size() % 2 == 0) {
-            int midIndex = sortedDurations.size() / 2;
-            double midValue1 = sortedDurations.get(midIndex - 1);
-            double midValue2 = sortedDurations.get(midIndex);
-            return (midValue1 + midValue2) / 2.0;
-        } else {
-            int midIndex = sortedDurations.size() / 2;
-            return sortedDurations.get(midIndex);
-        }
-    }
-
-    /**
-     * Calculates the median absolute deviation of move durations from the median duration.
-     *
-     * @param median The median move duration.
-     * @return The median absolute deviation.
-     */
-    private double getMedianAbsoluteDeviation(double median) {
-        List<Double> deviations = new ArrayList<>();
-        for (Double duration : moveDurations) {
-            deviations.add(Math.abs(duration - median));
-        }
-
-        return getMedian(deviations);
-    }
-
-    /**
-     * Calculates the median of a list of values.
-     *
-     * @param values The list of values.
-     * @return The median value.
-     */
-    private double getMedian(List<Double> values) {
-        List<Double> sortedValues = new ArrayList<>(values);
-        Collections.sort(sortedValues);
-
-        if (sortedValues.size() % 2 == 0) {
-            int midIndex = sortedValues.size() / 2;
-            double midValue1 = sortedValues.get(midIndex - 1);
-            double midValue2 = sortedValues.get(midIndex);
-            return (midValue1 + midValue2) / 2.0;
-        } else {
-            int midIndex = sortedValues.size() / 2;
-            return sortedValues.get(midIndex);
-        }
-    }
-
-    public XYChart.Series<Number, Number> getDurationData() {
-        return durationData;
-    }
-
-    private void updateDurationData() {
-        durationData = new XYChart.Series<>();
-        for (int i = 0; i < moveDurations.size(); i++) {
-            durationData.getData().add(new XYChart.Data<>(i + 1, moveDurations.get(i)));
-        }
-    }
 
     /**
      * makeBoard method takes method from deck to make hands and method from board to assign cards to the rows
@@ -266,21 +152,5 @@ public class GameSession {
             board.chooseRow(row, ai, card);
         }
     }
-    /**
-     * Method to record the duration of a move.
-     *
-     * @param duration The duration of the move in seconds.
-     */
-    public void recordMoveDuration(double duration) {
-        moveDurations.add(duration);
-        updateDurationData();
-    }
 
-    public long getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(long endTime) {
-        this.endTime = endTime;
-    }
 }
