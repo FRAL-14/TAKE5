@@ -136,13 +136,13 @@ footer {
     transform-origin: center;
 }
 
-.gif {
-    margin: 15px;
+video {
+    margin: 20px;
     width: 85%;
     transition: transform .3s;
 }
 
-.gif:hover {
+video:hover {
     transform: scale(1.01);
     transform-origin: center;
 }
