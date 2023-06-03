@@ -12,18 +12,17 @@ public class DBPresenter {
         this.model = model;
 
         // Set up event handlers
-        view.setCloseButtonAction(this::onCloseButtonClicked);
+        view.setOnCloseButtonClicked(this::onCloseButtonClicked);
 
         // Update view with initial data
         updateView();
     }
 
     private void onCloseButtonClicked() {
-        view.close();
+        view.hide();
     }
 
     private void updateView() {
-        // Hardcoded data
         double averageDuration = 10.2;
         String outliers = "8, 7, 17";
         XYChart.Series<Number, Number> durationData = new XYChart.Series<>();
@@ -70,12 +69,9 @@ public class DBPresenter {
         durationData.getData().add(new XYChart.Data<>(41, 8));
         durationData.getData().add(new XYChart.Data<>(42, 9));
 
-
-
-        // Update the view with the hardcoded data
-        view.setAverageDuration(averageDuration);
+        view.setAverageDuration(String.valueOf(averageDuration));
         view.setOutliers(outliers);
-        view.setDurationChartData(durationData);
+        view.setDurationData(durationData);
     }
 }
 

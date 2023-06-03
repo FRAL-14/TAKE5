@@ -84,15 +84,14 @@ public class DBView extends Parent {
 
         Button closeButton = (Button) stage.getScene().lookup("Button");
         closeButton.setStyle("-fx-background-color: #C9CCD5; -fx-background-radius: 15px; -fx-font-size: 30px;");
-//        closeButton.setFont(Font.font("Georgia", FontWeight.BOLD, 30));
         closeButton.setTextFill(Color.WHITE);
 
         closeButton.setOnMouseEntered(e -> {
-            closeButton.setStyle("-fx-background-color: #a8acb4; -fx-cursor: hand; -fx-font-size: 30px;-fx-background-radius: 15px;");
+            closeButton.setStyle("-fx-background-color: #a8acb4; -fx-cursor: hand; -fx-font-size: 30px;");
         });
 
         closeButton.setOnMouseExited(e -> {
-            closeButton.setStyle("-fx-background-color: #C9CCD5; -fx-font-size: 30px;-fx-background-radius: 15px;");
+            closeButton.setStyle("-fx-background-color: #C9CCD5; -fx-background-radius: 15px; -fx-font-size: 30px;");
         });
     }
 
@@ -100,31 +99,25 @@ public class DBView extends Parent {
         stage.show();
     }
 
-    public void setAverageDuration(double duration) {
-        averageDurationLabel.setText(String.format("%.2f seconds", duration));
+    public void hide() {
+        stage.hide();
+    }
+
+    public void setAverageDuration(String averageDuration) {
+        averageDurationLabel.setText(averageDuration);
     }
 
     public void setOutliers(String outliers) {
         outliersLabel.setText(outliers);
     }
 
-    public void setDurationChartData(XYChart.Series<Number, Number> series) {
+    public void setDurationData(XYChart.Series<Number, Number> series) {
         durationChart.getData().clear();
         durationChart.getData().add(series);
     }
 
-    public void setCloseButtonAction(Runnable action) {
+    public void setOnCloseButtonClicked(Runnable handler) {
         Button closeButton = (Button) stage.getScene().lookup("Button");
-        closeButton.setOnAction(event -> action.run());
-    }
-
-    public void close() {
-        stage.close();
-    }
-
-    @Override
-    public Node getStyleableNode() {
-        return super.getStyleableNode();
+        closeButton.setOnAction(e -> handler.run());
     }
 }
-
